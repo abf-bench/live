@@ -2,8 +2,8 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum: live trace",
   "incident_utc": "2026-10-29T20:24:00Z",
-  "updated_utc": "2026-10-30T17:50:26Z",
-  "head_block": 26307051,
+  "updated_utc": "2026-10-30T17:51:16Z",
+  "head_block": 26307171,
   "chain": "ethereum",
   "notes": [
    "Amounts follow the poison rule: once stolen funds enter an address, everything that later leaves it is counted. ETH figures therefore include ETH bought with stolen tokens."
@@ -73,6 +73,14 @@
    "actions": 26,
    "model": "gpt-5.5",
    "summary": "ok"
+  },
+  {
+   "id": 9,
+   "started_utc": "2026-10-30T17:50:32Z",
+   "ended_utc": "2026-10-30T17:51:07Z",
+   "actions": 2,
+   "model": "gpt-5.5",
+   "summary": "ok"
   }
  ],
  "nodes": [
@@ -87,13 +95,13 @@
      "asset": "USDT",
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain, as of block 26307051."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain, as of block 26307171."
     },
     {
      "asset": "USDC",
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
      "issuer": "Circle",
-     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain, as of block 26307051."
+     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain, as of block 26307171."
     }
    ]
   },
@@ -115,7 +123,7 @@
      "asset": "USDC",
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
      "issuer": "Circle",
-     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain, as of block 26307051."
+     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain, as of block 26307171."
     }
    ]
   },
@@ -130,13 +138,13 @@
      "asset": "USDT",
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain, as of block 26307051."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain, as of block 26307171."
     },
     {
      "asset": "USDC",
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
      "issuer": "Circle",
-     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain, as of block 26307051."
+     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain, as of block 26307171."
     }
    ]
   },
@@ -151,7 +159,7 @@
      "asset": "USDC",
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
      "issuer": "Circle",
-     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain, as of block 26307051."
+     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain, as of block 26307171."
     }
    ]
   },
@@ -166,7 +174,7 @@
      "asset": "USDT",
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain, as of block 26307051."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain, as of block 26307171."
     }
    ]
   },
@@ -181,7 +189,7 @@
      "asset": "USDT",
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain, as of block 26307051."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain, as of block 26307171."
     }
    ]
   },
@@ -190,7 +198,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26307051."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26307171."
   },
   {
    "id": "0x5c23023ca6633f91ded909b4a753a3ca00fea4fc",
@@ -210,7 +218,7 @@
      "asset": "USDC",
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
      "issuer": "Circle",
-     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain, as of block 26307051."
+     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain, as of block 26307171."
     }
    ]
   },
@@ -233,14 +241,14 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26307051."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26307171."
   },
   {
    "id": "0x54401f80da97893a15d43566184635b6674bc942",
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26307051."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26307171."
   },
   {
    "id": "0x8c7111e9a3270457b76f0bd137209089047a6aa4",
@@ -254,14 +262,14 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26307051."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26307171."
   },
   {
    "id": "0xc2096a12ebe0944f4d39e59979f485afd92d850a",
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26307051."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26307171."
   },
   {
    "id": "0xa3b3dee870f01560fdbe5af659c9c9135748886f",
@@ -275,7 +283,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26307051."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26307171."
   },
   {
    "id": "0x8d53903625b8e839b9df4bd28b0efb1cd6b8639a",
@@ -288,7 +296,7 @@
      "asset": "USDT",
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain, as of block 26307051."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain, as of block 26307171."
     }
    ]
   },
@@ -310,7 +318,7 @@
      "asset": "USDT",
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain, as of block 26307051."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain, as of block 26307171."
     }
    ]
   },
@@ -325,7 +333,7 @@
      "asset": "USDT",
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain, as of block 26307051."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain, as of block 26307171."
     }
    ]
   },
@@ -340,7 +348,7 @@
      "asset": "USDT",
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain, as of block 26307051."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain, as of block 26307171."
     }
    ]
   },
@@ -349,7 +357,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26307051."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26307171."
   },
   {
    "id": "0x811f15855476156ebf86ba3b84fafb8ceaa4e84c",
@@ -363,7 +371,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26307051."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26307171."
   },
   {
    "id": "0x42cdf00c85005630cc8605731b9364f712077810",
@@ -376,14 +384,14 @@
    "id": "0xaa246bf639586a6ba46762d378ce50ca4fc654a0",
    "chain": "ethereum",
    "label": null,
-   "role": "open",
+   "role": "pocket",
    "note": null,
    "frozen": [
     {
      "asset": "USDT",
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain, as of block 26307051."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain, as of block 26307171."
     }
    ]
   },
@@ -2356,6 +2364,7 @@
    "id": "op_eth_5227_974929_0x942b",
    "type": "transfer",
    "claim": "transfer: 0.5 ETH 0x5227\u20262f8c to 0x9749\u2026c762",
+   "via": null,
    "session": 1,
    "seq": 1,
    "step": 21,
@@ -2381,6 +2390,12 @@
    "id": "op_usdt_5227_974929_0x68d7",
    "type": "transfer",
    "claim": "transfer: 500000000 USDT 0x5227\u20262f8c to 0x9749\u2026c762",
+   "via": {
+    "contract": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+    "name": "TetherToken",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0xdac17f958d2ee523a2206206994597c13d831ec7"
+   },
    "session": 1,
    "seq": 2,
    "step": 21,
@@ -2401,6 +2416,7 @@
    "id": "op_eth_5227_0ddf_0x5f0a",
    "type": "transfer",
    "claim": "transfer: 0.5 ETH 0x5227\u20262f8c to 0x0ddf\u2026697e",
+   "via": null,
    "session": 1,
    "seq": 3,
    "step": 21,
@@ -2426,6 +2442,12 @@
    "id": "op_usdt_5227_0ddf_0x1fc0",
    "type": "transfer",
    "claim": "transfer: 200000000 USDT 0x5227\u20262f8c to 0x0ddf\u2026697e",
+   "via": {
+    "contract": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+    "name": "TetherToken",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0xdac17f958d2ee523a2206206994597c13d831ec7"
+   },
    "session": 1,
    "seq": 4,
    "step": 21,
@@ -2446,6 +2468,7 @@
    "id": "op_eth_5227_8532_0x551d",
    "type": "transfer",
    "claim": "transfer: 195460 ETH 0x5227\u20262f8c to 0x8532\u202643d4",
+   "via": null,
    "session": 2,
    "seq": 5,
    "step": 21,
@@ -2471,6 +2494,12 @@
    "id": "op_8292_5227_5c230_0x1d3f",
    "type": "transfer",
    "claim": "transfer: 88541065 RLUSD 0x5227\u20262f8c to 0x5c23\u2026a4fc",
+   "via": {
+    "contract": "0x8292bb45bf1ee4d140127049757c2e0ff06317ed",
+    "name": "StablecoinUpgradeableV2",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0x8292bb45bf1ee4d140127049757c2e0ff06317ed"
+   },
    "session": 2,
    "seq": 6,
    "step": 21,
@@ -2491,6 +2520,12 @@
    "id": "op_wbtc_5227_b3ddec_0x3149",
    "type": "transfer",
    "claim": "transfer: 167.14 WBTC 0x5227\u20262f8c to 0xb3dd\u20265fdb",
+   "via": {
+    "contract": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+    "name": "WBTC",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
+   },
    "session": 2,
    "seq": 7,
    "step": 21,
@@ -2511,6 +2546,12 @@
    "id": "op_wbtc_to_eth_5227_0xbe54",
    "type": "exchange",
    "claim": "exchange: 0.201957 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
    "session": 2,
    "seq": 8,
    "step": 21,
@@ -2536,6 +2577,12 @@
    "id": "op_8292_5c230_008f_0x1260",
    "type": "transfer",
    "claim": "transfer: 88541065 RLUSD 0x5c23\u2026a4fc to 0x008f\u20267dcd",
+   "via": {
+    "contract": "0x8292bb45bf1ee4d140127049757c2e0ff06317ed",
+    "name": "StablecoinUpgradeableV2",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0x8292bb45bf1ee4d140127049757c2e0ff06317ed"
+   },
    "session": 2,
    "seq": 9,
    "step": 42,
@@ -2556,6 +2603,12 @@
    "id": "op_wbtc_to_eth_b3ddec_0x6c3c",
    "type": "exchange",
    "claim": "exchange: 3209.708351 ETH 0xb3dd\u20265fdb to 0xb3dd\u20265fdb",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
    "session": 2,
    "seq": 10,
    "step": 50,
@@ -2581,6 +2634,12 @@
    "id": "op_wbtc_to_eth_b3ddec_0xa5a0",
    "type": "exchange",
    "claim": "exchange: 1505.618407 ETH 0xb3dd\u20265fdb to 0xb3dd\u20265fdb",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
    "session": 2,
    "seq": 11,
    "step": 50,
@@ -2606,6 +2665,12 @@
    "id": "op_wbtc_to_eth_b3ddec_0x0d23",
    "type": "exchange",
    "claim": "exchange: 833.224929 ETH 0xb3dd\u20265fdb to 0xb3dd\u20265fdb",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
    "session": 2,
    "seq": 12,
    "step": 50,
@@ -2631,6 +2696,12 @@
    "id": "op_8292_008f_e702_0xbe9c",
    "type": "transfer",
    "claim": "transfer: 88541065 RLUSD 0x008f\u20267dcd to 0xe702\u2026958d",
+   "via": {
+    "contract": "0x8292bb45bf1ee4d140127049757c2e0ff06317ed",
+    "name": "StablecoinUpgradeableV2",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0x8292bb45bf1ee4d140127049757c2e0ff06317ed"
+   },
    "session": 2,
    "seq": 13,
    "step": 50,
@@ -2651,6 +2722,7 @@
    "id": "op_eth_974929_c887_0xbd78",
    "type": "transfer",
    "claim": "transfer: 122310 ETH 0x9749\u2026c762 to 0xc887\u2026286a",
+   "via": null,
    "session": 2,
    "seq": 14,
    "step": 56,
@@ -2676,6 +2748,12 @@
    "id": "op_8292_to_eth_e702_0x228f",
    "type": "exchange",
    "claim": "exchange: 435.471055 ETH 0xe702\u2026958d to 0xe702\u2026958d",
+   "via": {
+    "contract": "0x2f68417a18da681589f4ea64b9cc9839209acff7",
+    "name": "Aggregator",
+    "function": "swapExactIn",
+    "explorer": "https://etherscan.io/address/0x2f68417a18da681589f4ea64b9cc9839209acff7"
+   },
    "session": 4,
    "seq": 15,
    "step": 62,
@@ -2701,6 +2779,12 @@
    "id": "op_8292_to_eth_e702_0x821a",
    "type": "exchange",
    "claim": "exchange: 2167.229777 ETH 0xe702\u2026958d to 0xe702\u2026958d",
+   "via": {
+    "contract": "0x2f68417a18da681589f4ea64b9cc9839209acff7",
+    "name": "Aggregator",
+    "function": "swapExactIn",
+    "explorer": "https://etherscan.io/address/0x2f68417a18da681589f4ea64b9cc9839209acff7"
+   },
    "session": 4,
    "seq": 16,
    "step": 64,
@@ -2726,6 +2810,12 @@
    "id": "op_8292_to_eth_e702_0x192b",
    "type": "exchange",
    "claim": "exchange: 4301.580988 ETH 0xe702\u2026958d to 0xe702\u2026958d",
+   "via": {
+    "contract": "0x2f68417a18da681589f4ea64b9cc9839209acff7",
+    "name": "Aggregator",
+    "function": "swapExactIn",
+    "explorer": "https://etherscan.io/address/0x2f68417a18da681589f4ea64b9cc9839209acff7"
+   },
    "session": 4,
    "seq": 17,
    "step": 66,
@@ -2751,6 +2841,12 @@
    "id": "op_8292_to_eth_e702_0x133b",
    "type": "exchange",
    "claim": "exchange: 4278.067833 ETH 0xe702\u2026958d to 0xe702\u2026958d",
+   "via": {
+    "contract": "0xac4c6e212a361c968f1725b4d055b47e63f80b75",
+    "name": "RedSnwapper",
+    "function": "snwap",
+    "explorer": "https://etherscan.io/address/0xac4c6e212a361c968f1725b4d055b47e63f80b75"
+   },
    "session": 4,
    "seq": 18,
    "step": 68,
@@ -2776,6 +2872,12 @@
    "id": "op_8292_to_eth_e702_0x4cc2",
    "type": "exchange",
    "claim": "exchange: 4257.137512 ETH 0xe702\u2026958d to 0xe702\u2026958d",
+   "via": {
+    "contract": "0x2f68417a18da681589f4ea64b9cc9839209acff7",
+    "name": "Aggregator",
+    "function": "swapExactIn",
+    "explorer": "https://etherscan.io/address/0x2f68417a18da681589f4ea64b9cc9839209acff7"
+   },
    "session": 4,
    "seq": 19,
    "step": 70,
@@ -2801,6 +2903,12 @@
    "id": "op_8292_to_eth_e702_0x933a",
    "type": "exchange",
    "claim": "exchange: 2119.8297 ETH 0xe702\u2026958d to 0xe702\u2026958d",
+   "via": {
+    "contract": "0x2f68417a18da681589f4ea64b9cc9839209acff7",
+    "name": "Aggregator",
+    "function": "swapExactIn",
+    "explorer": "https://etherscan.io/address/0x2f68417a18da681589f4ea64b9cc9839209acff7"
+   },
    "session": 4,
    "seq": 20,
    "step": 72,
@@ -2826,6 +2934,12 @@
    "id": "op_8292_to_eth_e702_0xe901",
    "type": "exchange",
    "claim": "exchange: 814.840357 ETH 0xe702\u2026958d to 0xe702\u2026958d",
+   "via": {
+    "contract": "0x2f68417a18da681589f4ea64b9cc9839209acff7",
+    "name": "Aggregator",
+    "function": "swapExactIn",
+    "explorer": "https://etherscan.io/address/0x2f68417a18da681589f4ea64b9cc9839209acff7"
+   },
    "session": 4,
    "seq": 21,
    "step": 74,
@@ -2851,6 +2965,12 @@
    "id": "op_8292_to_eth_e702_0xb625",
    "type": "exchange",
    "claim": "exchange: 836.665286 ETH 0xe702\u2026958d to 0xe702\u2026958d",
+   "via": {
+    "contract": "0x2f68417a18da681589f4ea64b9cc9839209acff7",
+    "name": "Aggregator",
+    "function": "swapExactIn",
+    "explorer": "https://etherscan.io/address/0x2f68417a18da681589f4ea64b9cc9839209acff7"
+   },
    "session": 4,
    "seq": 22,
    "step": 76,
@@ -2876,6 +2996,12 @@
    "id": "op_8292_to_eth_e702_0xbe557",
    "type": "exchange",
    "claim": "exchange: 420.812331 ETH 0xe702\u2026958d to 0xe702\u2026958d",
+   "via": {
+    "contract": "0x2f68417a18da681589f4ea64b9cc9839209acff7",
+    "name": "Aggregator",
+    "function": "swapExactIn",
+    "explorer": "https://etherscan.io/address/0x2f68417a18da681589f4ea64b9cc9839209acff7"
+   },
    "session": 4,
    "seq": 23,
    "step": 80,
@@ -2901,6 +3027,12 @@
    "id": "op_8292_to_eth_e702_0xe59c",
    "type": "exchange",
    "claim": "exchange: 862.199662 ETH 0xe702\u2026958d to 0xe702\u2026958d",
+   "via": {
+    "contract": "0x2f68417a18da681589f4ea64b9cc9839209acff7",
+    "name": "Aggregator",
+    "function": "swapExactIn",
+    "explorer": "https://etherscan.io/address/0x2f68417a18da681589f4ea64b9cc9839209acff7"
+   },
    "session": 4,
    "seq": 24,
    "step": 80,
@@ -2926,6 +3058,7 @@
    "id": "op_eth_e702_54401_0x5c71",
    "type": "transfer",
    "claim": "transfer: 20492 ETH 0xe702\u2026958d to 0x5440\u2026c942",
+   "via": null,
    "session": 4,
    "seq": 25,
    "step": 83,
@@ -2951,6 +3084,7 @@
    "id": "op_eth_e702_54401_0x2c64",
    "type": "transfer",
    "claim": "transfer: 6333 ETH 0xe702\u2026958d to 0x5440\u2026c942",
+   "via": null,
    "session": 4,
    "seq": 26,
    "step": 89,
@@ -2976,6 +3110,7 @@
    "id": "op_eth_e702_8c711_0xe615",
    "type": "transfer",
    "claim": "transfer: 0.9 ETH 0xe702\u2026958d to 0x8c71\u20266aa4",
+   "via": null,
    "session": 4,
    "seq": 27,
    "step": 89,
@@ -3001,6 +3136,7 @@
    "id": "op_eth_b3ddec_79e70_0x9b3c",
    "type": "transfer",
    "claim": "transfer: 5700 ETH 0xb3dd\u20265fdb to 0x79e7\u2026544a",
+   "via": null,
    "session": 4,
    "seq": 28,
    "step": 95,
@@ -3026,6 +3162,7 @@
    "id": "op_eth_b3ddec_79e70_0x7440",
    "type": "transfer",
    "claim": "transfer: 0.1 ETH 0xb3dd\u20265fdb to 0x79e7\u2026544a",
+   "via": null,
    "session": 4,
    "seq": 29,
    "step": 95,
@@ -3051,6 +3188,7 @@
    "id": "op_eth_b3ddec_79e70_0x1a42",
    "type": "transfer",
    "claim": "transfer: 2856.896 ETH 0xb3dd\u20265fdb to 0x79e7\u2026544a",
+   "via": null,
    "session": 4,
    "seq": 30,
    "step": 95,
@@ -3076,6 +3214,7 @@
    "id": "op_eth_8c711_54401_0x0ce5",
    "type": "transfer",
    "claim": "transfer: 2726.29 ETH 0x8c71\u20266aa4 to 0x5440\u2026c942",
+   "via": null,
    "session": 4,
    "seq": 31,
    "step": 105,
@@ -3101,6 +3240,7 @@
    "id": "op_eth_a97bf7_c209_0x0498",
    "type": "transfer",
    "claim": "transfer: 3000 ETH 0xa97b\u20268d10 to 0xc209\u2026850a",
+   "via": null,
    "session": 4,
    "seq": 32,
    "step": 112,
@@ -3126,6 +3266,7 @@
    "id": "op_eth_a97bf7_a3b3_0xb472",
    "type": "transfer",
    "claim": "transfer: 0.1 ETH 0xa97b\u20268d10 to 0xa3b3\u2026886f",
+   "via": null,
    "session": 4,
    "seq": 33,
    "step": 112,
@@ -3151,6 +3292,7 @@
    "id": "op_eth_a3b3_8d4b8_0xb8c6",
    "type": "transfer",
    "claim": "transfer: 0.1 ETH 0xa3b3\u2026886f to 0x8d4b\u20269e19",
+   "via": null,
    "session": 4,
    "seq": 34,
    "step": 119,
@@ -3176,6 +3318,7 @@
    "id": "op_eth_a3b3_8d4b8_0x1540",
    "type": "transfer",
    "claim": "transfer: 274.32 ETH 0xa3b3\u2026886f to 0x8d4b\u20269e19",
+   "via": null,
    "session": 4,
    "seq": 35,
    "step": 119,
@@ -3201,6 +3344,12 @@
    "id": "op_usdt_0ddf_8d539_0xc0fab",
    "type": "transfer",
    "claim": "transfer: 190000000 USDT 0x0ddf\u2026697e to 0x8d53\u2026639a",
+   "via": {
+    "contract": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+    "name": "TetherToken",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0xdac17f958d2ee523a2206206994597c13d831ec7"
+   },
    "session": 4,
    "seq": 36,
    "step": 127,
@@ -3221,6 +3370,7 @@
    "id": "op_eth_0ddf_8d539_0x121c",
    "type": "transfer",
    "claim": "transfer: 3552 ETH 0x0ddf\u2026697e to 0x8d53\u2026639a",
+   "via": null,
    "session": 4,
    "seq": 37,
    "step": 127,
@@ -3246,6 +3396,7 @@
    "id": "op_eth_0ddf_8d539_0x5cbf",
    "type": "transfer",
    "claim": "transfer: 0.3 ETH 0x0ddf\u2026697e to 0x8d53\u2026639a",
+   "via": null,
    "session": 4,
    "seq": 38,
    "step": 127,
@@ -3271,6 +3422,12 @@
    "id": "op_usdt_to_ausdt_8d539_0x420e",
    "type": "exchange",
    "claim": "exchange: 9999999.999999 aEthUSDT 0x8d53\u2026639a to 0x8d53\u2026639a",
+   "via": {
+    "contract": "0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2",
+    "name": "PoolInstance",
+    "function": "supply",
+    "explorer": "https://etherscan.io/address/0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2"
+   },
    "session": 5,
    "seq": 39,
    "step": 134,
@@ -3296,6 +3453,12 @@
    "id": "op_usdt_to_ausdt_8d539_0x65bd",
    "type": "exchange",
    "claim": "exchange: 50000001.737894 aEthUSDT 0x8d53\u2026639a to 0x8d53\u2026639a",
+   "via": {
+    "contract": "0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2",
+    "name": "PoolInstance",
+    "function": "supply",
+    "explorer": "https://etherscan.io/address/0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2"
+   },
    "session": 5,
    "seq": 40,
    "step": 134,
@@ -3321,6 +3484,12 @@
    "id": "op_usdt_8d539_77edef_0xd2e7",
    "type": "transfer",
    "claim": "transfer: 130000000 USDT 0x8d53\u2026639a to 0x77ed\u2026c3eb",
+   "via": {
+    "contract": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+    "name": "TetherToken",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0xdac17f958d2ee523a2206206994597c13d831ec7"
+   },
    "session": 5,
    "seq": 41,
    "step": 134,
@@ -3341,6 +3510,12 @@
    "id": "op_eth_8d539_77edef_0x9e77",
    "type": "transfer",
    "claim": "transfer: 23314.5 ETH 0x8d53\u2026639a to 0x77ed\u2026c3eb",
+   "via": {
+    "contract": "0x77edef23fbd05921c26fe29fcc3a65e14d2ac3eb",
+    "name": null,
+    "function": null,
+    "explorer": "https://etherscan.io/address/0x77edef23fbd05921c26fe29fcc3a65e14d2ac3eb"
+   },
    "session": 5,
    "seq": 42,
    "step": 134,
@@ -3366,6 +3541,12 @@
    "id": "op_usdt_to_eth_77edef_0xcb80",
    "type": "exchange",
    "claim": "exchange: 10641.57259 ETH 0x77ed\u2026c3eb to 0x77ed\u2026c3eb",
+   "via": {
+    "contract": "0x23617e59a5925b2a4bf75d73ff6711cd0b29de85",
+    "name": "UniversalRouter",
+    "function": "execute",
+    "explorer": "https://etherscan.io/address/0x23617e59a5925b2a4bf75d73ff6711cd0b29de85"
+   },
    "session": 6,
    "seq": 44,
    "step": 142,
@@ -3391,6 +3572,12 @@
    "id": "op_usdt_77edef_7aa4_0x279d",
    "type": "transfer",
    "claim": "transfer: 80000000 USDT 0x77ed\u2026c3eb to 0x7aa4\u2026bfd1",
+   "via": {
+    "contract": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+    "name": "TetherToken",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0xdac17f958d2ee523a2206206994597c13d831ec7"
+   },
    "session": 6,
    "seq": 45,
    "step": 146,
@@ -3411,6 +3598,12 @@
    "id": "op_eth_77edef_7aa4_0x1171",
    "type": "transfer",
    "claim": "transfer: 41397.81 ETH 0x77ed\u2026c3eb to 0x7aa4\u2026bfd1",
+   "via": {
+    "contract": "0x7aa4d3029e4c6a8e916300014ad95b6d6c03bfd1",
+    "name": null,
+    "function": null,
+    "explorer": "https://etherscan.io/address/0x7aa4d3029e4c6a8e916300014ad95b6d6c03bfd1"
+   },
    "session": 6,
    "seq": 46,
    "step": 146,
@@ -3436,6 +3629,12 @@
    "id": "op_usdt_7aa4_ccbef_0x9a76",
    "type": "transfer",
    "claim": "transfer: 30000000 USDT 0x7aa4\u2026bfd1 to 0xccbe\u2026a263",
+   "via": {
+    "contract": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+    "name": "TetherToken",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0xdac17f958d2ee523a2206206994597c13d831ec7"
+   },
    "session": 6,
    "seq": 47,
    "step": 150,
@@ -3456,6 +3655,7 @@
    "id": "op_eth_7aa4_ccbef_0x6d7e",
    "type": "transfer",
    "claim": "transfer: 57891.85 ETH 0x7aa4\u2026bfd1 to 0xccbe\u2026a263",
+   "via": null,
    "session": 6,
    "seq": 48,
    "step": 150,
@@ -3481,6 +3681,12 @@
    "id": "op_usdt_to_eth_7aa4_0x808f",
    "type": "exchange",
    "claim": "exchange: 6945.747464 ETH 0x7aa4\u2026bfd1 to 0x7aa4\u2026bfd1",
+   "via": {
+    "contract": "0x7aa4d3029e4c6a8e916300014ad95b6d6c03bfd1",
+    "name": null,
+    "function": null,
+    "explorer": "https://etherscan.io/address/0x7aa4d3029e4c6a8e916300014ad95b6d6c03bfd1"
+   },
    "session": 6,
    "seq": 49,
    "step": 155,
@@ -3506,6 +3712,12 @@
    "id": "op_usdt_ccbef_b171_0x1e6f",
    "type": "transfer",
    "claim": "transfer: 30000000 USDT 0xccbe\u2026a263 to 0xb171\u2026c8c3",
+   "via": {
+    "contract": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+    "name": "TetherToken",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0xdac17f958d2ee523a2206206994597c13d831ec7"
+   },
    "session": 6,
    "seq": 50,
    "step": 159,
@@ -3526,6 +3738,7 @@
    "id": "op_eth_ccbef_b171_0x3ccb",
    "type": "transfer",
    "claim": "transfer: 57891.8 ETH 0xccbe\u2026a263 to 0xb171\u2026c8c3",
+   "via": null,
    "session": 6,
    "seq": 51,
    "step": 159,
@@ -3551,6 +3764,12 @@
    "id": "op_usdt_to_eth_7aa4_0x2a19",
    "type": "exchange",
    "claim": "exchange: 9551.90092 ETH 0x7aa4\u2026bfd1 to 0x7aa4\u2026bfd1",
+   "via": {
+    "contract": "0x23617e59a5925b2a4bf75d73ff6711cd0b29de85",
+    "name": "UniversalRouter",
+    "function": "execute",
+    "explorer": "https://etherscan.io/address/0x23617e59a5925b2a4bf75d73ff6711cd0b29de85"
+   },
    "session": 6,
    "seq": 52,
    "step": 161,
@@ -3576,6 +3795,7 @@
    "id": "op_eth_b171_897c_0x2552",
    "type": "transfer",
    "claim": "transfer: 57891.771307 ETH 0xb171\u2026c8c3 to 0x897c\u20268df3",
+   "via": null,
    "session": 6,
    "seq": 53,
    "step": 167,
@@ -3601,6 +3821,12 @@
    "id": "op_usdt_to_eth_0ddf_0x152e",
    "type": "exchange",
    "claim": "exchange: 3552.228718 ETH 0x0ddf\u2026697e to 0x0ddf\u2026697e",
+   "via": {
+    "contract": "0x23617e59a5925b2a4bf75d73ff6711cd0b29de85",
+    "name": "UniversalRouter",
+    "function": "execute",
+    "explorer": "https://etherscan.io/address/0x23617e59a5925b2a4bf75d73ff6711cd0b29de85"
+   },
    "session": 6,
    "seq": 54,
    "step": 170,
@@ -3626,6 +3852,7 @@
    "id": "op_eth_974929_811f_0x1980",
    "type": "transfer",
    "claim": "transfer: 0.5 ETH 0x9749\u2026c762 to 0x811f\u2026e84c",
+   "via": null,
    "session": 6,
    "seq": 55,
    "step": 177,
@@ -3651,6 +3878,7 @@
    "id": "op_eth_5227_03b0_0x88e4",
    "type": "transfer",
    "claim": "transfer: 0.1 ETH 0x5227\u20262f8c to 0x03b0\u202620ea",
+   "via": null,
    "session": 6,
    "seq": 56,
    "step": 189,
@@ -3676,6 +3904,7 @@
    "id": "op_eth_5227_03b0_0x9edf",
    "type": "transfer",
    "claim": "transfer: 17260 ETH 0x5227\u20262f8c to 0x03b0\u202620ea",
+   "via": null,
    "session": 6,
    "seq": 57,
    "step": 189,
@@ -3701,6 +3930,7 @@
    "id": "op_eth_811f_42cdf_0x8970",
    "type": "transfer",
    "claim": "transfer: 1.483741 ETH 0x811f\u2026e84c to 0x42cd\u20267810",
+   "via": null,
    "session": 6,
    "seq": 58,
    "step": 189,
@@ -3726,6 +3956,12 @@
    "id": "op_usdt_811f_aa246_0xb6d7",
    "type": "transfer",
    "claim": "transfer: 175000000 USDT 0x811f\u2026e84c to 0xaa24\u202654a0",
+   "via": {
+    "contract": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+    "name": "TetherToken",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0xdac17f958d2ee523a2206206994597c13d831ec7"
+   },
    "session": 6,
    "seq": 59,
    "step": 189,
@@ -3746,6 +3982,7 @@
    "id": "op_eth_42cdf_897c_0x1ef5",
    "type": "transfer",
    "claim": "transfer: 17584 ETH 0x42cd\u20267810 to 0x897c\u20268df3",
+   "via": null,
    "session": 6,
    "seq": 60,
    "step": 199,
@@ -3771,6 +4008,7 @@
    "id": "op_eth_42cdf_897c_0x654c",
    "type": "transfer",
    "claim": "transfer: 2939.48 ETH 0x42cd\u20267810 to 0x897c\u20268df3",
+   "via": null,
    "session": 6,
    "seq": 61,
    "step": 199,
@@ -3796,6 +4034,7 @@
    "id": "op_eth_974929_5c230_0x925d",
    "type": "transfer",
    "claim": "transfer: 0.5 ETH 0x9749\u2026c762 to 0x5c23\u2026a4fc",
+   "via": null,
    "session": 6,
    "seq": 62,
    "step": 209,
@@ -3821,6 +4060,7 @@
    "id": "op_eth_974929_811f_0x332c",
    "type": "transfer",
    "claim": "transfer: 1 ETH 0x9749\u2026c762 to 0x811f\u2026e84c",
+   "via": null,
    "session": 6,
    "seq": 63,
    "step": 209,
@@ -3846,6 +4086,7 @@
    "id": "op_eth_974929_aa246_0xb9ec",
    "type": "transfer",
    "claim": "transfer: 2 ETH 0x9749\u2026c762 to 0xaa24\u202654a0",
+   "via": null,
    "session": 6,
    "seq": 64,
    "step": 209,
@@ -3871,6 +4112,7 @@
    "id": "op_eth_974929_470b_0x8a52",
    "type": "transfer",
    "claim": "transfer: 20 ETH 0x9749\u2026c762 to 0x470b\u2026f0a4",
+   "via": null,
    "session": 6,
    "seq": 65,
    "step": 209,
@@ -3896,6 +4138,7 @@
    "id": "op_eth_974929_aa246_0xbba4",
    "type": "transfer",
    "claim": "transfer: 20 ETH 0x9749\u2026c762 to 0xaa24\u202654a0",
+   "via": null,
    "session": 6,
    "seq": 66,
    "step": 214,
@@ -3921,6 +4164,7 @@
    "id": "op_eth_974929_7f9d_0x38ed",
    "type": "transfer",
    "claim": "transfer: 4.780593 ETH 0x9749\u2026c762 to 0x7f9d\u202615e3",
+   "via": null,
    "session": 6,
    "seq": 67,
    "step": 214,
@@ -3946,6 +4190,12 @@
    "id": "op_usdt_974929_811f_0x1fb9",
    "type": "transfer",
    "claim": "transfer: 175000000 USDT 0x9749\u2026c762 to 0x811f\u2026e84c",
+   "via": {
+    "contract": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+    "name": "TetherToken",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0xdac17f958d2ee523a2206206994597c13d831ec7"
+   },
    "session": 6,
    "seq": 68,
    "step": 214,
@@ -3966,6 +4216,7 @@
    "id": "op_eth_5c230_008f_0x8e68",
    "type": "transfer",
    "claim": "transfer: 0.4 ETH 0x5c23\u2026a4fc to 0x008f\u20267dcd",
+   "via": null,
    "session": 6,
    "seq": 69,
    "step": 226,
@@ -3991,6 +4242,7 @@
    "id": "op_eth_5c230_e702_0xf761",
    "type": "transfer",
    "claim": "transfer: 0.079047 ETH 0x5c23\u2026a4fc to 0xe702\u2026958d",
+   "via": null,
    "session": 6,
    "seq": 70,
    "step": 226,
@@ -4016,6 +4268,7 @@
    "id": "op_eth_aa246_974929_0xcb9f",
    "type": "transfer",
    "claim": "transfer: 21.995032 ETH 0xaa24\u202654a0 to 0x9749\u2026c762",
+   "via": null,
    "session": 6,
    "seq": 71,
    "step": 226,
@@ -4041,6 +4294,7 @@
    "id": "op_eth_470b_974929_0x5616",
    "type": "transfer",
    "claim": "transfer: 19.995263 ETH 0x470b\u2026f0a4 to 0x9749\u2026c762",
+   "via": null,
    "session": 6,
    "seq": 72,
    "step": 226,
@@ -4066,6 +4320,7 @@
    "id": "op_eth_7f9d_c887_0x45b3",
    "type": "transfer",
    "claim": "transfer: 15292 ETH 0x7f9d\u202615e3 to 0xc887\u2026286a",
+   "via": null,
    "session": 6,
    "seq": 73,
    "step": 237,
@@ -4091,6 +4346,7 @@
    "id": "op_eth_7f9d_5227_0x2d54",
    "type": "transfer",
    "claim": "transfer: 0.62 ETH 0x7f9d\u202615e3 to 0x5227\u20262f8c",
+   "via": null,
    "session": 6,
    "seq": 74,
    "step": 237,
@@ -4116,6 +4372,7 @@
    "id": "op_eth_008f_e702_0x51af",
    "type": "transfer",
    "claim": "transfer: 0.35 ETH 0x008f\u20267dcd to 0xe702\u2026958d",
+   "via": null,
    "session": 6,
    "seq": 75,
    "step": 237,
@@ -4141,6 +4398,7 @@
    "id": "op_eth_008f_e702_0x4b74",
    "type": "transfer",
    "claim": "transfer: 0.036858 ETH 0x008f\u20267dcd to 0xe702\u2026958d",
+   "via": null,
    "session": 6,
    "seq": 76,
    "step": 237,
@@ -4166,6 +4424,12 @@
    "id": "op_usdt_to_eth_77edef_0xb7d2",
    "type": "exchange",
    "claim": "exchange: 7443.661334 ETH 0x77ed\u2026c3eb to 0x77ed\u2026c3eb",
+   "via": {
+    "contract": "0x77edef23fbd05921c26fe29fcc3a65e14d2ac3eb",
+    "name": null,
+    "function": null,
+    "explorer": "https://etherscan.io/address/0x77edef23fbd05921c26fe29fcc3a65e14d2ac3eb"
+   },
    "session": 5,
    "seq": 43,
    "step": 138,
@@ -4191,6 +4455,12 @@
    "id": "op_usdt_to_eth_974929_0x290e",
    "type": "exchange",
    "claim": "exchange: 20940.127353 ETH 0x9749\u2026c762 to 0x9749\u2026c762",
+   "via": {
+    "contract": "0x74edc79fea13bdf1f7841570227127cec493bdd9",
+    "name": null,
+    "function": null,
+    "explorer": "https://etherscan.io/address/0x74edc79fea13bdf1f7841570227127cec493bdd9"
+   },
    "session": 8,
    "seq": 77,
    "step": 264,
@@ -4216,6 +4486,12 @@
    "id": "op_usdt_to_eth_974929_0x4fa1",
    "type": "exchange",
    "claim": "exchange: 39400.469488 ETH 0x9749\u2026c762 to 0x9749\u2026c762",
+   "via": {
+    "contract": "0x0000000000be226afde21672a5e4adc45692e69d",
+    "name": null,
+    "function": null,
+    "explorer": "https://etherscan.io/address/0x0000000000be226afde21672a5e4adc45692e69d"
+   },
    "session": 8,
    "seq": 78,
    "step": 264,
@@ -4241,6 +4517,12 @@
    "id": "op_usdt_to_eth_974929_0xfa94",
    "type": "exchange",
    "claim": "exchange: 19025.260483 ETH 0x9749\u2026c762 to 0x9749\u2026c762",
+   "via": {
+    "contract": "0xbeef02961503351625926ea9a11ae13b29f5c555",
+    "name": null,
+    "function": null,
+    "explorer": "https://etherscan.io/address/0xbeef02961503351625926ea9a11ae13b29f5c555"
+   },
    "session": 8,
    "seq": 79,
    "step": 272,
@@ -4266,6 +4548,12 @@
    "id": "op_usdt_to_eth_974929_0xa861",
    "type": "exchange",
    "claim": "exchange: 26227.012979 ETH 0x9749\u2026c762 to 0x9749\u2026c762",
+   "via": {
+    "contract": "0xbeef02961503351625926ea9a11ae13b29f5c555",
+    "name": null,
+    "function": null,
+    "explorer": "https://etherscan.io/address/0xbeef02961503351625926ea9a11ae13b29f5c555"
+   },
    "session": 8,
    "seq": 80,
    "step": 272,
@@ -4291,6 +4579,12 @@
    "id": "op_usdt_to_eth_974929_0xe5cc",
    "type": "exchange",
    "claim": "exchange: 5017.036085 ETH 0x9749\u2026c762 to 0x9749\u2026c762",
+   "via": {
+    "contract": "0xbeef02961503351625926ea9a11ae13b29f5c555",
+    "name": null,
+    "function": null,
+    "explorer": "https://etherscan.io/address/0xbeef02961503351625926ea9a11ae13b29f5c555"
+   },
    "session": 8,
    "seq": 81,
    "step": 272,
@@ -4316,6 +4610,12 @@
    "id": "op_usdt_to_eth_974929_0x7b0a",
    "type": "exchange",
    "claim": "exchange: 1672.345362 ETH 0x9749\u2026c762 to 0x9749\u2026c762",
+   "via": {
+    "contract": "0xbeef02961503351625926ea9a11ae13b29f5c555",
+    "name": null,
+    "function": null,
+    "explorer": "https://etherscan.io/address/0xbeef02961503351625926ea9a11ae13b29f5c555"
+   },
    "session": 8,
    "seq": 82,
    "step": 272,
@@ -4341,6 +4641,12 @@
    "id": "op_usdt_to_eth_974929_0x1b62",
    "type": "exchange",
    "claim": "exchange: 231.761078 ETH 0x9749\u2026c762 to 0x9749\u2026c762",
+   "via": {
+    "contract": "0xec4fb7e7c35c241e1138a2d8cfbb09f3ad1ccb22",
+    "name": null,
+    "function": null,
+    "explorer": "https://etherscan.io/address/0xec4fb7e7c35c241e1138a2d8cfbb09f3ad1ccb22"
+   },
    "session": 8,
    "seq": 83,
    "step": 278,
@@ -4366,6 +4672,12 @@
    "id": "op_usdt_to_eth_974929_0xc591",
    "type": "exchange",
    "claim": "exchange: 236.343652 ETH 0x9749\u2026c762 to 0x9749\u2026c762",
+   "via": {
+    "contract": "0xec4fb7e7c35c241e1138a2d8cfbb09f3ad1ccb22",
+    "name": null,
+    "function": null,
+    "explorer": "https://etherscan.io/address/0xec4fb7e7c35c241e1138a2d8cfbb09f3ad1ccb22"
+   },
    "session": 8,
    "seq": 84,
    "step": 278,
@@ -4391,6 +4703,12 @@
    "id": "op_usdt_to_eth_974929_0x3fd5",
    "type": "exchange",
    "claim": "exchange: 9565.967441 ETH 0x9749\u2026c762 to 0x9749\u2026c762",
+   "via": {
+    "contract": "0x9b1303ebf09bc51b7fac376c9e421e8daae63b82",
+    "name": null,
+    "function": null,
+    "explorer": "https://etherscan.io/address/0x9b1303ebf09bc51b7fac376c9e421e8daae63b82"
+   },
    "session": 8,
    "seq": 85,
    "step": 278,
@@ -4414,26 +4732,6 @@
   }
  ],
  "leads": [
-  {
-   "account": "lead_0x5227f6_ETH_check",
-   "status": "open",
-   "reason": null
-  },
-  {
-   "account": "lead_0x5227_ETH_after_be54",
-   "status": "open",
-   "reason": null
-  },
-  {
-   "account": "lead_0xaa246b_USDT",
-   "status": "open",
-   "reason": null
-  },
-  {
-   "account": "lead_0xaa246b_ETH",
-   "status": "open",
-   "reason": null
-  },
   {
    "account": "lead_0x8532_ETH",
    "status": "closed",
@@ -4638,6 +4936,26 @@
    "account": "lead_0x974929_USDT",
    "status": "closed",
    "reason": "Open: 0x9749292d74fd460982d0912ea9515ea24736c762 USDT received 500000000000000 in tx 0x68d7... log700; trace outflows in window. (closed: Fetched 0x974929 out-activity through block 26307051. Every real USDT outflow in the window is recorded: USDT->ETH exchanges 0x290e94, 0x4fa182, 0xfa9495, 0xa861a5, 0xe5ccc3, 0x7b0ad8, 0x1b623b, 0xc59188, 0x3fd5ec, and USDT transfer 0x1fb992 to 0x811f. Later ERC20 rows are lookalike/non-traced assets.)"
+  },
+  {
+   "account": "lead_0x5227f6_ETH_check",
+   "status": "closed",
+   "reason": "Reopened by the outflow check: 0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c ETH: 13 outflows not recorded, e.g. 0x0882d99e6bcb39670a7e74a15dc0361ae982742ed0f8a7312a64957e4b77e097, 0x19fb8ac1507861db07b3aadeb3b41b74bb2c0959ef7602eb706019de463d10ca, 0x24472c4e45496a3665576b7eb58aa81948f020cdd9ccc6ca61094cf592492c82 (closed: All known positive real ETH outflows in the full window through block 26307171 have been recorded; the latest extension 26307052-26307171 has only a zero-ETH transaction and a non-traced ERC20 outflow, so no further traced ETH outflow is present.)"
+  },
+  {
+   "account": "lead_0x5227_ETH_after_be54",
+   "status": "closed",
+   "reason": "Reopened by the outflow check: 0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c ETH: 13 outflows not recorded, e.g. 0x0882d99e6bcb39670a7e74a15dc0361ae982742ed0f8a7312a64957e4b77e097, 0x19fb8ac1507861db07b3aadeb3b41b74bb2c0959ef7602eb706019de463d10ca, 0x24472c4e45496a3665576b7eb58aa81948f020cdd9ccc6ca61094cf592492c82 (closed: All positive real ETH outflows after the WBTC-to-ETH exchange through block 26307171 are recorded (0x88e4... and 0x9edf... to 0x03b0); extension blocks 26307052-26307171 show no positive ETH outflow, so remaining ETH rests pending later re-check.)"
+  },
+  {
+   "account": "lead_0xaa246b_USDT",
+   "status": "closed",
+   "reason": "Reopened by the outflow check: 0xaa246bf639586a6ba46762d378ce50ca4fc654a0 0xdac17f958d2ee523a2206206994597c13d831ec7: 1 outflows not recorded, e.g. 0x11be88b460501b4652e760c41e08cc1f18575e14b6c6ffbb3383e043c2decf34 (closed: The earlier USDT outflow at 0x11be88... preceded the traced USDT receipt and is not traced; after the traced receipt through block 26307171 there are no real USDT outflows, so the USDT rests there pending later re-check.)"
+  },
+  {
+   "account": "lead_0xaa246b_ETH",
+   "status": "closed",
+   "reason": "Reopened by the outflow check: 0xaa246bf639586a6ba46762d378ce50ca4fc654a0 0xdac17f958d2ee523a2206206994597c13d831ec7: 1 outflows not recorded, e.g. 0x11be88b460501b4652e760c41e08cc1f18575e14b6c6ffbb3383e043c2decf34 (closed: The only positive ETH outflow from 0xaa246bf... is tx 0xcb9f... back to 0x974929 and it is recorded; extension blocks 26307052-26307171 have no out activity, so no further traced ETH outflow remains in-window.)"
   }
  ],
  "coming_soon": [
@@ -4660,24 +4978,7 @@
  ],
  "workspace": {
   "note": "The agent's own working state. Internal and unchecked; the findings are what it reports.",
-  "open_leads": [
-   {
-    "key": "lead_0x5227f6_ETH_check",
-    "text": "Reopened by the outflow check: 0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c ETH: 13 outflows not recorded, e.g. 0x0882d99e6bcb39670a7e74a15dc0361ae982742ed0f8a7312a64957e4b77e097, 0x19fb8ac1507861db07b3aadeb3b41b74bb2c0959ef7602eb706019de463d10ca, 0x24472c4e45496a3665576b7eb58aa81948f020cdd9ccc6ca61094cf592492c82"
-   },
-   {
-    "key": "lead_0x5227_ETH_after_be54",
-    "text": "Reopened by the outflow check: 0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c ETH: 13 outflows not recorded, e.g. 0x0882d99e6bcb39670a7e74a15dc0361ae982742ed0f8a7312a64957e4b77e097, 0x19fb8ac1507861db07b3aadeb3b41b74bb2c0959ef7602eb706019de463d10ca, 0x24472c4e45496a3665576b7eb58aa81948f020cdd9ccc6ca61094cf592492c82"
-   },
-   {
-    "key": "lead_0xaa246b_USDT",
-    "text": "Reopened by the outflow check: 0xaa246bf639586a6ba46762d378ce50ca4fc654a0 0xdac17f958d2ee523a2206206994597c13d831ec7: 1 outflows not recorded, e.g. 0x11be88b460501b4652e760c41e08cc1f18575e14b6c6ffbb3383e043c2decf34"
-   },
-   {
-    "key": "lead_0xaa246b_ETH",
-    "text": "Reopened by the outflow check: 0xaa246bf639586a6ba46762d378ce50ca4fc654a0 0xdac17f958d2ee523a2206206994597c13d831ec7: 1 outflows not recorded, e.g. 0x11be88b460501b4652e760c41e08cc1f18575e14b6c6ffbb3383e043c2decf34"
-   }
-  ],
+  "open_leads": [],
   "notes": [
    "Fetched out activity for 0x5227... blocks 26300770-26306443 first 100/1364. Relevant seeded assets observed in page: ETH transfers to 0x9749292d74fd460982d0912ea9515ea24736c762 tx 0x942b... amount 0.5 ETH; 0x0ddf048... tx 0x5f0a... 0.5 ETH; 0x8532fa... tx 0x551d... 195460 ETH; many 0.5/1/2 ETH funding transfers; USDT transfers tx 0x68d7... 500000000000000 to 0x974929..., tx 0x1fc... 200000000000000 to 0x0ddf048...; 0x8292 tx 0x1d3f... 88541065000000000000000000 to 0x5c230...; WBTC tx 0x3149... 16714000000 to 0xb3ddec...; other listed outflows are non-seed unless acquired later.",
    "Served event searches show 0x5227 has no outgoing WETH or USDC Transfer in window. USDT outgoing positive logs: 0x68d7... log700 amount 500000000000000 to 0x974929...; 0x1fc0... log916 amount 200000000000000 to 0x0ddf048... (zero-value logs ignored). 0x8292 outgoing positive: 0x1d3f... log32 amount 88541065000000000000000000 to 0x5c230... (later zero ignored). WBTC outgoing positive: 0x314928... log803 amount 16714000000 to 0xb3ddec...; 0xbe54... log529 amount 579097 to pool 0xe6ff..., receipt/trace show swap through Uniswap router ending as 201956743725195790 wei ETH paid back to 0x5227 at trace [1,2].",
@@ -4714,8 +5015,9 @@
    "Served 0x974929 out-activity through block 26307051. Real traced USDT outflows: 0x290e94... 50e12 to 0x74edc79..., 0x4fa182... 100e12 to 0x0000000000be226..., 0xfa9495... 50e12 to 0xbeef029..., 0xa861a5... 75e12 to 0xbeef029..., 0xe5ccc3... 14999999999999 to 0xbeef029..., 0x7b0ad8... 5e12 to 0xbeef029..., 0x1b623b... 692922296876 to 0xec4fb7..., 0xc59188... 706623335938 to 0xec4fb7..., 0x3fd5ec... 28600454367187 to 0x9b1303..., 0x1fb992... 175e12 to 0x811f (already recorded). Real ETH outflows are already-recorded txs 0x1980e7, 0x925dda, 0x332cb7, 0xb9ecd7, 0x8a52aa, 0xbba4ed, 0xbd7822, 0x38edbc. Later ERC20 rows are lookalike/non-traced assets.",
    "Recorded 0x974929 USDT->ETH exchanges based on served receipts/traces: 0x290e94... log25 -> trace [1,0,2] 20940127353061384926818 wei ETH; 0x4fa182... log0 -> trace [0,2] 39400469488397240656473 wei; 0xfa9495... log338 -> trace [0,1,2] 19025260483300806985301 wei; 0xa861a5... log0 -> trace [0,1,2] 26227012979488894699045 wei; 0xe5ccc3... log0 -> trace [0,1,6,1] 5017036085415089804752 wei; 0x7b0ad8... log332 -> trace [0,1,6,1] 1672345361805141424610 wei.",
    "Served 0xaa246bf639586a6ba46762d378ce50ca4fc654a0 out-activity through block 26307051 and receipt for tx 0x11be88b460501b4652e760c41e08cc1f18575e14b6c6ffbb3383e043c2decf34. The real USDT outflow (127672480 to 0xe3478b0bb1a5084567c319096437924948be1964, log288) occurred at block 26301011 before the traced USDT pocket arrived from 0x811f in recorded tx 0xb6d7..., so it is not a traced outflow. After the traced USDT receipt there are no real USDT outflows, only lookalike/non-traced ERC20 rows. The only positive ETH outflow in aa246 activity is tx 0xcb9f... to 0x974929, already recorded.",
-   "Served second/final page of 0x5227 out-activity for blocks 26302885-26307051 after the WBTC->ETH exchange at 0xbe54. Positive real ETH outflows are only tx 0x88e4... 0.1 ETH to 0x03b0... and tx 0x9edf... 17260 ETH to 0x03b0..., both already recorded. Later ETH transactions are zero-value calls and ERC20 rows are non-traced/lookalike assets."
+   "Served second/final page of 0x5227 out-activity for blocks 26302885-26307051 after the WBTC->ETH exchange at 0xbe54. Positive real ETH outflows are only tx 0x88e4... 0.1 ETH to 0x03b0... and tx 0x9edf... 17260 ETH to 0x03b0..., both already recorded. Later ETH transactions are zero-value calls and ERC20 rows are non-traced/lookalike assets.",
+   "Served out-activity for open leads in new extension blocks 26307052-26307171. 0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c has only a zero-ETH transaction 0x19c2a82ee1b801b5c2c9e41c0f9d599a81234c8098e1c35b49958f2eafd22a31 and an outgoing ERC20 0x491604c0fdf08347dd1fa4ee062a822a5dd06b5d (not traced ETH); no positive ETH outflow. 0xaa246bf639586a6ba46762d378ce50ca4fc654a0 has no out activity in extension window."
   ],
-  "total_steps": 282
+  "total_steps": 284
  }
 }

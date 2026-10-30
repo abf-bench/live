@@ -1,0 +1,113 @@
+[
+  {
+    "request": {
+      "action": "account.activity",
+      "params": {
+        "account": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+        "block_window": [
+          26307052,
+          26307171
+        ],
+        "chain": "ethereum",
+        "direction": "out",
+        "limit": 100
+      }
+    },
+    "response": {
+      "action": "account.activity",
+      "action_count": 1,
+      "cost_units": 1.0,
+      "observation": {
+        "account": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+        "block_window": [
+          26307052,
+          26307171
+        ],
+        "chain": "ethereum",
+        "direction": "out",
+        "items": [
+          {
+            "activity_kind": "transaction",
+            "amount": "0",
+            "asset": "ETH",
+            "block_number": 26307052,
+            "failed": false,
+            "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+            "nonce": 704,
+            "to": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+            "transaction_index": 0,
+            "tx_hash": "0x19c2a82ee1b801b5c2c9e41c0f9d599a81234c8098e1c35b49958f2eafd22a31"
+          },
+          {
+            "activity_kind": "erc20_transfer",
+            "amount": "13875383020000000402784256",
+            "asset": "0x491604c0fdf08347dd1fa4ee062a822a5dd06b5d",
+            "block_number": 26307052,
+            "failed": false,
+            "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+            "to": "0x58eeb5d44dc41965ab0a9e563536175c8dc5c3b3",
+            "transaction_index": 0,
+            "tx_hash": "0x19c2a82ee1b801b5c2c9e41c0f9d599a81234c8098e1c35b49958f2eafd22a31"
+          }
+        ],
+        "next_cursor": null,
+        "total": 2,
+        "truncated": false
+      },
+      "response_hash": "f20c3232abc647fa52ba53881586f8f6ddf17dafff28c920dd2538a78eddfde0",
+      "status": "ok",
+      "total_cost_units": 1.0
+    }
+  },
+  {
+    "request": {
+      "action": "account.activity",
+      "params": {
+        "account": "0xaa246bf639586a6ba46762d378ce50ca4fc654a0",
+        "block_window": [
+          26307052,
+          26307171
+        ],
+        "chain": "ethereum",
+        "direction": "out",
+        "limit": 100
+      }
+    },
+    "response": {
+      "action": "account.activity",
+      "action_count": 2,
+      "cost_units": 1.0,
+      "observation": {
+        "account": "0xaa246bf639586a6ba46762d378ce50ca4fc654a0",
+        "block_window": [
+          26307052,
+          26307171
+        ],
+        "chain": "ethereum",
+        "direction": "out",
+        "items": [],
+        "next_cursor": null,
+        "total": 0,
+        "truncated": false
+      },
+      "response_hash": "b8afa264d27ce01f666afc5c67e8e3b618710eaaf250b4dce543161f97cd0692",
+      "status": "ok",
+      "total_cost_units": 2.0
+    }
+  },
+  {
+    "event": "final_graph",
+    "response": {
+      "action_count": 2,
+      "cost_units": 0.0,
+      "event": "final_graph",
+      "observation": {
+        "accepted": true,
+        "graph_hash": "d511735ede7666ee7734f06d3154601f110cfe9bd35187e0d48fb8d6680409c7"
+      },
+      "response_hash": "908bd51e2a63bf9c4a047f20b3bacd8e51d77cdabc1244b359e7e68009f66e71",
+      "status": "finished",
+      "total_cost_units": 2.0
+    }
+  }
+]
