@@ -82,13 +82,11 @@ button { font: inherit; color: inherit; }
   grid-template-columns: minmax(0, 1fr) minmax(280px, 430px);
   grid-template-areas:
     "kicker kicker"
-    "title  note"
-    "meta   budget"
-    "intro  byline";
+    "main   side";
   column-gap: 40px;
   row-gap: 4px;
   padding-top: 18px;
-  align-items: end;
+  align-items: start;
   animation: rise 0.6s ease-out both;
 }
 .kicker {
@@ -178,7 +176,7 @@ h1 {
 
 .stats {
   display: grid;
-  grid-template-columns: minmax(0, 1.8fr) repeat(3, minmax(0, 1fr)) minmax(0, 0.7fr) minmax(0, 1.5fr) minmax(0, 0.7fr) minmax(0, 0.8fr);
+  grid-template-columns: minmax(0, 1.8fr) repeat(3, minmax(0, 1fr)) minmax(0, 0.7fr) minmax(0, 1.5fr) minmax(0, 0.7fr);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -1211,7 +1209,7 @@ body.embed .rounds-note { display: none; }
   .page { padding: 0 16px 16px; }
   .masthead {
     grid-template-columns: 1fr;
-    grid-template-areas: "kicker" "title" "meta" "intro" "budget" "note" "byline";
+    grid-template-areas: "kicker" "main" "side";
     row-gap: 8px;
   }
   .byline { margin-top: 0; }
@@ -1283,3 +1281,14 @@ body.embed .stat-value { font-size: 17px; }
 .budget-line #budget-cap { font-family: var(--mono); color: var(--ink); }
 .budget-bar { height: 4px; background: var(--line-2); border-radius: 2px; overflow: hidden; }
 .budget-bar span { display: block; height: 100%; width: 0; background: var(--amber); transition: width 0.6s ease; }
+
+/* ---------- masthead columns: each stacks on its own; one rule and one left edge on the right ---------- */
+.mast-main { grid-area: main; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.mast-main > * { margin: 0; }
+.mast-side { grid-area: side; display: flex; flex-direction: column; gap: 14px; padding-left: 14px; border-left: 2px solid var(--amber); }
+.mast-side > * { margin: 0; }
+.mast-side .disclaimer, .mast-side .byline { padding-left: 0; border-left: 0; }
+.mast-side .budget-line { margin: 0 0 6px; }
+.meta .case-name { display: none; }
+body.embed .stats { grid-template-columns: minmax(0, 1.8fr) repeat(3, minmax(0, 1fr)) minmax(0, 0.7fr) minmax(0, 1.5fr) minmax(0, 0.7fr) minmax(0, 0.8fr); }
+.mast-side .budget { align-self: stretch; }

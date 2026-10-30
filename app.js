@@ -937,7 +937,8 @@
       countCell('Flows traced', view.flows, function () { $('flows').scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block: 'start' }); }, 'Show the list of all flows'),
       checkerCell,
       countCell('Addresses', view.nodes.size),
-      el('div', { class: 'stat small cost', title: T.costNote || null },
+      // the page header carries the cost against the budget; the embed (screenshots) has no header line
+      !EMBED ? null : el('div', { class: 'stat small cost', title: T.costNote || null },
         el('div', { class: 'stat-label' }, 'Model cost'),
         el('div', { class: 'stat-value' }, T.cost !== null && T.cost !== undefined
           ? el('span', { class: 'amt' }, '$' + T.cost.toFixed(2), el('span', { class: 'asset' }, 'so far'))
