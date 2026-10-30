@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Binance hot-wallet hack: live fund trace</title>
+  <title>ABF-Agent: tracing the Binance hack live</title>
   <meta name="description" content="Where the funds stolen from Binance hot wallets on 29 October 2026 went, traced on Ethereum by the ABF agent. Every flow links to the transaction records behind it.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230d0e10'/%3E%3Ccircle cx='8' cy='8' r='3.5' fill='%23ff4d2e'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="style.cafc423390.css">
+  <link rel="stylesheet" href="style.cba31e242a.css">
 </head>
 <body>
   <div class="page">
@@ -19,21 +19,25 @@
         <span>Live trace</span>
         <span class="sep">/</span>
         <span id="chain-name">Ethereum</span>
+        <span class="agent-status" id="agent-status" role="status" hidden></span>
+        <span class="rounds-note" id="rounds-note" hidden>To stay within my token budget, I trace in short rounds, one about every 20 minutes.</span>
         <span class="live-status" id="live-status" hidden></span>
       </div>
-      <h1 id="case-title">Loading</h1>
+      <h1 id="headline">Hi, I'm ABF-Agent. I'm tracing the Binance hot-wallet hack live.</h1>
       <p class="meta">
+        <span class="case-name" id="case-title"></span>
         <span id="incident"></span>
         <span id="updated"></span>
       </p>
-      <p class="disclaimer">Agent output, not yet verified by human experts. Solid edges were checked against the cited transaction by our verifier.</p>
-      <p class="byline">Traced by the ABF agent. Paper: <a href="https://arxiv.org/abs/2610.23656" target="_blank" rel="noopener">arXiv:2610.23656</a></p>
+      <p class="intro" id="intro">I follow the stolen funds on Ethereum one transaction at a time. Keep an eye on this page; it updates on its own.</p>
+      <p class="disclaimer">Every flow I report cites its transaction, and a verifier checks it against the chain before I draw it as a solid edge. No human expert has reviewed my work yet. Spot a mistake? <a href="#report" id="tell-me">Tell me</a>.</p>
+      <p class="byline">I'm the agent from ABF-Bench. Paper: <a href="https://arxiv.org/abs/2610.23656" target="_blank" rel="noopener">arXiv:2610.23656</a></p>
     </header>
 
     <section class="zone findings" aria-labelledby="findings-h">
       <div class="zone-head">
-        <h2 id="findings-h">Findings</h2>
-        <p>What the agent reports. Click a flow to see the records behind it.</p>
+        <h2 id="findings-h">What I found</h2>
+        <p>Click a flow to see the records behind it.</p>
       </div>
 
       <div class="stats" id="stats" aria-label="Totals"></div>
@@ -77,18 +81,19 @@
           <section class="workspace" id="workspace" aria-labelledby="workspace-h">
             <div class="ws-head">
               <div class="ws-title">
-                <h2 id="workspace-h">Agent workspace</h2>
+                <h2 id="workspace-h">My workspace</h2>
                 <span class="internal-tag">Internal · unchecked</span>
                 <span class="ws-steps" id="ws-steps"></span>
                 <button type="button" class="ws-cost" id="ws-cost" aria-controls="ws-cost-note" hidden></button>
               </div>
               <div class="ws-tabs" role="tablist" aria-label="Agent workspace views">
-                <button type="button" role="tab" class="ws-tab" id="tab-traj" aria-controls="pane-traj" aria-selected="true">How the agent worked</button>
-                <button type="button" role="tab" class="ws-tab" id="tab-mem" aria-controls="pane-mem" aria-selected="false">Open leads <span class="count" id="ws-leads-count">0</span></button>
+                <button type="button" role="tab" class="ws-tab" id="tab-traj" aria-controls="pane-traj" aria-selected="true">How I worked</button>
+                <button type="button" role="tab" class="ws-tab" id="tab-mem" aria-controls="pane-mem" aria-selected="false">Open leads (working memory) <span class="count" id="ws-leads-count">0</span></button>
               </div>
             </div>
             <p class="ws-cost-note" id="ws-cost-note" hidden></p>
-            <p class="ws-note" id="ws-note"></p>
+            <p class="ws-note" id="ws-note">My notes and open leads. Internal and unchecked.</p>
+            <p class="ws-pointer">Findings: <a href="#flows" id="ws-to-flows">see All flows</a></p>
 
             <div class="ws-pane" id="pane-traj" role="tabpanel" aria-labelledby="tab-traj">
               <p class="traj-note" id="traj-note"></p>
@@ -104,7 +109,7 @@
                   <ul class="ws-leads" id="ws-leads"></ul>
                 </section>
                 <details class="ws-block ws-notes-box">
-                  <summary>Working notes (internal, unchecked) <span class="count" id="ws-notes-count">0</span></summary>
+                  <summary>Working notes (working memory) <span class="count" id="ws-notes-count">0</span></summary>
                   <ol class="ws-notes" id="ws-notes"></ol>
                 </details>
               </div>
@@ -132,6 +137,7 @@
                 <th scope="col">From</th>
                 <th scope="col">To</th>
                 <th scope="col" class="ft-amt">Amount</th>
+                <th scope="col">Via</th>
                 <th scope="col">Checker</th>
               </tr>
             </thead>
@@ -181,6 +187,6 @@
   <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.30.2/dist/cytoscape.min.js" integrity="sha384-IWROdLKRsN1UuJywMlWl7/blXQ8GEooN2n7dzTxfEPd7ybYIKCUJ2Ol/1Gpf3YV4" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/dagre@0.8.5/dist/dagre.min.js" integrity="sha384-2IH3T69EIKYC4c+RXZifZRvaH5SRUdacJW7j6HtE5rQbvLhKKdawxq6vpIzJ7j9M" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/cytoscape-dagre@2.5.0/cytoscape-dagre.js" integrity="sha384-u69h9ebXeSjlg6q/rb1zKTRAGu/h8deCl0409xpS/QJctMKnc4M9Fzkm01VOQdeF" crossorigin="anonymous"></script>
-  <script src="app.2e8ce3c05f.js"></script>
+  <script src="app.a835542f80.js"></script>
 </body>
 </html>

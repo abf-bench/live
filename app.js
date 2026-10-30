@@ -45,7 +45,7 @@
     open:     { name: 'Open lead',       color: '#ece6da' },
     unknown:  { name: 'Unclassified',    color: '#8b877e' }
   };
-  var LEGEND_TEXT = { open: 'Open lead: the agent is still tracing here' };
+  var LEGEND_TEXT = { open: 'Open lead: I\'m still tracing here' };
   var ROLE_ORDER = ['victim', 'attacker', 'pocket', 'stop', 'frozen', 'resting', 'open', 'unknown'];
   var TAG_FOR_ROLE = { frozen: 'Frozen', resting: 'Not moved yet', open: 'Open lead', stop: 'Tracing stopped' };
 
@@ -86,7 +86,23 @@
     userMoved: false
   };
 
-  var $ = function (id) { return document.getElementById(id); };
+  // A missing element (old cached markup, a renamed id) must not take the page down:
+  // warn once and hand back a detached stand-in so reads and writes are harmless.
+  var MISSING = {};
+  var $ = function (id) {
+    var e = document.getElementById(id);
+    if (e) return e;
+    if (!MISSING[id]) {
+      MISSING[id] = document.createElement('div');
+      MISSING[id].hidden = true;
+      if (window.console) console.warn('Live tracker: #' + id + ' is missing from the page; that part is skipped.');
+    }
+    return MISSING[id];
+  };
+  function safe(name, fn) {
+    try { return fn(); } catch (err) { if (window.console) console.warn('Live tracker: ' + name + ' failed; the rest of the page keeps working.', err); }
+  }
+  function on(node, type, fn, opts) { if (node && node.addEventListener) node.addEventListener(type, fn, opts); }
   if (EMBED) document.body.classList.add('embed');
 
   // ---------- helpers ----------
@@ -239,6 +255,7 @@
         verdict: ['VALID', 'INVALID', 'UNDECIDED'].indexOf(o.verdict) !== -1 ? o.verdict : null,
         edge_ids: Array.isArray(o.edge_ids) ? o.edge_ids.map(String) : [],
         evidence: evidence,
+        via: viaOf(o.via),
         reasons: reasonsOf(o.checker)
       };
       op.seedOp = op.id === 'theft' || (op.seq === null && op.step === null && op.session === 0);
@@ -343,6 +360,20 @@
       S.leadsByAddr.get(l.addr).push(l);
     });
     S.comingSoon = (Array.isArray(data.coming_soon) ? data.coming_soon : []).filter(function (c) { return c && str(c.chain); });
+  }
+
+  // The contract a flow went through: {contract, name, function, explorer}. Names come only from the export.
+  function viaOf(v) {
+    if (!v || typeof v !== 'object') return null;
+    var c = lc(v.contract || '');
+    var x = { contract: isAddr(c) ? c : null, name: str(v.name), fn: str(v['function']), explorer: safeUrl(v.explorer) };
+    return x.contract || x.name ? x : null;
+  }
+  function viaText(v) { return v ? (v.name || (v.contract ? short(v.contract) : 'contract')) + (v.fn ? ' · ' + v.fn : '') : ''; }
+  function viaLink(v, chain) {
+    if (!v) return null;
+    var href = v.explorer || (v.contract ? explorerFor(chain).base + '/address/' + v.contract : null);
+    return href ? extLink(href, viaText(v)) : el('span', null, viaText(v));
   }
 
   // The checker's reasons arrive as strings or small objects; keep plain text only.
@@ -482,7 +513,11 @@
     });
     return Array.from(by.values()).sort(function (a, b) { return b.count - a.count; });
   }
-  function swapLine(x) { return 'Swapped ' + x.from + ' to ' + fmt(x.sum) + ' ' + x.to + ' (' + x.count + ' tx)'; }
+  function swapLine(x) {
+    // Name the venue only when every swap in the group went through the same one.
+    var v = x.edges[0].op && x.edges[0].op.via, same = v && x.edges.every(function (e) { return e.op && e.op.via && viaText(e.op.via) === viaText(v); });
+    return 'Swapped ' + x.from + ' to ' + fmt(x.sum) + ' ' + x.to + (same ? ' via ' + (v.name || (v.contract ? short(v.contract) : 'contract')) : '') + ' (' + x.count + ' tx)';
+  }
   function nodeData(n, view) {
     var frontier = isFrontierAt(n, view);
     var role = frontier ? 'open' : n.role;
@@ -749,14 +784,14 @@
       var still = S.selected.kind === 'rejected' || (S.selected.kind === 'node' || S.selected.kind === 'swaps' ? view.nodes.has(S.selected.id) : view.bundles.has(S.selected.id));
       if (!still) S.selected = null;
     }
-    applySelection();
-    renderStats(view);
-    renderTimeline(view);
-    renderDetail();
+    safe('selection', applySelection);
+    safe('stats', function () { renderStats(view); });
+    safe('replay label', function () { renderTimeline(view); });
+    safe('detail panel', renderDetail);
     if (opts.fit !== false && (entering.length || !opts.animate)) fitView(!!opts.animate);
     showMsg(view.groups.size ? '' : 'No flows traced yet.');
-    syncTrajectory(!!opts.animate);
-    markFlowTable();
+    safe('timeline', function () { syncTrajectory(!!opts.animate); });
+    safe('flows table', markFlowTable);
     return entering.length;
   }
 
@@ -821,7 +856,7 @@
       if (!part) return;
       h1.appendChild(/^MOCK DATA$/i.test(part) ? el('span', { class: 'mock' }, part) : document.createTextNode(part));
     });
-    document.title = title + ' | Live trace';
+    document.title = (/mock/i.test(title) ? 'MOCK DATA: ' : '') + 'ABF-Agent: tracing the Binance hack live';
     $('watermark').hidden = !/mock/i.test(title);
     $('chain-name').textContent = cap(lc(c.chain) || 'ethereum');
 
@@ -901,7 +936,12 @@
       amountCell('', 'Tracing stopped', ROLES.stop.color, byRole('stop', view.inflow), 2),
       countCell('Flows traced', view.flows, function () { $('flows').scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block: 'start' }); }, 'Show the list of all flows'),
       checkerCell,
-      countCell('Addresses', view.nodes.size)
+      countCell('Addresses', view.nodes.size),
+      el('div', { class: 'stat small cost', title: T.costNote || null },
+        el('div', { class: 'stat-label' }, 'Model cost'),
+        el('div', { class: 'stat-value' }, T.cost !== null && T.cost !== undefined
+          ? el('span', { class: 'amt' }, '$' + T.cost.toFixed(2), el('span', { class: 'asset' }, 'so far'))
+          : el('span', { class: 'none' }, 'Not yet')))
     ]);
   }
 
@@ -1076,7 +1116,6 @@
 
   function renderWorkspace() {
     var W = S.workspace;
-    $('ws-note').textContent = W.note || 'The agent’s own working state, internal and unchecked. The findings are what it reports.';
     $('ws-steps').textContent = S.total ? plural(S.total, 'step') + ' taken' : '';
     $('ws-leads-count').textContent = String(W.leads.length);
     var list = $('ws-leads');
@@ -1170,7 +1209,7 @@
       el('button', { type: 'button', class: 'linkish', onclick: function () {
         markLeads(n.id, true, true);
         setTimeout(function () { markLeads(n.id, false); }, 2400);
-      } }, plural(leads.length, 'entry', 'entries') + ' in the agent workspace'))]);
+      } }, plural(leads.length, 'entry', 'entries') + ' in my workspace'))]);
     box.appendChild(kv);
 
     var sw = swapsAt(n.id, view);
@@ -1243,6 +1282,7 @@
       el('div', { class: 'hops' }, hop('From', from, e.srcPos), hop('To', to, e.tgtPos)),
       el('dl', { class: 'kv' },
         el('dt', null, 'Operation'), el('dd', null, prettyType(e.op ? e.op.type : null)),
+        e.op && e.op.via ? [el('dt', null, 'Via'), el('dd', { class: 'mono' }, viaLink(e.op.via, chain))] : null,
         el('dt', null, 'Recorded'), el('dd', null, e.seed ? 'Case start' : ['Step ' + e.step, e.op ? [' · ', el('button', { type: 'button', class: 'linkish', onclick: function () { showInTimeline(e.op.id, e.step); } }, 'Show in the agent timeline')] : null]),
         el('dt', null, 'Tx'), el('dd', { class: 'mono' }, txLink(e.tx, chain)),
         e.block !== null ? [el('dt', null, 'Block'), el('dd', { class: 'mono' }, String(e.block))] : null,
@@ -1277,10 +1317,21 @@
   // Renders a window of events at a time, so thousands of events stay cheap.
   // Result excerpts are built only when a visitor expands them.
 
+  // The exporter writes <data>/trajectory/index.json plus chunks of about 300 events. The page
+  // loads the index and the last chunk first and fetches earlier chunks only when needed
+  // (scrolling up, replaying earlier, a deep link). A single trajectory.json still works.
+  var DATA_DIR = DATA_URL.indexOf('/') !== -1 ? DATA_URL.slice(0, DATA_URL.lastIndexOf('/') + 1) : '';
+  var DATA_NAME = DATA_URL.slice(DATA_DIR.length).replace(/\.json$/, '');
   var TRAJ_URL = safeDataPath(PARAMS.get('trajectory')) ||
-    (/graph\.json$/.test(DATA_URL) ? DATA_URL.replace(/graph\.json$/, 'trajectory.json') : DATA_URL.replace(/\.json$/, '.trajectory.json'));
+    (DATA_NAME === 'graph' ? DATA_DIR + 'trajectory.json' : DATA_DIR + DATA_NAME + '.trajectory.json');
+  var TRAJ_INDEX_URL = safeDataPath(PARAMS.get('tindex')) ||
+    (DATA_NAME === 'graph' ? DATA_DIR + 'trajectory/index.json' : DATA_DIR + DATA_NAME + '.trajectory/index.json');
+  var TRAJ_INDEX_DIR = TRAJ_INDEX_URL.slice(0, TRAJ_INDEX_URL.lastIndexOf('/') + 1);
   var TRAJ_WINDOW = 120;
-  var T = { events: [], loaded: false, start: 0, end: 0, nowIdx: -1, pinK: null, byKey: new Map(), itemOf: new Map() };
+  var T = {
+    mode: null, meta: [], events: [], n: 0, loaded: false, failed: false, cost: null, costNote: null, totalSteps: 0,
+    chunk: {}, pending: {}, start: 0, end: 0, nowIdx: -1, pinK: null, byKey: new Map(), itemOf: new Map(), seq: 0
+  };
   var TOKEN_NAMES = {
     '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2': 'WETH', '0xdac17f958d2ee523a2206206994597c13d831ec7': 'USDT',
     '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48': 'USDC', '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599': 'WBTC',
@@ -1288,6 +1339,11 @@
   };
   var TRANSFER_TOPIC = '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef';
   var ARG_ORDER = ['account', 'address', 'tx_hash', 'topics', 'direction', 'block_window', 'limit'];
+
+  function fetchJson(url) {
+    return fetch(url + (url.indexOf('?') === -1 ? '?' : '&') + 't=' + Date.now(), { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); });
+  }
 
   function activeTab() { return $('tab-traj').getAttribute('aria-selected') === 'true' ? 'traj' : 'mem'; }
   function setTab(which) {
@@ -1300,38 +1356,112 @@
     if (which === 'traj') syncTrajectory(false);
   }
 
+  function timelineUnavailable() {
+    clear($('traj'));
+    $('traj').appendChild(el('li', { class: 'traj-loading' }, 'My timeline isn\'t available yet. What I found and my open leads still load.'));
+    $('tab-traj').hidden = true;
+    setTab('mem');
+  }
+
   function loadTrajectory() {
-    fetch(TRAJ_URL + '?t=' + Date.now(), { cache: 'no-store' })
-      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-      .then(initTrajectory)
-      .catch(function () {
-        clear($('traj'));
-        $('traj').appendChild(el('li', { class: 'traj-loading' }, 'The agent’s timeline is not available yet.'));
-        $('tab-traj').hidden = true;
-        setTab('mem');
-      });
+    var useIndex = !PARAMS.get('trajectory') || !!PARAMS.get('tindex');
+    (useIndex ? fetchJson(TRAJ_INDEX_URL).then(function (idx) {
+      if (!applyIndex(idx)) throw new Error('no chunks');
+      T.mode = 'chunks';
+      return loadChunk(T.meta[T.meta.length - 1]);
+    }) : Promise.reject(new Error('single file requested')))
+      .catch(function () { return fetchJson(TRAJ_URL).then(initSingle); })
+      .then(function () { T.loaded = true; afterTrajectoryChange(); handleEventLink(); })
+      .catch(function (err) { if (window.console) console.warn('Live tracker: timeline not loaded', err); timelineUnavailable(); });
   }
 
   function rawHref(p) {
     if (typeof p !== 'string' || !/^[\w\-./]+$/.test(p) || p.indexOf('..') !== -1 || p.charAt(0) === '/') return null;
-    var base = DATA_URL.indexOf('/') !== -1 ? DATA_URL.slice(0, DATA_URL.lastIndexOf('/') + 1) : '';
-    return base + p;
+    return DATA_DIR + p;
+  }
+  function safeChunkFile(f) { return typeof f === 'string' && /^[\w\-./]+\.json$/.test(f) && f.indexOf('..') === -1 && f.charAt(0) !== '/' ? f : null; }
+
+  // Index: {chunks: [{file, first_i, last_i, first_step, last_step, cost_usd}], total_steps, cost_usd, cost_note, raw_files, note}
+  function applyIndex(idx) {
+    // first_event / last_event / total_events are accepted as names for first_i / last_i / the event count.
+    var chunks = (idx && Array.isArray(idx.chunks) ? idx.chunks : []).map(function (c) {
+      var fi = c ? (num(c.first_i) !== null ? num(c.first_i) : num(c.first_event)) : null;
+      var li = c ? (num(c.last_i) !== null ? num(c.last_i) : num(c.last_event)) : null;
+      return c && safeChunkFile(c.file) && fi !== null && li !== null ? {
+        file: c.file, first_i: fi, last_i: li,
+        first_step: num(c.first_step) === null ? 0 : num(c.first_step), last_step: num(c.last_step) === null ? 0 : num(c.last_step), cost: num(c.cost_usd)
+      } : null;
+    }).filter(Boolean).sort(function (a, b) { return a.first_i - b.first_i; });
+    if (!chunks.length) return false;
+    T.meta = chunks;
+    T.n = Math.max(chunks[chunks.length - 1].last_i + 1, num(idx.total_events) || 0);
+    T.cost = num(idx.cost_usd);
+    T.costNote = str(idx.cost_note);
+    T.totalSteps = Math.max(num(idx.total_steps) || 0, chunks[chunks.length - 1].last_step);
+    renderTrajMeta(idx);
+    return true;
   }
 
-  function initTrajectory(d) {
+  function initSingle(d) {
     var evs = Array.isArray(d && d.events) ? d.events.filter(function (e) { return e && typeof e === 'object' && e.kind; }) : [];
-    evs.forEach(function (e, k) { e._order = num(e.i) !== null ? num(e.i) : k; });
-    evs.sort(function (a, b) { return a._order - b._order; });
-    var leadOpen = new Set();
-    T.byKey = new Map();
+    evs.forEach(function (e, k) { if (num(e.i) === null) e.i = k; });
+    T.mode = 'single';
+    T.events = [];
+    T.chunk = { '(single)': 'loaded' };
+    addEvents(evs);
+    var first = T.events.find(function (e) { return e; }), last = T.events[T.events.length - 1];
+    T.meta = [{ file: '(single)', first_i: 0, last_i: Math.max(0, T.events.length - 1), first_step: first ? first._step : 0, last_step: last ? last._step : 0, cost: num(d && d.cost_usd) }];
+    T.n = T.events.length;
     T.cost = num(d && d.cost_usd);
     T.costNote = str(d && d.cost_note);
-    var lastCost = null;
-    evs.forEach(function (e, k) {
-      e._k = k;
+    T.totalSteps = Math.max(num(d && d.total_steps) || 0, last ? last._step : 0);
+    renderTrajMeta(d);
+  }
+
+  function loadChunk(m) {
+    if (!m) return Promise.resolve();
+    if (T.chunk[m.file] === 'loaded') return Promise.resolve();
+    if (T.pending[m.file]) return T.pending[m.file];
+    var p = fetchJson(TRAJ_INDEX_DIR + m.file).then(function (d) {
+      addEvents(Array.isArray(d && d.events) ? d.events : []);
+      T.chunk[m.file] = 'loaded';
+    }).catch(function (err) {
+      T.chunk[m.file] = 'failed';
+      if (window.console) console.warn('Live tracker: could not load ' + m.file, err);
+    }).then(function () { delete T.pending[m.file]; });
+    T.pending[m.file] = p;
+    return p;
+  }
+  function chunkForIndex(i) { for (var j = 0; j < T.meta.length; j++) if (i >= T.meta[j].first_i && i <= T.meta[j].last_i) return T.meta[j]; return null; }
+  function chunkForStep(N) {
+    var m = T.meta[0] || null;
+    T.meta.forEach(function (c) { if (c.first_step <= N) m = c; });
+    return m;
+  }
+  function chunkReady(m) { return !m || T.chunk[m.file] === 'loaded' || T.chunk[m.file] === 'failed'; }
+  function chunksIn(a, b) { return T.meta.filter(function (m) { return m.last_i >= a && m.first_i < b; }); }
+  function rangeReady(a, b) { return chunksIn(a, b).every(chunkReady); }
+  function ensureRange(a, b) { return Promise.all(chunksIn(a, b).map(loadChunk)); }
+
+  function addEvents(list) {
+    list.forEach(function (e) {
+      if (!e || typeof e !== 'object' || !e.kind || num(e.i) === null) return;
+      e._order = num(e.i);
+      e._k = e._order;
       e._step = num(e.step) === null ? 0 : num(e.step);
-      var c = num(e.cost_usd);
-      e._cost = c === null ? lastCost : c;
+      e._costRaw = num(e.cost_usd);
+      T.events[e._order] = e;
+    });
+    derive();
+  }
+  // Facts that depend on earlier events (lead state, cost carry, finding index) over what is loaded.
+  function derive() {
+    var leadOpen = new Set(), lastCost = null;
+    T.byKey = new Map();
+    for (var k = 0; k < T.events.length; k++) {
+      var e = T.events[k];
+      if (!e) continue;
+      e._cost = e._costRaw === null ? lastCost : e._costRaw;
       lastCost = e._cost;
       if (e.kind === 'memory' && e.args && typeof e.args === 'object') {
         var a = e.args, key = str(a.key);
@@ -1341,12 +1471,36 @@
           else { e._lead = leadOpen.has(key) ? 'updated' : 'opened'; leadOpen.add(key); }
         }
       }
+    }
+  }
+
+  function renderTrajMeta(d) {
+    var note = str(d && d.note);
+    $('traj-note').textContent = note || '';
+    $('traj-note').hidden = !note;
+    var raw = $('traj-raw');
+    clear(raw);
+    var files = (Array.isArray(d && d.raw_files) ? d.raw_files : []).map(function (p) { return { p: p, href: rawHref(p) }; }).filter(function (f) { return f.href; });
+    raw.hidden = !files.length;
+    if (!files.length) return;
+    var kinds = { transcript: [], evidence: [], other: [] };
+    files.forEach(function (f) { (/transcript/i.test(f.p) ? kinds.transcript : /evidence/i.test(f.p) ? kinds.evidence : kinds.other).push(f); });
+    var parts = [];
+    [['transcript', 'model transcript'], ['evidence', 'evidence log'], ['other', 'file']].forEach(function (kv) {
+      kinds[kv[0]].forEach(function (f, i) {
+        var name = kv[1] + (kinds[kv[0]].length > 1 ? ' ' + (i + 1) : '');
+        if (parts.length) parts.push(', ');
+        parts.push(el('a', { href: f.href, download: f.p.split('/').pop(), title: f.p }, name));
+      });
     });
-    T.events = evs;
-    T.loaded = true;
+    append(raw, ['Raw records: '].concat(parts));
+  }
+
+  // After any timeline load: cost labels, replay length, the window around the replay step.
+  function afterTrajectoryChange() {
     renderCost();
-    // The timeline may run past the last recorded flow; stretch the replay to cover it.
-    var tTotal = Math.max(num(d && d.total_steps) || 0, evs.length ? evs[evs.length - 1]._step : 0);
+    var lastEv = T.events[T.events.length - 1];
+    var tTotal = Math.max(T.totalSteps || 0, lastEv ? lastEv._step : 0);
     if (tTotal > S.total) {
       var atEnd = S.step >= S.total;
       S.total = tTotal;
@@ -1354,91 +1508,91 @@
       $('ws-steps').textContent = plural(S.total, 'step') + ' taken';
       apply(atEnd ? S.total : S.step, { fit: false });
     }
-
-    var note = str(d && d.note);
-    $('traj-note').textContent = note || '';
-    $('traj-note').hidden = !note;
-    var raw = $('traj-raw');
-    clear(raw);
-    var files = (Array.isArray(d && d.raw_files) ? d.raw_files : []).map(function (p) { return { p: p, href: rawHref(p) }; }).filter(function (f) { return f.href; });
-    if (files.length) {
-      var kinds = { transcript: [], evidence: [], other: [] };
-      files.forEach(function (f) { (/transcript/i.test(f.p) ? kinds.transcript : /evidence/i.test(f.p) ? kinds.evidence : kinds.other).push(f); });
-      var parts = [];
-      [['transcript', 'model transcript'], ['evidence', 'evidence log'], ['other', 'file']].forEach(function (kv) {
-        kinds[kv[0]].forEach(function (f, i) {
-          var name = kv[1] + (kinds[kv[0]].length > 1 ? ' ' + (i + 1) : '');
-          if (parts.length) parts.push(', ');
-          parts.push(el('a', { href: f.href, download: f.p.split('/').pop(), title: f.p }, name));
-        });
-      });
-      append(raw, ['Raw records: '].concat(parts));
-      raw.hidden = false;
-    }
-    if (!evs.length) {
+    if (!T.n) {
       clear($('traj'));
       $('traj').appendChild(el('li', { class: 'traj-loading' }, 'No recorded events yet.'));
       return;
     }
     T.rendered = false;
     syncTrajectory(false);
-    handleEventLink();
   }
 
   // Model spend after the last event at or before a step (cumulative, from the trajectory).
   function costAt(N) {
-    if (!T.loaded || !T.events.length || T.cost === null) return null;
-    var c = T.events[lastEventAtOrBefore(N)]._cost;
-    return c === null || c === undefined ? null : c;
+    if (!T.loaded || T.cost === null) return null;
+    var k = lastEventAtOrBefore(N);
+    var e = k >= 0 ? T.events[k] : null;
+    return e && e._cost !== null && e._cost !== undefined ? e._cost : null;
   }
 
   function renderCost() {
     var b = $('ws-cost');
-    if (T.cost === null) { b.hidden = true; return; }
-    b.hidden = false;
-    b.textContent = '$' + T.cost.toFixed(2) + ' model cost';
-    b.title = T.costNote || '';
-    $('ws-cost-note').textContent = T.costNote || '';
-    if (S.view) renderTimeline(S.view);
+    if (T.cost === null) { b.hidden = true; }
+    else {
+      b.hidden = false;
+      b.textContent = '$' + T.cost.toFixed(2) + ' model cost';
+      b.title = T.costNote || '';
+      $('ws-cost-note').textContent = T.costNote || '';
+    }
+    if (S.view) { renderTimeline(S.view); renderStats(S.view); }
   }
 
+  // Index of the last event at or before step N; -1 while the chunk that holds it is still loading.
   function lastEventAtOrBefore(N) {
-    for (var k = T.events.length - 1; k >= 0; k--) if (T.events[k]._step <= N) return k;
-    return 0;
+    var m = chunkForStep(N);
+    if (!m) return 0;
+    if (T.chunk[m.file] !== 'loaded') {
+      if (T.chunk[m.file] !== 'failed') return -1;
+      for (var j = Math.min(m.first_i, T.events.length) - 1; j >= 0; j--) if (T.events[j] && T.events[j]._step <= N) return j;
+      return 0;
+    }
+    for (var k = Math.min(m.last_i, T.events.length - 1); k >= m.first_i; k--) { var e = T.events[k]; if (e && e._step <= N) return k; }
+    return m.first_i;
+  }
+
+  function windowAround(center) {
+    var start = Math.max(0, Math.min(center - Math.floor(TRAJ_WINDOW / 2), T.n - TRAJ_WINDOW));
+    return [start, Math.min(T.n, start + TRAJ_WINDOW)];
   }
 
   function renderWindow(center) {
-    var n = T.events.length;
-    var start = Math.max(0, Math.min(center - Math.floor(TRAJ_WINDOW / 2), n - TRAJ_WINDOW));
-    var end = Math.min(n, start + TRAJ_WINDOW);
+    var w = windowAround(center), start = w[0], end = w[1];
     // Never split a run of memory writes at the window start.
-    while (start > 0 && T.events[start].kind === 'memory' && T.events[start - 1].kind === 'memory') start--;
+    while (start > 0 && T.events[start] && T.events[start].kind === 'memory' && T.events[start - 1] && T.events[start - 1].kind === 'memory') start--;
     if (T.rendered && start === T.start && end === T.end) return;
     T.start = start; T.end = end; T.rendered = true;
     T.itemOf = new Map();
     var list = $('traj');
     clear(list);
-    var k = start;
+    var k = start, gap = false;
     while (k < end) {
-      if (T.events[k].kind === 'memory') {
+      var e = T.events[k];
+      if (!e) {
+        if (!gap) list.appendChild(el('li', { class: 'traj-loading' }, 'Part of the timeline could not be loaded.'));
+        gap = true;
+        k++;
+        continue;
+      }
+      gap = false;
+      if (e.kind === 'memory') {
         var j = k;
-        while (j < end && T.events[j].kind === 'memory') j++;
+        while (j < end && T.events[j] && T.events[j].kind === 'memory') j++;
         list.appendChild(memoryRow(T.events.slice(k, j)));
         k = j;
       } else {
-        list.appendChild(eventItem(T.events[k]));
+        list.appendChild(eventItem(e));
         k++;
       }
     }
     $('traj-earlier').hidden = start === 0;
-    $('traj-later').hidden = end === n;
+    $('traj-later').hidden = end >= T.n;
   }
 
   function markNow() {
     var N = S.step;
     T.itemOf.forEach(function (li, k) {
       var e = T.events[k];
-      if (+li.dataset.k !== k) return; // a memory row is keyed by its first event
+      if (!e || +li.dataset.k !== k) return; // a memory row is keyed by its first event
       li.classList.toggle('future', e._step > N);
     });
     $('traj').querySelectorAll('.ev.now').forEach(function (li) { li.classList.remove('now'); });
@@ -1447,20 +1601,42 @@
   }
 
   function syncTrajectory(smooth) {
-    if (!T.loaded || !T.events.length) return;
+    if (!T.loaded || !T.n) return;
+    var seq = ++T.seq;
     var pinned = T.pinK !== null && T.events[T.pinK] && T.events[T.pinK]._step === S.step;
     var idx = pinned ? T.pinK : lastEventAtOrBefore(S.step);
+    if (idx === -1) { loadChunk(chunkForStep(S.step)).then(function () { if (seq === T.seq) syncTrajectory(false); }); return; }
+    var w = windowAround(idx);
+    if (!rangeReady(w[0], w[1])) { ensureRange(w[0], w[1]).then(function () { if (seq === T.seq) syncTrajectory(false); }); return; }
     T.nowIdx = idx;
     if (!T.rendered || idx < T.start || idx >= T.end) renderWindow(idx);
     markNow();
     if (activeTab() === 'traj' && WIDE()) scrollToEvent(idx, smooth);
   }
 
+  // Move the window earlier or later, loading chunks first, keeping the reader's place.
+  function shiftWindow(dir) {
+    if (T.shifting) return;
+    var target = dir < 0 ? Math.max(0, T.start - Math.floor(TRAJ_WINDOW / 2)) : Math.min(T.n - 1, T.end + Math.floor(TRAJ_WINDOW / 2) - 1);
+    var w = windowAround(target);
+    var box = $('workspace');
+    var anchorK = dir < 0 ? T.start : T.end - 1, anchor = T.itemOf.get(anchorK);
+    var before = anchor ? offsetIn(box, anchor) - box.scrollTop : 0;
+    T.shifting = true;
+    ensureRange(w[0], w[1]).then(function () {
+      renderWindow(target);
+      markNow();
+      var again = T.itemOf.get(anchorK);
+      if (again && WIDE()) box.scrollTop = offsetIn(box, again) - before;
+    }).then(function () { T.shifting = false; }, function () { T.shifting = false; });
+  }
+
   // Scroll the workspace column (never the page) so an event sits below the sticky header.
   function scrollToEvent(k, smooth) {
     var li = T.itemOf.get(k), box = $('workspace');
     if (!li || box.scrollHeight <= box.clientHeight + 2) return;
-    var head = box.querySelector('.ws-head').offsetHeight;
+    var headEl = box.querySelector('.ws-head');
+    var head = headEl ? headEl.offsetHeight : 0;
     var at = offsetIn(box, li);
     var top = at - head - 10;
     var bottomRoom = box.clientHeight - head;
@@ -1476,22 +1652,34 @@
     apply(step, { animate: true });
   }
 
+  // Show event k: load its chunk and window, scroll to it, flash it.
+  function revealEvent(k, opId) {
+    var w = windowAround(k);
+    return ensureRange(w[0], w[1]).then(function () {
+      if (!T.events[k]) return null;
+      if (k < T.start || k >= T.end) renderWindow(k);
+      markNow();
+      var li = T.itemOf.get(k);
+      if (!li) return null;
+      if (WIDE()) scrollToEvent(k, false);
+      else li.scrollIntoView({ block: 'center', behavior: REDUCED_MOTION ? 'auto' : 'smooth' });
+      flashEl(li);
+      if (opId && li.openDetails) {
+        li.openDetails();
+        li.querySelectorAll('.mem-item').forEach(function (m) { m.classList.toggle('hit', m.dataset.key === opId); });
+      }
+      return li;
+    });
+  }
+
   // From a flow in the graph to the moment the agent recorded it.
   function showInTimeline(opId, step) {
     setTab('traj');
     if (!T.loaded) return;
-    var k = T.byKey.has(opId) ? T.byKey.get(opId) : lastEventAtOrBefore(step);
-    if (k < T.start || k >= T.end) renderWindow(k);
-    markNow();
-    var li = T.itemOf.get(k);
-    if (!li) return;
-    if (WIDE()) scrollToEvent(k, true);
-    else li.scrollIntoView({ block: 'center', behavior: REDUCED_MOTION ? 'auto' : 'smooth' });
-    flashEl(li);
-    if (li.openDetails) {
-      li.openDetails();
-      li.querySelectorAll('.mem-item').forEach(function (m) { m.classList.toggle('hit', m.dataset.key === opId); });
-    }
+    loadChunk(chunkForStep(step)).then(function () {
+      var k = T.byKey.has(opId) ? T.byKey.get(opId) : lastEventAtOrBefore(step);
+      if (k >= 0) revealEvent(k, opId);
+    });
   }
 
   function selectOp(opId) {
@@ -1796,8 +1984,9 @@
     rows.sort(function (a, b) { return (FT.sort === 'asc' ? 1 : -1) * (a.step - b.step || a.block - b.block); });
     $('ft-count').textContent = rows.length === all.length ? String(all.length) : rows.length + ' of ' + all.length;
     $('ft-sort').setAttribute('aria-sort', FT.sort === 'asc' ? 'ascending' : 'descending');
-    $('ft-sort').querySelector('.dir').textContent = FT.sort === 'asc' ? '↑' : '↓';
-    if (!rows.length) { body.appendChild(el('tr', null, el('td', { colspan: '6', class: 'ft-empty' }, 'No flows match this filter.'))); return; }
+    var dir = $('ft-sort').querySelector('.dir');
+    if (dir) dir.textContent = FT.sort === 'asc' ? '↑' : '↓';
+    if (!rows.length) { body.appendChild(el('tr', null, el('td', { colspan: '7', class: 'ft-empty' }, 'No flows match this filter.'))); return; }
     rows.forEach(function (r) {
       var badge = VERDICT_BADGE[r.verdict];
       var tr = el('tr', { class: 'ft-row' + (r.step > S.step ? ' future' : '') + (r.edge && LIVE.fresh.has(r.edge.id) ? ' fresh' : ''), 'data-step': String(r.step), tabindex: '0', role: 'button',
@@ -1809,6 +1998,7 @@
         el('td', { class: 'ft-addr' }, r.from ? nameOf(r.from) : el('span', { class: 'ft-none' }, 'not exported')),
         el('td', { class: 'ft-addr' }, !r.to ? el('span', { class: 'ft-none' }, 'not exported') : (r.swap ? el('span', { class: 'ft-none' }, 'same address') : nameOf(r.to))),
         el('td', { class: 'ft-amt' }, r.edge ? fmt(r.amount) + ' ' + r.asset + (r.swap && r.fromAsset ? ' from ' + r.fromAsset : '') : ''),
+        el('td', { class: 'ft-via' }, r.op && r.op.via ? viaText(r.op.via) : (r.edge && r.edge.op && r.edge.op.via ? viaText(r.edge.op.via) : '')),
         el('td', null, el('span', { class: 'badge ' + badge[0] }, badge[1])));
       body.appendChild(tr);
     });
@@ -1887,6 +2077,7 @@
     var params = { op: e.op ? e.op.id : null, edge: !e.op || opEdgeCount(e.op) > 1 ? e.id : null };
     var ctx = [['Flagged', 'a flow']];
     if (e.op) ctx.push(['Operation', mdCode(e.op.id) + ' (' + prettyType(e.op.type) + ')']);
+    if (e.op && e.op.via) ctx.push(['Via', viaText(e.op.via) + (e.op.via.contract ? ' ' + mdAddr(e.op.via.contract, chain) : '')]);
     ctx.push(['Transfer', mdCode(e.id)], ['From', mdAddr(e.from, chain)], ['To', mdAddr(e.to, chain)],
       ['Amount', fmtExact(e.amountStr) + ' ' + e.asset], ['Transaction', mdTx(e.tx, chain)]);
     if (e.srcPos || e.tgtPos) ctx.push(['Records', 'from end: ' + (e.srcPos || 'none') + '; to end: ' + (e.tgtPos || 'none')]);
@@ -1896,6 +2087,10 @@
       short: short(e.from) + ' to ' + short(e.to) + ' (' + e.asset + ')',
       type: 'Wrong flow', context: ctx, link: deepLink(params)
     };
+  }
+
+  function generalTarget() {
+    return { summary: 'This page in general', short: 'general report', type: 'Other', context: [['Flagged', 'the page in general']], link: deepLink({}) };
   }
 
   function addressTarget(n) {
@@ -2072,25 +2267,22 @@
     var want = num(PARAMS.get('event'));
     if (want === null || T.linkDone) return;
     T.linkDone = true;
-    var k = -1;
-    T.events.forEach(function (e, i) { if (k === -1 && e._order === want) k = i; });
-    if (k === -1) { notInData(); return; }
+    var m = chunkForIndex(want);
+    if (!m) { notInData(); return; }
     setTab('traj');
-    if (PARAMS.get('step') === null && !PARAMS.get('op') && !PARAMS.get('addr')) { T.pinK = k; apply(T.events[k]._step, { fit: true }); }
-    if (k < T.start || k >= T.end) renderWindow(k);
-    markNow();
-    var li = T.itemOf.get(k);
-    if (!li) return;
-    if (WIDE()) scrollToEvent(k, false);
-    else li.scrollIntoView({ block: 'center' });
-    flashEl(li);
+    loadChunk(m).then(function () {
+      var e = T.events[want];
+      if (!e) { notInData(); return; }
+      if (PARAMS.get('step') === null && !PARAMS.get('op') && !PARAMS.get('addr')) { T.pinK = want; apply(e._step, { fit: true }); }
+      revealEvent(want);
+    });
   }
 
   // ---------- live updates ----------
   // Every two minutes: fetch graph.json; when the export changed, fetch the timeline too and
   // apply both in place, keeping the visitor's selection, replay position and scroll.
 
-  var LIVE = { lastCheck: 0, failed: false, busy: false, fresh: new Set(), freshTimer: null };
+  var LIVE = { lastCheck: 0, failed: false, busy: false, fresh: new Set(), freshTimer: null, status: null };
 
   function agoText(iso) {
     var d = parseTime(iso);
@@ -2114,15 +2306,19 @@
     if (LIVE.busy || (document.hidden && !force)) return Promise.resolve(false);
     LIVE.busy = true;
     LIVE.lastCheck = Date.now();
+    loadStatus();
     return fetch(DATA_URL + '?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
       .then(function (g) {
         LIVE.failed = false;
         if (!g || !g.case || (g.case.updated_utc && g.case.updated_utc === S.caseInfo.updated_utc)) return false;
-        return fetch(TRAJ_URL + '?t=' + Date.now(), { cache: 'no-store' })
-          .then(function (r) { return r.ok ? r.json() : null; })
-          .catch(function () { return null; })
-          .then(function (t) { applyUpdate(g, t); return true; });
+        var prev;
+        try { prev = applyUpdate(g); } catch (err) {
+          if (window.console) console.warn('Live tracker: could not apply the new data; keeping the current view.', err);
+          LIVE.failed = true;
+          return false;
+        }
+        return refreshTrajectory(prev).then(function () { return true; });
       })
       .catch(function () { LIVE.failed = true; return false; })
       .then(function (changed) { LIVE.busy = false; renderLiveStatus(); return changed; });
@@ -2195,7 +2391,37 @@
     }, 10000);
   }
 
-  function applyUpdate(raw, traj) {
+  // Timeline refresh: re-read the index, then only chunks that are new or changed
+  // (the last one grows; earlier ones never change). A single file is re-read whole.
+  function refreshTrajectory(prev) {
+    if (!T.loaded) return Promise.resolve();
+    var done = function () {
+      afterTrajectoryChange();
+      if (prev.follow && S.step < S.total) apply(S.total, { fit: false });
+      if (!prev.follow || activeTab() !== 'traj') $('workspace').scrollTop = prev.ws;
+    };
+    var p;
+    if (T.mode === 'single') {
+      p = fetchJson(TRAJ_URL).then(initSingle);
+    } else {
+      var old = {};
+      T.meta.forEach(function (m) { old[m.file] = m; });
+      p = fetchJson(TRAJ_INDEX_URL).then(function (idx) {
+        if (!applyIndex(idx)) return null;
+        var loads = [];
+        T.meta.forEach(function (m, j) {
+          var o = old[m.file];
+          var changed = !o || o.last_i !== m.last_i || o.last_step !== m.last_step || o.cost !== m.cost;
+          var wanted = T.chunk[m.file] === 'loaded' || T.chunk[m.file] === 'failed' || j === T.meta.length - 1;
+          if (changed && wanted) { delete T.chunk[m.file]; loads.push(loadChunk(m)); }
+        });
+        return Promise.all(loads);
+      });
+    }
+    return p.then(done, function (err) { if (window.console) console.warn('Live tracker: timeline refresh failed', err); });
+  }
+
+  function applyUpdate(raw) {
     var prev = {
       follow: S.step >= S.total, step: S.step, selected: S.selected, tab: activeTab(),
       flowIds: new Set(S.edges.filter(function (e) { return !e.rejected; }).map(function (e) { return e.id; })),
@@ -2217,10 +2443,6 @@
     apply(prev.follow ? S.total : Math.min(prev.step, S.total), { fit: false });
     runLayout(added.length > 0, function () { if (!S.userMoved) fitView(true); });
     renderFlowTable();
-    if (traj) {
-      initTrajectory(traj);
-      if (prev.follow && S.step < S.total) apply(S.total, { fit: false });
-    }
     if (prev.tab !== activeTab() && !$('tab-' + prev.tab).hidden) setTab(prev.tab);
     // Put the visitor back where they were reading.
     $('detail').scrollTop = prev.detail;
@@ -2232,13 +2454,42 @@
     renderFlowTable();
     $('ft-scroll').scrollTop = prev.ft;
     if (fresh.length) toast('+' + plural(fresh.length, 'new flow'), 5000);
+    return prev;
+  }
+
+  // Scheduler status: {state: tracing|waiting|paused_budget|stopped, since_utc, next_wave_utc, spent_usd, cap_usd, heartbeat_utc}
+  var STATUS_URL = safeDataPath(PARAMS.get('status')) || (DATA_NAME === 'graph' ? DATA_DIR + 'status.json' : null);
+  var STALE_MS = 45 * 60 * 1000;
+  function loadStatus() {
+    if (!STATUS_URL || EMBED && !PARAMS.get('status')) return Promise.resolve();
+    return fetchJson(STATUS_URL).then(function (st) { LIVE.status = st && typeof st === 'object' ? st : null; }, function () { LIVE.status = null; })
+      .then(renderStatusBadge);
+  }
+  function hhmm(iso) { var d = parseTime(iso); return d ? pad(d.getUTCHours()) + ':' + pad(d.getUTCMinutes()) + ' UTC' : null; }
+  function renderStatusBadge() {
+    var badge = $('agent-status'), dot = document.querySelector('.kicker .live-dot');
+    var st = LIVE.status;
+    if (!st) { badge.hidden = true; $('rounds-note').hidden = true; if (dot) dot.className = 'live-dot'; return; }
+    var hb = parseTime(st.heartbeat_utc);
+    var state = !hb || Date.now() - hb.getTime() > STALE_MS ? 'stopped' : String(st.state || 'stopped');
+    var text;
+    if (state === 'tracing') text = 'I\'m tracing now';
+    else if (state === 'waiting') text = hhmm(st.next_wave_utc) ? 'Next round around ' + hhmm(st.next_wave_utc) : 'Waiting for the next round';
+    else if (state === 'paused_budget') text = 'Paused: I\'ve hit my token cap for now. Waiting for a human to wake up and top it up.';
+    else { state = 'stopped'; text = 'Not running right now'; }
+    badge.textContent = text;
+    badge.className = 'agent-status st-' + state;
+    badge.hidden = false;
+    $('rounds-note').hidden = false;
+    if (dot) dot.className = 'live-dot st-' + state;
   }
 
   function startLive() {
     if (EMBED) return;
     renderLiveStatus();
+    loadStatus();
     setInterval(function () { poll(false); }, POLL_MS);
-    setInterval(renderLiveStatus, 30000);
+    setInterval(function () { renderLiveStatus(); renderStatusBadge(); }, 30000);
     // A tab that comes back after a while checks right away.
     document.addEventListener('visibilitychange', function () {
       if (!document.hidden && Date.now() - LIVE.lastCheck > POLL_MS) poll(true);
@@ -2257,15 +2508,29 @@
     $('slider').addEventListener('input', function (ev) { stopPlay(); T.pinK = null; apply(+ev.target.value, { animate: true }); });
     $('tab-traj').addEventListener('click', function () { setTab('traj'); });
     $('tab-mem').addEventListener('click', function () { setTab('mem'); });
-    $('workspace').querySelector('.ws-tabs').addEventListener('keydown', function (ev) {
+    on($('workspace').querySelector('.ws-tabs'), 'keydown', function (ev) {
       if (ev.key !== 'ArrowLeft' && ev.key !== 'ArrowRight') return;
       var next = activeTab() === 'traj' ? 'mem' : 'traj';
       if ($('tab-' + next).hidden) return;
       setTab(next);
       $('tab-' + next).focus();
     });
-    $('btn-earlier').addEventListener('click', function () { renderWindow(Math.max(0, T.start - Math.floor(TRAJ_WINDOW / 2))); markNow(); });
-    $('btn-later').addEventListener('click', function () { renderWindow(Math.min(T.events.length - 1, T.end + Math.floor(TRAJ_WINDOW / 2) - 1)); markNow(); });
+    on($('tell-me'), 'click', function (ev) { ev.preventDefault(); openReport(generalTarget()); });
+    on($('ws-to-flows'), 'click', function (ev) { ev.preventDefault(); $('flows').scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block: 'start' }); });
+    on($('btn-earlier'), 'click', function () { shiftWindow(-1); });
+    on($('btn-later'), 'click', function () { shiftWindow(1); });
+    // Reaching the top or bottom of the timeline loads the neighbouring events.
+    var ticking = false;
+    on($('workspace'), 'scroll', function () {
+      if (ticking || !T.loaded || activeTab() !== 'traj') return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        ticking = false;
+        var box = $('workspace');
+        if (box.scrollTop < 140 && T.start > 0) shiftWindow(-1);
+        else if (box.scrollHeight - box.scrollTop - box.clientHeight < 140 && T.end < T.n) shiftWindow(1);
+      });
+    }, { passive: true });
     $('btn-play').addEventListener('click', function () { if (S.playing) stopPlay(); else startPlay(); });
     $('btn-fit').addEventListener('click', function () { fitView(true); });
     $('ws-cost').addEventListener('click', function () { var n = $('ws-cost-note'); n.hidden = !n.hidden || !n.textContent; this.setAttribute('aria-expanded', n.hidden ? 'false' : 'true'); });
@@ -2281,7 +2546,6 @@
   }
 
   function fail(text) {
-    $('case-title').textContent = 'Live trace';
     showMsg(text);
     document.body.setAttribute('data-ready', 'error');
   }
@@ -2301,24 +2565,29 @@
       var want = num(PARAMS.get('step'));
       S.step = want !== null ? Math.max(0, Math.min(S.total, want)) : S.total;
       // Fill everything around the graph first so the canvas is measured at its final size.
-      renderHeader();
-      renderComingSoon();
-      renderLegend();
-      renderWorkspace();
-      buildTimelineControls();
+      safe('header', renderHeader);
+      safe('coming soon', renderComingSoon);
+      safe('legend', renderLegend);
+      safe('workspace', renderWorkspace);
+      safe('replay controls', buildTimelineControls);
       S.view = viewAt(S.step);
-      renderStats(S.view);
-      renderTimeline(S.view);
+      safe('stats', function () { renderStats(S.view); });
+      safe('replay label', function () { renderTimeline(S.view); });
       buildGraph();
-      wireControls();
-      wireReport();
-      wireFlowTable();
-      renderFlowTable();
+      safe('controls', wireControls);
+      safe('report form', wireReport);
+      safe('flows table', function () { wireFlowTable(); renderFlowTable(); });
       apply(S.step, { fit: true });
-      requestAnimationFrame(function () { fitView(false); handleDeepLinks(); });
+      requestAnimationFrame(function () { fitView(false); safe('deep link', handleDeepLinks); });
       startPulse();
-      renderNotes();
+      safe('notes', renderNotes);
       if (!EMBED) { startLive(); loadTrajectory(); }
+      // A screenshot frame skips the timeline but still shows the model cost from the small index.
+      else fetchJson(TRAJ_INDEX_URL).then(function (idx) {
+        T.cost = num(idx && idx.cost_usd);
+        T.costNote = str(idx && idx.cost_note);
+        safe('stats', function () { renderStats(S.view); });
+      }, function () { /* no index: the stat stays "Not yet" */ });
       if (PARAMS.get('debug') === '1') window.__abf = { state: S, select: select, apply: apply, focusNode: focusNode, viewAt: viewAt, markNode: markNode, markLeads: markLeads, traj: T, setTab: setTab, showInTimeline: showInTimeline, poll: poll, live: LIVE, report: R, openReport: openReport, flowTarget: flowTarget, buildIssueUrl: buildIssueUrl };
       document.body.setAttribute('data-ready', '1');
     }).catch(function (err) {

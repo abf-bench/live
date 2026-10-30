@@ -83,7 +83,8 @@ button { font: inherit; color: inherit; }
   grid-template-areas:
     "kicker kicker"
     "title  note"
-    "meta   byline";
+    "meta   byline"
+    "intro  byline";
   column-gap: 40px;
   row-gap: 4px;
   padding-top: 18px;
@@ -114,11 +115,12 @@ h1 {
   margin: 0;
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(30px, 3.4vw, 48px);
-  line-height: 1.02;
+  font-size: clamp(28px, 2.9vw, 42px);
+  line-height: 1.06;
   letter-spacing: -0.01em;
 }
-h1 .mock { font-style: italic; color: var(--signal); }
+.case-name { color: var(--ink-2); }
+.case-name .mock { font-style: italic; color: var(--signal); }
 .meta {
   grid-area: meta;
   margin: 6px 0 0;
@@ -176,7 +178,7 @@ h1 .mock { font-style: italic; color: var(--signal); }
 
 .stats {
   display: grid;
-  grid-template-columns: minmax(0, 1.9fr) repeat(3, minmax(0, 1fr)) minmax(0, 0.7fr) minmax(0, 1.55fr) minmax(0, 0.7fr);
+  grid-template-columns: minmax(0, 1.8fr) repeat(3, minmax(0, 1fr)) minmax(0, 0.7fr) minmax(0, 1.5fr) minmax(0, 0.7fr) minmax(0, 0.8fr);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -1056,6 +1058,34 @@ th.ft-amt { text-align: right; }
   z-index: 60;
 }
 
+/* ---------- agent status, intro, via ---------- */
+
+.agent-status {
+  margin-left: 6px;
+  padding: 1px 8px;
+  border: 1px solid var(--line-2);
+  border-radius: 2px;
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink-2);
+}
+.agent-status.st-tracing { border-color: rgba(255, 77, 46, 0.5); color: var(--ink); }
+.agent-status.st-waiting { border-color: var(--line-2); }
+.agent-status.st-paused_budget { border-color: var(--amber); color: var(--amber); }
+.agent-status.st-stopped { color: var(--muted); }
+.live-dot.st-waiting { background: var(--amber); animation: none; }
+.live-dot.st-paused_budget { background: var(--amber); animation: none; }
+.live-dot.st-stopped { background: var(--faint); animation: none; }
+.rounds-note { font-family: var(--sans); font-size: 11.5px; letter-spacing: 0; text-transform: none; color: var(--faint); }
+body.embed .rounds-note { display: none; }
+.intro { grid-area: intro; margin: 4px 0 0; font-size: 13px; color: var(--ink-2); }
+.ws-pointer { margin: -6px 0 12px; font-family: var(--sans); font-size: 12px; color: var(--muted); }
+.ws-pointer a { color: var(--ink-2); }
+.ft-via { font-family: var(--mono); font-size: 11px; color: var(--muted); white-space: nowrap; }
+.stat.cost .stat-value { font-size: 17px; }
+
 /* ---------- live status, notes, cost, fresh flows ---------- */
 
 .live-status { margin-left: auto; letter-spacing: 0.04em; text-transform: none; color: var(--faint); font-size: 11px; }
@@ -1181,7 +1211,7 @@ th.ft-amt { text-align: right; }
   .page { padding: 0 16px 16px; }
   .masthead {
     grid-template-columns: 1fr;
-    grid-template-areas: "kicker" "title" "meta" "note" "byline";
+    grid-template-areas: "kicker" "title" "meta" "intro" "note" "byline";
     row-gap: 8px;
   }
   .byline { margin-top: 0; }
@@ -1191,6 +1221,8 @@ th.ft-amt { text-align: right; }
   .stat:nth-child(even) { border-left: 0; padding-left: 0; }
   .stat.checker { grid-column: 1 / -1; }
   .stat.checker + .stat { border-left: 0; padding-left: 0; }
+  .stat.cost { border-left: 1px solid var(--line); padding-left: 14px; }
+  .kicker { flex-wrap: wrap; }
   .board { grid-template-columns: 1fr; }
   .graph-wrap { min-height: 66vh; }
   .legend .lines { padding-left: 0; border-left: 0; }
@@ -1214,7 +1246,8 @@ body.embed .foot,
 body.embed .graph-tools { display: none; }
 body.embed .board { flex: 1; min-height: 0; height: auto; grid-template-columns: 1fr; }
 body.embed .masthead { padding-top: 12px; row-gap: 2px; }
-body.embed h1 { font-size: clamp(26px, 3vw, 38px); }
+body.embed .intro { display: none; }
+body.embed h1 { font-size: clamp(24px, 2.6vw, 32px); }
 body.embed .graph-wrap { min-height: 0; }
 body.embed .legend { padding: 6px 14px; gap: 4px 12px; font-size: 11px; }
 body.embed .legend .lines { padding-left: 12px; }
