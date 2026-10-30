@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum: live trace",
   "incident_utc": "2026-10-29T20:24:00Z",
-  "updated_utc": "2026-10-30T20:28:55Z",
+  "updated_utc": "2026-10-30T20:50:28Z",
   "head_block": 26307945,
   "chain": "ethereum",
   "notes": [
@@ -544,7 +544,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "127.67248",
-     "note": "Tether has not frozen this address for USDT: USDT isBlackListed returns false on chain; balanceOf returns 57843.280596 USDT, of which up to 127.67248 USDT arrived through traced flows, as of block 26307945."
+     "note": "Tether has not frozen this address for USDT: USDT isBlackListed returns false on chain; balanceOf returns 57913.837244 USDT, of which up to 127.67248 USDT arrived through traced flows, as of block 26307945."
     }
    ]
   },
@@ -660,7 +660,7 @@
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
      "issuer": "Circle",
      "held": "3088.572212",
-     "note": "Circle has not frozen this address for USDC: USDC isBlacklisted returns false on chain; balanceOf returns 20400 USDC, of which up to 3088.572212 USDC arrived through traced flows, as of block 26307945."
+     "note": "Circle has not frozen this address for USDC: USDC isBlacklisted returns false on chain; balanceOf returns 25410.028328 USDC, of which up to 3088.572212 USDC arrived through traced flows, as of block 26307945."
     }
    ]
   },
@@ -675,7 +675,7 @@
    "id": "0x1431375c684a06b7f2ceeebd7b945ef1e0a97905",
    "chain": "ethereum",
    "label": null,
-   "role": "pocket",
+   "role": "open",
    "note": null
   },
   {
@@ -703,15 +703,15 @@
    "id": "0xb79cc0167ac66899696252b3ebcad022f6af36dc",
    "chain": "ethereum",
    "label": null,
-   "role": "open",
-   "note": null
+   "role": "resting",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26307945."
   },
   {
    "id": "0x624b8798d5460d24295e107fb439508a5a0c70a8",
    "chain": "ethereum",
    "label": null,
-   "role": "open",
-   "note": null
+   "role": "resting",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26307945."
   },
   {
    "id": "0x75220b7600c300005038432a0000f308e0000068",
@@ -8675,6 +8675,21 @@
    "reason": null
   },
   {
+   "account": "lead_0x94d361_USDC_check",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x143137_ETH_check",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x9876ec_USDC_check",
+   "status": "open",
+   "reason": null
+  },
+  {
    "account": "lead_0x8532_ETH",
    "status": "closed",
    "reason": "Open: 0x8532fa14acaf483729c449b8458aeddb900543d4 ETH received 195460000000000000000000 in tx 0x551d...; trace outflows in window. (closed: Account activity for 0x8532fa14acaf483729c449b8458aeddb900543d4 shows no outgoing transfers in blocks 26300770-26306466; ETH pocket remains at account in current window.)"
@@ -9068,6 +9083,18 @@
    {
     "key": "lead_0x624b_ETH",
     "text": "Trace ETH pocket at 0x624b8798d5460d24295e107fb439508a5a0c70a8 after 0x091dfa routed ETH transfer tx 0xa4c4098e8f226eacd29b1eeddbc5ec91b68d827248067db2bc59fe1762db116c amount 445322425226616274; check all ETH outflows in block window."
+   },
+   {
+    "key": "lead_0x94d361_USDC_check",
+    "text": "Opened by the outflow check: 0x94d36132722d772fe053ea13c57bbdbdf435c085 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 (USDC): 1 positive outflows at or after block 26305841, where traced value first arrived, are not recorded: 0xfbb2d55f0be5cc7c5a5f275a700f79299a732b36b76ebf101d0e50ba68e2bf61 (block 26305846, 390176534)"
+   },
+   {
+    "key": "lead_0x143137_ETH_check",
+    "text": "Opened by the outflow check: 0x1431375c684a06b7f2ceeebd7b945ef1e0a97905 ETH (ETH): 1 positive outflows at or after block 26306016, where traced value first arrived, are not recorded: 0x8a9ccd6525f8dbfdaa659b73bfc00ed377d74f84febb2e09971f49756fa80381 (block 26306035, 669976354000000000)"
+   },
+   {
+    "key": "lead_0x9876ec_USDC_check",
+    "text": "Opened by the outflow check: 0x9876ec973f2493cbda0af09d0945bfed6b9d80d9 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 (USDC): 2 positive outflows at or after block 26306119, where traced value first arrived, are not recorded: 0x41212bd1042e0b458e4f64ccc3c94c3e86edc9e48216fe88a68d72a5fe7ac632 (block 26306236, 3094870272); 0x5f915a6698f09a8c7ed21e9fff0f81131e575e9b7e003a14ce337af17f338c12 (block 26306704, 566404242)"
    }
   ],
   "notes": [
