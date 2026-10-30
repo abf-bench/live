@@ -110,6 +110,33 @@
         </aside>
       </div>
 
+      <section class="flows-table" id="flows" aria-labelledby="flows-h">
+        <div class="ft-head">
+          <h3 id="flows-h">All flows <span class="count" id="ft-count">0</span></h3>
+          <div class="ft-filter" id="ft-filter" role="group" aria-label="Filter by the checker's verdict">
+            <button type="button" data-f="all" aria-pressed="true">All</button>
+            <button type="button" data-f="checked" aria-pressed="false">Checked</button>
+            <button type="button" data-f="unchecked" aria-pressed="false">Not yet checked</button>
+            <button type="button" data-f="rejected" aria-pressed="false">Rejected</button>
+          </div>
+        </div>
+        <div class="ft-scroll">
+          <table class="ft">
+            <thead>
+              <tr>
+                <th scope="col"><button type="button" class="ft-sort" id="ft-sort" aria-sort="ascending">Step <span class="dir" aria-hidden="true"></span></button></th>
+                <th scope="col">Type</th>
+                <th scope="col">From</th>
+                <th scope="col">To</th>
+                <th scope="col" class="ft-amt">Amount</th>
+                <th scope="col">Checker</th>
+              </tr>
+            </thead>
+            <tbody id="ft-body"></tbody>
+          </table>
+        </div>
+      </section>
+
       <div class="soon" id="soon" hidden>
         <span class="soon-label">Coming soon</span>
         <ul id="soon-list"></ul>
@@ -120,6 +147,31 @@
       <span>Raw data: <a href="data/graph.json" id="raw-link">graph.json</a></span>
     </footer>
   </div>
+
+  <dialog class="report" id="report" aria-labelledby="report-h">
+    <form id="report-form" novalidate>
+      <div class="rp-head">
+        <h2 id="report-h">Report a problem</h2>
+        <button type="button" class="rp-x" id="report-close" aria-label="Close">&times;</button>
+      </div>
+      <p class="rp-target"><span>Flagging</span> <b id="report-target"></b></p>
+      <label class="rp-field"><span>Problem type</span><select id="rp-type"></select></label>
+      <label class="rp-field"><span>What is wrong</span><textarea id="rp-what" rows="4" required aria-describedby="rp-error"></textarea></label>
+      <p class="rp-error" id="rp-error" role="alert" hidden>Say what is wrong before you continue.</p>
+      <label class="rp-field"><span>Evidence <i>optional</i></span><input id="rp-evidence" type="text" placeholder="Tx hash, address or link" autocomplete="off"></label>
+      <div class="rp-row">
+        <label class="rp-field"><span>Your name <i>optional</i></span><input id="rp-name" type="text" autocomplete="name"></label>
+        <label class="rp-field"><span>Contact <i>optional</i></span><input id="rp-contact" type="text" placeholder="X handle" autocomplete="off" aria-describedby="rp-help"></label>
+      </div>
+      <p class="rp-help" id="rp-help">Reports are public on GitHub. Leave out your email.</p>
+      <div class="rp-actions">
+        <button type="submit" class="rp-submit">Continue on GitHub</button>
+        <button type="button" class="rp-cancel" id="report-cancel">Cancel</button>
+      </div>
+      <p class="rp-note">Opens a new GitHub issue with your report filled in. Check it there and submit.</p>
+      <p class="rp-form" id="rp-form" hidden><a id="rp-form-link" target="_blank" rel="noopener">No GitHub account? Send it through the form</a></p>
+    </form>
+  </dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 

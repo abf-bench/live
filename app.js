@@ -12,6 +12,12 @@
 
   // ---------- configuration ----------
 
+  // Reports: GitHub issues on the public repo; FORM_URL adds a no-account option when set.
+  var FORM_URL = '';
+  var ISSUE_URL = 'https://github.com/abf-bench/live/issues/new';
+  var SITE_URL = 'https://abf-bench.github.io/live/';
+  var MAX_ISSUE_URL = 7000;
+
   var PARAMS = new URLSearchParams(window.location.search);
   var EMBED = PARAMS.get('embed') === '1';
   var SPLIT_ASSETS = PARAMS.get('split') === 'asset';
@@ -175,12 +181,12 @@
     return a;
   }
 
-  function toast(msg) {
+  function toast(msg, ms) {
     var t = $('toast');
     t.textContent = msg;
     t.hidden = false;
     clearTimeout(toast.timer);
-    toast.timer = setTimeout(function () { t.hidden = true; }, 1600);
+    toast.timer = setTimeout(function () { t.hidden = true; }, ms || 1600);
   }
   function copyText(text) {
     function fallback() {
@@ -208,7 +214,11 @@
     (Array.isArray(data.nodes) ? data.nodes : []).forEach(function (n) {
       if (!n || !n.id) return;
       var id = lc(n.id);
-      S.nodes.set(id, { id: id, chain: lc(n.chain) || defaultChain, label: str(n.label), role: ROLES[n.role] ? n.role : 'unknown', note: str(n.note) });
+      // Issuer freezes read on chain: [{asset, token, issuer, note}]
+      var frozen = (Array.isArray(n.frozen) ? n.frozen : []).filter(function (f) { return f && str(f.asset); }).map(function (f) {
+        return { asset: str(f.asset), token: lc(f.token), issuer: str(f.issuer), note: str(f.note) };
+      });
+      S.nodes.set(id, { id: id, chain: lc(n.chain) || defaultChain, label: str(n.label), role: ROLES[n.role] ? n.role : 'unknown', note: str(n.note), frozen: frozen });
     });
 
     S.ops = new Map();
@@ -262,17 +272,21 @@
         tx: str(e.tx), txUrl: safeUrl(e.tx_url), block: num(e.block), time: str(e.time_utc), op: op,
         step: step, seed: seed,
         srcPos: str(e.source_position), tgtPos: str(e.target_position),
+        kind: str(e.kind), fromAsset: str(e.from_asset), toAsset: str(e.asset) || '?',
+        swap: e.kind === 'exchange' && from === to,
         tier: e.tier === 'verified' ? 'verified' : 'unverified', // solid only when the export says so
         rejected: !!((op && op.verdict === 'INVALID') || (listed && listed.verdict === 'INVALID'))
       });
       S.touched.add(from);
       S.touched.add(to);
       [from, to].forEach(function (a) {
-        if (!S.nodes.has(a)) S.nodes.set(a, { id: a, chain: defaultChain, label: null, role: 'unknown', note: null });
+        if (!S.nodes.has(a)) S.nodes.set(a, { id: a, chain: defaultChain, label: null, role: 'unknown', note: null, frozen: [] });
       });
     });
 
     var ws = data.workspace && typeof data.workspace === 'object' ? data.workspace : null;
+    // The replay covers every recorded step: flows, operations (rejected ones too) and the workspace count.
+    S.ops.forEach(function (o) { if (o.step !== null) maxStep = Math.max(maxStep, o.step); });
     S.total = Math.max(maxStep, num(ws && ws.total_steps) || 0);
     // Flows with no step at all appear at the last step.
     S.edges.forEach(function (e) { if (e.step === null) e.step = S.total; });
@@ -438,10 +452,35 @@
       var held = totals(view.inflow.get(n.id)).map(function (p) { return fmt(p[1]) + ' ' + p[0]; });
       if (held.length) lines.push(held.slice(0, 2).join(' + ') + (held.length > 2 ? ' +' + (held.length - 2) : ''));
     }
+    var sw = swapsAt(n.id, view);
+    if (sw.length) {
+      lines.push(swapLine(sw[0]));
+      if (sw.length > 1) lines.push('+' + plural(sw.length - 1, 'more swap'));
+    }
+    if (n.frozen && n.frozen.length) lines.push(n.frozen.map(function (f) { return f.asset; }).join(', ') + ' frozen');
     // Labelled or non-open nodes say how many open leads the agent still holds on them.
     if (leads && (role !== 'open' || n.label)) lines.push(plural(leads, 'open lead'));
     return lines;
   }
+
+  // Swaps at one address, grouped by asset pair: [{from, to, sum, count, edges}]
+  function swapsAt(id, view) {
+    var by = new Map();
+    view.groups.forEach(function (gv) {
+      if (gv.group.from !== id || gv.group.to !== id) return;
+      gv.edges.forEach(function (e) {
+        if (!e.swap) return;
+        var key = (e.fromAsset || '?') + '>' + e.toAsset;
+        var x = by.get(key) || { from: e.fromAsset || '?', to: e.toAsset, sum: 0, count: 0, edges: [] };
+        x.sum += Number.isFinite(e.amount) ? e.amount : 0;
+        x.count++;
+        x.edges.push(e);
+        by.set(key, x);
+      });
+    });
+    return Array.from(by.values()).sort(function (a, b) { return b.count - a.count; });
+  }
+  function swapLine(x) { return 'Swapped ' + x.from + ' to ' + fmt(x.sum) + ' ' + x.to + ' (' + x.count + ' tx)'; }
   function nodeData(n, view) {
     var frontier = isFrontierAt(n, view);
     var role = frontier ? 'open' : n.role;
@@ -450,6 +489,7 @@
     lines.forEach(function (l) { w = Math.max(w, textWidth(l)); });
     return {
       label: lines.join('\n'),
+      frozenMark: n.frozen && n.frozen.length ? 1 : 0,
       w: Math.max(92, Math.ceil(w) + 26),
       h: Math.round(lines.length * NODE_FONT_PX * 1.4 + 16),
       color: ROLES[role].color,
@@ -494,6 +534,7 @@
     { selector: 'node.r-resting', style: { 'border-width': 2.5 } },
     { selector: 'node.r-open, node.frontier', style: { 'border-style': 'dashed', 'border-width': 1.5, 'border-color': C.ink } },
     { selector: 'node.r-unknown', style: { 'border-style': 'dotted' } },
+    { selector: 'node[frozenMark > 0]', style: { 'border-style': 'double', 'border-width': 5 } },
     { selector: 'node.pulse', style: { 'underlay-opacity': 0.13 } },
     { selector: 'node.sel', style: { 'underlay-color': C.ink, 'underlay-opacity': 0.22, 'underlay-padding': 5 } },
     { selector: 'node.hover', style: { 'underlay-color': C.amber, 'underlay-opacity': 0.4, 'underlay-padding': 7, 'transition-duration': 0.15 } },
@@ -517,6 +558,7 @@
     { selector: 'edge.loop', style: { 'loop-direction': '0deg', 'loop-sweep': '-50deg', 'control-point-step-size': 'data(loop)' } },
     { selector: 'edge.loop-down', style: { 'loop-direction': '180deg' } },
     { selector: 'edge.loop-right', style: { 'loop-direction': '90deg' } },
+    { selector: 'edge.loop-left', style: { 'loop-direction': '-90deg' } },
     { selector: 'edge.dashed', style: {
       'line-style': 'dashed', 'line-dash-pattern': [6, 5], 'line-color': C.edgeDashed,
       'target-arrow-color': C.edgeDashed, 'target-arrow-fill': 'hollow', 'color': C.ink2
@@ -543,7 +585,8 @@
     });
     latest.bundles.forEach(function (bv) {
       var b = bv.bundle;
-      var self = b.from === b.to;
+      if (b.from === b.to) return; // swaps at one address are listed on the node instead
+      var self = false;
       var loop = self ? Math.round(nodeData(S.nodes.get(b.from), latest).h / 2 + 46) : 40;
       els.push({ group: 'edges', data: Object.assign({ id: b.id, source: b.from, target: b.to, off: 90, loop: loop }, bundleData(bv)),
         classes: (b.tier === 'unverified' ? 'dashed' : '') + (self ? ' loop' : '') });
@@ -577,7 +620,7 @@
     cy.batch(function () {
       cy.edges().forEach(function (e) {
         var s = e.source(), t = e.target();
-        e.removeClass('lbl-src lbl-tgt loop-down loop-right');
+        e.removeClass('lbl-src lbl-tgt loop-down loop-right loop-left');
         if (s.id() === t.id()) { aimLoop(e, s, outdeg.get(s.id()) || 0); return; }
         var inT = indeg.get(t.id()) || 0, outS = outdeg.get(s.id()) || 0;
         var dx = t.position('x') - s.position('x'), dy = t.position('y') - s.position('y');
@@ -605,8 +648,10 @@
     });
     var need = e.data('loop') + 24;
     if (up >= need) return;
-    if (down >= need || down > up) { e.addClass('loop-down'); return; }
-    if (!out) e.addClass('loop-right');
+    if (down >= need) { e.addClass('loop-down'); return; }
+    // Boxed in above and below: use the gap beside the node, far enough out for the label.
+    e.addClass(out ? 'loop-left' : 'loop-right');
+    e.data('loop', Math.round(hw + 80));
   }
 
   function bindGraphEvents() {
@@ -697,7 +742,7 @@
     if (entering.length) setTimeout(function () { entering.forEach(function (e) { e.removeClass('entering'); }); }, 40);
 
     if (S.selected) {
-      var still = S.selected.kind === 'rejected' || (S.selected.kind === 'node' ? view.nodes.has(S.selected.id) : view.bundles.has(S.selected.id));
+      var still = S.selected.kind === 'rejected' || (S.selected.kind === 'node' || S.selected.kind === 'swaps' ? view.nodes.has(S.selected.id) : view.bundles.has(S.selected.id));
       if (!still) S.selected = null;
     }
     applySelection();
@@ -707,6 +752,7 @@
     if (opts.fit !== false && (entering.length || !opts.animate)) fitView(!!opts.animate);
     showMsg(view.groups.size ? '' : 'No flows traced yet.');
     syncTrajectory(!!opts.animate);
+    markFlowTable();
     return entering.length;
   }
 
@@ -731,7 +777,7 @@
       var ele = cy.getElementById(S.selected.id);
       if (!ele || ele.empty() || ele.hasClass('gone')) return;
       var keep;
-      if (S.selected.kind === 'node') {
+      if (S.selected.kind === 'node' || S.selected.kind === 'swaps') {
         var edges = ele.connectedEdges().not('.gone');
         edges.addClass('hl');
         keep = ele.union(edges).union(edges.connectedNodes());
@@ -786,6 +832,22 @@
     append(upd, bits);
   }
 
+  // Per asset, what traced flows left at addresses where the issuer froze that asset:
+  // received minus sent, so funds that pass between two frozen addresses count once.
+  function frozenTotals(view) {
+    var m = new Map();
+    view.nodes.forEach(function (id) {
+      var n = S.nodes.get(id), inflow = view.inflow.get(id), outflow = view.outflow.get(id);
+      if (!n || !inflow) return;
+      if (n.role === 'frozen') { inflow.forEach(function (v, a) { m.set(a, (m.get(a) || 0) + v); }); return; }
+      (n.frozen || []).forEach(function (f) {
+        var held = (inflow.get(f.asset) || 0) - ((outflow && outflow.get(f.asset)) || 0);
+        if (held > 0) m.set(f.asset, (m.get(f.asset) || 0) + held);
+      });
+    });
+    return m;
+  }
+
   function renderStats(view) {
     var box = $('stats');
     clear(box);
@@ -808,8 +870,9 @@
           pairs.length ? shown.map(function (p) { return el('span', { class: 'amt' }, fmt(p[1], 2), el('span', { class: 'asset' }, p[0])); }) : el('span', { class: 'none' }, 'None yet'),
           rest > 0 ? el('span', { class: 'more' }, '+' + rest + ' more') : null));
     }
-    function countCell(label, value) {
-      return el('div', { class: 'stat small' }, el('div', { class: 'stat-label' }, label), el('div', { class: 'stat-value' }, el('span', null, String(value))));
+    function countCell(label, value, onclick, title) {
+      return el('div', { class: 'stat small' }, el('div', { class: 'stat-label' }, label),
+        el('div', { class: 'stat-value' }, onclick ? el('button', { type: 'button', class: 'amt rej-btn', title: title || null, onclick: onclick }, String(value)) : el('span', null, String(value))));
     }
     var c = checkerCounts(view.N);
     var checkerCell = el('div', { class: 'stat checker' },
@@ -822,9 +885,9 @@
     append(box, [
       amountCell('wide', 'Taken from victims', ROLES.victim.color, byRole('victim', view.outflow), 4),
       amountCell('', 'Not moved yet', ROLES.resting.color, byRole('resting', view.inflow), 2),
-      amountCell('', 'Frozen', ROLES.frozen.color, byRole('frozen', view.inflow), 2),
+      amountCell('', 'Frozen', ROLES.frozen.color, frozenTotals(view), 2),
       amountCell('', 'Tracing stopped', ROLES.stop.color, byRole('stop', view.inflow), 2),
-      countCell('Flows traced', view.flows),
+      countCell('Flows traced', view.flows, function () { $('flows').scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block: 'start' }); }, 'Show the list of all flows'),
       checkerCell,
       countCell('Addresses', view.nodes.size)
     ]);
@@ -839,6 +902,9 @@
     ROLE_ORDER.forEach(function (r) {
       if (present.has(r)) box.appendChild(el('span', { class: 'item' }, el('span', { class: 'node-swatch ' + r, style: '--c:' + ROLES[r].color }), LEGEND_TEXT[r] || ROLES[r].name));
     });
+    var anyFrozen = false;
+    viewAt(S.total).nodes.forEach(function (id) { var n = S.nodes.get(id); if (n.frozen && n.frozen.length) anyFrozen = true; });
+    if (anyFrozen && !present.has('frozen')) box.appendChild(el('span', { class: 'item' }, el('span', { class: 'node-swatch frozen', style: '--c:' + C.ink2 }), 'Double border: an asset here is frozen by its issuer'));
     box.appendChild(el('span', { class: 'lines' },
       el('span', { class: 'item' }, el('span', { class: 'line-swatch' }), 'Checked by the verifier'),
       el('span', { class: 'item' }, el('span', { class: 'line-swatch dashed' }), 'Agent claim the checker could not evaluate yet')));
@@ -894,9 +960,12 @@
       if (!S.playing) return;
       if (S.step >= S.total) { stopPlay(); return; }
       var added = apply(S.step + 1, { animate: true });
-      var wait = added ? PLAY_EVENT_MS : PLAY_IDLE_MS;
+      // A full replay takes about half a minute however many steps the agent took.
+      var idle = Math.max(25, Math.min(PLAY_IDLE_MS, 6000 / Math.max(1, S.total)));
+      var pause = Math.max(450, Math.min(PLAY_EVENT_MS, 24000 / Math.max(1, S.eventSteps.length)));
+      var wait = added ? pause : idle;
       // Linger briefly before a step that adds flows, so the change reads as one move.
-      if (!added && nextEventAfter(S.step) === S.step + 1) wait = PLAY_IDLE_MS * 2;
+      if (!added && nextEventAfter(S.step) === S.step + 1) wait = idle * 2;
       S.playTimer = setTimeout(tick, wait);
     };
     S.playTimer = setTimeout(tick, PLAY_EVENT_MS);
@@ -936,6 +1005,13 @@
     return c;
   }
 
+  // Checker reasons can be codes like "contradicted:exchange_not_delivery": show the words, keep the code.
+  function reasonItem(r) {
+    var m = /^([a-z_]+):([\w.:-]+)$/i.exec(r);
+    if (!m) return el('li', null, r);
+    return el('li', { title: r }, el('span', { class: 'reason-head' }, cap(m[1].replace(/_/g, ' '))), ': ' + m[2].replace(/[_:]/g, ' '), ' ', el('code', { class: 'reason-code' }, r));
+  }
+
   // Rejected claims stay visible: the checker judged them and the graph leaves them out.
   function renderRejected(box) {
     var ops = agentOps(S.step).filter(function (o) { return o.verdict === 'INVALID'; });
@@ -954,17 +1030,21 @@
         var u = e.txUrl || (isHash(e.tx) ? explorerFor(chain).base + '/tx/' + e.tx : null);
         if (u && !links.some(function (l) { return l.url === u; })) links.push({ name: 'Transaction', url: u });
       });
-      box.appendChild(el('article', { class: 'chain rejected-op' },
+      var codeLike = function (t) { return /^[\w.-]+:[\w.:-]+$/.test(t); };
+      box.appendChild(el('article', { class: 'chain rejected-op', 'data-op': o.id },
         el('div', { class: 'rej-head' }, el('span', { class: 'badge bad' }, 'Invalid'), el('span', { class: 'op-type' }, prettyType(o.type)), o.step !== null ? el('span', null, 'step ' + o.step) : null),
-        o.claim ? el('p', { class: 'rej-claim' }, o.claim) : null,
+        o.claim && !codeLike(o.claim) && o.reasons.indexOf(o.claim) === -1 ? el('p', { class: 'rej-claim' }, o.claim) : null,
         edges.map(function (e) {
           return el('div', { class: 'rej-edge' }, short(e.from) + ' to ' + short(e.to) + ' · ' + fmt(e.amount) + ' ' + e.asset);
         }),
         el('span', { class: 'chain-label' }, 'Checker\u2019s reasons'),
-        o.reasons.length ? el('ul', { class: 'reasons' }, o.reasons.map(function (r) { return el('li', null, r); }))
+        o.reasons.length ? el('ul', { class: 'reasons' }, o.reasons.map(reasonItem))
                          : el('p', { class: 'empty' }, 'No reason given.'),
         links.length ? el('div', { class: 'evidence' }, el('span', { class: 'chain-label' }, 'Evidence'),
-          el('div', { class: 'ev-links' }, links.map(function (l) { return extLink(l.url, l.name, 'ev'); }))) : null));
+          el('div', { class: 'ev-links' }, links.map(function (l) { return extLink(l.url, l.name, 'ev'); }))) : null,
+        el('div', { class: 'card-foot' },
+          o.step !== null ? el('button', { type: 'button', class: 'linkish', onclick: function () { showInTimeline(o.id, o.step); } }, 'Show in the agent timeline') : null,
+          reportLink(function () { return rejectedTarget(o); }))));
     });
   }
 
@@ -1025,8 +1105,24 @@
     box.classList.toggle('active', !!S.selected);
     if (!S.selected) { box.appendChild(el('p', { class: 'empty' }, 'Select a flow or an address to see the records behind it.')); return; }
     if (S.selected.kind === 'rejected') renderRejected(box);
+    else if (S.selected.kind === 'swaps') renderSwaps(box, S.nodes.get(S.selected.id));
     else if (S.selected.kind === 'node') renderNodeDetail(box, S.nodes.get(S.selected.id));
     else renderBundleDetail(box, S.bundleById.get(S.selected.id));
+  }
+
+  function renderSwaps(box, n) {
+    if (!n) return;
+    var sw = swapsAt(n.id, S.view);
+    var edges = [];
+    sw.forEach(function (x) { edges = edges.concat(x.edges); });
+    edges.sort(function (a, b) { return a.step - b.step || (a.block || 0) - (b.block || 0); });
+    append(box, [
+      el('div', { class: 'd-head' }, el('span', { class: 'badge plain' }, plural(edges.length, 'swap')),
+        el('button', { type: 'button', class: 'linkish', onclick: function () { select({ kind: 'node', id: n.id }); } }, 'Back to the address')),
+      el('h3', { class: 'd-title' }, 'Swaps at ' + (n.label || short(n.id))),
+      sw.map(function (x) { return el('p', { class: 'hint' }, swapLine(x)); })
+    ]);
+    edges.forEach(function (e) { box.appendChild(evidenceCard(e, n.chain)); });
   }
 
   function renderNodeDetail(box, n) {
@@ -1039,9 +1135,15 @@
       el('div', { class: 'd-head' }, roleBadge(n.role), frontier ? el('span', { class: 'badge plain' }, 'Open lead at step ' + view.N) : null),
       el('h3', { class: 'd-title' }, n.label || short(n.id)),
       el('div', { class: 'addr-row' }, el('span', { class: 'addr-full' }, n.id), copyButton(n.id)),
-      addrLink(n.id, n.chain),
+      el('div', { class: 'addr-tools' }, addrLink(n.id, n.chain), reportLink(function () { return addressTarget(n); })),
       n.note ? el('p', { class: 'd-note', style: '--c:' + ROLES[n.role].color }, n.note) : null,
-      frontier ? el('p', { class: 'd-note' }, 'At step ' + view.N + ', where these funds went next was not traced yet.') : null
+      frontier ? el('p', { class: 'd-note' }, 'At step ' + view.N + ', where these funds went next was not traced yet.') : null,
+      (n.frozen || []).map(function (f) {
+        return el('div', { class: 'frozen-box' },
+          el('span', { class: 'badge frz' }, f.asset + ' frozen'),
+          f.note ? el('p', null, f.note) : null,
+          isAddr(f.token) ? el('div', null, addrLink(f.token, n.chain, (f.issuer ? f.issuer + ' ' : '') + f.asset + ' contract')) : null);
+      })
     ]);
 
     var kv = el('dl', { class: 'kv' });
@@ -1056,8 +1158,23 @@
       } }, plural(leads.length, 'entry', 'entries') + ' in the agent workspace'))]);
     box.appendChild(kv);
 
+    var sw = swapsAt(n.id, view);
+    if (sw.length) {
+      var swBox = el('div', { class: 'flows' }, el('h3', null, 'Swaps at this address (' + sw.reduce(function (a, x) { return a + x.count; }, 0) + ')'));
+      var swUl = el('ul', { class: 'flow-list' });
+      sw.forEach(function (x) {
+        swUl.appendChild(el('li', null, el('button', { type: 'button', class: 'flow', onclick: function () { select({ kind: 'swaps', id: n.id }); } },
+          el('span', { class: 'who' }, 'Swapped ' + x.from + ' to ' + x.to),
+          el('span', { class: 'amt' }, fmt(x.sum) + ' ' + x.to),
+          el('span', { class: 'sub' }, [plural(x.count, 'transaction'), 'show evidence'].join(' · ')))));
+      });
+      swBox.appendChild(swUl);
+      box.appendChild(swBox);
+    }
+
     var incoming = [], outgoing = [];
     view.groups.forEach(function (gv) {
+      if (gv.group.from === n.id && gv.group.to === n.id) return;
       if (gv.group.to === n.id) incoming.push(gv);
       if (gv.group.from === n.id) outgoing.push(gv);
     });
@@ -1106,7 +1223,7 @@
       var u = e.txUrl || (isHash(e.tx) ? explorerFor(chain).base + '/tx/' + e.tx : null);
       if (u) links.push({ name: 'Transaction', url: u });
     }
-    return el('article', { class: 'chain' },
+    return el('article', { class: 'chain', 'data-edge': e.id },
       el('div', { class: 'chain-what' }, el('span', { class: 'chain-label' }, 'What moved'), el('span', { class: 'chain-amt' }, fmtExact(e.amountStr) + ' ' + e.asset)),
       el('div', { class: 'hops' }, hop('From', from, e.srcPos), hop('To', to, e.tgtPos)),
       el('dl', { class: 'kv' },
@@ -1117,7 +1234,8 @@
         e.time ? [el('dt', null, 'Time'), el('dd', { class: 'mono' }, fmtTime(e.time, true))] : null),
       el('p', { class: 'verdict ' + (checked ? 'ok' : 'wait') }, checked ? 'Checked: the cited records show this transfer' : 'Not yet checked'),
       links.length ? el('div', { class: 'evidence' }, el('span', { class: 'chain-label' }, 'Evidence'),
-        el('div', { class: 'ev-links' }, links.map(function (l) { return extLink(l.url, l.name, 'ev'); }))) : null);
+        el('div', { class: 'ev-links' }, links.map(function (l) { return extLink(l.url, l.name, 'ev'); }))) : null,
+      el('div', { class: 'card-foot' }, reportLink(function () { return flowTarget(e); })));
   }
 
   function renderBundleDetail(box, b) {
@@ -1204,6 +1322,15 @@
     });
     T.events = evs;
     T.loaded = true;
+    // The timeline may run past the last recorded flow; stretch the replay to cover it.
+    var tTotal = Math.max(num(d && d.total_steps) || 0, evs.length ? evs[evs.length - 1]._step : 0);
+    if (tTotal > S.total) {
+      var atEnd = S.step >= S.total;
+      S.total = tTotal;
+      buildTimelineControls();
+      $('ws-steps').textContent = plural(S.total, 'step') + ' taken';
+      apply(atEnd ? S.total : S.step, { fit: false });
+    }
 
     var note = str(d && d.note);
     $('traj-note').textContent = note || '';
@@ -1232,6 +1359,7 @@
     }
     T.rendered = false;
     syncTrajectory(false);
+    handleEventLink();
   }
 
   function lastEventAtOrBefore(N) {
@@ -1319,9 +1447,7 @@
     if (!li) return;
     if (WIDE()) scrollToEvent(k, true);
     else li.scrollIntoView({ block: 'center', behavior: REDUCED_MOTION ? 'auto' : 'smooth' });
-    li.classList.remove('flash');
-    void li.offsetWidth;
-    li.classList.add('flash');
+    flashEl(li);
     if (li.openDetails) {
       li.openDetails();
       li.querySelectorAll('.mem-item').forEach(function (m) { m.classList.toggle('hit', m.dataset.key === opId); });
@@ -1370,10 +1496,46 @@
     if (e.kind === 'thinking' || e.kind === 'message') li = thoughtItem(e);
     else if (e.kind === 'reset') li = el('li', { class: 'ev ev-reset' }, el('span', { title: str(e.text) || null }, str(e.text) || 'The agent restarted and continued from its working memory.'));
     else if (e.kind === 'system' || e.kind === 'task') li = promptItem(e);
+    else if (e.kind === 'deferred') li = deferredItem(e);
+    else if (e.kind === 'recall') li = recallItem(e);
     else li = actionItem(e);
     li.dataset.k = String(e._k);
     T.itemOf.set(e._k, li);
     return li;
+  }
+
+  // A call the loop did not run because the turn's results hit the size limit: one muted line.
+  function deferredItem(e) {
+    var args = e.args && typeof e.args === 'object' ? e.args : {};
+    var chain = lc(args.chain) || lc(S.caseInfo.chain) || 'ethereum';
+    var bits = describeArgs(args, chain);
+    return el('li', { class: 'ev ev-deferred', title: str(e.text) || null },
+      el('span', { class: 'def-text' }, 'Not run: ', el('span', { class: 'def-tool' }, str(e.tool) || 'call'), bits.length ? [' · ', bits] : null));
+  }
+
+  // The agent re-read an earlier result that had been cleared from its context.
+  function recallItem(e) {
+    var id = e.args && e.args.id !== undefined ? e.args.id : null;
+    var res = e.result && typeof e.result === 'object' ? e.result : null;
+    var text = res && typeof res.text === 'string' && res.text ? res.text : null;
+    var full = res ? num(res.chars) : null;
+    var holder = el('div', { class: 'res', hidden: true });
+    var btn = text ? el('button', { type: 'button', class: 'res-toggle', 'aria-expanded': 'false' }, 'Show result') : null;
+    if (btn) btn.addEventListener('click', function (ev) {
+      ev.stopPropagation();
+      var open = holder.hidden;
+      if (open && !holder.firstChild) {
+        holder.appendChild(el('pre', { class: 'res-text', tabindex: '0' }, text));
+        if (full && full > text.length) holder.appendChild(el('p', { class: 'res-meta' }, 'First ' + text.length.toLocaleString('en-US') + ' of ' + full.toLocaleString('en-US') + ' characters. The full result is in the raw records.'));
+      }
+      holder.hidden = !open;
+      btn.textContent = open ? 'Hide result' : 'Show result';
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    return el('li', { class: 'ev ev-recall' },
+      el('div', { class: 'mem-row' }, el('span', { class: 'chip recall' }, 're-read result' + (id !== null ? ' #' + id : '')), btn,
+        reportLink(function () { return eventTarget(e); })),
+      holder);
   }
 
   // The system prompt and the task repeat after every restart: one muted line each, full text on demand.
@@ -1402,7 +1564,7 @@
     var label = e.label ? cap(String(e.label)) : (e.kind === 'message' ? 'Message' : 'Reasoning summary');
     var li = el('li', { class: 'ev ev-think' + (e.label ? ' ev-handoff' : '') + (e.kind === 'message' ? ' ev-msg' : '') });
     var body = el('blockquote', { class: 'think-body' }, markdownish(text));
-    append(li, [el('div', { class: 'ev-meta' }, el('span', { class: 'ev-label' }, label)), body, clampable(li, body, text.length > 360 || text.split('\n').length > 8)]);
+    append(li, [el('div', { class: 'ev-meta' }, el('span', { class: 'ev-label' }, label), reportLink(function () { return eventTarget(e); })), body, clampable(li, body, text.length > 360 || text.split('\n').length > 8)]);
     return li;
   }
 
@@ -1465,7 +1627,8 @@
       title: e.kind === 'action' ? 'Move the replay to step ' + e._step : null },
       el('div', { class: 'act-head' },
         el('span', { class: 'act-step' }, 'Step ' + e._step),
-        el('span', { class: 'act-tool' }, isReport ? (REPORT_TITLES[tool] || prettyType(tool)) : tool)),
+        el('span', { class: 'act-tool' }, isReport ? (REPORT_TITLES[tool] || prettyType(tool)) : tool),
+        reportLink(function () { return eventTarget(e); })),
       argLine.length ? el('div', { class: 'act-args' }, argLine) : null);
     if (resText) {
       var holder = el('div', { class: 'res', hidden: true });
@@ -1541,12 +1704,331 @@
       ev.currentTarget.textContent = list.hidden ? 'Details' : 'Hide details';
       ev.currentTarget.setAttribute('aria-expanded', list.hidden ? 'false' : 'true');
     } }, 'Details');
-    var li = el('li', { class: 'ev ev-mem' }, el('div', { class: 'mem-row' }, el('span', { class: 'mem-label' }, 'Working memory'), chips, toggle), list);
+    var li = el('li', { class: 'ev ev-mem' }, el('div', { class: 'mem-row' }, el('span', { class: 'mem-label' }, 'Working memory'), chips, toggle,
+      reportLink(function () { return eventTarget(evs[0], evs.length); })), list);
     li.dataset.k = String(evs[0]._k);
     evs.forEach(function (e) { T.itemOf.set(e._k, li); });
     // A jump from a flow opens the details so the recorded entry is visible.
     li.openDetails = function () { build(); list.hidden = false; toggle.textContent = 'Hide details'; toggle.setAttribute('aria-expanded', 'true'); };
     return li;
+  }
+
+  // ---------- all flows: one table of every recorded flow ----------
+
+  var FT = { sort: 'asc', filter: 'all', rows: null };
+
+  function verdictOf(e) {
+    if (e.rejected) return 'rejected';
+    return e.tier === 'verified' && (!e.op || e.op.verdict === 'VALID' || e.op.verdict === null) ? 'checked' : 'unchecked';
+  }
+  var VERDICT_BADGE = { checked: ['ok', 'Checked'], unchecked: ['wait', 'Not yet checked'], rejected: ['bad', 'Rejected'] };
+
+  function flowRows() {
+    if (FT.rows) return FT.rows;
+    var rows = [];
+    S.edges.forEach(function (e) {
+      if (e.rejected) return;
+      rows.push({ step: e.step, seed: e.seed, type: e.op ? prettyType(e.op.type) : (e.kind || 'transfer'), from: e.from, to: e.to,
+        swap: e.swap, amount: e.amount, asset: e.swap ? e.toAsset : e.asset, fromAsset: e.fromAsset, verdict: verdictOf(e), edge: e, block: e.block || 0 });
+    });
+    // Rejected claims stay in the list; the export does not carry their transfers.
+    S.ops.forEach(function (o) {
+      if (o.verdict !== 'INVALID' || o.seedOp) return;
+      rows.push({ step: o.step === null ? S.total : o.step, type: prettyType(o.type), verdict: 'rejected', op: o, block: 0 });
+    });
+    FT.rows = rows;
+    return rows;
+  }
+
+  function renderFlowTable() {
+    var body = $('ft-body');
+    if (!body) return;
+    clear(body);
+    var all = flowRows();
+    var rows = all.filter(function (r) { return FT.filter === 'all' || r.verdict === FT.filter; });
+    rows.sort(function (a, b) { return (FT.sort === 'asc' ? 1 : -1) * (a.step - b.step || a.block - b.block); });
+    $('ft-count').textContent = rows.length === all.length ? String(all.length) : rows.length + ' of ' + all.length;
+    $('ft-sort').setAttribute('aria-sort', FT.sort === 'asc' ? 'ascending' : 'descending');
+    $('ft-sort').querySelector('.dir').textContent = FT.sort === 'asc' ? '↑' : '↓';
+    if (!rows.length) { body.appendChild(el('tr', null, el('td', { colspan: '6', class: 'ft-empty' }, 'No flows match this filter.'))); return; }
+    rows.forEach(function (r) {
+      var badge = VERDICT_BADGE[r.verdict];
+      var tr = el('tr', { class: 'ft-row' + (r.step > S.step ? ' future' : ''), 'data-step': String(r.step), tabindex: '0', role: 'button',
+          title: r.op ? 'Show this rejected claim' : (r.swap ? 'Show this swap and its evidence' : 'Show this flow in the graph'),
+          onclick: function () { openFlowRow(r); },
+          onkeydown: function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); openFlowRow(r); } } },
+        el('td', { class: 'ft-step' }, r.seed ? 'start' : String(r.step)),
+        el('td', null, r.type),
+        el('td', { class: 'ft-addr' }, r.from ? nameOf(r.from) : el('span', { class: 'ft-none' }, 'not exported')),
+        el('td', { class: 'ft-addr' }, r.op ? el('span', { class: 'ft-none' }, 'not exported') : (r.swap ? el('span', { class: 'ft-none' }, 'same address') : nameOf(r.to))),
+        el('td', { class: 'ft-amt' }, r.op ? '' : fmt(r.amount) + ' ' + r.asset + (r.swap && r.fromAsset ? ' from ' + r.fromAsset : '')),
+        el('td', null, el('span', { class: 'badge ' + badge[0] }, badge[1])));
+      body.appendChild(tr);
+    });
+  }
+
+  function markFlowTable() {
+    var body = $('ft-body');
+    if (!body) return;
+    // Rows recorded after the replay step are dimmed.
+    Array.prototype.forEach.call(body.children, function (tr) { if (tr.dataset.step) tr.classList.toggle('future', +tr.dataset.step > S.step); });
+  }
+
+  function openFlowRow(r) {
+    stopPlay();
+    var anchor = $('graph-anchor').getBoundingClientRect();
+    if (anchor.top < 0 || anchor.top > window.innerHeight * 0.5) $('graph-anchor').scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block: 'start' });
+    if (r.op) { focusOp(r.op.id); return; }
+    var e = r.edge;
+    if (e.step > S.step) apply(Math.max(S.step, e.step), { fit: false });
+    if (r.swap) {
+      select({ kind: 'swaps', id: e.from });
+      var ele = S.cy.getElementById(e.from);
+      if (ele && ele.nonempty()) S.cy.center(ele);
+      var c = $('detail').querySelector('[data-edge="' + cssEsc(e.id) + '"]');
+      if (c) { $('detail').scrollTop = Math.max(0, c.offsetTop - 60); flashEl(c); }
+      return;
+    }
+    focusOp(e.op ? e.op.id : null, e.id);
+  }
+
+  function wireFlowTable() {
+    $('ft-sort').addEventListener('click', function () { FT.sort = FT.sort === 'asc' ? 'desc' : 'asc'; renderFlowTable(); });
+    Array.prototype.forEach.call(document.querySelectorAll('#ft-filter button'), function (b) {
+      b.addEventListener('click', function () {
+        FT.filter = b.dataset.f;
+        Array.prototype.forEach.call(document.querySelectorAll('#ft-filter button'), function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        renderFlowTable();
+      });
+    });
+  }
+
+  // ---------- report a problem ----------
+  // Anyone can flag a flow, an address, a timeline event or a rejected claim.
+  // Submitting opens a prefilled GitHub issue; nothing is sent from this page.
+
+  var REPORT_TYPES = ['Wrong flow', 'Wrong amount', 'Should stop here', 'Missed a flow', 'Other'];
+  var R = { target: null, lastUrl: null };
+
+  function reportLink(makeTarget) {
+    return el('button', { type: 'button', class: 'report-link', onclick: function (ev) { ev.stopPropagation(); openReport(makeTarget()); } }, 'Report a problem');
+  }
+
+  function deepLink(params) {
+    var q = new URLSearchParams();
+    if (DATA_URL !== 'data/graph.json') q.set('data', DATA_URL);
+    Object.keys(params).forEach(function (k) { if (params[k] !== null && params[k] !== undefined && params[k] !== '') q.set(k, String(params[k])); });
+    var s = q.toString();
+    return SITE_URL + (s ? '?' + s : '');
+  }
+  function mdCode(s) { return '`' + String(s).replace(/`/g, '\u2019') + '`'; }
+  function mdAddr(a, chain) {
+    var n = S.nodes.get(a);
+    return isAddr(a) ? '[' + mdCode(a) + '](' + explorerFor(chain).base + '/address/' + a + ')' + (n && n.label ? ' ' + n.label : '') : mdCode(a);
+  }
+  function mdTx(h, chain) { return isHash(h) ? '[' + mdCode(h) + '](' + explorerFor(chain).base + '/tx/' + h + ')' : (h ? mdCode(h) : 'none'); }
+  function nameOf(id) { var n = S.nodes.get(id); return n && n.label ? n.label + ' ' + short(id) : short(id); }
+  function dataVersion() {
+    var c = S.caseInfo;
+    return [c.updated_utc ? 'updated ' + c.updated_utc : null, c.head_block != null ? 'block ' + c.head_block : null].filter(Boolean).join(', ') || 'unknown';
+  }
+  function opEdgeCount(op) { return S.edges.filter(function (e) { return e.op === op; }).length; }
+
+  function flowTarget(e) {
+    var chain = (S.nodes.get(e.from) || {}).chain;
+    var checked = e.tier === 'verified' && (!e.op || e.op.verdict === 'VALID' || e.op.verdict === null);
+    var params = { op: e.op ? e.op.id : null, edge: !e.op || opEdgeCount(e.op) > 1 ? e.id : null };
+    var ctx = [['Flagged', 'a flow']];
+    if (e.op) ctx.push(['Operation', mdCode(e.op.id) + ' (' + prettyType(e.op.type) + ')']);
+    ctx.push(['Transfer', mdCode(e.id)], ['From', mdAddr(e.from, chain)], ['To', mdAddr(e.to, chain)],
+      ['Amount', fmtExact(e.amountStr) + ' ' + e.asset], ['Transaction', mdTx(e.tx, chain)]);
+    if (e.srcPos || e.tgtPos) ctx.push(['Records', 'from end: ' + (e.srcPos || 'none') + '; to end: ' + (e.tgtPos || 'none')]);
+    ctx.push(['Recorded', e.seed ? 'case start' : 'agent step ' + e.step], ['Checker', checked ? 'checked' : 'not yet checked']);
+    return {
+      summary: fmt(e.amount) + ' ' + e.asset + ' from ' + nameOf(e.from) + ' to ' + nameOf(e.to),
+      short: short(e.from) + ' to ' + short(e.to) + ' (' + e.asset + ')',
+      type: 'Wrong flow', context: ctx, link: deepLink(params)
+    };
+  }
+
+  function addressTarget(n) {
+    var leads = (S.leadsByAddr.get(n.id) || []).length;
+    var ctx = [['Flagged', 'an address'], ['Address', mdAddr(n.id, n.chain)], ['Role', ROLES[n.role].name]];
+    if (leads) ctx.push(['Open leads', String(leads)]);
+    return {
+      summary: nameOf(n.id) + ' (' + ROLES[n.role].name.toLowerCase() + ')',
+      short: short(n.id) + (n.label ? ' (' + n.label + ')' : ''),
+      type: 'Other', context: ctx, link: deepLink({ addr: n.id })
+    };
+  }
+
+  var EVENT_NAMES = { thinking: 'reasoning summary', memory: 'working memory', action: 'evidence action', message: 'message', report: 'report', system: 'system prompt', task: 'task', deferred: 'call not run', recall: 're-read result' };
+  function eventTarget(e, count) {
+    var kind = EVENT_NAMES[e.kind] || prettyType(e.kind);
+    var tool = str(e.tool);
+    var ctx = [['Flagged', 'a timeline event'], ['Event', String(e._order) + (count > 1 ? ' (and ' + (count - 1) + ' more memory writes)' : '')],
+      ['Agent step', String(e._step)], ['Kind', kind + (tool ? ', ' + mdCode(tool) : '')]];
+    if (e.args && typeof e.args === 'object' && Object.keys(e.args).length) {
+      var a = JSON.stringify(e.args);
+      ctx.push(['Arguments', mdCode(a.length > 300 ? a.slice(0, 299) + '\u2026' : a)]);
+    }
+    return {
+      summary: 'Timeline event ' + e._order + ', step ' + e._step + ' (' + kind + (tool ? ', ' + tool : '') + ')',
+      short: 'timeline event ' + e._order + ' (step ' + e._step + (tool ? ', ' + tool : '') + ')',
+      type: 'Other', context: ctx, link: deepLink({ event: e._order })
+    };
+  }
+
+  function rejectedTarget(o) {
+    var txs = [];
+    o.evidence.forEach(function (x) { if (x.tx && txs.indexOf(x.tx) === -1) txs.push(x.tx); });
+    var ctx = [['Flagged', 'a claim the checker rejected'], ['Operation', mdCode(o.id) + ' (' + prettyType(o.type) + ')']];
+    if (o.step !== null) ctx.push(['Recorded', 'agent step ' + o.step]);
+    ctx.push(['Checker reasons', o.reasons.length ? o.reasons.map(mdCode).join(', ') : 'none given']);
+    txs.forEach(function (h) { ctx.push(['Transaction', mdTx(h, S.caseInfo.chain)]); });
+    return {
+      summary: 'Rejected ' + prettyType(o.type) + ' claim' + (o.step !== null ? ' at step ' + o.step : ''),
+      short: 'rejected ' + prettyType(o.type) + (o.step !== null ? ' at step ' + o.step : '') + ' (' + o.id + ')',
+      type: 'Other', context: ctx, link: deepLink({ op: o.id })
+    };
+  }
+
+  function buildIssueUrl(t, f) {
+    var title = '[report] ' + f.type + ': ' + t.short;
+    function body(what, evidence, note) {
+      var L = ['**Problem type:** ' + f.type, '', '**What is wrong**', '', what, ''];
+      if (evidence) L.push('**Evidence**', '', evidence, '');
+      var who = [f.name, f.contact].filter(Boolean).join(', ');
+      if (who) L.push('**Reported by:** ' + who, '');
+      if (note) L.push('_' + note + '_', '');
+      L.push('---', '', '### Context', '');
+      t.context.forEach(function (kv) { L.push('- ' + kv[0] + ': ' + kv[1]); });
+      L.push('- Data version: ' + dataVersion(), '- Link: ' + t.link);
+      return L.join('\n');
+    }
+    function urlFor(b) { return ISSUE_URL + '?title=' + encodeURIComponent(title) + '&body=' + encodeURIComponent(b); }
+    var what = f.what, evd = f.evidence, note = null;
+    var url = urlFor(body(what, evd, note));
+    // Keep the link under the limit by shortening the longest free-text field, with a note.
+    for (var guard = 0; url.length > MAX_ISSUE_URL && guard < 60; guard++) {
+      note = 'Shortened to fit the GitHub link. Add the rest as a comment.';
+      var cut = Math.ceil((url.length - MAX_ISSUE_URL) / 3) + 16;
+      if (what.length >= evd.length && what.length > 120) what = what.slice(0, Math.max(120, what.length - cut)) + '\u2026';
+      else if (evd.length > 80) evd = evd.slice(0, Math.max(80, evd.length - cut)) + '\u2026';
+      else break;
+      url = urlFor(body(what, evd, note));
+    }
+    return url;
+  }
+
+  function openReport(t) {
+    R.target = t;
+    var dlg = $('report');
+    $('report-target').textContent = t.summary;
+    var sel = $('rp-type');
+    if (!sel.options.length) REPORT_TYPES.forEach(function (x) { sel.appendChild(el('option', { value: x }, x)); });
+    sel.value = t.type;
+    $('rp-error').hidden = true;
+    $('rp-what').removeAttribute('aria-invalid');
+    if (FORM_URL) { $('rp-form-link').setAttribute('href', FORM_URL); $('rp-form').hidden = false; }
+    if (typeof dlg.showModal === 'function') { if (!dlg.open) dlg.showModal(); }
+    else dlg.setAttribute('open', '');
+    $('rp-what').focus();
+  }
+  function closeReport() { var d = $('report'); if (d.open) { if (typeof d.close === 'function') d.close(); else d.removeAttribute('open'); } }
+
+  function submitReport(ev) {
+    ev.preventDefault();
+    var what = $('rp-what').value.trim();
+    if (!what) {
+      $('rp-error').hidden = false;
+      $('rp-what').setAttribute('aria-invalid', 'true');
+      $('rp-what').focus();
+      return;
+    }
+    var url = buildIssueUrl(R.target, {
+      type: $('rp-type').value, what: what,
+      evidence: $('rp-evidence').value.trim(), name: $('rp-name').value.trim(), contact: $('rp-contact').value.trim()
+    });
+    R.lastUrl = url;
+    window.open(url, '_blank', 'noopener');
+    closeReport();
+    $('rp-what').value = '';
+    $('rp-evidence').value = '';
+    toast('GitHub opened in a new tab');
+  }
+
+  function wireReport() {
+    $('report-form').addEventListener('submit', submitReport);
+    $('report-close').addEventListener('click', closeReport);
+    $('report-cancel').addEventListener('click', closeReport);
+    $('rp-what').addEventListener('input', function () { if (this.value.trim()) { $('rp-error').hidden = true; this.removeAttribute('aria-invalid'); } });
+    // A click on the backdrop closes the dialog.
+    $('report').addEventListener('click', function (ev) { if (ev.target === this) closeReport(); });
+  }
+
+  // ---------- deep links: ?op= ?edge= ?addr= ?event= ----------
+
+  function flashEl(node) {
+    if (!node) return;
+    node.classList.remove('flash');
+    void node.offsetWidth;
+    node.classList.add('flash');
+  }
+  function cssEsc(s) { return window.CSS && CSS.escape ? CSS.escape(s) : String(s).replace(/["\\]/g, '\\$&'); }
+
+  function focusOp(opId, edgeId) {
+    var op = opId ? S.ops.get(opId) : null;
+    if (op && op.verdict === 'INVALID') {
+      if (op.step !== null && op.step > S.step) apply(S.total, { fit: false });
+      select({ kind: 'rejected' });
+      var card = $('detail').querySelector('[data-op="' + cssEsc(opId) + '"]');
+      if (card) { card.scrollIntoView({ block: 'nearest' }); flashEl(card); }
+      return true;
+    }
+    var edge = null;
+    S.edges.forEach(function (e) {
+      if (edge || e.rejected) return;
+      if (edgeId ? e.id === edgeId : (op && e.op === op)) edge = e;
+    });
+    if (!edge) return false;
+    if (edge.step > S.step) apply(Math.max(S.step, edge.step), { fit: false });
+    var b = null;
+    S.bundles.forEach(function (bb) { if (!b && bb.groups.some(function (g) { return g.edges.indexOf(edge) !== -1; })) b = bb; });
+    if (!b) return false;
+    select({ kind: 'bundle', id: b.id });
+    var ele = S.cy.getElementById(b.id);
+    if (ele && ele.nonempty()) S.cy.center(ele);
+    var c = $('detail').querySelector('[data-edge="' + cssEsc(edge.id) + '"]');
+    if (c) { $('detail').scrollTop = Math.max(0, c.offsetTop - 60); flashEl(c); }
+    return true;
+  }
+
+  // Links from older reports can point at items a later export renamed or dropped.
+  function notInData() { toast('That item is not in the current data. It may come from an earlier version.', 6000); }
+
+  function handleDeepLinks() {
+    var opId = PARAMS.get('op'), edgeId = PARAMS.get('edge'), addr = lc(PARAMS.get('addr') || '');
+    if (opId || edgeId) { if (!focusOp(opId, edgeId)) notInData(); }
+    else if (addr) { if (viewAt(S.total).nodes.has(addr)) focusNode(addr); else notInData(); }
+  }
+
+  function handleEventLink() {
+    var want = num(PARAMS.get('event'));
+    if (want === null || T.linkDone) return;
+    T.linkDone = true;
+    var k = -1;
+    T.events.forEach(function (e, i) { if (k === -1 && e._order === want) k = i; });
+    if (k === -1) { notInData(); return; }
+    setTab('traj');
+    if (PARAMS.get('step') === null && !PARAMS.get('op') && !PARAMS.get('addr')) { T.pinK = k; apply(T.events[k]._step, { fit: true }); }
+    if (k < T.start || k >= T.end) renderWindow(k);
+    markNow();
+    var li = T.itemOf.get(k);
+    if (!li) return;
+    if (WIDE()) scrollToEvent(k, false);
+    else li.scrollIntoView({ block: 'center' });
+    flashEl(li);
   }
 
   // ---------- new exports ----------
@@ -1584,7 +2066,7 @@
     $('btn-play').addEventListener('click', function () { if (S.playing) stopPlay(); else startPlay(); });
     $('btn-fit').addEventListener('click', function () { fitView(true); });
     $('btn-new').addEventListener('click', function () { window.location.reload(); });
-    document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') select(null); });
+    document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && !$('report').open) select(null); });
     // Refit when the graph area changes size, unless the visitor has panned or zoomed.
     var t;
     var onResize = function () {
@@ -1626,11 +2108,14 @@
       renderTimeline(S.view);
       buildGraph();
       wireControls();
+      wireReport();
+      wireFlowTable();
+      renderFlowTable();
       apply(S.step, { fit: true });
-      requestAnimationFrame(function () { fitView(false); });
+      requestAnimationFrame(function () { fitView(false); handleDeepLinks(); });
       startPulse();
       if (!EMBED) { setInterval(poll, POLL_MS); loadTrajectory(); }
-      if (PARAMS.get('debug') === '1') window.__abf = { state: S, select: select, apply: apply, focusNode: focusNode, viewAt: viewAt, markNode: markNode, markLeads: markLeads, traj: T, setTab: setTab, showInTimeline: showInTimeline };
+      if (PARAMS.get('debug') === '1') window.__abf = { state: S, select: select, apply: apply, focusNode: focusNode, viewAt: viewAt, markNode: markNode, markLeads: markLeads, traj: T, setTab: setTab, showInTimeline: showInTimeline, report: R, openReport: openReport, flowTarget: flowTarget, buildIssueUrl: buildIssueUrl };
       document.body.setAttribute('data-ready', '1');
     }).catch(function (err) {
       fail('Could not load ' + DATA_URL + ' (' + (err && err.message ? err.message : 'unknown error') + ').');
