@@ -2,8 +2,8 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum: live trace",
   "incident_utc": "2026-10-29T20:24:00Z",
-  "updated_utc": "2026-10-30T19:35:27Z",
-  "head_block": 26307574,
+  "updated_utc": "2026-10-30T19:38:18Z",
+  "head_block": 26307694,
   "chain": "ethereum",
   "notes": [
    "Amounts follow the poison rule: once stolen funds enter an address, everything that later leaves it is counted. ETH figures therefore include ETH bought with stolen tokens."
@@ -121,6 +121,14 @@
    "actions": 35,
    "model": "gpt-5.5",
    "summary": "ok"
+  },
+  {
+   "id": 15,
+   "started_utc": "2026-10-30T19:35:35Z",
+   "ended_utc": null,
+   "actions": 30,
+   "model": "gpt-5.5",
+   "summary": ""
   }
  ],
  "nodes": [
@@ -157,14 +165,14 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "1175464712.875462",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 1175464712.875462 USDT, of which up to 1175464712.875462 USDT arrived through traced flows, as of block 26307574."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 1175464712.875462 USDT, of which up to 1175464712.875462 USDT arrived through traced flows, as of block 26307694."
     },
     {
      "asset": "USDC",
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
      "issuer": "Circle",
      "held": "823000000",
-     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 823000000 USDC, of which up to 823000000 USDC arrived through traced flows, as of block 26307574."
+     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 823000000 USDC, of which up to 823000000 USDC arrived through traced flows, as of block 26307694."
     }
    ]
   },
@@ -180,7 +188,7 @@
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
      "issuer": "Circle",
      "held": "0",
-     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 123175.527942 USDC, of which up to 0 USDC arrived through traced flows, as of block 26307574."
+     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 123175.527942 USDC, of which up to 0 USDC arrived through traced flows, as of block 26307694."
     }
    ]
   },
@@ -196,7 +204,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "0.0006",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0006 USDT, of which up to 0.0006 USDT arrived through traced flows, as of block 26307574."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0006 USDT, of which up to 0.0006 USDT arrived through traced flows, as of block 26307694."
     }
    ]
   },
@@ -212,7 +220,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "0.0001",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26307574."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26307694."
     }
    ]
   },
@@ -221,7 +229,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26307574."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26307694."
   },
   {
    "id": "0x5c23023ca6633f91ded909b4a753a3ca00fea4fc",
@@ -242,7 +250,7 @@
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
      "issuer": "Circle",
      "held": "0",
-     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 33005.117139 USDC, of which up to 0 USDC arrived through traced flows, as of block 26307574."
+     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 33005.117139 USDC, of which up to 0 USDC arrived through traced flows, as of block 26307694."
     }
    ]
   },
@@ -265,14 +273,14 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26307574."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26307694."
   },
   {
    "id": "0x54401f80da97893a15d43566184635b6674bc942",
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26307574."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26307694."
   },
   {
    "id": "0x8c7111e9a3270457b76f0bd137209089047a6aa4",
@@ -286,14 +294,14 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26307574."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26307694."
   },
   {
    "id": "0xc2096a12ebe0944f4d39e59979f485afd92d850a",
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26307574."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26307694."
   },
   {
    "id": "0xa3b3dee870f01560fdbe5af659c9c9135748886f",
@@ -307,7 +315,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26307574."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26307694."
   },
   {
    "id": "0x8d53903625b8e839b9df4bd28b0efb1cd6b8639a",
@@ -321,7 +329,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "0.0001",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26307574."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26307694."
     }
    ]
   },
@@ -344,7 +352,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "0.0001",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26307574."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26307694."
     }
    ]
   },
@@ -360,7 +368,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "0.0001",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26307574."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26307694."
     }
    ]
   },
@@ -376,7 +384,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "30000000",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 30000000 USDT, of which up to 30000000 USDT arrived through traced flows, as of block 26307574."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 30000000 USDT, of which up to 30000000 USDT arrived through traced flows, as of block 26307694."
     }
    ]
   },
@@ -385,7 +393,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26307574."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26307694."
   },
   {
    "id": "0x811f15855476156ebf86ba3b84fafb8ceaa4e84c",
@@ -399,7 +407,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26307574."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26307694."
   },
   {
    "id": "0x42cdf00c85005630cc8605731b9364f712077810",
@@ -420,7 +428,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "174999872.32762",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 174999872.32762 USDT, of which up to 174999872.32762 USDT arrived through traced flows, as of block 26307574."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 174999872.32762 USDT, of which up to 174999872.32762 USDT arrived through traced flows, as of block 26307694."
     }
    ]
   },
@@ -513,14 +521,14 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced USDT since it arrived, as of block 26307574.",
+   "note": "No outflow of the traced USDT since it arrived, as of block 26307694.",
    "freezable": [
     {
      "asset": "USDT",
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "127.67248",
-     "note": "Tether has not frozen this address for USDT: USDT isBlackListed returns false on chain; balanceOf returns 57679.112761 USDT, of which up to 127.67248 USDT arrived through traced flows, as of block 26307574."
+     "note": "Tether has not frozen this address for USDT: USDT isBlackListed returns false on chain; balanceOf returns 57692.455638 USDT, of which up to 127.67248 USDT arrived through traced flows, as of block 26307694."
     }
    ]
   },
@@ -563,8 +571,24 @@
    "id": "0xad456c79732e0e0b2fc1d1368b9069b4bb08e8b5",
    "chain": "ethereum",
    "label": null,
-   "role": "open",
+   "role": "pocket",
    "note": null
+  },
+  {
+   "id": "0x294828705974ad04d86a24a2ff6efe762505a0ed",
+   "chain": "ethereum",
+   "label": null,
+   "role": "open",
+   "note": null,
+   "frozen": [
+    {
+     "asset": "USDC",
+     "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+     "issuer": "Circle",
+     "held": "0",
+     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 0 USDC, of which up to 0 USDC arrived through traced flows, as of block 26307694."
+    }
+   ]
   }
  ],
  "edges": [
@@ -3287,6 +3311,186 @@
    "source_position": "transaction value",
    "target_position": "transaction value",
    "tx_url": "https://etherscan.io/tx/0xa3df03c37b2b7820a8339d546a15b8e2d8a909a04010898f54f323e2ded85784",
+   "tier": "verified"
+  },
+  {
+   "id": "op_eth_ad456_294828_0x7298:0",
+   "from": "0xad456c79732e0e0b2fc1d1368b9069b4bb08e8b5",
+   "to": "0x294828705974ad04d86a24a2ff6efe762505a0ed",
+   "asset": "ETH",
+   "amount": "0.27588",
+   "tx": "0x72988b6a1c7a95b3919185a7141a20e36f685a20b28af79a50ba7fd17477c20d",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26305634,
+   "time_utc": "2026-10-30T12:40:59Z",
+   "operation_id": "op_eth_ad456_294828_0x7298",
+   "session": 15,
+   "seq": 126,
+   "step": 404,
+   "source_position": "transaction value",
+   "target_position": "transaction value",
+   "tx_url": "https://etherscan.io/tx/0x72988b6a1c7a95b3919185a7141a20e36f685a20b28af79a50ba7fd17477c20d",
+   "tier": "verified"
+  },
+  {
+   "id": "op_eth_1291_54401_0xa773:0",
+   "from": "0x1291be4c90239d14527ba880ad2b6e5cb82116b1",
+   "to": "0x54401f80da97893a15d43566184635b6674bc942",
+   "asset": "ETH",
+   "amount": "1546.835",
+   "tx": "0xa773cf8417d572622afffb0280a048081455dac529ead9e63f6cc54cf3e84652",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302281,
+   "time_utc": "2026-10-30T01:27:59Z",
+   "operation_id": "op_eth_1291_54401_0xa773",
+   "session": 15,
+   "seq": 127,
+   "step": 404,
+   "source_position": "transaction value",
+   "target_position": "transaction value",
+   "tx_url": "https://etherscan.io/tx/0xa773cf8417d572622afffb0280a048081455dac529ead9e63f6cc54cf3e84652",
+   "tier": "verified"
+  },
+  {
+   "id": "op_eth_to_weth_a54dc_0x5ccb:0",
+   "from": "0xa54dc4425190570cb5c841adf445bbecf3b249f5",
+   "to": "0xa54dc4425190570cb5c841adf445bbecf3b249f5",
+   "asset": "WETH",
+   "amount": "12.6",
+   "tx": "0x5ccb163c85de8bc518e773c8dc4e7551389f2ce5a9a1498e707bfd583ddde5af",
+   "from_asset": "ETH",
+   "kind": "exchange",
+   "block": 26303926,
+   "time_utc": "2026-10-30T06:57:59Z",
+   "operation_id": "op_eth_to_weth_a54dc_0x5ccb",
+   "session": 15,
+   "seq": 128,
+   "step": 404,
+   "source_position": "transaction value",
+   "target_position": "Transfer event #510",
+   "tx_url": "https://etherscan.io/tx/0x5ccb163c85de8bc518e773c8dc4e7551389f2ce5a9a1498e707bfd583ddde5af",
+   "tier": "verified"
+  },
+  {
+   "id": "op_eth_to_weth_a54dc_0x6760:0",
+   "from": "0xa54dc4425190570cb5c841adf445bbecf3b249f5",
+   "to": "0xa54dc4425190570cb5c841adf445bbecf3b249f5",
+   "asset": "WETH",
+   "amount": "5.4",
+   "tx": "0x676080ac5d5aab351b66502a46348b67f5794f26aab393906ccd4a58f755345b",
+   "from_asset": "ETH",
+   "kind": "exchange",
+   "block": 26304720,
+   "time_utc": "2026-10-30T09:37:35Z",
+   "operation_id": "op_eth_to_weth_a54dc_0x6760",
+   "session": 15,
+   "seq": 129,
+   "step": 409,
+   "source_position": "transaction value",
+   "target_position": "Transfer event #688",
+   "tx_url": "https://etherscan.io/tx/0x676080ac5d5aab351b66502a46348b67f5794f26aab393906ccd4a58f755345b",
+   "tier": "verified"
+  },
+  {
+   "id": "op_eth_to_weth_a54dc_0x9f1e:0",
+   "from": "0xa54dc4425190570cb5c841adf445bbecf3b249f5",
+   "to": "0xa54dc4425190570cb5c841adf445bbecf3b249f5",
+   "asset": "WETH",
+   "amount": "10.0997",
+   "tx": "0x9f1e1d62e0a927005a96eadcf4b9dadd6bf2af875dfc680edf905fec2d514893",
+   "from_asset": "ETH",
+   "kind": "exchange",
+   "block": 26304755,
+   "time_utc": "2026-10-30T09:44:35Z",
+   "operation_id": "op_eth_to_weth_a54dc_0x9f1e",
+   "session": 15,
+   "seq": 130,
+   "step": 409,
+   "source_position": "transaction value",
+   "target_position": "Transfer event #1710",
+   "tx_url": "https://etherscan.io/tx/0x9f1e1d62e0a927005a96eadcf4b9dadd6bf2af875dfc680edf905fec2d514893",
+   "tier": "verified"
+  },
+  {
+   "id": "op_eth_to_weth_a54dc_0xe680:0",
+   "from": "0xa54dc4425190570cb5c841adf445bbecf3b249f5",
+   "to": "0xa54dc4425190570cb5c841adf445bbecf3b249f5",
+   "asset": "WETH",
+   "amount": "5.9",
+   "tx": "0xe680e009f0cc8fc181fec213ca020ce89b65d48198e1d09b5cf27abe6fe7aac8",
+   "from_asset": "ETH",
+   "kind": "exchange",
+   "block": 26305142,
+   "time_utc": "2026-10-30T11:01:59Z",
+   "operation_id": "op_eth_to_weth_a54dc_0xe680",
+   "session": 15,
+   "seq": 131,
+   "step": 409,
+   "source_position": "transaction value",
+   "target_position": "Transfer event #735",
+   "tx_url": "https://etherscan.io/tx/0xe680e009f0cc8fc181fec213ca020ce89b65d48198e1d09b5cf27abe6fe7aac8",
+   "tier": "verified"
+  },
+  {
+   "id": "op_eth_to_weth_a54dc_0xb0aa:0",
+   "from": "0xa54dc4425190570cb5c841adf445bbecf3b249f5",
+   "to": "0xa54dc4425190570cb5c841adf445bbecf3b249f5",
+   "asset": "WETH",
+   "amount": "9.9",
+   "tx": "0xb0aa995d70f2402290996c424d7eae55d6930a7dd947a8f032071179f70db6e5",
+   "from_asset": "ETH",
+   "kind": "exchange",
+   "block": 26305535,
+   "time_utc": "2026-10-30T12:21:11Z",
+   "operation_id": "op_eth_to_weth_a54dc_0xb0aa",
+   "session": 15,
+   "seq": 132,
+   "step": 415,
+   "source_position": "transaction value",
+   "target_position": "Transfer event #1075",
+   "tx_url": "https://etherscan.io/tx/0xb0aa995d70f2402290996c424d7eae55d6930a7dd947a8f032071179f70db6e5",
+   "tier": "verified"
+  },
+  {
+   "id": "op_eth_to_weth_a54dc_0x17b4:0",
+   "from": "0xa54dc4425190570cb5c841adf445bbecf3b249f5",
+   "to": "0xa54dc4425190570cb5c841adf445bbecf3b249f5",
+   "asset": "WETH",
+   "amount": "5.2997",
+   "tx": "0x17b4278ee6902e5dbddb5349ef710deee526eebc9f3167b01e158f6b2144c515",
+   "from_asset": "ETH",
+   "kind": "exchange",
+   "block": 26305648,
+   "time_utc": "2026-10-30T12:43:47Z",
+   "operation_id": "op_eth_to_weth_a54dc_0x17b4",
+   "session": 15,
+   "seq": 133,
+   "step": 415,
+   "source_position": "transaction value",
+   "target_position": "Transfer event #564",
+   "tx_url": "https://etherscan.io/tx/0x17b4278ee6902e5dbddb5349ef710deee526eebc9f3167b01e158f6b2144c515",
+   "tier": "verified"
+  },
+  {
+   "id": "op_eth_to_weth_a54dc_0xf839:0",
+   "from": "0xa54dc4425190570cb5c841adf445bbecf3b249f5",
+   "to": "0xa54dc4425190570cb5c841adf445bbecf3b249f5",
+   "asset": "WETH",
+   "amount": "7.5997",
+   "tx": "0xf839838d1e52822a4ef4297ad2932f5df05f3e5924f7b0890d3e2713c0cac51b",
+   "from_asset": "ETH",
+   "kind": "exchange",
+   "block": 26307080,
+   "time_utc": "2026-10-30T17:30:59Z",
+   "operation_id": "op_eth_to_weth_a54dc_0xf839",
+   "session": 15,
+   "seq": 134,
+   "step": 415,
+   "source_position": "transaction value",
+   "target_position": "Transfer event #891",
+   "tx_url": "https://etherscan.io/tx/0xf839838d1e52822a4ef4297ad2932f5df05f3e5924f7b0890d3e2713c0cac51b",
    "tier": "verified"
   }
  ],
@@ -6781,6 +6985,275 @@
      "url": "https://etherscan.io/tx/0xa3df03c37b2b7820a8339d546a15b8e2d8a909a04010898f54f323e2ded85784#eventlog"
     }
    ]
+  },
+  {
+   "id": "op_eth_ad456_294828_0x7298",
+   "type": "transfer",
+   "claim": "transfer: 0.27588 ETH 0xad45\u2026e8b5 to 0x2948\u2026a0ed",
+   "via": null,
+   "session": 15,
+   "seq": 126,
+   "step": 404,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_eth_ad456_294828_0x7298:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction",
+     "tx": "0x72988b6a1c7a95b3919185a7141a20e36f685a20b28af79a50ba7fd17477c20d",
+     "url": "https://etherscan.io/tx/0x72988b6a1c7a95b3919185a7141a20e36f685a20b28af79a50ba7fd17477c20d"
+    },
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x72988b6a1c7a95b3919185a7141a20e36f685a20b28af79a50ba7fd17477c20d",
+     "url": "https://etherscan.io/tx/0x72988b6a1c7a95b3919185a7141a20e36f685a20b28af79a50ba7fd17477c20d#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_eth_1291_54401_0xa773",
+   "type": "transfer",
+   "claim": "transfer: 1546.835 ETH 0x1291\u202616b1 to 0x5440\u2026c942",
+   "via": null,
+   "session": 15,
+   "seq": 127,
+   "step": 404,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_eth_1291_54401_0xa773:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction",
+     "tx": "0xa773cf8417d572622afffb0280a048081455dac529ead9e63f6cc54cf3e84652",
+     "url": "https://etherscan.io/tx/0xa773cf8417d572622afffb0280a048081455dac529ead9e63f6cc54cf3e84652"
+    },
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xa773cf8417d572622afffb0280a048081455dac529ead9e63f6cc54cf3e84652",
+     "url": "https://etherscan.io/tx/0xa773cf8417d572622afffb0280a048081455dac529ead9e63f6cc54cf3e84652#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_eth_to_weth_a54dc_0x5ccb",
+   "type": "wrap",
+   "claim": "wrap: 12.6 WETH 0xa54d\u202649f5 to 0xa54d\u202649f5",
+   "via": {
+    "contract": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "name": "WETH9",
+    "function": "deposit",
+    "explorer": "https://etherscan.io/address/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+   },
+   "session": 15,
+   "seq": 128,
+   "step": 404,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_eth_to_weth_a54dc_0x5ccb:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction",
+     "tx": "0x5ccb163c85de8bc518e773c8dc4e7551389f2ce5a9a1498e707bfd583ddde5af",
+     "url": "https://etherscan.io/tx/0x5ccb163c85de8bc518e773c8dc4e7551389f2ce5a9a1498e707bfd583ddde5af"
+    },
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x5ccb163c85de8bc518e773c8dc4e7551389f2ce5a9a1498e707bfd583ddde5af",
+     "url": "https://etherscan.io/tx/0x5ccb163c85de8bc518e773c8dc4e7551389f2ce5a9a1498e707bfd583ddde5af#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_eth_to_weth_a54dc_0x6760",
+   "type": "wrap",
+   "claim": "wrap: 5.4 WETH 0xa54d\u202649f5 to 0xa54d\u202649f5",
+   "via": {
+    "contract": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "name": "WETH9",
+    "function": "deposit",
+    "explorer": "https://etherscan.io/address/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+   },
+   "session": 15,
+   "seq": 129,
+   "step": 409,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_eth_to_weth_a54dc_0x6760:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction",
+     "tx": "0x676080ac5d5aab351b66502a46348b67f5794f26aab393906ccd4a58f755345b",
+     "url": "https://etherscan.io/tx/0x676080ac5d5aab351b66502a46348b67f5794f26aab393906ccd4a58f755345b"
+    },
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x676080ac5d5aab351b66502a46348b67f5794f26aab393906ccd4a58f755345b",
+     "url": "https://etherscan.io/tx/0x676080ac5d5aab351b66502a46348b67f5794f26aab393906ccd4a58f755345b#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_eth_to_weth_a54dc_0x9f1e",
+   "type": "wrap",
+   "claim": "wrap: 10.0997 WETH 0xa54d\u202649f5 to 0xa54d\u202649f5",
+   "via": {
+    "contract": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "name": "WETH9",
+    "function": "deposit",
+    "explorer": "https://etherscan.io/address/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+   },
+   "session": 15,
+   "seq": 130,
+   "step": 409,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_eth_to_weth_a54dc_0x9f1e:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction",
+     "tx": "0x9f1e1d62e0a927005a96eadcf4b9dadd6bf2af875dfc680edf905fec2d514893",
+     "url": "https://etherscan.io/tx/0x9f1e1d62e0a927005a96eadcf4b9dadd6bf2af875dfc680edf905fec2d514893"
+    },
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x9f1e1d62e0a927005a96eadcf4b9dadd6bf2af875dfc680edf905fec2d514893",
+     "url": "https://etherscan.io/tx/0x9f1e1d62e0a927005a96eadcf4b9dadd6bf2af875dfc680edf905fec2d514893#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_eth_to_weth_a54dc_0xe680",
+   "type": "wrap",
+   "claim": "wrap: 5.9 WETH 0xa54d\u202649f5 to 0xa54d\u202649f5",
+   "via": {
+    "contract": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "name": "WETH9",
+    "function": "deposit",
+    "explorer": "https://etherscan.io/address/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+   },
+   "session": 15,
+   "seq": 131,
+   "step": 409,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_eth_to_weth_a54dc_0xe680:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction",
+     "tx": "0xe680e009f0cc8fc181fec213ca020ce89b65d48198e1d09b5cf27abe6fe7aac8",
+     "url": "https://etherscan.io/tx/0xe680e009f0cc8fc181fec213ca020ce89b65d48198e1d09b5cf27abe6fe7aac8"
+    },
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xe680e009f0cc8fc181fec213ca020ce89b65d48198e1d09b5cf27abe6fe7aac8",
+     "url": "https://etherscan.io/tx/0xe680e009f0cc8fc181fec213ca020ce89b65d48198e1d09b5cf27abe6fe7aac8#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_eth_to_weth_a54dc_0xb0aa",
+   "type": "wrap",
+   "claim": "wrap: 9.9 WETH 0xa54d\u202649f5 to 0xa54d\u202649f5",
+   "via": {
+    "contract": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "name": "WETH9",
+    "function": "deposit",
+    "explorer": "https://etherscan.io/address/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+   },
+   "session": 15,
+   "seq": 132,
+   "step": 415,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_eth_to_weth_a54dc_0xb0aa:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction",
+     "tx": "0xb0aa995d70f2402290996c424d7eae55d6930a7dd947a8f032071179f70db6e5",
+     "url": "https://etherscan.io/tx/0xb0aa995d70f2402290996c424d7eae55d6930a7dd947a8f032071179f70db6e5"
+    },
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xb0aa995d70f2402290996c424d7eae55d6930a7dd947a8f032071179f70db6e5",
+     "url": "https://etherscan.io/tx/0xb0aa995d70f2402290996c424d7eae55d6930a7dd947a8f032071179f70db6e5#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_eth_to_weth_a54dc_0x17b4",
+   "type": "wrap",
+   "claim": "wrap: 5.2997 WETH 0xa54d\u202649f5 to 0xa54d\u202649f5",
+   "via": {
+    "contract": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "name": "WETH9",
+    "function": "deposit",
+    "explorer": "https://etherscan.io/address/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+   },
+   "session": 15,
+   "seq": 133,
+   "step": 415,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_eth_to_weth_a54dc_0x17b4:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction",
+     "tx": "0x17b4278ee6902e5dbddb5349ef710deee526eebc9f3167b01e158f6b2144c515",
+     "url": "https://etherscan.io/tx/0x17b4278ee6902e5dbddb5349ef710deee526eebc9f3167b01e158f6b2144c515"
+    },
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x17b4278ee6902e5dbddb5349ef710deee526eebc9f3167b01e158f6b2144c515",
+     "url": "https://etherscan.io/tx/0x17b4278ee6902e5dbddb5349ef710deee526eebc9f3167b01e158f6b2144c515#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_eth_to_weth_a54dc_0xf839",
+   "type": "wrap",
+   "claim": "wrap: 7.5997 WETH 0xa54d\u202649f5 to 0xa54d\u202649f5",
+   "via": {
+    "contract": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "name": "WETH9",
+    "function": "deposit",
+    "explorer": "https://etherscan.io/address/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+   },
+   "session": 15,
+   "seq": 134,
+   "step": 415,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_eth_to_weth_a54dc_0xf839:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction",
+     "tx": "0xf839838d1e52822a4ef4297ad2932f5df05f3e5924f7b0890d3e2713c0cac51b",
+     "url": "https://etherscan.io/tx/0xf839838d1e52822a4ef4297ad2932f5df05f3e5924f7b0890d3e2713c0cac51b"
+    },
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xf839838d1e52822a4ef4297ad2932f5df05f3e5924f7b0890d3e2713c0cac51b",
+     "url": "https://etherscan.io/tx/0xf839838d1e52822a4ef4297ad2932f5df05f3e5924f7b0890d3e2713c0cac51b#eventlog"
+    }
+   ]
   }
  ],
  "leads": [
@@ -6860,17 +7333,22 @@
    "reason": null
   },
   {
-   "account": "lead_0xa54dc4_ETH_check",
-   "status": "open",
-   "reason": null
-  },
-  {
-   "account": "lead_0xad456c_ETH_check",
-   "status": "open",
-   "reason": null
-  },
-  {
    "account": "lead_0x091dfa_ETH_check",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x294828_ETH",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0xa54dc4_WETH",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x54401_ETH_from_1291",
    "status": "open",
    "reason": null
   },
@@ -7108,6 +7586,16 @@
    "account": "lead_0x80358c_ETH_check",
    "status": "closed",
    "reason": "Closed by the outflow check: no unrecorded outflow of 0x80358c5b8f9b2cc27147a1e0f2a6c9a30eb2c397's traced pockets as of 2026-10-30T19:35:17Z."
+  },
+  {
+   "account": "lead_0xa54dc4_ETH_check",
+   "status": "closed",
+   "reason": "Opened by the outflow check: 0xa54dc4425190570cb5c841adf445bbecf3b249f5 ETH (ETH): 7 positive outflows at or after block 26303896, where traced value first arrived, are not recorded: 0x5ccb163c85de8bc518e773c8dc4e7551389f2ce5a9a1498e707bfd583ddde5af (block 26303926, 12600000000000000000); 0x676080ac5d5aab351b66502a46348b67f5794f26aab393906ccd4a58f755345b (block 26304720, 5400000000000000000); 0x9f1e1d62e0a927005a96eadcf4b9dadd6bf2af875dfc680edf905fec2d514893 (block 26304755, 10099700000000000000); 0xe680e009f0cc8fc181fec213ca020ce89b65d48198e1d09b5cf27abe6fe7aac8 (block 26305142, 5900000000000000000); 0xb0aa995d70f2402290996c424d7eae55d6930a7dd947a8f032071179f70db6e5 (block 26305535, 9900000000000000000); 0x17b4278ee6902e5dbddb5349ef710deee526eebc9f3167b01e158f6b2144c515 (block 26305648, 5299700000000000000); 0xf839838d1e52822a4ef4297ad2932f5df05f3e5924f7b0890d3e2713c0cac51b (block 26307080, 7599700000000000000) (closed: All seven positive ETH outflows listed for 0xa54dc4425190570cb5c841adf445bbecf3b249f5 after traced ETH arrival in the current block window were fetched and recorded as WETH wrap operations (txs 0x5ccb..., 0x6760..., 0x9f1e..., 0xe680..., 0xb0aa..., 0x17b4..., 0xf839...). Resulting value continues in the 0xa54dc WETH lead.)"
+  },
+  {
+   "account": "lead_0xad456c_ETH_check",
+   "status": "closed",
+   "reason": "Opened by the outflow check: 0xad456c79732e0e0b2fc1d1368b9069b4bb08e8b5 ETH (ETH): 1 positive outflows at or after block 26305331, where traced value first arrived, are not recorded: 0x72988b6a1c7a95b3919185a7141a20e36f685a20b28af79a50ba7fd17477c20d (block 26305634, 275879544000000000) (closed: The single positive ETH outflow listed for 0xad456c79732e0e0b2fc1d1368b9069b4bb08e8b5 after traced ETH arrival in the current block window, tx 0x72988b6a1c7a95b3919185a7141a20e36f685a20b28af79a50ba7fd17477c20d, was fetched and recorded to 0x294828705974ad04d86a24a2ff6efe762505a0ed.)"
   }
  ],
  "coming_soon": [
@@ -7192,16 +7680,20 @@
     "text": "Opened by the outflow check: 0xc1d13492285eb664951e201bf7c80c7c6318a1b5 ETH (ETH): 744 positive outflows at or after block 26301102, where traced value first arrived, are not recorded: 0xbe1d7cf377e40258601517e0a77ad01295cdf3d4bd08e0cc4b0a2deee1af0593 (block 26301107, 42089000000000000); 0x2e8eb4127950653cf3639e4c260e296efb7d43f90cbef45946b97e137a37ee0c (block 26301108, 2099477000000000000); 0x6c1fae0f2ab0c943a6ada9099e101e5530a655e972eb274c52f33dca437e8b84 (block 26301108, 206105000000000000); 0x6e47bfb5ae1fe579a32db53425756f1c9acaa019f631ec14cb050e51d35c137c (block 26301108, 206077000000000000); 0xb36054a15a64dd7b2bb2ec4b86d5d278390efe5ad7134af7b0387159021fe928 (block 26301108, 602200000000000000); 0xd96ac2dda59be7d49310d04a13605cc7e49f081a57c9ee96b64cf965b175f701 (block 26301108, 4901045000000000000); 0xdc60f908924590765668eb4cd87d0215882c20719f136ca911e7d49ef1f3601e (block 26301108, 946184000000000000); 0xb7d6b86e749a16cd1213d1f4d56614f7e023e8161301c00fcbd981e07311b88d (block 26301111, 1524001000000000000); 0xfc6ecc2bef7c194ec71dcdf752a09b57b528786562573f04eb60ad76e679c7f8 (block 26301111, 401260000000000000); 0x18dcfde758b51f1dea641debbadc45683b18dfb2ccb66f813aa5eae31d5c71df (block 26301134, 2146464000000000000); 0x2c0cae75cfe7687ec9cb5e17df0c45f46852107d2ca3d18282a713ae602f6120 (block 26301149, 6928184000000000000); 0xf28fb587ac77d942412a1b0bad91037d4a9f3dbd4f932a37b44b91c95e0dcdb3 (block 26301149, 12935090000000000000); 0x0f9d22d009d309d0157ba69d7ccffd99a27d6eb2f2199ed84d7bd8e103a85a8e (block 26301160, 8922184000000000000); 0x604a8eb322e095890ea5c0c5a4dce36aa06e6d98b891733f379f8ac3215581ff (block 26301160, 4658452000000000000); 0x1f480ef6f9e0360b1927baee30ee7b29e7b482688b64d632f54d73dca87fe8db (block 26301593, 4777500000000000000); 0x31a3a2af1483512dd3f75189bd7f7bdabefe085a106ed4c6d9a8dcb3dd49a35a (block 26301595, 5475400000000000000); 0xc67e9c15eb31e811c558c5abb6b77e2591de147d5e847ad41a5bee5f1ce8148f (block 26301595, 12952900000000000000); 0x18903142df3196140748b59a83cb6e4069f953e640b43b107af277c6e1864448 (block 26301602, 221210000000000000); 0x2f242ac0168588ff07bf90dc09fffb80ce663c90d34d9be7b4c7ed28fadc3e69 (block 26301602, 6887152000000000000); 0x527011204a6e5ecbefb03fc4628613fa3b129dc18c40e084ba5111ce5fb1d27b (block 26301602, 13169069000000000000); and 724 more"
    },
    {
-    "key": "lead_0xa54dc4_ETH_check",
-    "text": "Opened by the outflow check: 0xa54dc4425190570cb5c841adf445bbecf3b249f5 ETH (ETH): 7 positive outflows at or after block 26303896, where traced value first arrived, are not recorded: 0x5ccb163c85de8bc518e773c8dc4e7551389f2ce5a9a1498e707bfd583ddde5af (block 26303926, 12600000000000000000); 0x676080ac5d5aab351b66502a46348b67f5794f26aab393906ccd4a58f755345b (block 26304720, 5400000000000000000); 0x9f1e1d62e0a927005a96eadcf4b9dadd6bf2af875dfc680edf905fec2d514893 (block 26304755, 10099700000000000000); 0xe680e009f0cc8fc181fec213ca020ce89b65d48198e1d09b5cf27abe6fe7aac8 (block 26305142, 5900000000000000000); 0xb0aa995d70f2402290996c424d7eae55d6930a7dd947a8f032071179f70db6e5 (block 26305535, 9900000000000000000); 0x17b4278ee6902e5dbddb5349ef710deee526eebc9f3167b01e158f6b2144c515 (block 26305648, 5299700000000000000); 0xf839838d1e52822a4ef4297ad2932f5df05f3e5924f7b0890d3e2713c0cac51b (block 26307080, 7599700000000000000)"
-   },
-   {
-    "key": "lead_0xad456c_ETH_check",
-    "text": "Opened by the outflow check: 0xad456c79732e0e0b2fc1d1368b9069b4bb08e8b5 ETH (ETH): 1 positive outflows at or after block 26305331, where traced value first arrived, are not recorded: 0x72988b6a1c7a95b3919185a7141a20e36f685a20b28af79a50ba7fd17477c20d (block 26305634, 275879544000000000)"
-   },
-   {
     "key": "lead_0x091dfa_ETH_check",
     "text": "Opened by the outflow check: 0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce ETH (ETH): 23 positive outflows at or after block 26305520, where traced value first arrived, are not recorded: 0x58f073896aa3537a705a92870be5941226745a0120b0358f2fa68d6e3b51a319 (block 26305607, 1015417915320301500); 0xafbab48f576ba83015e314cef655e7fbb9b966ca956024a1becceb8d212da9dc (block 26305778, 454018125797577359); 0xdaa9da9bc0de2abe89b85131eda66a84f3214c5caae29516beb9a3b16aef0200 (block 26305786, 245650514402345541); 0x7383668648468d3a06108c991fa41407eb4c7456925e1ea3b9c112451ccbdf95 (block 26305799, 245641175729976074); 0x2f9f6e6b2efd8845ea0deeee1fe0ca3083ce638ed9206b7ab98681f0eb1e1736 (block 26305802, 1094904256546851981); 0xd2e77695dd4109393c4fcc647624f28a112c9d0c5f496cf07b1c6f9deb460e67 (block 26305827, 711703083810757303); 0x08fa36249760a14c7995c59359b6e082421624ec0369f0d8c24236d5a6d5a4d0 (block 26305836, 176821929795474613); 0x657a22725dffa334c8b574e3e34a97acb220222b828055619e8eee155aacc7e1 (block 26306006, 669718110625911576); 0x8cb37faa7d669002e664c7e9ec5ff731e49b56d26472c2d33bd2f6f3eef5d497 (block 26306110, 1407983446958095537); 0x316814200d319f20de784290de47d802cfbde818d27e5595a4b4072b7fd39040 (block 26306119, 750124549175962968); 0xca879553fe4ccfdbc1a81a784a57b6de25c83b04c8379a7a6670cc897c384dd5 (block 26306227, 1636615188922377417); 0xa44d374d4dd57d729409cc13dbb229d30a0473e9f0ec4aec72e38d59590943fc (block 26306291, 1413539161963307645); 0xbd96a44a34402d3a66b6d53df24fa778abd0954bb932493486191c8a2d1a3f1a (block 26306623, 569850491333580000); 0x66cf073565a87660f2382ad1b3f386010d02315dd8322c9562ca5de65f57ef0f (block 26306630, 419856162946500000); 0x99755019021246276ddf68a2635536dff962188e7d2539e756a225532285585e (block 26306644, 799810529982400000); 0xa97b7eb145e0df92934dd8898929bba8ac64fd5692093c2840f7db9aa4b18eee (block 26306662, 265165784850604333); 0xb3e856648ed575c6ba1a57f8e5994846d1032c138b8113bb910a817a5ea6f55d (block 26306824, 749891211100500000); 0xa4c4098e8f226eacd29b1eeddbc5ec91b68d827248067db2bc59fe1762db116c (block 26306991, 445322425226616274); 0x9f79bf66698472e4cf99ccfc068c5e5b80e0e412f9197d07d18a60a7eaf2c1eb (block 26307001, 184638957916556577); 0x4eaf0ab99bedd0fb19b7761c56832f8e8d8f53fb88d1f5b7d2986944449201cc (block 26307046, 599919262819200000); and 3 more"
+   },
+   {
+    "key": "lead_0x294828_ETH",
+    "text": "Trace ETH pocket at 0x294828705974ad04d86a24a2ff6efe762505a0ed after tx 0x72988b6a1c7a95b3919185a7141a20e36f685a20b28af79a50ba7fd17477c20d amount 275879544000000000; check all ETH outflows in block window."
+   },
+   {
+    "key": "lead_0xa54dc4_WETH",
+    "text": "Trace WETH pocket at 0xa54dc4425190570cb5c841adf445bbecf3b249f5 after wrap tx 0x5ccb163c85de8bc518e773c8dc4e7551389f2ce5a9a1498e707bfd583ddde5af log 510 amount 12600000000000000000; check all WETH outflows in block window."
+   },
+   {
+    "key": "lead_0x54401_ETH_from_1291",
+    "text": "Trace ETH pocket at 0x54401f80da97893a15d43566184635b6674bc942 after tx 0xa773cf8417d572622afffb0280a048081455dac529ead9e63f6cc54cf3e84652 amount 1546835000000000000000 from 0x1291be4c90239d14527ba880ad2b6e5cb82116b1; check all ETH outflows in block window."
    }
   ],
   "notes": [
@@ -7248,8 +7740,9 @@
    "New session continuing open leads over ethereum blocks 26300770-26307302. Prior notes checked 0x5227 ETH and 0xaa246b USDT through block 26307264; will check extension 26307265-26307302 for positive traced-asset outflows before closing/resting.",
    "Served out-activity for extension blocks 26307265-26307302. 0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c has no out activity; 0xaa246bf639586a6ba46762d378ce50ca4fc654a0 has no out activity. Combined with prior served checks through 26307264 and historical activity notes, no positive traced ETH outflow from 0x5227 remains unrecorded in the full window, and no traced USDT outflow from 0xaa246b after its traced USDT receipt remains unrecorded in the full window.",
    "New session over ethereum blocks 26300770-26307447. Outflow check reopened multiple ETH/USDT pockets with specific unrecorded outflows through blocks 263073xx; will fetch evidence for listed transactions and record movements shown by served records.",
-   "Served tx+receipt for 0x00fc00edbe7c003b006f870068c548940000223e outflow-check txs 0x8d290501..., 0x65298529..., 0xfbca5ae5... and transaction for 0xdd535a37... from 0x80358c. The 0x00fc txs are code calls with transaction value 0 and receipt custom logs; need transaction traces to evidence the ETH value leaving 0x00fc and landing target(s). 0xdd535a37 transaction is simple ETH from 0x80358c5b8f9b2cc27147a1e0f2a6c9a30eb2c397 to 0xad456c79732e0e0b2fc1d1368b9069b4bb08e8b5 amount 275940024000000000; need receipt before recording."
+   "Served tx+receipt for 0x00fc00edbe7c003b006f870068c548940000223e outflow-check txs 0x8d290501..., 0x65298529..., 0xfbca5ae5... and transaction for 0xdd535a37... from 0x80358c. The 0x00fc txs are code calls with transaction value 0 and receipt custom logs; need transaction traces to evidence the ETH value leaving 0x00fc and landing target(s). 0xdd535a37 transaction is simple ETH from 0x80358c5b8f9b2cc27147a1e0f2a6c9a30eb2c397 to 0xad456c79732e0e0b2fc1d1368b9069b4bb08e8b5 amount 275940024000000000; need receipt before recording.",
+   "New continuation over ethereum blocks 26300770-26307694. Outflow check lists unrecorded positive outflows for 0x1291 ETH, 0xa54dc ETH, 0xad456 ETH, 0x091dfa ETH, 0x0e77 USDC, and many bridge-router/service 0xc1d134 ETH. Will fetch direct transaction evidence and record only movements shown by served successful records."
   ],
-  "total_steps": 397
+  "total_steps": 427
  }
 }
