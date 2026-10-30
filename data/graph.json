@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum: live trace",
   "incident_utc": "2026-10-29T20:24:00Z",
-  "updated_utc": "2026-10-30T17:30:15Z",
+  "updated_utc": "2026-10-30T17:50:26Z",
   "head_block": 26307051,
   "chain": "ethereum",
   "notes": [
@@ -376,7 +376,7 @@
    "id": "0xaa246bf639586a6ba46762d378ce50ca4fc654a0",
    "chain": "ethereum",
    "label": null,
-   "role": "pocket",
+   "role": "open",
    "note": null,
    "frozen": [
     {
@@ -4425,6 +4425,16 @@
    "reason": null
   },
   {
+   "account": "lead_0xaa246b_USDT",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0xaa246b_ETH",
+   "status": "open",
+   "reason": null
+  },
+  {
    "account": "lead_0x8532_ETH",
    "status": "closed",
    "reason": "Open: 0x8532fa14acaf483729c449b8458aeddb900543d4 ETH received 195460000000000000000000 in tx 0x551d...; trace outflows in window. (closed: Account activity for 0x8532fa14acaf483729c449b8458aeddb900543d4 shows no outgoing transfers in blocks 26300770-26306466; ETH pocket remains at account in current window.)"
@@ -4628,16 +4638,6 @@
    "account": "lead_0x974929_USDT",
    "status": "closed",
    "reason": "Open: 0x9749292d74fd460982d0912ea9515ea24736c762 USDT received 500000000000000 in tx 0x68d7... log700; trace outflows in window. (closed: Fetched 0x974929 out-activity through block 26307051. Every real USDT outflow in the window is recorded: USDT->ETH exchanges 0x290e94, 0x4fa182, 0xfa9495, 0xa861a5, 0xe5ccc3, 0x7b0ad8, 0x1b623b, 0xc59188, 0x3fd5ec, and USDT transfer 0x1fb992 to 0x811f. Later ERC20 rows are lookalike/non-traced assets.)"
-  },
-  {
-   "account": "lead_0xaa246b_USDT",
-   "status": "closed",
-   "reason": "Reopened by the outflow check: 0xaa246bf639586a6ba46762d378ce50ca4fc654a0 0xdac17f958d2ee523a2206206994597c13d831ec7: 1 outflows not recorded, e.g. 0x11be88b460501b4652e760c41e08cc1f18575e14b6c6ffbb3383e043c2decf34 (closed: Served out-activity through block 26307051 and receipt for the only real USDT outflow. That USDT outflow (tx 0x11be88..., block 26301011) predates the traced USDT receipt from 0x811f in tx 0xb6d7..., so no traced USDT left 0xaa246b after receipt; funds rest there in the window.)"
-  },
-  {
-   "account": "lead_0xaa246b_ETH",
-   "status": "closed",
-   "reason": "Reopened by the outflow check: 0xaa246bf639586a6ba46762d378ce50ca4fc654a0 0xdac17f958d2ee523a2206206994597c13d831ec7: 1 outflows not recorded, e.g. 0x11be88b460501b4652e760c41e08cc1f18575e14b6c6ffbb3383e043c2decf34 (closed: Served 0xaa246b out-activity through block 26307051; the only positive ETH outflow is tx 0xcb9f... to 0x974929, already recorded. Other ETH transactions are zero-value and token rows are non-traced/lookalike.)"
   }
  ],
  "coming_soon": [
@@ -4668,6 +4668,14 @@
    {
     "key": "lead_0x5227_ETH_after_be54",
     "text": "Reopened by the outflow check: 0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c ETH: 13 outflows not recorded, e.g. 0x0882d99e6bcb39670a7e74a15dc0361ae982742ed0f8a7312a64957e4b77e097, 0x19fb8ac1507861db07b3aadeb3b41b74bb2c0959ef7602eb706019de463d10ca, 0x24472c4e45496a3665576b7eb58aa81948f020cdd9ccc6ca61094cf592492c82"
+   },
+   {
+    "key": "lead_0xaa246b_USDT",
+    "text": "Reopened by the outflow check: 0xaa246bf639586a6ba46762d378ce50ca4fc654a0 0xdac17f958d2ee523a2206206994597c13d831ec7: 1 outflows not recorded, e.g. 0x11be88b460501b4652e760c41e08cc1f18575e14b6c6ffbb3383e043c2decf34"
+   },
+   {
+    "key": "lead_0xaa246b_ETH",
+    "text": "Reopened by the outflow check: 0xaa246bf639586a6ba46762d378ce50ca4fc654a0 0xdac17f958d2ee523a2206206994597c13d831ec7: 1 outflows not recorded, e.g. 0x11be88b460501b4652e760c41e08cc1f18575e14b6c6ffbb3383e043c2decf34"
    }
   ],
   "notes": [
