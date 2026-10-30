@@ -1,0 +1,1034 @@
+{
+ "case": {
+  "title": "Binance hot-wallet hack, Ethereum: live trace",
+  "incident_utc": "2026-10-29T20:24:00Z",
+  "updated_utc": "2026-10-30T16:12:43Z",
+  "head_block": 26306466,
+  "chain": "ethereum"
+ },
+ "sessions": [
+  {
+   "id": 1,
+   "started_utc": "2026-10-30T15:24:26Z",
+   "ended_utc": "2026-10-30T15:28:04Z",
+   "actions": 36,
+   "model": "gpt-5.5",
+   "summary": "ok"
+  },
+  {
+   "id": 2,
+   "started_utc": "2026-10-30T15:29:01Z",
+   "ended_utc": "2026-10-30T15:38:31Z",
+   "actions": 20,
+   "model": "gpt-5.5",
+   "summary": "ok"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "0x28c6c06298d514db089934071355e5743bf21d60",
+   "chain": "ethereum",
+   "label": "Binance 14",
+   "role": "victim",
+   "note": null
+  },
+  {
+   "id": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+   "chain": "ethereum",
+   "label": "Binance 16",
+   "role": "victim",
+   "note": null
+  },
+  {
+   "id": "0xee7ae85f2fe2239e27d9c1e23fffe168d63b4055",
+   "chain": "ethereum",
+   "label": "Binance smart account",
+   "role": "victim",
+   "note": null
+  },
+  {
+   "id": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "chain": "ethereum",
+   "label": "Attacker collector",
+   "role": "attacker",
+   "note": null
+  },
+  {
+   "id": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+   "chain": "ethereum",
+   "label": "Attacker receiver (second sweep)",
+   "role": "attacker",
+   "note": null
+  },
+  {
+   "id": "0x9749292d74fd460982d0912ea9515ea24736c762",
+   "chain": "ethereum",
+   "label": null,
+   "role": "open",
+   "note": null
+  },
+  {
+   "id": "0x0ddf0480016e6bcb2c1f5d190d221fba1320697e",
+   "chain": "ethereum",
+   "label": null,
+   "role": "open",
+   "note": null
+  },
+  {
+   "id": "0x8532fa14acaf483729c449b8458aeddb900543d4",
+   "chain": "ethereum",
+   "label": null,
+   "role": "resting",
+   "note": "No outflow since the funds arrived, as of block 26306466."
+  },
+  {
+   "id": "0x5c23023ca6633f91ded909b4a753a3ca00fea4fc",
+   "chain": "ethereum",
+   "label": null,
+   "role": "pocket",
+   "note": null
+  },
+  {
+   "id": "0xb3ddec0ccc5c3ba733fcdf5a15f98c95ec5a5fdb",
+   "chain": "ethereum",
+   "label": null,
+   "role": "open",
+   "note": null
+  },
+  {
+   "id": "0x008f06f04b72da2621a4f37f5531cc7352187dcd",
+   "chain": "ethereum",
+   "label": null,
+   "role": "pocket",
+   "note": null
+  },
+  {
+   "id": "0xe7024ab80143b1ef843efe6a58368696cb87958d",
+   "chain": "ethereum",
+   "label": null,
+   "role": "open",
+   "note": null
+  },
+  {
+   "id": "0xc887af690e0301cd4edbbce8f8d31b4ec65b286a",
+   "chain": "ethereum",
+   "label": null,
+   "role": "open",
+   "note": null
+  }
+ ],
+ "edges": [
+  {
+   "id": "seed:0x53bd38b8:0x5227f6:ETH",
+   "from": "0x28c6c06298d514db089934071355e5743bf21d60",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "amount": "167464.247857",
+   "tx": "0x53bd38b816c23e74134786c29a8c18d792777998a3b9326047b583100e88e2f3",
+   "block": 26300770,
+   "time_utc": "2026-10-29T20:24:23Z",
+   "operation_id": "theft",
+   "session": 0,
+   "tier": "verified"
+  },
+  {
+   "id": "seed:0x53bd38b8:0x5227f6:USDT",
+   "from": "0x28c6c06298d514db089934071355e5743bf21d60",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "USDT",
+   "amount": "1615409498.97324",
+   "tx": "0x53bd38b816c23e74134786c29a8c18d792777998a3b9326047b583100e88e2f3",
+   "block": 26300770,
+   "time_utc": "2026-10-29T20:24:23Z",
+   "operation_id": "theft",
+   "session": 0,
+   "tier": "verified"
+  },
+  {
+   "id": "seed:0x53bd38b8:0x5227f6:WBTC",
+   "from": "0x28c6c06298d514db089934071355e5743bf21d60",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "WBTC",
+   "amount": "82.543514",
+   "tx": "0x53bd38b816c23e74134786c29a8c18d792777998a3b9326047b583100e88e2f3",
+   "block": 26300770,
+   "time_utc": "2026-10-29T20:24:23Z",
+   "operation_id": "theft",
+   "session": 0,
+   "tier": "verified"
+  },
+  {
+   "id": "seed:0x53bd38b8:0x5227f6:RLUSD",
+   "from": "0x28c6c06298d514db089934071355e5743bf21d60",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "RLUSD",
+   "amount": "62597239.679797",
+   "tx": "0x53bd38b816c23e74134786c29a8c18d792777998a3b9326047b583100e88e2f3",
+   "block": 26300770,
+   "time_utc": "2026-10-29T20:24:23Z",
+   "operation_id": "theft",
+   "session": 0,
+   "tier": "verified"
+  },
+  {
+   "id": "seed:0x51f263fa:0x5227f6:ETH",
+   "from": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "amount": "28005.6",
+   "tx": "0x51f263fa50966df6bbd7f8c6e6e99e3791c94444f7c4343b2fef1ee2d62fd39f",
+   "block": 26300772,
+   "time_utc": "2026-10-29T20:24:47Z",
+   "operation_id": "theft",
+   "session": 0,
+   "tier": "verified"
+  },
+  {
+   "id": "seed:0xd4e08d3e:0x5227f6:USDT",
+   "from": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "USDT",
+   "amount": "55739800.5",
+   "tx": "0xd4e08d3ef0cb02a75922913c61984fbf7fe4bbc4b95324735ef27f908fd6c49c",
+   "block": 26300772,
+   "time_utc": "2026-10-29T20:24:47Z",
+   "operation_id": "theft",
+   "session": 0,
+   "tier": "verified"
+  },
+  {
+   "id": "seed:0xdc102dd8:0x5227f6:USDC",
+   "from": "0xee7ae85f2fe2239e27d9c1e23fffe168d63b4055",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "USDC",
+   "amount": "780000000",
+   "tx": "0xdc102dd89dded5a83f1008906883ffb7c81ff3b7d7965d8c7277d170b5e17481",
+   "block": 26300855,
+   "time_utc": "2026-10-29T20:41:23Z",
+   "operation_id": "theft",
+   "session": 0,
+   "tier": "verified"
+  },
+  {
+   "id": "seed:0x3b9625b3:0x5227f6:USDC",
+   "from": "0xee7ae85f2fe2239e27d9c1e23fffe168d63b4055",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "USDC",
+   "amount": "43000000",
+   "tx": "0x3b9625b33788daeba68420459ae15bf05c5b3639ccfb8e92067e84b560479ca7",
+   "block": 26300945,
+   "time_utc": "2026-10-29T20:59:47Z",
+   "operation_id": "theft",
+   "session": 0,
+   "tier": "verified"
+  },
+  {
+   "id": "seed:0x31c4c9fe:0x5227f6:ETH",
+   "from": "0x28c6c06298d514db089934071355e5743bf21d60",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "amount": "1699.922888",
+   "tx": "0x31c4c9fe287d54fb9d3b79980477a8c793a11f774b98d0a9a92de1dad888a91d",
+   "block": 26300968,
+   "time_utc": "2026-10-29T21:04:23Z",
+   "operation_id": "theft",
+   "session": 0,
+   "tier": "verified"
+  },
+  {
+   "id": "seed:0x55ba4dab:0x5227f6:ETH",
+   "from": "0x28c6c06298d514db089934071355e5743bf21d60",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "amount": "369.831857",
+   "tx": "0x55ba4dabc41b468e580751373ad31acdee6f5ba398682df2c93e5a8340870556",
+   "block": 26301167,
+   "time_utc": "2026-10-29T21:44:11Z",
+   "operation_id": "theft",
+   "session": 0,
+   "tier": "verified"
+  },
+  {
+   "id": "seed:0x55ba4dab:0x5227f6:USDT",
+   "from": "0x28c6c06298d514db089934071355e5743bf21d60",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "USDT",
+   "amount": "200397771.824195",
+   "tx": "0x55ba4dabc41b468e580751373ad31acdee6f5ba398682df2c93e5a8340870556",
+   "block": 26301167,
+   "time_utc": "2026-10-29T21:44:11Z",
+   "operation_id": "theft",
+   "session": 0,
+   "tier": "verified"
+  },
+  {
+   "id": "op_eth_5227_974929_0x942b:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x9749292d74fd460982d0912ea9515ea24736c762",
+   "asset": "ETH",
+   "amount": "0.5",
+   "tx": "0x942b702e36b611916e8bc810b75ee16fc3255d253f33a260eeb96e94aca575f5",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26300794,
+   "time_utc": "2026-10-29T20:29:11Z",
+   "operation_id": "op_eth_5227_974929_0x942b",
+   "session": 1,
+   "seq": 1,
+   "step": 21,
+   "source_position": "transaction value",
+   "target_position": "transaction value",
+   "tx_url": "https://etherscan.io/tx/0x942b702e36b611916e8bc810b75ee16fc3255d253f33a260eeb96e94aca575f5",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdt_5227_974929_0x68d7:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x9749292d74fd460982d0912ea9515ea24736c762",
+   "asset": "USDT",
+   "amount": "500000000",
+   "tx": "0x68d7d69deaeb9750c38020b4f8d3728146ca8d2267eba1e38cf9b56722ad659a",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26300799,
+   "time_utc": "2026-10-29T20:30:11Z",
+   "operation_id": "op_usdt_5227_974929_0x68d7",
+   "session": 1,
+   "seq": 2,
+   "step": 21,
+   "source_position": "Transfer event #700",
+   "target_position": "Transfer event #700",
+   "tx_url": "https://etherscan.io/tx/0x68d7d69deaeb9750c38020b4f8d3728146ca8d2267eba1e38cf9b56722ad659a",
+   "tier": "verified"
+  },
+  {
+   "id": "op_eth_5227_0ddf_0x5f0a:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x0ddf0480016e6bcb2c1f5d190d221fba1320697e",
+   "asset": "ETH",
+   "amount": "0.5",
+   "tx": "0x5f0a445da1aa1274c79fca844f6cec552c90db5faf40868597e3322429e67100",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26300806,
+   "time_utc": "2026-10-29T20:31:35Z",
+   "operation_id": "op_eth_5227_0ddf_0x5f0a",
+   "session": 1,
+   "seq": 3,
+   "step": 21,
+   "source_position": "transaction value",
+   "target_position": "transaction value",
+   "tx_url": "https://etherscan.io/tx/0x5f0a445da1aa1274c79fca844f6cec552c90db5faf40868597e3322429e67100",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdt_5227_0ddf_0x1fc0:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x0ddf0480016e6bcb2c1f5d190d221fba1320697e",
+   "asset": "USDT",
+   "amount": "200000000",
+   "tx": "0x1fc0ef33a767132edad434834a5555b30fcb5a171206c03b86175ef6dafac81c",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26300815,
+   "time_utc": "2026-10-29T20:33:23Z",
+   "operation_id": "op_usdt_5227_0ddf_0x1fc0",
+   "session": 1,
+   "seq": 4,
+   "step": 21,
+   "source_position": "Transfer event #916",
+   "target_position": "Transfer event #916",
+   "tx_url": "https://etherscan.io/tx/0x1fc0ef33a767132edad434834a5555b30fcb5a171206c03b86175ef6dafac81c",
+   "tier": "verified"
+  },
+  {
+   "id": "op_eth_5227_8532_0x551d:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x8532fa14acaf483729c449b8458aeddb900543d4",
+   "asset": "ETH",
+   "amount": "195460",
+   "tx": "0x551d7961652e6d9835b11988908adf86ebe480badb4ce2d7d52193b2b1b02c76",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26300842,
+   "time_utc": "2026-10-29T20:38:47Z",
+   "operation_id": "op_eth_5227_8532_0x551d",
+   "session": 2,
+   "seq": 5,
+   "step": 21,
+   "source_position": "transaction value",
+   "target_position": "transaction value",
+   "tx_url": "https://etherscan.io/tx/0x551d7961652e6d9835b11988908adf86ebe480badb4ce2d7d52193b2b1b02c76",
+   "tier": "verified"
+  },
+  {
+   "id": "op_8292_5227_5c230_0x1d3f:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5c23023ca6633f91ded909b4a753a3ca00fea4fc",
+   "asset": "RLUSD",
+   "amount": "88541065",
+   "tx": "0x1d3f0f9b56ef51d2ea54fc3e8db63d331c16befd292a743b71413caa70a600e4",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26301061,
+   "time_utc": "2026-10-29T21:22:59Z",
+   "operation_id": "op_8292_5227_5c230_0x1d3f",
+   "session": 2,
+   "seq": 6,
+   "step": 21,
+   "source_position": "Transfer event #32",
+   "target_position": "Transfer event #32",
+   "tx_url": "https://etherscan.io/tx/0x1d3f0f9b56ef51d2ea54fc3e8db63d331c16befd292a743b71413caa70a600e4",
+   "tier": "verified"
+  },
+  {
+   "id": "op_wbtc_5227_b3ddec_0x3149:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0xb3ddec0ccc5c3ba733fcdf5a15f98c95ec5a5fdb",
+   "asset": "WBTC",
+   "amount": "167.14",
+   "tx": "0x314928ff5fb72f708f77093c166dbb26a04709ac9c43ef19d2ed603d5543df66",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26301454,
+   "time_utc": "2026-10-29T22:41:35Z",
+   "operation_id": "op_wbtc_5227_b3ddec_0x3149",
+   "session": 2,
+   "seq": 7,
+   "step": 21,
+   "source_position": "Transfer event #803",
+   "target_position": "Transfer event #803",
+   "tx_url": "https://etherscan.io/tx/0x314928ff5fb72f708f77093c166dbb26a04709ac9c43ef19d2ed603d5543df66",
+   "tier": "verified"
+  },
+  {
+   "id": "op_wbtc_to_eth_5227_0xbe54:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "amount": "0.201957",
+   "tx": "0xbe54e34991b957e1c469624af73044fc2bf5cca897e871bab85a400565676280",
+   "from_asset": "WBTC",
+   "kind": "exchange",
+   "block": 26302885,
+   "time_utc": "2026-10-30T03:29:23Z",
+   "operation_id": "op_wbtc_to_eth_5227_0xbe54",
+   "session": 2,
+   "seq": 8,
+   "step": 21,
+   "source_position": "Transfer event #529",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xbe54e34991b957e1c469624af73044fc2bf5cca897e871bab85a400565676280",
+   "tier": "verified"
+  },
+  {
+   "id": "op_8292_5c230_008f_0x1260:0",
+   "from": "0x5c23023ca6633f91ded909b4a753a3ca00fea4fc",
+   "to": "0x008f06f04b72da2621a4f37f5531cc7352187dcd",
+   "asset": "RLUSD",
+   "amount": "88541065",
+   "tx": "0x12605d85b6b213a1a6b792a1f288cf6721a9b756b9db5c6102e2e60fae353bc8",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26301076,
+   "time_utc": "2026-10-29T21:25:59Z",
+   "operation_id": "op_8292_5c230_008f_0x1260",
+   "session": 2,
+   "seq": 9,
+   "step": 42,
+   "source_position": "Transfer event #484",
+   "target_position": "Transfer event #484",
+   "tx_url": "https://etherscan.io/tx/0x12605d85b6b213a1a6b792a1f288cf6721a9b756b9db5c6102e2e60fae353bc8",
+   "tier": "verified"
+  },
+  {
+   "id": "op_wbtc_to_eth_b3ddec_0x6c3c:0",
+   "from": "0xb3ddec0ccc5c3ba733fcdf5a15f98c95ec5a5fdb",
+   "to": "0xb3ddec0ccc5c3ba733fcdf5a15f98c95ec5a5fdb",
+   "asset": "ETH",
+   "amount": "3209.708351",
+   "tx": "0x6c3c24672fec2a204222cbd01651d874874000e9780ea95519965ccc043fce6e",
+   "from_asset": "WBTC",
+   "kind": "exchange",
+   "block": 26301465,
+   "time_utc": "2026-10-29T22:43:47Z",
+   "operation_id": "op_wbtc_to_eth_b3ddec_0x6c3c",
+   "session": 2,
+   "seq": 10,
+   "step": 50,
+   "source_position": "Transfer event #1",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0x6c3c24672fec2a204222cbd01651d874874000e9780ea95519965ccc043fce6e",
+   "tier": "verified"
+  },
+  {
+   "id": "op_wbtc_to_eth_b3ddec_0xa5a0:0",
+   "from": "0xb3ddec0ccc5c3ba733fcdf5a15f98c95ec5a5fdb",
+   "to": "0xb3ddec0ccc5c3ba733fcdf5a15f98c95ec5a5fdb",
+   "asset": "ETH",
+   "amount": "1505.618407",
+   "tx": "0xa5a0cdcd9835c2435b3be53afa1df6fbeda985c018d4c3def0dbc1f8b66750c5",
+   "from_asset": "WBTC",
+   "kind": "exchange",
+   "block": 26301470,
+   "time_utc": "2026-10-29T22:44:47Z",
+   "operation_id": "op_wbtc_to_eth_b3ddec_0xa5a0",
+   "session": 2,
+   "seq": 11,
+   "step": 50,
+   "source_position": "Transfer event #1",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xa5a0cdcd9835c2435b3be53afa1df6fbeda985c018d4c3def0dbc1f8b66750c5",
+   "tier": "verified"
+  },
+  {
+   "id": "op_wbtc_to_eth_b3ddec_0x0d23:0",
+   "from": "0xb3ddec0ccc5c3ba733fcdf5a15f98c95ec5a5fdb",
+   "to": "0xb3ddec0ccc5c3ba733fcdf5a15f98c95ec5a5fdb",
+   "asset": "ETH",
+   "amount": "833.224929",
+   "tx": "0x0d23850e754ecf8d922287cb1d8f1a07b5eefccd87951f860a35d4f533bd37e4",
+   "from_asset": "WBTC",
+   "kind": "exchange",
+   "block": 26301474,
+   "time_utc": "2026-10-29T22:45:35Z",
+   "operation_id": "op_wbtc_to_eth_b3ddec_0x0d23",
+   "session": 2,
+   "seq": 12,
+   "step": 50,
+   "source_position": "Transfer event #7",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0x0d23850e754ecf8d922287cb1d8f1a07b5eefccd87951f860a35d4f533bd37e4",
+   "tier": "verified"
+  },
+  {
+   "id": "op_8292_008f_e702_0xbe9c:0",
+   "from": "0x008f06f04b72da2621a4f37f5531cc7352187dcd",
+   "to": "0xe7024ab80143b1ef843efe6a58368696cb87958d",
+   "asset": "RLUSD",
+   "amount": "88541065",
+   "tx": "0xbe9cbf50f6318aae17559eb448ef20bec4fd5a43fee9e66de24cf7192ebb8884",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26301116,
+   "time_utc": "2026-10-29T21:33:59Z",
+   "operation_id": "op_8292_008f_e702_0xbe9c",
+   "session": 2,
+   "seq": 13,
+   "step": 50,
+   "source_position": "Transfer event #140",
+   "target_position": "Transfer event #140",
+   "tx_url": "https://etherscan.io/tx/0xbe9cbf50f6318aae17559eb448ef20bec4fd5a43fee9e66de24cf7192ebb8884",
+   "tier": "verified"
+  },
+  {
+   "id": "op_eth_974929_c887_0xbd78:0",
+   "from": "0x9749292d74fd460982d0912ea9515ea24736c762",
+   "to": "0xc887af690e0301cd4edbbce8f8d31b4ec65b286a",
+   "asset": "ETH",
+   "amount": "122310",
+   "tx": "0xbd7822f7ee21e577a1ada80f881791071677a6797c4c1d5fa49ac1cfaf8bfa66",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26301185,
+   "time_utc": "2026-10-29T21:47:47Z",
+   "operation_id": "op_eth_974929_c887_0xbd78",
+   "session": 2,
+   "seq": 14,
+   "step": 56,
+   "source_position": "transaction value",
+   "target_position": "transaction value",
+   "tx_url": "https://etherscan.io/tx/0xbd7822f7ee21e577a1ada80f881791071677a6797c4c1d5fa49ac1cfaf8bfa66",
+   "tier": "verified"
+  }
+ ],
+ "operations": [
+  {
+   "id": "theft",
+   "type": "theft (case seed)",
+   "claim": "Theft transfers from Binance wallets, read off the chain when the case was opened.",
+   "session": 0,
+   "verdict": "VALID",
+   "edge_ids": [
+    "seed:0x53bd38b8:0x5227f6:ETH",
+    "seed:0x53bd38b8:0x5227f6:USDT",
+    "seed:0x53bd38b8:0x5227f6:WBTC",
+    "seed:0x53bd38b8:0x5227f6:RLUSD",
+    "seed:0x51f263fa:0x5227f6:ETH",
+    "seed:0xd4e08d3e:0x5227f6:USDT",
+    "seed:0xdc102dd8:0x5227f6:USDC",
+    "seed:0x3b9625b3:0x5227f6:USDC",
+    "seed:0x31c4c9fe:0x5227f6:ETH",
+    "seed:0x55ba4dab:0x5227f6:ETH",
+    "seed:0x55ba4dab:0x5227f6:USDT"
+   ]
+  },
+  {
+   "id": "op_eth_5227_974929_0x942b",
+   "type": "transfer",
+   "claim": "transfer: 0.5 ETH 0x5227\u20262f8c to 0x9749\u2026c762",
+   "session": 1,
+   "seq": 1,
+   "step": 21,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_eth_5227_974929_0x942b:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction",
+     "tx": "0x942b702e36b611916e8bc810b75ee16fc3255d253f33a260eeb96e94aca575f5",
+     "url": "https://etherscan.io/tx/0x942b702e36b611916e8bc810b75ee16fc3255d253f33a260eeb96e94aca575f5"
+    },
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x942b702e36b611916e8bc810b75ee16fc3255d253f33a260eeb96e94aca575f5",
+     "url": "https://etherscan.io/tx/0x942b702e36b611916e8bc810b75ee16fc3255d253f33a260eeb96e94aca575f5#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_usdt_5227_974929_0x68d7",
+   "type": "transfer",
+   "claim": "transfer: 500000000 USDT 0x5227\u20262f8c to 0x9749\u2026c762",
+   "session": 1,
+   "seq": 2,
+   "step": 21,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdt_5227_974929_0x68d7:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x68d7d69deaeb9750c38020b4f8d3728146ca8d2267eba1e38cf9b56722ad659a",
+     "url": "https://etherscan.io/tx/0x68d7d69deaeb9750c38020b4f8d3728146ca8d2267eba1e38cf9b56722ad659a#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_eth_5227_0ddf_0x5f0a",
+   "type": "transfer",
+   "claim": "transfer: 0.5 ETH 0x5227\u20262f8c to 0x0ddf\u2026697e",
+   "session": 1,
+   "seq": 3,
+   "step": 21,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_eth_5227_0ddf_0x5f0a:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction",
+     "tx": "0x5f0a445da1aa1274c79fca844f6cec552c90db5faf40868597e3322429e67100",
+     "url": "https://etherscan.io/tx/0x5f0a445da1aa1274c79fca844f6cec552c90db5faf40868597e3322429e67100"
+    },
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x5f0a445da1aa1274c79fca844f6cec552c90db5faf40868597e3322429e67100",
+     "url": "https://etherscan.io/tx/0x5f0a445da1aa1274c79fca844f6cec552c90db5faf40868597e3322429e67100#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_usdt_5227_0ddf_0x1fc0",
+   "type": "transfer",
+   "claim": "transfer: 200000000 USDT 0x5227\u20262f8c to 0x0ddf\u2026697e",
+   "session": 1,
+   "seq": 4,
+   "step": 21,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdt_5227_0ddf_0x1fc0:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x1fc0ef33a767132edad434834a5555b30fcb5a171206c03b86175ef6dafac81c",
+     "url": "https://etherscan.io/tx/0x1fc0ef33a767132edad434834a5555b30fcb5a171206c03b86175ef6dafac81c#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_eth_5227_8532_0x551d",
+   "type": "transfer",
+   "claim": "transfer: 195460 ETH 0x5227\u20262f8c to 0x8532\u202643d4",
+   "session": 2,
+   "seq": 5,
+   "step": 21,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_eth_5227_8532_0x551d:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction",
+     "tx": "0x551d7961652e6d9835b11988908adf86ebe480badb4ce2d7d52193b2b1b02c76",
+     "url": "https://etherscan.io/tx/0x551d7961652e6d9835b11988908adf86ebe480badb4ce2d7d52193b2b1b02c76"
+    },
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x551d7961652e6d9835b11988908adf86ebe480badb4ce2d7d52193b2b1b02c76",
+     "url": "https://etherscan.io/tx/0x551d7961652e6d9835b11988908adf86ebe480badb4ce2d7d52193b2b1b02c76#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_8292_5227_5c230_0x1d3f",
+   "type": "transfer",
+   "claim": "transfer: 88541065 RLUSD 0x5227\u20262f8c to 0x5c23\u2026a4fc",
+   "session": 2,
+   "seq": 6,
+   "step": 21,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_8292_5227_5c230_0x1d3f:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x1d3f0f9b56ef51d2ea54fc3e8db63d331c16befd292a743b71413caa70a600e4",
+     "url": "https://etherscan.io/tx/0x1d3f0f9b56ef51d2ea54fc3e8db63d331c16befd292a743b71413caa70a600e4#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_wbtc_5227_b3ddec_0x3149",
+   "type": "transfer",
+   "claim": "transfer: 167.14 WBTC 0x5227\u20262f8c to 0xb3dd\u20265fdb",
+   "session": 2,
+   "seq": 7,
+   "step": 21,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_wbtc_5227_b3ddec_0x3149:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x314928ff5fb72f708f77093c166dbb26a04709ac9c43ef19d2ed603d5543df66",
+     "url": "https://etherscan.io/tx/0x314928ff5fb72f708f77093c166dbb26a04709ac9c43ef19d2ed603d5543df66#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_wbtc_to_eth_5227_0xbe54",
+   "type": "exchange",
+   "claim": "exchange: 0.201957 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "session": 2,
+   "seq": 8,
+   "step": 21,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_wbtc_to_eth_5227_0xbe54:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xbe54e34991b957e1c469624af73044fc2bf5cca897e871bab85a400565676280",
+     "url": "https://etherscan.io/tx/0xbe54e34991b957e1c469624af73044fc2bf5cca897e871bab85a400565676280#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xbe54e34991b957e1c469624af73044fc2bf5cca897e871bab85a400565676280",
+     "url": "https://etherscan.io/tx/0xbe54e34991b957e1c469624af73044fc2bf5cca897e871bab85a400565676280#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_8292_5c230_008f_0x1260",
+   "type": "transfer",
+   "claim": "transfer: 88541065 RLUSD 0x5c23\u2026a4fc to 0x008f\u20267dcd",
+   "session": 2,
+   "seq": 9,
+   "step": 42,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_8292_5c230_008f_0x1260:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x12605d85b6b213a1a6b792a1f288cf6721a9b756b9db5c6102e2e60fae353bc8",
+     "url": "https://etherscan.io/tx/0x12605d85b6b213a1a6b792a1f288cf6721a9b756b9db5c6102e2e60fae353bc8#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_wbtc_to_eth_b3ddec_0x6c3c",
+   "type": "exchange",
+   "claim": "exchange: 3209.708351 ETH 0xb3dd\u20265fdb to 0xb3dd\u20265fdb",
+   "session": 2,
+   "seq": 10,
+   "step": 50,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_wbtc_to_eth_b3ddec_0x6c3c:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x6c3c24672fec2a204222cbd01651d874874000e9780ea95519965ccc043fce6e",
+     "url": "https://etherscan.io/tx/0x6c3c24672fec2a204222cbd01651d874874000e9780ea95519965ccc043fce6e#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x6c3c24672fec2a204222cbd01651d874874000e9780ea95519965ccc043fce6e",
+     "url": "https://etherscan.io/tx/0x6c3c24672fec2a204222cbd01651d874874000e9780ea95519965ccc043fce6e#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_wbtc_to_eth_b3ddec_0xa5a0",
+   "type": "exchange",
+   "claim": "exchange: 1505.618407 ETH 0xb3dd\u20265fdb to 0xb3dd\u20265fdb",
+   "session": 2,
+   "seq": 11,
+   "step": 50,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_wbtc_to_eth_b3ddec_0xa5a0:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xa5a0cdcd9835c2435b3be53afa1df6fbeda985c018d4c3def0dbc1f8b66750c5",
+     "url": "https://etherscan.io/tx/0xa5a0cdcd9835c2435b3be53afa1df6fbeda985c018d4c3def0dbc1f8b66750c5#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xa5a0cdcd9835c2435b3be53afa1df6fbeda985c018d4c3def0dbc1f8b66750c5",
+     "url": "https://etherscan.io/tx/0xa5a0cdcd9835c2435b3be53afa1df6fbeda985c018d4c3def0dbc1f8b66750c5#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_wbtc_to_eth_b3ddec_0x0d23",
+   "type": "exchange",
+   "claim": "exchange: 833.224929 ETH 0xb3dd\u20265fdb to 0xb3dd\u20265fdb",
+   "session": 2,
+   "seq": 12,
+   "step": 50,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_wbtc_to_eth_b3ddec_0x0d23:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x0d23850e754ecf8d922287cb1d8f1a07b5eefccd87951f860a35d4f533bd37e4",
+     "url": "https://etherscan.io/tx/0x0d23850e754ecf8d922287cb1d8f1a07b5eefccd87951f860a35d4f533bd37e4#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x0d23850e754ecf8d922287cb1d8f1a07b5eefccd87951f860a35d4f533bd37e4",
+     "url": "https://etherscan.io/tx/0x0d23850e754ecf8d922287cb1d8f1a07b5eefccd87951f860a35d4f533bd37e4#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_8292_008f_e702_0xbe9c",
+   "type": "transfer",
+   "claim": "transfer: 88541065 RLUSD 0x008f\u20267dcd to 0xe702\u2026958d",
+   "session": 2,
+   "seq": 13,
+   "step": 50,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_8292_008f_e702_0xbe9c:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xbe9cbf50f6318aae17559eb448ef20bec4fd5a43fee9e66de24cf7192ebb8884",
+     "url": "https://etherscan.io/tx/0xbe9cbf50f6318aae17559eb448ef20bec4fd5a43fee9e66de24cf7192ebb8884#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_eth_974929_c887_0xbd78",
+   "type": "transfer",
+   "claim": "transfer: 122310 ETH 0x9749\u2026c762 to 0xc887\u2026286a",
+   "session": 2,
+   "seq": 14,
+   "step": 56,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_eth_974929_c887_0xbd78:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction",
+     "tx": "0xbd7822f7ee21e577a1ada80f881791071677a6797c4c1d5fa49ac1cfaf8bfa66",
+     "url": "https://etherscan.io/tx/0xbd7822f7ee21e577a1ada80f881791071677a6797c4c1d5fa49ac1cfaf8bfa66"
+    },
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xbd7822f7ee21e577a1ada80f881791071677a6797c4c1d5fa49ac1cfaf8bfa66",
+     "url": "https://etherscan.io/tx/0xbd7822f7ee21e577a1ada80f881791071677a6797c4c1d5fa49ac1cfaf8bfa66#eventlog"
+    }
+   ]
+  }
+ ],
+ "leads": [
+  {
+   "account": "lead_0x974929_ETH",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x974929_USDT",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x0ddf_ETH",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x0ddf_USDT",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x5227_ETH_after_be54",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0xb3ddec_ETH",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0xe702_8292",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0xc887_ETH",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0xb3ddec_WBTC",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x5227f6_ETH_check",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0xa97bf7_ETH_check",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x8532_ETH",
+   "status": "closed",
+   "reason": "Open: 0x8532fa14acaf483729c449b8458aeddb900543d4 ETH received 195460000000000000000000 in tx 0x551d...; trace outflows in window. (closed: Account activity for 0x8532fa14acaf483729c449b8458aeddb900543d4 shows no outgoing transfers in blocks 26300770-26306466; ETH pocket remains at account in current window.)"
+  },
+  {
+   "account": "lead_0x5c230_8292",
+   "status": "closed",
+   "reason": "Open: 0x5c23023ca6633f91ded909b4a753a3ca00fea4fc received 0x8292 token amount 88541065000000000000000000 in tx 0x1d3f... log32; trace outflows in window. (closed: Recorded the only positive outgoing 0x8292 transfer from 0x5c230 in window, tx 0x12605d... log 484; later 0x8292 outflow was zero amount. Other 0x5c230 outflows were ETH or different tokens and not this 0x8292 pocket.)"
+  },
+  {
+   "account": "lead_0x008f_8292",
+   "status": "closed",
+   "reason": "Open: 0x008f06f04b72da2621a4f37f5531cc7352187dcd received 0x8292 amount 88541065000000000000000000 in tx 0x12605d... log484; trace outflows in window. (closed: Recorded the only positive outgoing transfer of original 0x8292 from 0x008f06... in tx 0xbe9c... log140 to 0xe7024a...; later listed outflows were other token contracts/lookalikes, not 0x8292.)"
+  }
+ ],
+ "coming_soon": [
+  {
+   "chain": "Arbitrum",
+   "note": "about 8,426 ETH reported taken from Binance wallets"
+  },
+  {
+   "chain": "Avalanche",
+   "note": "about 1.81M AVAX and 8.4M USDT reported taken"
+  },
+  {
+   "chain": "Optimism",
+   "note": "related receipts reported"
+  },
+  {
+   "chain": "Bitcoin",
+   "note": "followed once funds cross a bridge"
+  }
+ ],
+ "workspace": {
+  "note": "The agent's own working state. Internal and unchecked; the findings above are what it reports.",
+  "open_leads": [
+   {
+    "key": "lead_0x974929_ETH",
+    "text": "Open: 0x9749292d74fd460982d0912ea9515ea24736c762 ETH received 500000000000000000 in tx 0x942b...; trace outflows in window."
+   },
+   {
+    "key": "lead_0x974929_USDT",
+    "text": "Open: 0x9749292d74fd460982d0912ea9515ea24736c762 USDT received 500000000000000 in tx 0x68d7... log700; trace outflows in window."
+   },
+   {
+    "key": "lead_0x0ddf_ETH",
+    "text": "Open: 0x0ddf0480016e6bcb2c1f5d190d221fba1320697e ETH received 500000000000000000 in tx 0x5f0a...; trace outflows in window."
+   },
+   {
+    "key": "lead_0x0ddf_USDT",
+    "text": "Open: 0x0ddf0480016e6bcb2c1f5d190d221fba1320697e USDT received 200000000000000 in tx 0x1fc0... log916; trace outflows in window."
+   },
+   {
+    "key": "lead_0x5227_ETH_after_be54",
+    "text": "Open: 0x5227... received ETH 201956743725195790 from WBTC swap in tx 0xbe54... trace [1,2]; later ETH outflows after block 26302885 should be traced as tainted (poison)."
+   },
+   {
+    "key": "lead_0xb3ddec_ETH",
+    "text": "Open: 0xb3ddec0ccc5c3ba733fcdf5a15f98c95ec5a5fdb received ETH from WBTC swaps (3209708350758089095480 in tx 0x6c3c trace 1.2; 1505618407093759046318 in tx 0xa5a0 trace 1.2; 833224929125917868854 in tx 0x0d23 trace 1.2); trace later ETH outflows in window."
+   },
+   {
+    "key": "lead_0xe702_8292",
+    "text": "Open: 0xe7024ab80143b1ef843efe6a58368696cb87958d received original 0x8292 amount 88541065000000000000000000 in tx 0xbe9c... log140; trace outflows in window."
+   },
+   {
+    "key": "lead_0xc887_ETH",
+    "text": "Open: 0xc887af690e0301cd4edbbce8f8d31b4ec65b286a received ETH 122310000000000000000000 from 0x974929 in tx 0xbd7822f7ee21e577a1ada80f881791071677a6797c4c1d5fa49ac1cfaf8bfa66; trace outflows in future session."
+   },
+   {
+    "key": "lead_0xb3ddec_WBTC",
+    "text": "Reopened by the outflow check: 0xb3ddec0ccc5c3ba733fcdf5a15f98c95ec5a5fdb ETH: 3 outflows not recorded, e.g. 0x1a429bf16ab8e6d7c38ac6cdf4459226e3375fc94a6bebf2dfc8e18c84a33309, 0x7440336b1c7c6dd19e8c2182038da71c49b78a29faadd8f8315e9f0b0c1d7fb6, 0x9b3c5eda460d6b0ad33d0ac3e739c88323f101f61331d83b1ba55920ef460f71"
+   },
+   {
+    "key": "lead_0x5227f6_ETH_check",
+    "text": "Opened by the outflow check: 0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c ETH received traced value and has 15 outflows not recorded, e.g. 0x0882d99e6bcb39670a7e74a15dc0361ae982742ed0f8a7312a64957e4b77e097, 0x19fb8ac1507861db07b3aadeb3b41b74bb2c0959ef7602eb706019de463d10ca, 0x24472c4e45496a3665576b7eb58aa81948f020cdd9ccc6ca61094cf592492c82"
+   },
+   {
+    "key": "lead_0xa97bf7_ETH_check",
+    "text": "Opened by the outflow check: 0xa97bf7836f8a08f9ed91d41453d371493fae8d10 ETH received traced value and has 2 outflows not recorded, e.g. 0x04989db7e722b99d966b134e2152510c96e1b2855485a179002f8b7120dab14e, 0xb472fe82656347e3f665bb3a1c429afffe3e9f5c0e540d80c8dd939efbf0cb95"
+   }
+  ],
+  "notes": [
+   "Fetched out activity for 0x5227... blocks 26300770-26306443 first 100/1364. Relevant seeded assets observed in page: ETH transfers to 0x9749292d74fd460982d0912ea9515ea24736c762 tx 0x942b... amount 0.5 ETH; 0x0ddf048... tx 0x5f0a... 0.5 ETH; 0x8532fa... tx 0x551d... 195460 ETH; many 0.5/1/2 ETH funding transfers; USDT transfers tx 0x68d7... 500000000000000 to 0x974929..., tx 0x1fc... 200000000000000 to 0x0ddf048...; 0x8292 tx 0x1d3f... 88541065000000000000000000 to 0x5c230...; WBTC tx 0x3149... 16714000000 to 0xb3ddec...; other listed outflows are non-seed unless acquired later.",
+   "Served event searches show 0x5227 has no outgoing WETH or USDC Transfer in window. USDT outgoing positive logs: 0x68d7... log700 amount 500000000000000 to 0x974929...; 0x1fc0... log916 amount 200000000000000 to 0x0ddf048... (zero-value logs ignored). 0x8292 outgoing positive: 0x1d3f... log32 amount 88541065000000000000000000 to 0x5c230... (later zero ignored). WBTC outgoing positive: 0x314928... log803 amount 16714000000 to 0xb3ddec...; 0xbe54... log529 amount 579097 to pool 0xe6ff..., receipt/trace show swap through Uniswap router ending as 201956743725195790 wei ETH paid back to 0x5227 at trace [1,2].",
+   "Out-activity observations: 0x8532 had no outflows in window. 0x974929 had USDT outflows (50000000000000 to 0x74edc79..., 100000000000000 to 0x0000000000be226..., 50000000000000+75000000000000+14999999999999+5000000000000 to 0xbeef..., small to 0xec4f..., 28600454367187 to 0x9b13..., 175000000000000 to 0x811f...) and ETH outflows including 0.5 ETH to 0x811f, 0.5 ETH to 0x5c230, 1 ETH to 0x811f, 2 ETH/20 ETH etc, 122310 ETH to 0xc887..., 4.7805929459104186 ETH to 0x7f9d...; later non-seed lookalike ERC20 spam ignored unless acquired. 0x0ddf had USDT outflows in tx 0x152e... totaling multiple recipients and 190000000000000 to 0x8d539... in 0xc0fab..., plus ETH outflows 3552 ETH to 0x8d539... and 0.3 ETH. 0x5c230 sent 0x8292 amount 88541065000000000000000000 to 0x008f06f04b72da2621a4f37f5531cc7352187dcd in tx 0x12605d... and ETH outflows not from its 0x8292 seed except ETH from 0x974929 later.",
+   "Resuming with 2 evidence actions left under cap. Served receipts for 0x974929 USDT outflows 0x290e/0x4fa1/0xfa94/0xa861 show the debited USDT moving through machinery in same tx and ending in WETH/likely ETH at intermediate receiver addresses; because native ETH landing trace is not served for these code transactions, do not record these yet without trace.",
+   "Action cap reached after fetching transaction+receipt for 0xbd7822f7ee21e577a1ada80f881791071677a6797c4c1d5fa49ac1cfaf8bfa66: simple ETH tx (input 0x, gas_used 21000, status 1) from 0x9749292d74fd460982d0912ea9515ea24736c762 to 0xc887af690e0301cd4edbbce8f8d31b4ec65b286a amount 122310000000000000000000; recorded as op_eth_974929_c887_0xbd78. No evidence actions remain this session."
+  ],
+  "total_steps": 56
+ }
+}

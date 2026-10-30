@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Binance hot-wallet hack: live fund trace</title>
+  <meta name="description" content="Where the funds stolen from Binance hot wallets on 29 October 2026 went, traced on Ethereum by the ABF agent. Every flow links to the transaction records behind it.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230d0e10'/%3E%3Ccircle cx='8' cy='8' r='3.5' fill='%23ff4d2e'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <div class="kicker">
+        <span class="live-dot" aria-hidden="true"></span>
+        <span>Live trace</span>
+        <span class="sep">/</span>
+        <span id="chain-name">Ethereum</span>
+      </div>
+      <h1 id="case-title">Loading</h1>
+      <p class="meta">
+        <span id="incident"></span>
+        <span id="updated"></span>
+      </p>
+      <p class="disclaimer">Agent output, not yet verified by human experts. Solid edges were checked against the cited transaction by our verifier.</p>
+      <p class="byline">Traced by the ABF agent. Paper: <a href="https://arxiv.org/abs/2610.23656" target="_blank" rel="noopener">arXiv:2610.23656</a></p>
+    </header>
+
+    <section class="zone findings" aria-labelledby="findings-h">
+      <div class="zone-head">
+        <h2 id="findings-h">Findings</h2>
+        <p>What the agent reports. Click a flow to see the records behind it.</p>
+      </div>
+
+      <div class="stats" id="stats" aria-label="Totals"></div>
+
+      <div class="board" id="graph-anchor">
+        <div class="graph-col">
+          <div class="graph-wrap">
+            <div id="cy" role="img" aria-label="Money-flow graph"></div>
+            <div class="watermark" id="watermark" hidden>MOCK DATA</div>
+            <div class="graph-msg" id="graph-msg" hidden></div>
+            <div class="graph-tools">
+              <button type="button" class="tool new-data" id="btn-new" hidden>New data. Reload</button>
+              <button type="button" class="tool" id="btn-fit" title="Fit graph to view" aria-label="Fit graph to view">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="legend" id="legend" aria-label="Legend"></div>
+          <div class="timeline" id="timeline">
+            <button type="button" class="play" id="btn-play" aria-label="Replay the agent step by step">
+              <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z" fill="currentColor"/></svg>
+              <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h3v11H4zM9 2.5h3v11H9z" fill="currentColor"/></svg>
+            </button>
+            <div class="slider-wrap">
+              <div class="marks" id="marks" aria-hidden="true"></div>
+              <input type="range" id="slider" min="0" max="0" step="1" value="0" aria-label="Replay: show the graph as of agent step">
+              <div class="ticks" aria-hidden="true"><span id="tick-start"></span><span id="tick-end"></span></div>
+            </div>
+            <div class="step-now">
+              <div class="step-title" id="step-title"></div>
+              <div class="step-summary" id="step-summary"></div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="panel" aria-label="Details">
+          <section class="card" id="detail">
+            <p class="empty">Select a flow or an address to see the records behind it.</p>
+          </section>
+          <section class="card">
+            <details class="rejected" id="rejected-box">
+              <summary>Rejected by the checker <span class="count" id="rejected-count">0</span></summary>
+              <p class="hint">The checker found these claims invalid. Their transfers are left off the graph.</p>
+              <ul id="rejected"></ul>
+            </details>
+          </section>
+        </aside>
+      </div>
+
+      <div class="soon" id="soon" hidden>
+        <span class="soon-label">Coming soon</span>
+        <ul id="soon-list"></ul>
+      </div>
+    </section>
+
+    <section class="zone workspace" id="workspace" aria-labelledby="workspace-h">
+      <div class="zone-head">
+        <h2 id="workspace-h">Agent workspace</h2>
+        <span class="internal-tag">Internal · unchecked</span>
+        <span class="ws-steps" id="ws-steps"></span>
+        <p id="ws-note"></p>
+      </div>
+      <div class="ws-body">
+        <section class="ws-block">
+          <h3>Open leads <span class="count" id="ws-leads-count">0</span></h3>
+          <ul class="ws-leads" id="ws-leads"></ul>
+        </section>
+        <details class="ws-block ws-notes-box">
+          <summary>Working notes (internal, unchecked) <span class="count" id="ws-notes-count">0</span></summary>
+          <ol class="ws-notes" id="ws-notes"></ol>
+        </details>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <span>Raw data: <a href="data/graph.json" id="raw-link">graph.json</a></span>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.30.2/dist/cytoscape.min.js" integrity="sha384-IWROdLKRsN1UuJywMlWl7/blXQ8GEooN2n7dzTxfEPd7ybYIKCUJ2Ol/1Gpf3YV4" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dagre@0.8.5/dist/dagre.min.js" integrity="sha384-2IH3T69EIKYC4c+RXZifZRvaH5SRUdacJW7j6HtE5rQbvLhKKdawxq6vpIzJ7j9M" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/cytoscape-dagre@2.5.0/cytoscape-dagre.js" integrity="sha384-u69h9ebXeSjlg6q/rb1zKTRAGu/h8deCl0409xpS/QJctMKnc4M9Fzkm01VOQdeF" crossorigin="anonymous"></script>
+  <script src="app.js"></script>
+</body>
+</html>
