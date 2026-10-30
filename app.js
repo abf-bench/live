@@ -2466,9 +2466,22 @@
       .then(renderStatusBadge);
   }
   function hhmm(iso) { var d = parseTime(iso); return d ? pad(d.getUTCHours()) + ':' + pad(d.getUTCMinutes()) + ' UTC' : null; }
+  // Model cost against the night's cap, from the scheduler's status file.
+  function renderBudget(st) {
+    var box = $('budget');
+    if (!box) return;
+    var spent = st && Number(st.spent_usd), cap = st && Number(st.cap_usd);
+    if (!st || !isFinite(spent)) { box.hidden = true; return; }
+    $('budget-spent').textContent = '$' + spent.toFixed(2);
+    $('budget-cap').textContent = isFinite(cap) && cap > 0 ? '$' + Math.round(cap) : '';
+    $('budget-fill').style.width = (isFinite(cap) && cap > 0 ? Math.min(100, 100 * spent / cap) : 0) + '%';
+    box.hidden = false;
+  }
+
   function renderStatusBadge() {
     var badge = $('agent-status'), dot = document.querySelector('.kicker .live-dot');
     var st = LIVE.status;
+    renderBudget(st);
     if (!st) { badge.hidden = true; $('rounds-note').hidden = true; if (dot) dot.className = 'live-dot'; return; }
     var hb = parseTime(st.heartbeat_utc);
     var state = !hb || Date.now() - hb.getTime() > STALE_MS ? 'stopped' : String(st.state || 'stopped');

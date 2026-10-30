@@ -83,7 +83,7 @@ button { font: inherit; color: inherit; }
   grid-template-areas:
     "kicker kicker"
     "title  note"
-    "meta   byline"
+    "meta   budget"
     "intro  byline";
   column-gap: 40px;
   row-gap: 4px;
@@ -1211,7 +1211,7 @@ body.embed .rounds-note { display: none; }
   .page { padding: 0 16px 16px; }
   .masthead {
     grid-template-columns: 1fr;
-    grid-template-areas: "kicker" "title" "meta" "intro" "note" "byline";
+    grid-template-areas: "kicker" "title" "meta" "intro" "budget" "note" "byline";
     row-gap: 8px;
   }
   .byline { margin-top: 0; }
@@ -1275,3 +1275,11 @@ body.embed .stat-value { font-size: 17px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* ---------- model cost, in the header ---------- */
+.budget { grid-area: budget; align-self: end; margin-top: 6px; }
+.budget-line { margin: 0 0 6px; font-family: var(--sans); font-size: 14px; color: var(--ink-2); }
+.budget-line b { font-family: var(--mono); font-size: 24px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
+.budget-line #budget-cap { font-family: var(--mono); color: var(--ink); }
+.budget-bar { height: 4px; background: var(--line-2); border-radius: 2px; overflow: hidden; }
+.budget-bar span { display: block; height: 100%; width: 0; background: var(--amber); transition: width 0.6s ease; }
