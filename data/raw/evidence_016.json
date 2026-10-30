@@ -1,0 +1,1446 @@
+[
+  {
+    "request": {
+      "action": "transaction.get",
+      "params": {
+        "chain": "ethereum",
+        "detail": "summary",
+        "tx_hash": "0x58f073896aa3537a705a92870be5941226745a0120b0358f2fa68d6e3b51a319"
+      }
+    },
+    "response": {
+      "action": "transaction.get",
+      "action_count": 1,
+      "cost_units": 1.0,
+      "observation": {
+        "block_hash": "0xcc698965cabcd4ee706a38416dfece9b2e91555a971676925f60bc1d0c6fd8e7",
+        "block_number": 26305607,
+        "chain": "ethereum",
+        "from": "0x2d66e85108f2795e38c8710f4e68b0628d0432f6",
+        "input": "0x4f50c43700000000000000000000000075220b7600c300005038432a0000f308e00000680000000000000000000000000000000000000000000000000e177d36cd3bf7bc00000000000000000000000000000000000000000000000000000000000000e000000000000000000000000000000000000000000000000000000000000003a00000000000000000304bb1a90475146a4bc3e7d156296a3600000000000000b7000000000000000000000000000000000000000000000000000000006ae4903c00000000000000000000000000000000000000000000000000000000000003c000000000000000000000000000000000000000000000000000000000000002847e7fc65371cd5e14c70c27a9f8fa48ef2aad2391b54817e5ca5b1a27bb537bf1efb736db0000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000006ae49161000000000000000000000000000000000000000000000000000000000000024000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000020000000000000000000000000008c3800f3ad9b3b662d002e90cc00000000ee1700000000000000000000000075220b7600c300005038432a0000f308e0000068000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e177d36cd3bf7bc000000000000000000000000e8d315cdccc127e247a01a3db1328df9a2dc3e700000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000012000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000025e0000000000000000000000000091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce6ae48f630000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004189d6f66191cda0f23f5883b3b65690aa9449a3bffaa28a4417524fc34833063c574c36acad6d122331c9f248a00fd30c865e305266883371e3cf5e7ab17235341c00000000000000000000000000000000000000000000000000000000000000",
+        "kind": "transaction",
+        "nonce": 379,
+        "to": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+        "transaction_index": 164,
+        "tx_hash": "0x58f073896aa3537a705a92870be5941226745a0120b0358f2fa68d6e3b51a319",
+        "value": "0"
+      },
+      "response_hash": "3a0c151edbd27bf13faa437ffd75926a9206464dc74b5bd9f9236698d187d199",
+      "status": "ok",
+      "total_cost_units": 1.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.receipt",
+      "params": {
+        "chain": "ethereum",
+        "tx_hash": "0x58f073896aa3537a705a92870be5941226745a0120b0358f2fa68d6e3b51a319"
+      }
+    },
+    "response": {
+      "action": "transaction.receipt",
+      "action_count": 2,
+      "cost_units": 1.0,
+      "observation": {
+        "block_hash": "0xcc698965cabcd4ee706a38416dfece9b2e91555a971676925f60bc1d0c6fd8e7",
+        "block_number": 26305607,
+        "chain": "ethereum",
+        "gas_used": 121789,
+        "kind": "receipt",
+        "logs": [
+          {
+            "address": "0x75220b7600c300005038432a0000f308e0000068",
+            "data": "0x000000000000000000000000091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce000000000000000000000000000000000000000000000000000000006ae48f1700000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000e177d36cd3bf7bc000000000000000000000000008c3800f3ad9b3b662d002e90cc00000000ee1700000000000000000000000075220b7600c300005038432a0000f308e0000068000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e177d36cd3bf7bc000000000000000000000000e8d315cdccc127e247a01a3db1328df9a2dc3e700000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000012000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000025e0000000000000000000000000091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce6ae48f63000000000000000000000000000000000000000000000000000000",
+            "log_index": 1008,
+            "topics": [
+              "0xfef24569acf839f2b5cb23fd59d8a9bcc21650ff711ac1961ca3c5d4681ffe12",
+              "0x71cd5e14c70c27a9f8fa48ef2aad2391b54817e5ca5b1a27bb537bf1efb736db"
+            ]
+          },
+          {
+            "address": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "data": "0x",
+            "log_index": 1009,
+            "topics": [
+              "0xbbd9f6c91b11d7956955fc18b8331282b8773a1311e7e60b34faec4353e4d8af",
+              "0x93838d8bec5144e34ab79bec9ff8041d63accc826eb73a26fe1fcb3e1758eb0d",
+              "0x00000000000000000000000075220b7600c300005038432a0000f308e0000068",
+              "0x7e7fc65300000000000000000000000000000000000000000000000000000000"
+            ]
+          }
+        ],
+        "status": 1,
+        "transaction_index": 164,
+        "tx_hash": "0x58f073896aa3537a705a92870be5941226745a0120b0358f2fa68d6e3b51a319"
+      },
+      "response_hash": "a2a903940c6317198735c3a5e93c653f775f12ee4b48ca895f21d61d142676df",
+      "status": "ok",
+      "total_cost_units": 2.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.internal_transfers",
+      "params": {
+        "chain": "ethereum",
+        "frames": "no_input",
+        "tx_hash": "0x58f073896aa3537a705a92870be5941226745a0120b0358f2fa68d6e3b51a319"
+      }
+    },
+    "response": {
+      "action": "transaction.internal_transfers",
+      "action_count": 3,
+      "cost_units": 1.0,
+      "observation": {
+        "block_number": 26305607,
+        "chain": "ethereum",
+        "frames": [
+          {
+            "call_type": "call",
+            "from": "0x2d66e85108f2795e38c8710f4e68b0628d0432f6",
+            "reverted": false,
+            "to": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "trace_address": [],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "delegatecall",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0x849354ae399d3ed212b8e08fe5daf8f645753f3a",
+            "trace_address": [
+              0
+            ],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "staticcall",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0xae643211425788fdbac6685e7d5eeb4e09bb7e7c",
+            "trace_address": [
+              0,
+              0
+            ],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "call",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0x75220b7600c300005038432a0000f308e0000068",
+            "trace_address": [
+              0,
+              1
+            ],
+            "type": "call",
+            "value": "1015417915320301500"
+          },
+          {
+            "call_type": "call",
+            "from": "0x75220b7600c300005038432a0000f308e0000068",
+            "reverted": false,
+            "to": "0xe8d315cdccc127e247a01a3db1328df9a2dc3e70",
+            "trace_address": [
+              0,
+              1,
+              0
+            ],
+            "type": "call",
+            "value": "1015417915320301500"
+          }
+        ],
+        "items": [
+          {
+            "call_type": "call",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "to": "0x75220b7600c300005038432a0000f308e0000068",
+            "trace_address": [
+              0,
+              1
+            ],
+            "type": "call",
+            "value": "1015417915320301500"
+          },
+          {
+            "call_type": "call",
+            "from": "0x75220b7600c300005038432a0000f308e0000068",
+            "to": "0xe8d315cdccc127e247a01a3db1328df9a2dc3e70",
+            "trace_address": [
+              0,
+              1,
+              0
+            ],
+            "type": "call",
+            "value": "1015417915320301500"
+          }
+        ],
+        "transaction_index": 164,
+        "tx_hash": "0x58f073896aa3537a705a92870be5941226745a0120b0358f2fa68d6e3b51a319"
+      },
+      "response_hash": "c035176d2a978652d32107ddd2b103567e520b3381a5c438bc288feb26d93a73",
+      "status": "ok",
+      "total_cost_units": 3.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.receipt",
+      "params": {
+        "chain": "ethereum",
+        "tx_hash": "0xafbab48f576ba83015e314cef655e7fbb9b966ca956024a1becceb8d212da9dc"
+      }
+    },
+    "response": {
+      "action": "transaction.receipt",
+      "action_count": 4,
+      "cost_units": 1.0,
+      "observation": {
+        "block_hash": "0x1226fbb348c953ad51ae0b6c837cf2c08b12257b21c01966b08730807230e49c",
+        "block_number": 26305778,
+        "chain": "ethereum",
+        "gas_used": 121789,
+        "kind": "receipt",
+        "logs": [
+          {
+            "address": "0x75220b7600c300005038432a0000f308e0000068",
+            "data": "0x000000000000000000000000091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce000000000000000000000000000000000000000000000000000000006ae4971b0000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000064cff1475c0d28f000000000000000000000000008c3800f3ad9b3b662d002e90cc00000000ee1700000000000000000000000075220b7600c300005038432a0000f308e000006800000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000064cff1475c0d28f000000000000000000000000f70da97812cb96acdf810712aa562db8dfa3dbef0000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000012000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000025e0000000000000000000000000091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce6ae49768000000000000000000000000000000000000000000000000000000",
+            "log_index": 443,
+            "topics": [
+              "0xfef24569acf839f2b5cb23fd59d8a9bcc21650ff711ac1961ca3c5d4681ffe12",
+              "0x19c436a89c3f1dbd6b5f664f3fe21aaec849373a66eba76fd3e055ffd518c31a"
+            ]
+          },
+          {
+            "address": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "data": "0x",
+            "log_index": 444,
+            "topics": [
+              "0xbbd9f6c91b11d7956955fc18b8331282b8773a1311e7e60b34faec4353e4d8af",
+              "0x0f160b6307477adf54108c28e49d66f29cfcc4e1f01d9f076aa35fac9ba8aebf",
+              "0x00000000000000000000000075220b7600c300005038432a0000f308e0000068",
+              "0x7e7fc65300000000000000000000000000000000000000000000000000000000"
+            ]
+          }
+        ],
+        "status": 1,
+        "transaction_index": 164,
+        "tx_hash": "0xafbab48f576ba83015e314cef655e7fbb9b966ca956024a1becceb8d212da9dc"
+      },
+      "response_hash": "8de3b2e5330a002ffb55089a3da3ebd744c205fb58077b8d9e92109dd8a10dec",
+      "status": "ok",
+      "total_cost_units": 4.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.internal_transfers",
+      "params": {
+        "chain": "ethereum",
+        "frames": "no_input",
+        "tx_hash": "0xafbab48f576ba83015e314cef655e7fbb9b966ca956024a1becceb8d212da9dc"
+      }
+    },
+    "response": {
+      "action": "transaction.internal_transfers",
+      "action_count": 5,
+      "cost_units": 1.0,
+      "observation": {
+        "block_number": 26305778,
+        "chain": "ethereum",
+        "frames": [
+          {
+            "call_type": "call",
+            "from": "0x2d66e85108f2795e38c8710f4e68b0628d0432f6",
+            "reverted": false,
+            "to": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "trace_address": [],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "delegatecall",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0x849354ae399d3ed212b8e08fe5daf8f645753f3a",
+            "trace_address": [
+              0
+            ],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "staticcall",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0xae643211425788fdbac6685e7d5eeb4e09bb7e7c",
+            "trace_address": [
+              0,
+              0
+            ],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "call",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0x75220b7600c300005038432a0000f308e0000068",
+            "trace_address": [
+              0,
+              1
+            ],
+            "type": "call",
+            "value": "454018125797577359"
+          },
+          {
+            "call_type": "call",
+            "from": "0x75220b7600c300005038432a0000f308e0000068",
+            "reverted": false,
+            "to": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+            "trace_address": [
+              0,
+              1,
+              0
+            ],
+            "type": "call",
+            "value": "454018125797577359"
+          }
+        ],
+        "items": [
+          {
+            "call_type": "call",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "to": "0x75220b7600c300005038432a0000f308e0000068",
+            "trace_address": [
+              0,
+              1
+            ],
+            "type": "call",
+            "value": "454018125797577359"
+          },
+          {
+            "call_type": "call",
+            "from": "0x75220b7600c300005038432a0000f308e0000068",
+            "to": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+            "trace_address": [
+              0,
+              1,
+              0
+            ],
+            "type": "call",
+            "value": "454018125797577359"
+          }
+        ],
+        "transaction_index": 164,
+        "tx_hash": "0xafbab48f576ba83015e314cef655e7fbb9b966ca956024a1becceb8d212da9dc"
+      },
+      "response_hash": "44eabc3759981f341a993be48b398eee9dcf9f2fd43870b4b77682c4de3f9657",
+      "status": "ok",
+      "total_cost_units": 5.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.receipt",
+      "params": {
+        "chain": "ethereum",
+        "tx_hash": "0xdaa9da9bc0de2abe89b85131eda66a84f3214c5caae29516beb9a3b16aef0200"
+      }
+    },
+    "response": {
+      "action": "transaction.receipt",
+      "action_count": 6,
+      "cost_units": 1.0,
+      "observation": {
+        "block_hash": "0x0bb1bd40c764b6ebcc20f9221b852cb1290bb5f25da33626fab6f3136bc080ed",
+        "block_number": 26305786,
+        "chain": "ethereum",
+        "gas_used": 121765,
+        "kind": "receipt",
+        "logs": [
+          {
+            "address": "0x75220b7600c300005038432a0000f308e0000068",
+            "data": "0x000000000000000000000000091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce000000000000000000000000000000000000000000000000000000006ae4977b00000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000368b9d761d80245000000000000000000000000008c3800f3ad9b3b662d002e90cc00000000ee1700000000000000000000000075220b7600c300005038432a0000f308e0000068000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000368b9d761d802450000000000000000000000000c2c40f59d416d17879508fb977aabf05c7a51f60000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000012000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000025e0000000000000000000000000091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce6ae497c3000000000000000000000000000000000000000000000000000000",
+            "log_index": 851,
+            "topics": [
+              "0xfef24569acf839f2b5cb23fd59d8a9bcc21650ff711ac1961ca3c5d4681ffe12",
+              "0x34309c325138565901ab494044e9f1d901e09f20c9b9a8e2715432944ffa8e22"
+            ]
+          },
+          {
+            "address": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "data": "0x",
+            "log_index": 852,
+            "topics": [
+              "0xbbd9f6c91b11d7956955fc18b8331282b8773a1311e7e60b34faec4353e4d8af",
+              "0x71660b1b307e0b8eb68a9a6fce3328f9043b7e98e1326c1d13f664c2fd36a89d",
+              "0x00000000000000000000000075220b7600c300005038432a0000f308e0000068",
+              "0x7e7fc65300000000000000000000000000000000000000000000000000000000"
+            ]
+          }
+        ],
+        "status": 1,
+        "transaction_index": 309,
+        "tx_hash": "0xdaa9da9bc0de2abe89b85131eda66a84f3214c5caae29516beb9a3b16aef0200"
+      },
+      "response_hash": "19f67a54f9a2bdaf24a32f0dda08b27b5c529f0e606860b9a19a88fbdc80d778",
+      "status": "ok",
+      "total_cost_units": 6.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.internal_transfers",
+      "params": {
+        "chain": "ethereum",
+        "frames": "no_input",
+        "tx_hash": "0xdaa9da9bc0de2abe89b85131eda66a84f3214c5caae29516beb9a3b16aef0200"
+      }
+    },
+    "response": {
+      "action": "transaction.internal_transfers",
+      "action_count": 7,
+      "cost_units": 1.0,
+      "observation": {
+        "block_number": 26305786,
+        "chain": "ethereum",
+        "frames": [
+          {
+            "call_type": "call",
+            "from": "0x2d66e85108f2795e38c8710f4e68b0628d0432f6",
+            "reverted": false,
+            "to": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "trace_address": [],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "delegatecall",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0x849354ae399d3ed212b8e08fe5daf8f645753f3a",
+            "trace_address": [
+              0
+            ],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "staticcall",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0xae643211425788fdbac6685e7d5eeb4e09bb7e7c",
+            "trace_address": [
+              0,
+              0
+            ],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "call",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0x75220b7600c300005038432a0000f308e0000068",
+            "trace_address": [
+              0,
+              1
+            ],
+            "type": "call",
+            "value": "245650514402345541"
+          },
+          {
+            "call_type": "call",
+            "from": "0x75220b7600c300005038432a0000f308e0000068",
+            "reverted": false,
+            "to": "0x0c2c40f59d416d17879508fb977aabf05c7a51f6",
+            "trace_address": [
+              0,
+              1,
+              0
+            ],
+            "type": "call",
+            "value": "245650514402345541"
+          }
+        ],
+        "items": [
+          {
+            "call_type": "call",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "to": "0x75220b7600c300005038432a0000f308e0000068",
+            "trace_address": [
+              0,
+              1
+            ],
+            "type": "call",
+            "value": "245650514402345541"
+          },
+          {
+            "call_type": "call",
+            "from": "0x75220b7600c300005038432a0000f308e0000068",
+            "to": "0x0c2c40f59d416d17879508fb977aabf05c7a51f6",
+            "trace_address": [
+              0,
+              1,
+              0
+            ],
+            "type": "call",
+            "value": "245650514402345541"
+          }
+        ],
+        "transaction_index": 309,
+        "tx_hash": "0xdaa9da9bc0de2abe89b85131eda66a84f3214c5caae29516beb9a3b16aef0200"
+      },
+      "response_hash": "4e48e3a839e58a2b325ea8c60cb4234d6c6b6e93c8ef03bfccb7d7799ff54edb",
+      "status": "ok",
+      "total_cost_units": 7.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.receipt",
+      "params": {
+        "chain": "ethereum",
+        "tx_hash": "0x7383668648468d3a06108c991fa41407eb4c7456925e1ea3b9c112451ccbdf95"
+      }
+    },
+    "response": {
+      "action": "transaction.receipt",
+      "action_count": 8,
+      "cost_units": 1.0,
+      "observation": {
+        "block_hash": "0x9c5240359d8d6fabc0237777efe47145dffe27ae905cb724393f0dae5a1cf5eb",
+        "block_number": 26305799,
+        "chain": "ethereum",
+        "gas_used": 121789,
+        "kind": "receipt",
+        "logs": [
+          {
+            "address": "0x75220b7600c300005038432a0000f308e0000068",
+            "data": "0x000000000000000000000000091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce000000000000000000000000000000000000000000000000000000006ae4982300000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000368b1590d98330a000000000000000000000000008c3800f3ad9b3b662d002e90cc00000000ee1700000000000000000000000075220b7600c300005038432a0000f308e0000068000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000368b1590d98330a0000000000000000000000000c2c40f59d416d17879508fb977aabf05c7a51f60000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000012000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000025e0000000000000000000000000091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce6ae4986f000000000000000000000000000000000000000000000000000000",
+            "log_index": 671,
+            "topics": [
+              "0xfef24569acf839f2b5cb23fd59d8a9bcc21650ff711ac1961ca3c5d4681ffe12",
+              "0x8aa84f33cc397eaf2ad3ca1b4ffbc39dd03671fbb6867205d226c9a5582ae604"
+            ]
+          },
+          {
+            "address": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "data": "0x",
+            "log_index": 672,
+            "topics": [
+              "0xbbd9f6c91b11d7956955fc18b8331282b8773a1311e7e60b34faec4353e4d8af",
+              "0xd17d3aa8c4c47cd2bbff6b0d21e7e8a81fde83941410a36f53e91f9d8ca737e7",
+              "0x00000000000000000000000075220b7600c300005038432a0000f308e0000068",
+              "0x7e7fc65300000000000000000000000000000000000000000000000000000000"
+            ]
+          }
+        ],
+        "status": 1,
+        "transaction_index": 216,
+        "tx_hash": "0x7383668648468d3a06108c991fa41407eb4c7456925e1ea3b9c112451ccbdf95"
+      },
+      "response_hash": "3b0e197bd4357149a2449477656c87f1bf15a496da9ae351fb9408af22b4533c",
+      "status": "ok",
+      "total_cost_units": 8.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.internal_transfers",
+      "params": {
+        "chain": "ethereum",
+        "frames": "no_input",
+        "tx_hash": "0x7383668648468d3a06108c991fa41407eb4c7456925e1ea3b9c112451ccbdf95"
+      }
+    },
+    "response": {
+      "action": "transaction.internal_transfers",
+      "action_count": 9,
+      "cost_units": 1.0,
+      "observation": {
+        "block_number": 26305799,
+        "chain": "ethereum",
+        "frames": [
+          {
+            "call_type": "call",
+            "from": "0x2d66e85108f2795e38c8710f4e68b0628d0432f6",
+            "reverted": false,
+            "to": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "trace_address": [],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "delegatecall",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0x849354ae399d3ed212b8e08fe5daf8f645753f3a",
+            "trace_address": [
+              0
+            ],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "staticcall",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0xae643211425788fdbac6685e7d5eeb4e09bb7e7c",
+            "trace_address": [
+              0,
+              0
+            ],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "call",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0x75220b7600c300005038432a0000f308e0000068",
+            "trace_address": [
+              0,
+              1
+            ],
+            "type": "call",
+            "value": "245641175729976074"
+          },
+          {
+            "call_type": "call",
+            "from": "0x75220b7600c300005038432a0000f308e0000068",
+            "reverted": false,
+            "to": "0x0c2c40f59d416d17879508fb977aabf05c7a51f6",
+            "trace_address": [
+              0,
+              1,
+              0
+            ],
+            "type": "call",
+            "value": "245641175729976074"
+          }
+        ],
+        "items": [
+          {
+            "call_type": "call",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "to": "0x75220b7600c300005038432a0000f308e0000068",
+            "trace_address": [
+              0,
+              1
+            ],
+            "type": "call",
+            "value": "245641175729976074"
+          },
+          {
+            "call_type": "call",
+            "from": "0x75220b7600c300005038432a0000f308e0000068",
+            "to": "0x0c2c40f59d416d17879508fb977aabf05c7a51f6",
+            "trace_address": [
+              0,
+              1,
+              0
+            ],
+            "type": "call",
+            "value": "245641175729976074"
+          }
+        ],
+        "transaction_index": 216,
+        "tx_hash": "0x7383668648468d3a06108c991fa41407eb4c7456925e1ea3b9c112451ccbdf95"
+      },
+      "response_hash": "dfdbebb3f5a24cebfd0a863475724c52878b17cad2e8fedc160a574bc188c12d",
+      "status": "ok",
+      "total_cost_units": 9.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.receipt",
+      "params": {
+        "chain": "ethereum",
+        "tx_hash": "0x2f9f6e6b2efd8845ea0deeee1fe0ca3083ce638ed9206b7ab98681f0eb1e1736"
+      }
+    },
+    "response": {
+      "action": "transaction.receipt",
+      "action_count": 10,
+      "cost_units": 1.0,
+      "observation": {
+        "block_hash": "0x0f02478e4077deb78769e274ecc1b0ea9ac9b6933c0c0162a7b8e3b1bbd9c885",
+        "block_number": 26305802,
+        "chain": "ethereum",
+        "gas_used": 121789,
+        "kind": "receipt",
+        "logs": [
+          {
+            "address": "0x75220b7600c300005038432a0000f308e0000068",
+            "data": "0x000000000000000000000000091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce000000000000000000000000000000000000000000000000000000006ae4984700000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000f31e19eca89cc8d000000000000000000000000008c3800f3ad9b3b662d002e90cc00000000ee1700000000000000000000000075220b7600c300005038432a0000f308e0000068000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f31e19eca89cc8d000000000000000000000000f70da97812cb96acdf810712aa562db8dfa3dbef0000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000012000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000025e0000000000000000000000000091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce6ae49894000000000000000000000000000000000000000000000000000000",
+            "log_index": 533,
+            "topics": [
+              "0xfef24569acf839f2b5cb23fd59d8a9bcc21650ff711ac1961ca3c5d4681ffe12",
+              "0x44772b1cfe9997163b4a211751e5a9bb2a1475dda36ed19e565f0fe04717ea8a"
+            ]
+          },
+          {
+            "address": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "data": "0x",
+            "log_index": 534,
+            "topics": [
+              "0xbbd9f6c91b11d7956955fc18b8331282b8773a1311e7e60b34faec4353e4d8af",
+              "0x29c90371185498dbe8dd1d03425b56a575a40e388350afdf60616bd62fc9e959",
+              "0x00000000000000000000000075220b7600c300005038432a0000f308e0000068",
+              "0x7e7fc65300000000000000000000000000000000000000000000000000000000"
+            ]
+          }
+        ],
+        "status": 1,
+        "transaction_index": 143,
+        "tx_hash": "0x2f9f6e6b2efd8845ea0deeee1fe0ca3083ce638ed9206b7ab98681f0eb1e1736"
+      },
+      "response_hash": "49770bf6cb77d74f3d1f7d6c646939a8ac2039c96e4bd17958820f3b73bfaf3e",
+      "status": "ok",
+      "total_cost_units": 10.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.internal_transfers",
+      "params": {
+        "chain": "ethereum",
+        "frames": "no_input",
+        "tx_hash": "0x2f9f6e6b2efd8845ea0deeee1fe0ca3083ce638ed9206b7ab98681f0eb1e1736"
+      }
+    },
+    "response": {
+      "action": "transaction.internal_transfers",
+      "action_count": 11,
+      "cost_units": 1.0,
+      "observation": {
+        "block_number": 26305802,
+        "chain": "ethereum",
+        "frames": [
+          {
+            "call_type": "call",
+            "from": "0x2d66e85108f2795e38c8710f4e68b0628d0432f6",
+            "reverted": false,
+            "to": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "trace_address": [],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "delegatecall",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0x849354ae399d3ed212b8e08fe5daf8f645753f3a",
+            "trace_address": [
+              0
+            ],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "staticcall",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0xae643211425788fdbac6685e7d5eeb4e09bb7e7c",
+            "trace_address": [
+              0,
+              0
+            ],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "call",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0x75220b7600c300005038432a0000f308e0000068",
+            "trace_address": [
+              0,
+              1
+            ],
+            "type": "call",
+            "value": "1094904256546851981"
+          },
+          {
+            "call_type": "call",
+            "from": "0x75220b7600c300005038432a0000f308e0000068",
+            "reverted": false,
+            "to": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+            "trace_address": [
+              0,
+              1,
+              0
+            ],
+            "type": "call",
+            "value": "1094904256546851981"
+          }
+        ],
+        "items": [
+          {
+            "call_type": "call",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "to": "0x75220b7600c300005038432a0000f308e0000068",
+            "trace_address": [
+              0,
+              1
+            ],
+            "type": "call",
+            "value": "1094904256546851981"
+          },
+          {
+            "call_type": "call",
+            "from": "0x75220b7600c300005038432a0000f308e0000068",
+            "to": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+            "trace_address": [
+              0,
+              1,
+              0
+            ],
+            "type": "call",
+            "value": "1094904256546851981"
+          }
+        ],
+        "transaction_index": 143,
+        "tx_hash": "0x2f9f6e6b2efd8845ea0deeee1fe0ca3083ce638ed9206b7ab98681f0eb1e1736"
+      },
+      "response_hash": "20cd805f9c8d0b402b8988a06763a37711fb380ba9e47cc8bac6f0124d28e45d",
+      "status": "ok",
+      "total_cost_units": 11.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.receipt",
+      "params": {
+        "chain": "ethereum",
+        "tx_hash": "0xd2e77695dd4109393c4fcc647624f28a112c9d0c5f496cf07b1c6f9deb460e67"
+      }
+    },
+    "response": {
+      "action": "transaction.receipt",
+      "action_count": 12,
+      "cost_units": 1.0,
+      "observation": {
+        "block_hash": "0xdef7cab75815cf0bc2488ab0459a6418b587ce3abcb1e5e4d48f309e624742e9",
+        "block_number": 26305827,
+        "chain": "ethereum",
+        "gas_used": 121789,
+        "kind": "receipt",
+        "logs": [
+          {
+            "address": "0x75220b7600c300005038432a0000f308e0000068",
+            "data": "0x000000000000000000000000091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce000000000000000000000000000000000000000000000000000000006ae49973000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000009e07a2f18171ab7000000000000000000000000008c3800f3ad9b3b662d002e90cc00000000ee1700000000000000000000000075220b7600c300005038432a0000f308e00000680000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000009e07a2f18171ab700000000000000000000000044342998b9cd3b45ff992875b93c61c71dcabcf20000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000012000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000025e0000000000000000000000000091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce6ae499bf000000000000000000000000000000000000000000000000000000",
+            "log_index": 464,
+            "topics": [
+              "0xfef24569acf839f2b5cb23fd59d8a9bcc21650ff711ac1961ca3c5d4681ffe12",
+              "0xed8f1f0242f5a5aa3d1cea24ace46651d80972f5a5fc763cb3d6317381193ec9"
+            ]
+          },
+          {
+            "address": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "data": "0x",
+            "log_index": 465,
+            "topics": [
+              "0xbbd9f6c91b11d7956955fc18b8331282b8773a1311e7e60b34faec4353e4d8af",
+              "0x4cad5d1c2d06528049bd8b674f73d4b6b6d14e6841ecc113ed817b476434b876",
+              "0x00000000000000000000000075220b7600c300005038432a0000f308e0000068",
+              "0x7e7fc65300000000000000000000000000000000000000000000000000000000"
+            ]
+          }
+        ],
+        "status": 1,
+        "transaction_index": 191,
+        "tx_hash": "0xd2e77695dd4109393c4fcc647624f28a112c9d0c5f496cf07b1c6f9deb460e67"
+      },
+      "response_hash": "8ced0dd6172d3f3613367d6514ef0f6530322c9e1cb381f0fa3a92f3795e622f",
+      "status": "ok",
+      "total_cost_units": 12.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.internal_transfers",
+      "params": {
+        "chain": "ethereum",
+        "frames": "no_input",
+        "tx_hash": "0xd2e77695dd4109393c4fcc647624f28a112c9d0c5f496cf07b1c6f9deb460e67"
+      }
+    },
+    "response": {
+      "action": "transaction.internal_transfers",
+      "action_count": 13,
+      "cost_units": 1.0,
+      "observation": {
+        "block_number": 26305827,
+        "chain": "ethereum",
+        "frames": [
+          {
+            "call_type": "call",
+            "from": "0x2d66e85108f2795e38c8710f4e68b0628d0432f6",
+            "reverted": false,
+            "to": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "trace_address": [],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "delegatecall",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0x849354ae399d3ed212b8e08fe5daf8f645753f3a",
+            "trace_address": [
+              0
+            ],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "staticcall",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0xae643211425788fdbac6685e7d5eeb4e09bb7e7c",
+            "trace_address": [
+              0,
+              0
+            ],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "call",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0x75220b7600c300005038432a0000f308e0000068",
+            "trace_address": [
+              0,
+              1
+            ],
+            "type": "call",
+            "value": "711703083810757303"
+          },
+          {
+            "call_type": "call",
+            "from": "0x75220b7600c300005038432a0000f308e0000068",
+            "reverted": false,
+            "to": "0x44342998b9cd3b45ff992875b93c61c71dcabcf2",
+            "trace_address": [
+              0,
+              1,
+              0
+            ],
+            "type": "call",
+            "value": "711703083810757303"
+          }
+        ],
+        "items": [
+          {
+            "call_type": "call",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "to": "0x75220b7600c300005038432a0000f308e0000068",
+            "trace_address": [
+              0,
+              1
+            ],
+            "type": "call",
+            "value": "711703083810757303"
+          },
+          {
+            "call_type": "call",
+            "from": "0x75220b7600c300005038432a0000f308e0000068",
+            "to": "0x44342998b9cd3b45ff992875b93c61c71dcabcf2",
+            "trace_address": [
+              0,
+              1,
+              0
+            ],
+            "type": "call",
+            "value": "711703083810757303"
+          }
+        ],
+        "transaction_index": 191,
+        "tx_hash": "0xd2e77695dd4109393c4fcc647624f28a112c9d0c5f496cf07b1c6f9deb460e67"
+      },
+      "response_hash": "a71a097dc323bdb46b1ac2241716efcceccc8f2b6de9629a502c4dc40b3f55ce",
+      "status": "ok",
+      "total_cost_units": 13.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.receipt",
+      "params": {
+        "chain": "ethereum",
+        "tx_hash": "0x08fa36249760a14c7995c59359b6e082421624ec0369f0d8c24236d5a6d5a4d0"
+      }
+    },
+    "response": {
+      "action": "transaction.receipt",
+      "action_count": 14,
+      "cost_units": 1.0,
+      "observation": {
+        "block_hash": "0x47373d4d764cb51083112035c0c4bbab63d1a49d11b6d5873de73247fd649db9",
+        "block_number": 26305836,
+        "chain": "ethereum",
+        "gas_used": 121789,
+        "kind": "receipt",
+        "logs": [
+          {
+            "address": "0x75220b7600c300005038432a0000f308e0000068",
+            "data": "0x000000000000000000000000091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce000000000000000000000000000000000000000000000000000000006ae499df00000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000274329bb9f554b5000000000000000000000000008c3800f3ad9b3b662d002e90cc00000000ee1700000000000000000000000075220b7600c300005038432a0000f308e0000068000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000274329bb9f554b500000000000000000000000094d36132722d772fe053ea13c57bbdbdf435c0850000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000012000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000025e0000000000000000000000000091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce6ae49a25000000000000000000000000000000000000000000000000000000",
+            "log_index": 1167,
+            "topics": [
+              "0xfef24569acf839f2b5cb23fd59d8a9bcc21650ff711ac1961ca3c5d4681ffe12",
+              "0xe34edb5e0d958a6296f609f27b2d9ca27c9a73d6dd8920b899b257928e742a0b"
+            ]
+          },
+          {
+            "address": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "data": "0x",
+            "log_index": 1168,
+            "topics": [
+              "0xbbd9f6c91b11d7956955fc18b8331282b8773a1311e7e60b34faec4353e4d8af",
+              "0xc89c4b61019cbc4e486976a1872c5788ddc0c3b921fbc7bcaf72f802ae82255a",
+              "0x00000000000000000000000075220b7600c300005038432a0000f308e0000068",
+              "0x7e7fc65300000000000000000000000000000000000000000000000000000000"
+            ]
+          }
+        ],
+        "status": 1,
+        "transaction_index": 354,
+        "tx_hash": "0x08fa36249760a14c7995c59359b6e082421624ec0369f0d8c24236d5a6d5a4d0"
+      },
+      "response_hash": "b478d75c39a306c0dd06a2d53d92aa534e186d60dda0a9dc0ee854e13927cd98",
+      "status": "ok",
+      "total_cost_units": 14.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.internal_transfers",
+      "params": {
+        "chain": "ethereum",
+        "frames": "no_input",
+        "tx_hash": "0x08fa36249760a14c7995c59359b6e082421624ec0369f0d8c24236d5a6d5a4d0"
+      }
+    },
+    "response": {
+      "action": "transaction.internal_transfers",
+      "action_count": 15,
+      "cost_units": 1.0,
+      "observation": {
+        "block_number": 26305836,
+        "chain": "ethereum",
+        "frames": [
+          {
+            "call_type": "call",
+            "from": "0x2d66e85108f2795e38c8710f4e68b0628d0432f6",
+            "reverted": false,
+            "to": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "trace_address": [],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "delegatecall",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0x849354ae399d3ed212b8e08fe5daf8f645753f3a",
+            "trace_address": [
+              0
+            ],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "staticcall",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0xae643211425788fdbac6685e7d5eeb4e09bb7e7c",
+            "trace_address": [
+              0,
+              0
+            ],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "call",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0x75220b7600c300005038432a0000f308e0000068",
+            "trace_address": [
+              0,
+              1
+            ],
+            "type": "call",
+            "value": "176821929795474613"
+          },
+          {
+            "call_type": "call",
+            "from": "0x75220b7600c300005038432a0000f308e0000068",
+            "reverted": false,
+            "to": "0x94d36132722d772fe053ea13c57bbdbdf435c085",
+            "trace_address": [
+              0,
+              1,
+              0
+            ],
+            "type": "call",
+            "value": "176821929795474613"
+          }
+        ],
+        "items": [
+          {
+            "call_type": "call",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "to": "0x75220b7600c300005038432a0000f308e0000068",
+            "trace_address": [
+              0,
+              1
+            ],
+            "type": "call",
+            "value": "176821929795474613"
+          },
+          {
+            "call_type": "call",
+            "from": "0x75220b7600c300005038432a0000f308e0000068",
+            "to": "0x94d36132722d772fe053ea13c57bbdbdf435c085",
+            "trace_address": [
+              0,
+              1,
+              0
+            ],
+            "type": "call",
+            "value": "176821929795474613"
+          }
+        ],
+        "transaction_index": 354,
+        "tx_hash": "0x08fa36249760a14c7995c59359b6e082421624ec0369f0d8c24236d5a6d5a4d0"
+      },
+      "response_hash": "835a54d771ccc8e60b852b9f04ab00ee3f71e73aa56b11e685be1578e06f0f68",
+      "status": "ok",
+      "total_cost_units": 15.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.receipt",
+      "params": {
+        "chain": "ethereum",
+        "tx_hash": "0x657a22725dffa334c8b574e3e34a97acb220222b828055619e8eee155aacc7e1"
+      }
+    },
+    "response": {
+      "action": "transaction.receipt",
+      "action_count": 16,
+      "cost_units": 1.0,
+      "observation": {
+        "block_hash": "0x1495bcbe4dea8a9e47de4f68791312be56aba1171ca5a481f902d13f3c8e2132",
+        "block_number": 26306006,
+        "chain": "ethereum",
+        "gas_used": 124444,
+        "kind": "receipt",
+        "logs": [
+          {
+            "address": "0x75220b7600c300005038432a0000f308e0000068",
+            "data": "0x000000000000000000000000091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce000000000000000000000000000000000000000000000000000000006ae4a1e30000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000094b5112c380d318000000000000000000000000008c3800f3ad9b3b662d002e90cc00000000ee1700000000000000000000000075220b7600c300005038432a0000f308e000006800000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000094b5112c380d318000000000000000000000000979ab8219c47c373b07c3c9ea56fe3f3e23da2e60000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000012000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000025e0000000000000000000000000091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce6ae4a22b000000000000000000000000000000000000000000000000000000",
+            "log_index": 570,
+            "topics": [
+              "0xfef24569acf839f2b5cb23fd59d8a9bcc21650ff711ac1961ca3c5d4681ffe12",
+              "0x72d33a20756463128c46d534e9bccaacbf82138531c2c8fcb309f16cbe1ab8e5"
+            ]
+          },
+          {
+            "address": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "data": "0x",
+            "log_index": 571,
+            "topics": [
+              "0xbbd9f6c91b11d7956955fc18b8331282b8773a1311e7e60b34faec4353e4d8af",
+              "0xe3463a810d0f239f32ab6c321a966d2440446c30653946eb6d7a1b0212ccda4e",
+              "0x00000000000000000000000075220b7600c300005038432a0000f308e0000068",
+              "0x7e7fc65300000000000000000000000000000000000000000000000000000000"
+            ]
+          }
+        ],
+        "status": 1,
+        "transaction_index": 246,
+        "tx_hash": "0x657a22725dffa334c8b574e3e34a97acb220222b828055619e8eee155aacc7e1"
+      },
+      "response_hash": "a403483bf66b2a4aa0c2de8f1ac9c61900e8b1d853a3b35ead708631cd8e0312",
+      "status": "ok",
+      "total_cost_units": 16.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.internal_transfers",
+      "params": {
+        "chain": "ethereum",
+        "frames": "no_input",
+        "tx_hash": "0x657a22725dffa334c8b574e3e34a97acb220222b828055619e8eee155aacc7e1"
+      }
+    },
+    "response": {
+      "action": "transaction.internal_transfers",
+      "action_count": 17,
+      "cost_units": 1.0,
+      "observation": {
+        "block_number": 26306006,
+        "chain": "ethereum",
+        "frames": [
+          {
+            "call_type": "call",
+            "from": "0x2d66e85108f2795e38c8710f4e68b0628d0432f6",
+            "reverted": false,
+            "to": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "trace_address": [],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "delegatecall",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0x849354ae399d3ed212b8e08fe5daf8f645753f3a",
+            "trace_address": [
+              0
+            ],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "staticcall",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0xae643211425788fdbac6685e7d5eeb4e09bb7e7c",
+            "trace_address": [
+              0,
+              0
+            ],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "call",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0x75220b7600c300005038432a0000f308e0000068",
+            "trace_address": [
+              0,
+              1
+            ],
+            "type": "call",
+            "value": "669718110625911576"
+          },
+          {
+            "call_type": "call",
+            "from": "0x75220b7600c300005038432a0000f308e0000068",
+            "reverted": false,
+            "to": "0x979ab8219c47c373b07c3c9ea56fe3f3e23da2e6",
+            "trace_address": [
+              0,
+              1,
+              0
+            ],
+            "type": "call",
+            "value": "669718110625911576"
+          }
+        ],
+        "items": [
+          {
+            "call_type": "call",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "to": "0x75220b7600c300005038432a0000f308e0000068",
+            "trace_address": [
+              0,
+              1
+            ],
+            "type": "call",
+            "value": "669718110625911576"
+          },
+          {
+            "call_type": "call",
+            "from": "0x75220b7600c300005038432a0000f308e0000068",
+            "to": "0x979ab8219c47c373b07c3c9ea56fe3f3e23da2e6",
+            "trace_address": [
+              0,
+              1,
+              0
+            ],
+            "type": "call",
+            "value": "669718110625911576"
+          }
+        ],
+        "transaction_index": 246,
+        "tx_hash": "0x657a22725dffa334c8b574e3e34a97acb220222b828055619e8eee155aacc7e1"
+      },
+      "response_hash": "01b46fa883e18cf1229a93a3156925183001f8c3e480fac618b9e86de9d6e4a9",
+      "status": "ok",
+      "total_cost_units": 17.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.receipt",
+      "params": {
+        "chain": "ethereum",
+        "tx_hash": "0x8cb37faa7d669002e664c7e9ec5ff731e49b56d26472c2d33bd2f6f3eef5d497"
+      }
+    },
+    "response": {
+      "action": "transaction.receipt",
+      "action_count": 18,
+      "cost_units": 1.0,
+      "observation": {
+        "block_hash": "0xb60093653d9a56056bc20d78ff8dd990502af0be0523daab9e98091e3972fd52",
+        "block_number": 26306110,
+        "chain": "ethereum",
+        "gas_used": 121789,
+        "kind": "receipt",
+        "logs": [
+          {
+            "address": "0x75220b7600c300005038432a0000f308e0000068",
+            "data": "0x000000000000000000000000091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce000000000000000000000000000000000000000000000000000000006ae4a6c30000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000138a297c35913cb1000000000000000000000000008c3800f3ad9b3b662d002e90cc00000000ee1700000000000000000000000075220b7600c300005038432a0000f308e000006800000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000138a297c35913cb10000000000000000000000009876ec973f2493cbda0af09d0945bfed6b9d80d90000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000012000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000025e0000000000000000000000000091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce6ae4a70e000000000000000000000000000000000000000000000000000000",
+            "log_index": 512,
+            "topics": [
+              "0xfef24569acf839f2b5cb23fd59d8a9bcc21650ff711ac1961ca3c5d4681ffe12",
+              "0x31c0a1f2f385ee8d9ea78317400fc0369966188274eb7536a51ce2654a23332b"
+            ]
+          },
+          {
+            "address": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "data": "0x",
+            "log_index": 513,
+            "topics": [
+              "0xbbd9f6c91b11d7956955fc18b8331282b8773a1311e7e60b34faec4353e4d8af",
+              "0x3f154c6c484314b26e6fbf55515f8b35b3f01d03d686fae9d398198cc942e554",
+              "0x00000000000000000000000075220b7600c300005038432a0000f308e0000068",
+              "0x7e7fc65300000000000000000000000000000000000000000000000000000000"
+            ]
+          }
+        ],
+        "status": 1,
+        "transaction_index": 155,
+        "tx_hash": "0x8cb37faa7d669002e664c7e9ec5ff731e49b56d26472c2d33bd2f6f3eef5d497"
+      },
+      "response_hash": "c0f061174925e3651158474b6e57ce531c553e6ed76948ad4e21af716d423c4c",
+      "status": "ok",
+      "total_cost_units": 18.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.internal_transfers",
+      "params": {
+        "chain": "ethereum",
+        "frames": "no_input",
+        "tx_hash": "0x8cb37faa7d669002e664c7e9ec5ff731e49b56d26472c2d33bd2f6f3eef5d497"
+      }
+    },
+    "response": {
+      "action": "transaction.internal_transfers",
+      "action_count": 19,
+      "cost_units": 1.0,
+      "observation": {
+        "block_number": 26306110,
+        "chain": "ethereum",
+        "frames": [
+          {
+            "call_type": "call",
+            "from": "0x2d66e85108f2795e38c8710f4e68b0628d0432f6",
+            "reverted": false,
+            "to": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "trace_address": [],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "delegatecall",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0x849354ae399d3ed212b8e08fe5daf8f645753f3a",
+            "trace_address": [
+              0
+            ],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "staticcall",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0xae643211425788fdbac6685e7d5eeb4e09bb7e7c",
+            "trace_address": [
+              0,
+              0
+            ],
+            "type": "call",
+            "value": "0"
+          },
+          {
+            "call_type": "call",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "reverted": false,
+            "to": "0x75220b7600c300005038432a0000f308e0000068",
+            "trace_address": [
+              0,
+              1
+            ],
+            "type": "call",
+            "value": "1407983446958095537"
+          },
+          {
+            "call_type": "call",
+            "from": "0x75220b7600c300005038432a0000f308e0000068",
+            "reverted": false,
+            "to": "0x9876ec973f2493cbda0af09d0945bfed6b9d80d9",
+            "trace_address": [
+              0,
+              1,
+              0
+            ],
+            "type": "call",
+            "value": "1407983446958095537"
+          }
+        ],
+        "items": [
+          {
+            "call_type": "call",
+            "from": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
+            "to": "0x75220b7600c300005038432a0000f308e0000068",
+            "trace_address": [
+              0,
+              1
+            ],
+            "type": "call",
+            "value": "1407983446958095537"
+          },
+          {
+            "call_type": "call",
+            "from": "0x75220b7600c300005038432a0000f308e0000068",
+            "to": "0x9876ec973f2493cbda0af09d0945bfed6b9d80d9",
+            "trace_address": [
+              0,
+              1,
+              0
+            ],
+            "type": "call",
+            "value": "1407983446958095537"
+          }
+        ],
+        "transaction_index": 155,
+        "tx_hash": "0x8cb37faa7d669002e664c7e9ec5ff731e49b56d26472c2d33bd2f6f3eef5d497"
+      },
+      "response_hash": "4c17ea02b5dc8fba31fb0945cddd4f4d504c88782bc5ff653dd0ace553296cae",
+      "status": "ok",
+      "total_cost_units": 19.0
+    }
+  }
+]
