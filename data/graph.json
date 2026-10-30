@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum: live trace",
   "incident_utc": "2026-10-29T20:24:00Z",
-  "updated_utc": "2026-10-30T21:20:18Z",
+  "updated_utc": "2026-10-30T21:41:57Z",
   "head_block": 26308200,
   "chain": "ethereum",
   "notes": [
@@ -553,22 +553,13 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced USDT since it arrived, as of block 26308200.",
-   "freezable": [
-    {
-     "asset": "USDT",
-     "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
-     "issuer": "Tether",
-     "held": "127.67248",
-     "note": "Tether has not frozen this address for USDT: USDT isBlackListed returns false on chain; balanceOf returns 57965.43937 USDT, of which up to 127.67248 USDT arrived through traced flows, as of block 26308200."
-    }
-   ]
+   "note": "No outflow of the traced USDT since it arrived, as of block 26308200."
   },
   {
    "id": "0xc1d13492285eb664951e201bf7c80c7c6318a1b5",
    "chain": "ethereum",
    "label": null,
-   "role": "open",
+   "role": "pocket",
    "note": null
   },
   {
@@ -596,7 +587,7 @@
    "id": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
    "chain": "ethereum",
    "label": null,
-   "role": "open",
+   "role": "pocket",
    "note": null
   },
   {
@@ -634,16 +625,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "open",
-   "note": null,
-   "freezable": [
-    {
-     "asset": "USDC",
-     "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-     "issuer": "Circle",
-     "held": "330473.320964",
-     "note": "Circle has not frozen this address for USDC: USDC isBlacklisted returns false on chain; balanceOf returns 2015518.013394 USDC, of which up to 330473.320964 USDC arrived through traced flows, as of block 26308200."
-    }
-   ]
+   "note": null
   },
   {
    "id": "0x0c2c40f59d416d17879508fb977aabf05c7a51f6",
@@ -678,16 +660,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "open",
-   "note": null,
-   "freezable": [
-    {
-     "asset": "USDC",
-     "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-     "issuer": "Circle",
-     "held": "3088.572212",
-     "note": "Circle has not frozen this address for USDC: USDC isBlacklisted returns false on chain; balanceOf returns 25410.028328 USDC, of which up to 3088.572212 USDC arrived through traced flows, as of block 26308200."
-    }
-   ]
+   "note": null
   },
   {
    "id": "0xa743bb0f944dea69f5b59577da5d7ad0681014ff",
@@ -778,32 +751,14 @@
    "chain": "ethereum",
    "label": null,
    "role": "open",
-   "note": null,
-   "freezable": [
-    {
-     "asset": "USDC",
-     "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-     "issuer": "Circle",
-     "held": "390.176534",
-     "note": "Circle has not frozen this address for USDC: USDC isBlacklisted returns false on chain; balanceOf returns 8842816.53096 USDC, of which up to 390.176534 USDC arrived through traced flows, as of block 26308200."
-    }
-   ]
+   "note": null
   },
   {
    "id": "0xc51e9af67c16a7176e244d8803a32aaf1430cb08",
    "chain": "ethereum",
    "label": null,
    "role": "open",
-   "note": null,
-   "freezable": [
-    {
-     "asset": "USDC",
-     "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-     "issuer": "Circle",
-     "held": "566.404242",
-     "note": "Circle has not frozen this address for USDC: USDC isBlacklisted returns false on chain; balanceOf returns 123982.463157 USDC, of which up to 566.404242 USDC arrived through traced flows, as of block 26308200."
-    }
-   ]
+   "note": null
   },
   {
    "id": "0xa984c4ca650b265e9db76f8713a9a626f704b83a",
@@ -9885,16 +9840,6 @@
    "reason": null
   },
   {
-   "account": "lead_0xc1d134_ETH_check",
-   "status": "open",
-   "reason": null
-  },
-  {
-   "account": "lead_0x091dfa_ETH_check",
-   "status": "open",
-   "reason": null
-  },
-  {
    "account": "lead_0x294828_ETH",
    "status": "open",
    "reason": null
@@ -10278,6 +10223,16 @@
    "account": "lead_0x9876ec_USDC_check",
    "status": "closed",
    "reason": "Closed by the outflow check: no unrecorded outflow of 0x9876ec973f2493cbda0af09d0945bfed6b9d80d9's traced pockets as of 2026-10-30T21:16:37Z."
+  },
+  {
+   "account": "lead_0xc1d134_ETH_check",
+   "status": "closed",
+   "reason": "Closed by the outflow check: no unrecorded outflow of 0xc1d13492285eb664951e201bf7c80c7c6318a1b5's pockets where at least half of what arrived was traced, as of 2026-10-30T21:41:44Z."
+  },
+  {
+   "account": "lead_0x091dfa_ETH_check",
+   "status": "closed",
+   "reason": "Closed by the outflow check: no unrecorded outflow of 0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce's pockets where at least half of what arrived was traced, as of 2026-10-30T21:41:44Z."
   }
  ],
  "coming_soon": [
@@ -10352,14 +10307,6 @@
    {
     "key": "lead_0x5227_ETH_return_late",
     "text": "Trace ETH pocket at 0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c after late incoming ETH from 0x8d539 tx 0xe2d06f099db4876469cc04f7011fd72c28916b995e13e5abc7117bb38cec2c08 and from 0x0ddf tx 0x600605859a94fdaa17541aca7b87c7c9606b31722d89f8e06f0e2c15a234aced; check ETH outflows after block 26307322 through 26307447."
-   },
-   {
-    "key": "lead_0xc1d134_ETH_check",
-    "text": "Opened by the outflow check: 0xc1d13492285eb664951e201bf7c80c7c6318a1b5 ETH (ETH): 744 positive outflows at or after block 26301102, where traced value first arrived, are not recorded: 0xbe1d7cf377e40258601517e0a77ad01295cdf3d4bd08e0cc4b0a2deee1af0593 (block 26301107, 42089000000000000); 0x2e8eb4127950653cf3639e4c260e296efb7d43f90cbef45946b97e137a37ee0c (block 26301108, 2099477000000000000); 0x6c1fae0f2ab0c943a6ada9099e101e5530a655e972eb274c52f33dca437e8b84 (block 26301108, 206105000000000000); 0x6e47bfb5ae1fe579a32db53425756f1c9acaa019f631ec14cb050e51d35c137c (block 26301108, 206077000000000000); 0xb36054a15a64dd7b2bb2ec4b86d5d278390efe5ad7134af7b0387159021fe928 (block 26301108, 602200000000000000); 0xd96ac2dda59be7d49310d04a13605cc7e49f081a57c9ee96b64cf965b175f701 (block 26301108, 4901045000000000000); 0xdc60f908924590765668eb4cd87d0215882c20719f136ca911e7d49ef1f3601e (block 26301108, 946184000000000000); 0xb7d6b86e749a16cd1213d1f4d56614f7e023e8161301c00fcbd981e07311b88d (block 26301111, 1524001000000000000); 0xfc6ecc2bef7c194ec71dcdf752a09b57b528786562573f04eb60ad76e679c7f8 (block 26301111, 401260000000000000); 0x18dcfde758b51f1dea641debbadc45683b18dfb2ccb66f813aa5eae31d5c71df (block 26301134, 2146464000000000000); 0x2c0cae75cfe7687ec9cb5e17df0c45f46852107d2ca3d18282a713ae602f6120 (block 26301149, 6928184000000000000); 0xf28fb587ac77d942412a1b0bad91037d4a9f3dbd4f932a37b44b91c95e0dcdb3 (block 26301149, 12935090000000000000); 0x0f9d22d009d309d0157ba69d7ccffd99a27d6eb2f2199ed84d7bd8e103a85a8e (block 26301160, 8922184000000000000); 0x604a8eb322e095890ea5c0c5a4dce36aa06e6d98b891733f379f8ac3215581ff (block 26301160, 4658452000000000000); 0x1f480ef6f9e0360b1927baee30ee7b29e7b482688b64d632f54d73dca87fe8db (block 26301593, 4777500000000000000); 0x31a3a2af1483512dd3f75189bd7f7bdabefe085a106ed4c6d9a8dcb3dd49a35a (block 26301595, 5475400000000000000); 0xc67e9c15eb31e811c558c5abb6b77e2591de147d5e847ad41a5bee5f1ce8148f (block 26301595, 12952900000000000000); 0x18903142df3196140748b59a83cb6e4069f953e640b43b107af277c6e1864448 (block 26301602, 221210000000000000); 0x2f242ac0168588ff07bf90dc09fffb80ce663c90d34d9be7b4c7ed28fadc3e69 (block 26301602, 6887152000000000000); 0x527011204a6e5ecbefb03fc4628613fa3b129dc18c40e084ba5111ce5fb1d27b (block 26301602, 13169069000000000000); and 724 more"
-   },
-   {
-    "key": "lead_0x091dfa_ETH_check",
-    "text": "Opened by the outflow check: 0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce ETH (ETH): 23 positive outflows at or after block 26305520, where traced value first arrived, are not recorded: 0x58f073896aa3537a705a92870be5941226745a0120b0358f2fa68d6e3b51a319 (block 26305607, 1015417915320301500); 0xafbab48f576ba83015e314cef655e7fbb9b966ca956024a1becceb8d212da9dc (block 26305778, 454018125797577359); 0xdaa9da9bc0de2abe89b85131eda66a84f3214c5caae29516beb9a3b16aef0200 (block 26305786, 245650514402345541); 0x7383668648468d3a06108c991fa41407eb4c7456925e1ea3b9c112451ccbdf95 (block 26305799, 245641175729976074); 0x2f9f6e6b2efd8845ea0deeee1fe0ca3083ce638ed9206b7ab98681f0eb1e1736 (block 26305802, 1094904256546851981); 0xd2e77695dd4109393c4fcc647624f28a112c9d0c5f496cf07b1c6f9deb460e67 (block 26305827, 711703083810757303); 0x08fa36249760a14c7995c59359b6e082421624ec0369f0d8c24236d5a6d5a4d0 (block 26305836, 176821929795474613); 0x657a22725dffa334c8b574e3e34a97acb220222b828055619e8eee155aacc7e1 (block 26306006, 669718110625911576); 0x8cb37faa7d669002e664c7e9ec5ff731e49b56d26472c2d33bd2f6f3eef5d497 (block 26306110, 1407983446958095537); 0x316814200d319f20de784290de47d802cfbde818d27e5595a4b4072b7fd39040 (block 26306119, 750124549175962968); 0xca879553fe4ccfdbc1a81a784a57b6de25c83b04c8379a7a6670cc897c384dd5 (block 26306227, 1636615188922377417); 0xa44d374d4dd57d729409cc13dbb229d30a0473e9f0ec4aec72e38d59590943fc (block 26306291, 1413539161963307645); 0xbd96a44a34402d3a66b6d53df24fa778abd0954bb932493486191c8a2d1a3f1a (block 26306623, 569850491333580000); 0x66cf073565a87660f2382ad1b3f386010d02315dd8322c9562ca5de65f57ef0f (block 26306630, 419856162946500000); 0x99755019021246276ddf68a2635536dff962188e7d2539e756a225532285585e (block 26306644, 799810529982400000); 0xa97b7eb145e0df92934dd8898929bba8ac64fd5692093c2840f7db9aa4b18eee (block 26306662, 265165784850604333); 0xb3e856648ed575c6ba1a57f8e5994846d1032c138b8113bb910a817a5ea6f55d (block 26306824, 749891211100500000); 0xa4c4098e8f226eacd29b1eeddbc5ec91b68d827248067db2bc59fe1762db116c (block 26306991, 445322425226616274); 0x9f79bf66698472e4cf99ccfc068c5e5b80e0e412f9197d07d18a60a7eaf2c1eb (block 26307001, 184638957916556577); 0x4eaf0ab99bedd0fb19b7761c56832f8e8d8f53fb88d1f5b7d2986944449201cc (block 26307046, 599919262819200000); and 3 more"
    },
    {
     "key": "lead_0x294828_ETH",
