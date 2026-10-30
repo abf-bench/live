@@ -1,0 +1,89 @@
+[
+  {
+    "request": {
+      "action": "account.activity",
+      "params": {
+        "account": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+        "block_window": [
+          26307172,
+          26307202
+        ],
+        "chain": "ethereum",
+        "direction": "out",
+        "limit": 100
+      }
+    },
+    "response": {
+      "action": "account.activity",
+      "action_count": 1,
+      "cost_units": 1.0,
+      "observation": {
+        "account": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+        "block_window": [
+          26307172,
+          26307202
+        ],
+        "chain": "ethereum",
+        "direction": "out",
+        "items": [],
+        "next_cursor": null,
+        "total": 0,
+        "truncated": false
+      },
+      "response_hash": "ca956233a95ec5855c0ae735d6b95c3a640f882ffcb6c2b6c68b56893cfcbd65",
+      "status": "ok",
+      "total_cost_units": 1.0
+    }
+  },
+  {
+    "request": {
+      "action": "account.activity",
+      "params": {
+        "account": "0xaa246bf639586a6ba46762d378ce50ca4fc654a0",
+        "block_window": [
+          26307172,
+          26307202
+        ],
+        "chain": "ethereum",
+        "direction": "out",
+        "limit": 100
+      }
+    },
+    "response": {
+      "action": "account.activity",
+      "action_count": 2,
+      "cost_units": 1.0,
+      "observation": {
+        "account": "0xaa246bf639586a6ba46762d378ce50ca4fc654a0",
+        "block_window": [
+          26307172,
+          26307202
+        ],
+        "chain": "ethereum",
+        "direction": "out",
+        "items": [],
+        "next_cursor": null,
+        "total": 0,
+        "truncated": false
+      },
+      "response_hash": "8965a7da71ffc1293af7c654d19a2f1e125c8bfc844e83b572ca2ee00e674fdf",
+      "status": "ok",
+      "total_cost_units": 2.0
+    }
+  },
+  {
+    "event": "final_graph",
+    "response": {
+      "action_count": 2,
+      "cost_units": 0.0,
+      "event": "final_graph",
+      "observation": {
+        "accepted": true,
+        "graph_hash": "d511735ede7666ee7734f06d3154601f110cfe9bd35187e0d48fb8d6680409c7"
+      },
+      "response_hash": "908bd51e2a63bf9c4a047f20b3bacd8e51d77cdabc1244b359e7e68009f66e71",
+      "status": "finished",
+      "total_cost_units": 2.0
+    }
+  }
+]
