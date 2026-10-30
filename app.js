@@ -39,7 +39,7 @@
     open:     { name: 'Open lead',       color: '#ece6da' },
     unknown:  { name: 'Unclassified',    color: '#8b877e' }
   };
-  var LEGEND_TEXT = { open: 'Open lead: funds arrived; where they went next is not traced yet' };
+  var LEGEND_TEXT = { open: 'Open lead: the agent is still tracing here' };
   var ROLE_ORDER = ['victim', 'attacker', 'pocket', 'stop', 'frozen', 'resting', 'open', 'unknown'];
   var TAG_FOR_ROLE = { frozen: 'Frozen', resting: 'Not moved yet', open: 'Open lead', stop: 'Tracing stopped' };
 
@@ -227,8 +227,10 @@
         type: str(o.type), claim: str(o.claim), session: num(o.session), seq: num(o.seq), step: num(o.step),
         verdict: ['VALID', 'INVALID', 'UNDECIDED'].indexOf(o.verdict) !== -1 ? o.verdict : null,
         edge_ids: Array.isArray(o.edge_ids) ? o.edge_ids.map(String) : [],
-        evidence: evidence
+        evidence: evidence,
+        reasons: reasonsOf(o.checker)
       };
+      op.seedOp = op.id === 'theft' || (op.seq === null && op.step === null && op.session === 0);
       S.ops.set(op.id, op);
       op.edge_ids.forEach(function (eid) { if (!opOfEdge.has(eid)) opOfEdge.set(eid, op); });
     });
@@ -325,6 +327,17 @@
       S.leadsByAddr.get(l.addr).push(l);
     });
     S.comingSoon = (Array.isArray(data.coming_soon) ? data.coming_soon : []).filter(function (c) { return c && str(c.chain); });
+  }
+
+  // The checker's reasons arrive as strings or small objects; keep plain text only.
+  function reasonsOf(list) {
+    if (!Array.isArray(list)) return typeof list === 'string' && list.trim() ? [list.trim()] : [];
+    return list.map(function (r) {
+      if (typeof r === 'string') return r.trim();
+      if (r && typeof r === 'object') return str(r.reason) || str(r.message) || str(r.detail) || str(r.text) ||
+        Object.keys(r).map(function (k) { return typeof r[k] === 'string' || typeof r[k] === 'number' ? k + ': ' + r[k] : ''; }).filter(Boolean).join(', ');
+      return '';
+    }).filter(Boolean);
   }
 
   // Match a lead to its address: the full 0x address in the key or text whose start matches the key's 0x prefix.
@@ -502,6 +515,8 @@
     { selector: 'edge.lbl-tgt', style: { 'label': '', 'target-label': 'data(label)', 'target-text-offset': 'data(off)' } },
     // An exchange at one address draws as a loop above the node, sized to clear it.
     { selector: 'edge.loop', style: { 'loop-direction': '0deg', 'loop-sweep': '-50deg', 'control-point-step-size': 'data(loop)' } },
+    { selector: 'edge.loop-down', style: { 'loop-direction': '180deg' } },
+    { selector: 'edge.loop-right', style: { 'loop-direction': '90deg' } },
     { selector: 'edge.dashed', style: {
       'line-style': 'dashed', 'line-dash-pattern': [6, 5], 'line-color': C.edgeDashed,
       'target-arrow-color': C.edgeDashed, 'target-arrow-fill': 'hollow', 'color': C.ink2
@@ -562,8 +577,8 @@
     cy.batch(function () {
       cy.edges().forEach(function (e) {
         var s = e.source(), t = e.target();
-        e.removeClass('lbl-src lbl-tgt');
-        if (s.id() === t.id()) return;
+        e.removeClass('lbl-src lbl-tgt loop-down loop-right');
+        if (s.id() === t.id()) { aimLoop(e, s, outdeg.get(s.id()) || 0); return; }
         var inT = indeg.get(t.id()) || 0, outS = outdeg.get(s.id()) || 0;
         var dx = t.position('x') - s.position('x'), dy = t.position('y') - s.position('y');
         var len = Math.sqrt(dx * dx + dy * dy) - (s.width() + t.width()) / 2;
@@ -576,6 +591,22 @@
         e.data('off', Math.round(Math.min(Math.max(halfW + 16, len * 0.3), len / 2)));
       });
     });
+  }
+
+  // Point a same-address loop at the free side of its node: up, down, or right when nothing leaves it.
+  function aimLoop(e, n, out) {
+    var p = n.position(), hw = n.width() / 2, up = Infinity, down = Infinity;
+    S.cy.nodes().forEach(function (o) {
+      if (o.same(n)) return;
+      var q = o.position();
+      if (Math.abs(q.x - p.x) > hw + o.width() / 2) return;
+      var gap = Math.abs(q.y - p.y) - (n.height() + o.height()) / 2;
+      if (q.y < p.y) up = Math.min(up, gap); else down = Math.min(down, gap);
+    });
+    var need = e.data('loop') + 24;
+    if (up >= need) return;
+    if (down >= need || down > up) { e.addClass('loop-down'); return; }
+    if (!out) e.addClass('loop-right');
   }
 
   function bindGraphEvents() {
@@ -593,8 +624,23 @@
   }
 
   // Two-way hover link between graph nodes and the open-leads list.
-  function markLeads(addr, on) {
-    (S.leadsByAddr.get(addr) || []).forEach(function (l) { l.items.forEach(function (li) { li.classList.toggle('hl', on); }); });
+  function markLeads(addr, on, reveal) {
+    if (on && reveal && activeTab() !== 'mem') setTab('mem');
+    var first = null;
+    (S.leadsByAddr.get(addr) || []).forEach(function (l) { l.items.forEach(function (li) { li.classList.toggle('hl', on); if (!first) first = li; }); });
+    if (on && first && activeTab() === 'mem' && (reveal || WIDE())) revealInWorkspace(first);
+  }
+  function WIDE() { return window.matchMedia('(min-width: 1000px)').matches; }
+  // Scroll the workspace column (not the page) so an entry is visible.
+  // Position of an element inside the scrolling workspace column.
+  function offsetIn(box, li) { return box.scrollTop + li.getBoundingClientRect().top - box.getBoundingClientRect().top; }
+  function revealInWorkspace(li) {
+    var box = $('workspace');
+    var top = offsetIn(box, li), bottom = top + li.offsetHeight;
+    if (box.scrollHeight <= box.clientHeight + 2) { li.scrollIntoView({ block: 'nearest', behavior: REDUCED_MOTION ? 'auto' : 'smooth' }); return; }
+    if (top < box.scrollTop || bottom > box.scrollTop + box.clientHeight) {
+      box.scrollTo({ top: Math.max(0, top - 60), behavior: REDUCED_MOTION ? 'auto' : 'smooth' });
+    }
   }
   function markNode(addr, on) {
     if (!S.cy || !addr) return;
@@ -651,7 +697,7 @@
     if (entering.length) setTimeout(function () { entering.forEach(function (e) { e.removeClass('entering'); }); }, 40);
 
     if (S.selected) {
-      var still = S.selected.kind === 'node' ? view.nodes.has(S.selected.id) : view.bundles.has(S.selected.id);
+      var still = S.selected.kind === 'rejected' || (S.selected.kind === 'node' ? view.nodes.has(S.selected.id) : view.bundles.has(S.selected.id));
       if (!still) S.selected = null;
     }
     applySelection();
@@ -660,6 +706,7 @@
     renderDetail();
     if (opts.fit !== false && (entering.length || !opts.animate)) fitView(!!opts.animate);
     showMsg(view.groups.size ? '' : 'No flows traced yet.');
+    syncTrajectory(!!opts.animate);
     return entering.length;
   }
 
@@ -669,6 +716,7 @@
     S.selected = sel;
     applySelection();
     renderDetail();
+    $('detail').scrollTop = 0;
     if (sel && window.matchMedia('(max-width: 999px)').matches && !EMBED) {
       $('detail').scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block: 'start' });
     }
@@ -679,7 +727,7 @@
     if (!cy) return;
     cy.batch(function () {
       cy.elements().removeClass('dim sel hl');
-      if (!S.selected) return;
+      if (!S.selected || S.selected.kind === 'rejected') return;
       var ele = cy.getElementById(S.selected.id);
       if (!ele || ele.empty() || ele.hasClass('gone')) return;
       var keep;
@@ -700,7 +748,10 @@
       stopPlay();
       apply(S.total, { fit: false });
     }
-    if (scroll) $('graph-anchor').scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block: 'start' });
+    if (scroll) {
+      var r = $('cy').getBoundingClientRect();
+      if (r.top < 0 || r.bottom > window.innerHeight) $('graph-anchor').scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block: 'start' });
+    }
     select({ kind: 'node', id: id });
     var ele = S.cy.getElementById(id);
     if (ele && ele.nonempty()) {
@@ -760,12 +811,21 @@
     function countCell(label, value) {
       return el('div', { class: 'stat small' }, el('div', { class: 'stat-label' }, label), el('div', { class: 'stat-value' }, el('span', null, String(value))));
     }
+    var c = checkerCounts(view.N);
+    var checkerCell = el('div', { class: 'stat checker' },
+      el('div', { class: 'stat-label' }, el('span', { class: 'swatch', style: 'color:var(--ok)' }), 'Checked by the verifier'),
+      el('div', { class: 'stat-value' },
+        el('span', { class: 'amt' }, String(c.valid), el('span', { class: 'asset' }, 'valid')),
+        el('button', { type: 'button', class: 'amt rej-btn' + (c.rejected ? ' has' : ''), title: 'Show the claims the checker rejected',
+          onclick: function () { stopPlay(); select({ kind: 'rejected' }); } }, String(c.rejected), el('span', { class: 'asset' }, 'rejected')),
+        el('span', { class: 'amt' }, String(c.unchecked), el('span', { class: 'asset' }, 'unchecked'))));
     append(box, [
       amountCell('wide', 'Taken from victims', ROLES.victim.color, byRole('victim', view.outflow), 4),
       amountCell('', 'Not moved yet', ROLES.resting.color, byRole('resting', view.inflow), 2),
       amountCell('', 'Frozen', ROLES.frozen.color, byRole('frozen', view.inflow), 2),
       amountCell('', 'Tracing stopped', ROLES.stop.color, byRole('stop', view.inflow), 2),
       countCell('Flows traced', view.flows),
+      checkerCell,
       countCell('Addresses', view.nodes.size)
     ]);
   }
@@ -828,6 +888,7 @@
     $('btn-play').classList.add('playing');
     $('btn-play').setAttribute('aria-label', 'Pause replay');
     S.selected = null;
+    T.pinK = null;
     if (S.step >= S.total) apply(0, { animate: true });
     var tick = function () {
       if (!S.playing) return;
@@ -860,24 +921,50 @@
 
   // ---------- findings: rejected log and coming soon ----------
 
-  function renderRejected() {
-    var list = $('rejected');
-    clear(list);
+  function agentOps(N) {
     var ops = [];
-    S.ops.forEach(function (o) { if (o.verdict === 'INVALID') ops.push(o); });
-    $('rejected-count').textContent = String(ops.length);
-    if (!ops.length) { list.appendChild(el('li', null, el('span', { class: 'empty' }, 'None so far.'))); return; }
+    S.ops.forEach(function (o) { if (!o.seedOp && (o.step === null || o.step <= N)) ops.push(o); });
+    return ops;
+  }
+  function checkerCounts(N) {
+    var c = { valid: 0, rejected: 0, unchecked: 0 };
+    agentOps(N).forEach(function (o) {
+      if (o.verdict === 'VALID') c.valid++;
+      else if (o.verdict === 'INVALID') c.rejected++;
+      else c.unchecked++;
+    });
+    return c;
+  }
+
+  // Rejected claims stay visible: the checker judged them and the graph leaves them out.
+  function renderRejected(box) {
+    var ops = agentOps(S.step).filter(function (o) { return o.verdict === 'INVALID'; });
     ops.sort(function (a, b) { return (a.step || 0) - (b.step || 0); });
+    append(box, [
+      el('div', { class: 'd-head' }, el('span', { class: 'badge bad' }, 'Checker'), el('span', { class: 'badge plain' }, plural(ops.length, 'claim'))),
+      el('h3', { class: 'd-title' }, 'Rejected by the checker'),
+      el('p', { class: 'hint' }, 'The checker found these claims invalid. Their transfers are left off the graph.')
+    ]);
+    if (!ops.length) { box.appendChild(el('p', { class: 'empty' }, 'No claims rejected so far.')); return; }
     ops.forEach(function (o) {
       var edges = S.edges.filter(function (e) { return e.op === o || o.edge_ids.indexOf(e.id) !== -1; });
-      list.appendChild(el('li', null,
-        el('div', { class: 'rej-head' }, el('span', { class: 'badge bad' }, 'Invalid'), prettyType(o.type), o.step !== null ? '· step ' + o.step : null),
+      var chain = edges.length ? (S.nodes.get(edges[0].from) || {}).chain : null;
+      var links = o.evidence.slice();
+      if (!links.length) edges.forEach(function (e) {
+        var u = e.txUrl || (isHash(e.tx) ? explorerFor(chain).base + '/tx/' + e.tx : null);
+        if (u && !links.some(function (l) { return l.url === u; })) links.push({ name: 'Transaction', url: u });
+      });
+      box.appendChild(el('article', { class: 'chain rejected-op' },
+        el('div', { class: 'rej-head' }, el('span', { class: 'badge bad' }, 'Invalid'), el('span', { class: 'op-type' }, prettyType(o.type)), o.step !== null ? el('span', null, 'step ' + o.step) : null),
         o.claim ? el('p', { class: 'rej-claim' }, o.claim) : null,
         edges.map(function (e) {
-          return el('div', { class: 'rej-edge' },
-            short(e.from) + ' to ' + short(e.to) + ' · ' + fmt(e.amount) + ' ' + e.asset + ' · ',
-            txLink(e.tx, (S.nodes.get(e.from) || {}).chain));
-        })));
+          return el('div', { class: 'rej-edge' }, short(e.from) + ' to ' + short(e.to) + ' · ' + fmt(e.amount) + ' ' + e.asset);
+        }),
+        el('span', { class: 'chain-label' }, 'Checker\u2019s reasons'),
+        o.reasons.length ? el('ul', { class: 'reasons' }, o.reasons.map(function (r) { return el('li', null, r); }))
+                         : el('p', { class: 'empty' }, 'No reason given.'),
+        links.length ? el('div', { class: 'evidence' }, el('span', { class: 'chain-label' }, 'Evidence'),
+          el('div', { class: 'ev-links' }, links.map(function (l) { return extLink(l.url, l.name, 'ev'); }))) : null));
     });
   }
 
@@ -894,7 +981,7 @@
 
   function renderWorkspace() {
     var W = S.workspace;
-    $('ws-note').textContent = W.note || 'The agent’s own working state. Internal and unchecked; the findings above are what it reports.';
+    $('ws-note').textContent = W.note || 'The agent’s own working state, internal and unchecked. The findings are what it reports.';
     $('ws-steps').textContent = S.total ? plural(S.total, 'step') + ' taken' : '';
     $('ws-leads-count').textContent = String(W.leads.length);
     var list = $('ws-leads');
@@ -937,7 +1024,8 @@
     clear(box);
     box.classList.toggle('active', !!S.selected);
     if (!S.selected) { box.appendChild(el('p', { class: 'empty' }, 'Select a flow or an address to see the records behind it.')); return; }
-    if (S.selected.kind === 'node') renderNodeDetail(box, S.nodes.get(S.selected.id));
+    if (S.selected.kind === 'rejected') renderRejected(box);
+    else if (S.selected.kind === 'node') renderNodeDetail(box, S.nodes.get(S.selected.id));
     else renderBundleDetail(box, S.bundleById.get(S.selected.id));
   }
 
@@ -963,8 +1051,7 @@
     append(kv, [el('dt', null, 'Chain'), el('dd', null, cap(n.chain))]);
     if (leads.length) append(kv, [el('dt', null, 'Open leads'), el('dd', null,
       el('button', { type: 'button', class: 'linkish', onclick: function () {
-        $('workspace').scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block: 'start' });
-        markLeads(n.id, true);
+        markLeads(n.id, true, true);
         setTimeout(function () { markLeads(n.id, false); }, 2400);
       } }, plural(leads.length, 'entry', 'entries') + ' in the agent workspace'))]);
     box.appendChild(kv);
@@ -1024,7 +1111,7 @@
       el('div', { class: 'hops' }, hop('From', from, e.srcPos), hop('To', to, e.tgtPos)),
       el('dl', { class: 'kv' },
         el('dt', null, 'Operation'), el('dd', null, prettyType(e.op ? e.op.type : null)),
-        el('dt', null, 'Recorded'), el('dd', null, e.seed ? 'Case start' : 'Step ' + e.step),
+        el('dt', null, 'Recorded'), el('dd', null, e.seed ? 'Case start' : ['Step ' + e.step, e.op ? [' · ', el('button', { type: 'button', class: 'linkish', onclick: function () { showInTimeline(e.op.id, e.step); } }, 'Show in the agent timeline')] : null]),
         el('dt', null, 'Tx'), el('dd', { class: 'mono' }, txLink(e.tx, chain)),
         e.block !== null ? [el('dt', null, 'Block'), el('dd', { class: 'mono' }, String(e.block))] : null,
         e.time ? [el('dt', null, 'Time'), el('dd', { class: 'mono' }, fmtTime(e.time, true))] : null),
@@ -1053,6 +1140,415 @@
     edges.forEach(function (e) { box.appendChild(evidenceCard(e, chain)); });
   }
 
+  // ---------- how the agent worked: the trajectory timeline ----------
+  // Renders a window of events at a time, so thousands of events stay cheap.
+  // Result excerpts are built only when a visitor expands them.
+
+  var TRAJ_URL = safeDataPath(PARAMS.get('trajectory')) ||
+    (/graph\.json$/.test(DATA_URL) ? DATA_URL.replace(/graph\.json$/, 'trajectory.json') : DATA_URL.replace(/\.json$/, '.trajectory.json'));
+  var TRAJ_WINDOW = 120;
+  var T = { events: [], loaded: false, start: 0, end: 0, nowIdx: -1, pinK: null, byKey: new Map(), itemOf: new Map() };
+  var TOKEN_NAMES = {
+    '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2': 'WETH', '0xdac17f958d2ee523a2206206994597c13d831ec7': 'USDT',
+    '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48': 'USDC', '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599': 'WBTC',
+    '0x6b175474e89094c44da98b954eedeac495271d0f': 'DAI'
+  };
+  var TRANSFER_TOPIC = '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef';
+  var ARG_ORDER = ['account', 'address', 'tx_hash', 'topics', 'direction', 'block_window', 'limit'];
+
+  function activeTab() { return $('tab-traj').getAttribute('aria-selected') === 'true' ? 'traj' : 'mem'; }
+  function setTab(which) {
+    ['traj', 'mem'].forEach(function (k) {
+      var on = k === which;
+      $('tab-' + k).setAttribute('aria-selected', on ? 'true' : 'false');
+      $('tab-' + k).tabIndex = on ? 0 : -1;
+      $('pane-' + k).hidden = !on;
+    });
+    if (which === 'traj') syncTrajectory(false);
+  }
+
+  function loadTrajectory() {
+    fetch(TRAJ_URL + '?t=' + Date.now(), { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(initTrajectory)
+      .catch(function () {
+        clear($('traj'));
+        $('traj').appendChild(el('li', { class: 'traj-loading' }, 'The agent’s timeline is not available yet.'));
+        $('tab-traj').hidden = true;
+        setTab('mem');
+      });
+  }
+
+  function rawHref(p) {
+    if (typeof p !== 'string' || !/^[\w\-./]+$/.test(p) || p.indexOf('..') !== -1 || p.charAt(0) === '/') return null;
+    var base = DATA_URL.indexOf('/') !== -1 ? DATA_URL.slice(0, DATA_URL.lastIndexOf('/') + 1) : '';
+    return base + p;
+  }
+
+  function initTrajectory(d) {
+    var evs = Array.isArray(d && d.events) ? d.events.filter(function (e) { return e && typeof e === 'object' && e.kind; }) : [];
+    evs.forEach(function (e, k) { e._order = num(e.i) !== null ? num(e.i) : k; });
+    evs.sort(function (a, b) { return a._order - b._order; });
+    var leadOpen = new Set();
+    evs.forEach(function (e, k) {
+      e._k = k;
+      e._step = num(e.step) === null ? 0 : num(e.step);
+      if (e.kind === 'memory' && e.args && typeof e.args === 'object') {
+        var a = e.args, key = str(a.key);
+        if (a.section === 'findings' && key && !T.byKey.has(key)) T.byKey.set(key, k);
+        if (a.section === 'leads' && key) {
+          if (a.close && String(a.close) !== 'false') { e._lead = 'closed'; leadOpen.delete(key); }
+          else { e._lead = leadOpen.has(key) ? 'updated' : 'opened'; leadOpen.add(key); }
+        }
+      }
+    });
+    T.events = evs;
+    T.loaded = true;
+
+    var note = str(d && d.note);
+    $('traj-note').textContent = note || '';
+    $('traj-note').hidden = !note;
+    var raw = $('traj-raw');
+    clear(raw);
+    var files = (Array.isArray(d && d.raw_files) ? d.raw_files : []).map(function (p) { return { p: p, href: rawHref(p) }; }).filter(function (f) { return f.href; });
+    if (files.length) {
+      var kinds = { transcript: [], evidence: [], other: [] };
+      files.forEach(function (f) { (/transcript/i.test(f.p) ? kinds.transcript : /evidence/i.test(f.p) ? kinds.evidence : kinds.other).push(f); });
+      var parts = [];
+      [['transcript', 'model transcript'], ['evidence', 'evidence log'], ['other', 'file']].forEach(function (kv) {
+        kinds[kv[0]].forEach(function (f, i) {
+          var name = kv[1] + (kinds[kv[0]].length > 1 ? ' ' + (i + 1) : '');
+          if (parts.length) parts.push(', ');
+          parts.push(el('a', { href: f.href, download: f.p.split('/').pop(), title: f.p }, name));
+        });
+      });
+      append(raw, ['Raw records: '].concat(parts));
+      raw.hidden = false;
+    }
+    if (!evs.length) {
+      clear($('traj'));
+      $('traj').appendChild(el('li', { class: 'traj-loading' }, 'No recorded events yet.'));
+      return;
+    }
+    T.rendered = false;
+    syncTrajectory(false);
+  }
+
+  function lastEventAtOrBefore(N) {
+    for (var k = T.events.length - 1; k >= 0; k--) if (T.events[k]._step <= N) return k;
+    return 0;
+  }
+
+  function renderWindow(center) {
+    var n = T.events.length;
+    var start = Math.max(0, Math.min(center - Math.floor(TRAJ_WINDOW / 2), n - TRAJ_WINDOW));
+    var end = Math.min(n, start + TRAJ_WINDOW);
+    // Never split a run of memory writes at the window start.
+    while (start > 0 && T.events[start].kind === 'memory' && T.events[start - 1].kind === 'memory') start--;
+    if (T.rendered && start === T.start && end === T.end) return;
+    T.start = start; T.end = end; T.rendered = true;
+    T.itemOf = new Map();
+    var list = $('traj');
+    clear(list);
+    var k = start;
+    while (k < end) {
+      if (T.events[k].kind === 'memory') {
+        var j = k;
+        while (j < end && T.events[j].kind === 'memory') j++;
+        list.appendChild(memoryRow(T.events.slice(k, j)));
+        k = j;
+      } else {
+        list.appendChild(eventItem(T.events[k]));
+        k++;
+      }
+    }
+    $('traj-earlier').hidden = start === 0;
+    $('traj-later').hidden = end === n;
+  }
+
+  function markNow() {
+    var N = S.step;
+    T.itemOf.forEach(function (li, k) {
+      var e = T.events[k];
+      if (+li.dataset.k !== k) return; // a memory row is keyed by its first event
+      li.classList.toggle('future', e._step > N);
+    });
+    $('traj').querySelectorAll('.ev.now').forEach(function (li) { li.classList.remove('now'); });
+    var li = T.itemOf.get(T.nowIdx);
+    if (li) li.classList.add('now');
+  }
+
+  function syncTrajectory(smooth) {
+    if (!T.loaded || !T.events.length) return;
+    var pinned = T.pinK !== null && T.events[T.pinK] && T.events[T.pinK]._step === S.step;
+    var idx = pinned ? T.pinK : lastEventAtOrBefore(S.step);
+    T.nowIdx = idx;
+    if (!T.rendered || idx < T.start || idx >= T.end) renderWindow(idx);
+    markNow();
+    if (activeTab() === 'traj' && WIDE()) scrollToEvent(idx, smooth);
+  }
+
+  // Scroll the workspace column (never the page) so an event sits below the sticky header.
+  function scrollToEvent(k, smooth) {
+    var li = T.itemOf.get(k), box = $('workspace');
+    if (!li || box.scrollHeight <= box.clientHeight + 2) return;
+    var head = box.querySelector('.ws-head').offsetHeight;
+    var at = offsetIn(box, li);
+    var top = at - head - 10;
+    var bottomRoom = box.clientHeight - head;
+    if (li.offsetHeight < bottomRoom * 0.6) top = at - head - Math.round(bottomRoom * 0.3);
+    top = Math.max(0, top);
+    var near = Math.abs(top - box.scrollTop) < 1200;
+    box.scrollTo({ top: top, behavior: smooth && near && !REDUCED_MOTION ? 'smooth' : 'auto' });
+  }
+
+  function goToStep(step, k) {
+    stopPlay();
+    T.pinK = k === undefined ? null : k;
+    apply(step, { animate: true });
+  }
+
+  // From a flow in the graph to the moment the agent recorded it.
+  function showInTimeline(opId, step) {
+    setTab('traj');
+    if (!T.loaded) return;
+    var k = T.byKey.has(opId) ? T.byKey.get(opId) : lastEventAtOrBefore(step);
+    if (k < T.start || k >= T.end) renderWindow(k);
+    markNow();
+    var li = T.itemOf.get(k);
+    if (!li) return;
+    if (WIDE()) scrollToEvent(k, true);
+    else li.scrollIntoView({ block: 'center', behavior: REDUCED_MOTION ? 'auto' : 'smooth' });
+    li.classList.remove('flash');
+    void li.offsetWidth;
+    li.classList.add('flash');
+    if (li.openDetails) {
+      li.openDetails();
+      li.querySelectorAll('.mem-item').forEach(function (m) { m.classList.toggle('hit', m.dataset.key === opId); });
+    }
+  }
+
+  function selectOp(opId) {
+    var edge = null;
+    S.edges.forEach(function (e) { if (!edge && !e.rejected && e.op && e.op.id === opId) edge = e; });
+    if (!edge) return;
+    var b = null;
+    S.bundles.forEach(function (bb) { if (!b && bb.groups.some(function (g) { return g.edges.indexOf(edge) !== -1; })) b = bb; });
+    if (!b) return;
+    if (edge.step > S.step) { stopPlay(); apply(edge.step, { animate: true }); }
+    select({ kind: 'bundle', id: b.id });
+  }
+
+  // ----- event views -----
+
+  function inline(text) {
+    var out = [];
+    String(text).split(/(\*\*[^*\n]+\*\*|`[^`\n]+`)/).forEach(function (part) {
+      if (!part) return;
+      if (/^\*\*[^*]+\*\*$/.test(part)) out.push(el('strong', null, part.slice(2, -2)));
+      else if (/^`[^`]+`$/.test(part)) out.push(el('code', null, part.slice(1, -1)));
+      else out.push(part);
+    });
+    return out;
+  }
+  function markdownish(text) {
+    return String(text).split(/\n{2,}/).map(function (p) { return el('p', null, inline(p.trim())); });
+  }
+
+  function clampable(li, body, long) {
+    if (!long) return null;
+    li.classList.add('clamped');
+    return el('button', { type: 'button', class: 'more', onclick: function (ev) {
+      ev.stopPropagation();
+      var c = li.classList.toggle('clamped');
+      ev.currentTarget.textContent = c ? 'Show more' : 'Show less';
+    } }, 'Show more');
+  }
+
+  function eventItem(e) {
+    var li;
+    if (e.kind === 'thinking' || e.kind === 'message') li = thoughtItem(e);
+    else if (e.kind === 'reset') li = el('li', { class: 'ev ev-reset' }, el('span', { title: str(e.text) || null }, str(e.text) || 'The agent restarted and continued from its working memory.'));
+    else if (e.kind === 'system' || e.kind === 'task') li = promptItem(e);
+    else li = actionItem(e);
+    li.dataset.k = String(e._k);
+    T.itemOf.set(e._k, li);
+    return li;
+  }
+
+  // The system prompt and the task repeat after every restart: one muted line each, full text on demand.
+  function promptItem(e) {
+    var text = typeof e.text === 'string' ? e.text : '';
+    var holder = el('div', { class: 'res', hidden: true });
+    var btn = el('button', { type: 'button', class: 'res-toggle', 'aria-expanded': 'false' }, 'Show');
+    btn.addEventListener('click', function (ev) {
+      ev.stopPropagation();
+      var open = holder.hidden;
+      if (open && !holder.firstChild) holder.appendChild(el('pre', { class: 'res-text', tabindex: '0' }, text));
+      holder.hidden = !open;
+      btn.textContent = open ? 'Hide' : 'Show';
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    return el('li', { class: 'ev ev-prompt ev-' + e.kind },
+      el('div', { class: 'prompt-row' },
+        el('span', { class: 'prompt-name' }, e.kind === 'system' ? 'System prompt' : 'Task'),
+        text ? el('span', { class: 'res-size' }, text.length.toLocaleString('en-US') + ' characters') : null,
+        text ? btn : null),
+      holder);
+  }
+
+  function thoughtItem(e) {
+    var text = str(e.text) || '';
+    var label = e.label ? cap(String(e.label)) : (e.kind === 'message' ? 'Message' : 'Reasoning summary');
+    var li = el('li', { class: 'ev ev-think' + (e.label ? ' ev-handoff' : '') + (e.kind === 'message' ? ' ev-msg' : '') });
+    var body = el('blockquote', { class: 'think-body' }, markdownish(text));
+    append(li, [el('div', { class: 'ev-meta' }, el('span', { class: 'ev-label' }, label)), body, clampable(li, body, text.length > 360 || text.split('\n').length > 8)]);
+    return li;
+  }
+
+  function addrLinkShort(a, chain) {
+    var n = S.nodes.get(a);
+    var name = TOKEN_NAMES[a] || (n && n.label) || null;
+    return el('a', { class: 'al', href: explorerFor(chain).base + '/address/' + a, target: '_blank', rel: 'noopener', title: a }, name ? name + ' ' + short(a) : short(a));
+  }
+  function txLinkShort(h, chain) {
+    return el('a', { class: 'al', href: explorerFor(chain).base + '/tx/' + h, target: '_blank', rel: 'noopener', title: h }, 'tx ' + short(h));
+  }
+  function topicAddr(t) { return typeof t === 'string' && /^0x0{24}[0-9a-f]{40}$/i.test(t) ? '0x' + t.slice(-40).toLowerCase() : null; }
+
+  function describeArgs(args, chain) {
+    var parts = [];
+    var keys = Object.keys(args).filter(function (k) { return k !== 'chain'; });
+    keys.sort(function (a, b) {
+      var ia = ARG_ORDER.indexOf(a), ib = ARG_ORDER.indexOf(b);
+      return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
+    });
+    keys.forEach(function (k) {
+      var v = args[k];
+      if (v === null || v === undefined || v === '') return;
+      if (k === 'topics' && Array.isArray(v)) {
+        if (lc(v[0]) === TRANSFER_TOPIC) {
+          var p = ['Transfer events'];
+          var f = topicAddr(v[1]), t = topicAddr(v[2]);
+          if (f) p.push(' from ', addrLinkShort(f, chain));
+          if (t) p.push(' to ', addrLinkShort(t, chain));
+          parts.push(p);
+        } else parts.push(plural(v.length, 'topic'));
+        return;
+      }
+      if (Array.isArray(v) && v.length === 2 && /block/.test(k) && v.every(function (x) { return num(x) !== null; })) { parts.push('blocks ' + v[0] + '-' + v[1]); return; }
+      if (typeof v === 'string' && isAddr(lc(v))) { parts.push(k === 'account' ? addrLinkShort(lc(v), chain) : [k === 'address' ? 'contract ' : k + ' ', addrLinkShort(lc(v), chain)]); return; }
+      if (typeof v === 'string' && isHash(v)) { parts.push(txLinkShort(v, chain)); return; }
+      if (k === 'direction') { parts.push(String(v)); return; }
+      if (k === 'limit') { parts.push('first ' + v); return; }
+      if (k === 'detail') { parts.push(String(v)); return; }
+      var s = typeof v === 'object' ? JSON.stringify(v) : String(v);
+      parts.push(k.replace(/_/g, ' ') + ' ' + (s.length > 48 ? s.slice(0, 47) + '…' : s));
+    });
+    var out = [];
+    parts.forEach(function (p, i) { if (i) out.push(' · '); out.push(p); });
+    return out;
+  }
+
+  var REPORT_TITLES = { preview_submission: 'Previewed the report', submit: 'Submitted the report' };
+
+  function actionItem(e) {
+    var tool = str(e.tool) || prettyType(e.kind);
+    var args = e.args && typeof e.args === 'object' ? e.args : {};
+    var chain = lc(args.chain) || lc(S.caseInfo.chain) || 'ethereum';
+    var isReport = e.kind === 'report';
+    var res = e.result && typeof e.result === 'object' ? e.result : null;
+    var resText = res && typeof res.text === 'string' && res.text ? res.text : null;
+    var full = res ? num(res.chars) : null;
+    var argLine = describeArgs(args, chain);
+    var li = el('li', { class: 'ev ev-act' + (isReport ? ' ev-report' : '') + (e.kind === 'action' ? ' is-action' : ''),
+      title: e.kind === 'action' ? 'Move the replay to step ' + e._step : null },
+      el('div', { class: 'act-head' },
+        el('span', { class: 'act-step' }, 'Step ' + e._step),
+        el('span', { class: 'act-tool' }, isReport ? (REPORT_TITLES[tool] || prettyType(tool)) : tool)),
+      argLine.length ? el('div', { class: 'act-args' }, argLine) : null);
+    if (resText) {
+      var holder = el('div', { class: 'res', hidden: true });
+      var btn = el('button', { type: 'button', class: 'res-toggle', 'aria-expanded': 'false' }, 'Show result');
+      btn.addEventListener('click', function (ev) {
+        ev.stopPropagation();
+        var open = holder.hidden;
+        if (open && !holder.firstChild) {
+          holder.appendChild(el('pre', { class: 'res-text', tabindex: '0' }, resText));
+          holder.appendChild(el('p', { class: 'res-meta' }, full && full > resText.length
+            ? 'First ' + resText.length.toLocaleString('en-US') + ' of ' + full.toLocaleString('en-US') + ' characters. The full result is in the raw records.'
+            : plural(resText.length, 'character') + '.'));
+        }
+        holder.hidden = !open;
+        btn.textContent = open ? 'Hide result' : 'Show result';
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      li.appendChild(el('div', { class: 'act-res' }, btn, full ? el('span', { class: 'res-size' }, full.toLocaleString('en-US') + ' characters') : null));
+      li.appendChild(holder);
+    }
+    if (e.kind === 'action') li.addEventListener('click', function (ev) {
+      if (ev.target.closest('a, button, pre')) return;
+      goToStep(e._step, e._k);
+    });
+    return li;
+  }
+
+  function memoryRow(evs) {
+    var c = { findings: [], opened: 0, updated: 0, notes: 0, reads: 0, closes: [] };
+    evs.forEach(function (e) {
+      var a = e.args && typeof e.args === 'object' ? e.args : {};
+      if (e.tool === 'state_lookup') c.reads++;
+      else if (a.section === 'findings') c.findings.push(str(a.key));
+      else if (a.section === 'leads') {
+        if (e._lead === 'closed') c.closes.push(str(a.reason) || 'no reason given');
+        else if (e._lead === 'updated') c.updated++;
+        else c.opened++;
+      } else if (a.section === 'notes') c.notes++;
+      else c.updated++;
+    });
+    var chips = [];
+    function chip(text, cls, title) { chips.push(el('span', { class: 'chip' + (cls ? ' ' + cls : ''), title: title || null }, text)); }
+    if (c.reads) chip('read memory');
+    if (c.findings.length) chip(c.findings.length === 1 ? 'recorded a flow' : 'recorded ' + c.findings.length + ' flows', 'rec');
+    if (c.opened) chip(c.opened === 1 ? 'opened lead' : 'opened ' + c.opened + ' leads', 'open');
+    if (c.updated) chip(c.updated === 1 ? 'updated lead' : 'updated ' + c.updated + ' leads');
+    c.closes.forEach(function (r) { chip('closed lead: ' + (r.length > 56 ? r.slice(0, 55) + '…' : r), 'closed', r); });
+    if (c.notes) chip(c.notes === 1 ? 'wrote note' : 'wrote ' + c.notes + ' notes');
+
+    var list = el('ul', { class: 'mem-list', hidden: true });
+    var built = false;
+    function build() {
+      if (built) return;
+      built = true;
+      evs.forEach(function (e) {
+        var a = e.args && typeof e.args === 'object' ? e.args : {};
+        var key = str(a.key) || '';
+        var what = e.tool === 'state_lookup' ? 'read' : (a.section === 'findings' ? 'flow' : a.section === 'leads' ? (e._lead === 'closed' ? 'closed lead' : 'lead') : (a.section || 'memory'));
+        var text = str(a.reason) || (typeof a.value === 'string' ? a.value : (a.value ? JSON.stringify(a.value) : (a.query !== undefined ? 'query "' + a.query + '"' : '')));
+        var item = el('li', { class: 'mem-item', 'data-key': key },
+          el('span', { class: 'mem-what' }, what),
+          a.section === 'findings' && key
+            ? el('button', { type: 'button', class: 'linkish mem-key', title: 'Show this flow in the graph', onclick: function (ev) { ev.stopPropagation(); selectOp(key); } }, key)
+            : (key ? el('span', { class: 'mem-key' }, key) : null),
+          text ? el('span', { class: 'mem-text' }, text.length > 260 ? text.slice(0, 259) + '…' : text) : null);
+        list.appendChild(item);
+      });
+    }
+    var toggle = el('button', { type: 'button', class: 'more', 'aria-expanded': 'false', onclick: function (ev) {
+      ev.stopPropagation();
+      build();
+      list.hidden = !list.hidden;
+      ev.currentTarget.textContent = list.hidden ? 'Details' : 'Hide details';
+      ev.currentTarget.setAttribute('aria-expanded', list.hidden ? 'false' : 'true');
+    } }, 'Details');
+    var li = el('li', { class: 'ev ev-mem' }, el('div', { class: 'mem-row' }, el('span', { class: 'mem-label' }, 'Working memory'), chips, toggle), list);
+    li.dataset.k = String(evs[0]._k);
+    evs.forEach(function (e) { T.itemOf.set(e._k, li); });
+    // A jump from a flow opens the details so the recorded entry is visible.
+    li.openDetails = function () { build(); list.hidden = false; toggle.textContent = 'Hide details'; toggle.setAttribute('aria-expanded', 'true'); };
+    return li;
+  }
+
   // ---------- new exports ----------
 
   function poll() {
@@ -1073,7 +1569,18 @@
   }
 
   function wireControls() {
-    $('slider').addEventListener('input', function (ev) { stopPlay(); apply(+ev.target.value, { animate: true }); });
+    $('slider').addEventListener('input', function (ev) { stopPlay(); T.pinK = null; apply(+ev.target.value, { animate: true }); });
+    $('tab-traj').addEventListener('click', function () { setTab('traj'); });
+    $('tab-mem').addEventListener('click', function () { setTab('mem'); });
+    $('workspace').querySelector('.ws-tabs').addEventListener('keydown', function (ev) {
+      if (ev.key !== 'ArrowLeft' && ev.key !== 'ArrowRight') return;
+      var next = activeTab() === 'traj' ? 'mem' : 'traj';
+      if ($('tab-' + next).hidden) return;
+      setTab(next);
+      $('tab-' + next).focus();
+    });
+    $('btn-earlier').addEventListener('click', function () { renderWindow(Math.max(0, T.start - Math.floor(TRAJ_WINDOW / 2))); markNow(); });
+    $('btn-later').addEventListener('click', function () { renderWindow(Math.min(T.events.length - 1, T.end + Math.floor(TRAJ_WINDOW / 2) - 1)); markNow(); });
     $('btn-play').addEventListener('click', function () { if (S.playing) stopPlay(); else startPlay(); });
     $('btn-fit').addEventListener('click', function () { fitView(true); });
     $('btn-new').addEventListener('click', function () { window.location.reload(); });
@@ -1111,7 +1618,6 @@
       // Fill everything around the graph first so the canvas is measured at its final size.
       renderHeader();
       renderComingSoon();
-      renderRejected();
       renderLegend();
       renderWorkspace();
       buildTimelineControls();
@@ -1123,8 +1629,8 @@
       apply(S.step, { fit: true });
       requestAnimationFrame(function () { fitView(false); });
       startPulse();
-      if (!EMBED) setInterval(poll, POLL_MS);
-      if (PARAMS.get('debug') === '1') window.__abf = { state: S, select: select, apply: apply, focusNode: focusNode, viewAt: viewAt, markNode: markNode, markLeads: markLeads };
+      if (!EMBED) { setInterval(poll, POLL_MS); loadTrajectory(); }
+      if (PARAMS.get('debug') === '1') window.__abf = { state: S, select: select, apply: apply, focusNode: focusNode, viewAt: viewAt, markNode: markNode, markLeads: markLeads, traj: T, setTab: setTab, showInTimeline: showInTimeline };
       document.body.setAttribute('data-ready', '1');
     }).catch(function (err) {
       fail('Could not load ' + DATA_URL + ' (' + (err && err.message ? err.message : 'unknown error') + ').');

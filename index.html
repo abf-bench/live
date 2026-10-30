@@ -68,16 +68,44 @@
           </div>
         </div>
 
-        <aside class="panel" aria-label="Details">
+        <aside class="panel" aria-label="Details and agent workspace">
           <section class="card" id="detail">
             <p class="empty">Select a flow or an address to see the records behind it.</p>
           </section>
-          <section class="card">
-            <details class="rejected" id="rejected-box">
-              <summary>Rejected by the checker <span class="count" id="rejected-count">0</span></summary>
-              <p class="hint">The checker found these claims invalid. Their transfers are left off the graph.</p>
-              <ul id="rejected"></ul>
-            </details>
+
+          <section class="workspace" id="workspace" aria-labelledby="workspace-h">
+            <div class="ws-head">
+              <div class="ws-title">
+                <h2 id="workspace-h">Agent workspace</h2>
+                <span class="internal-tag">Internal · unchecked</span>
+                <span class="ws-steps" id="ws-steps"></span>
+              </div>
+              <div class="ws-tabs" role="tablist" aria-label="Agent workspace views">
+                <button type="button" role="tab" class="ws-tab" id="tab-traj" aria-controls="pane-traj" aria-selected="true">How the agent worked</button>
+                <button type="button" role="tab" class="ws-tab" id="tab-mem" aria-controls="pane-mem" aria-selected="false">Open leads <span class="count" id="ws-leads-count">0</span></button>
+              </div>
+            </div>
+            <p class="ws-note" id="ws-note"></p>
+
+            <div class="ws-pane" id="pane-traj" role="tabpanel" aria-labelledby="tab-traj">
+              <p class="traj-note" id="traj-note"></p>
+              <p class="traj-raw" id="traj-raw" hidden></p>
+              <div class="traj-more" id="traj-earlier" hidden><button type="button" class="linkish" id="btn-earlier">Show earlier events</button></div>
+              <ol class="traj" id="traj"><li class="traj-loading">Loading the agent&rsquo;s timeline.</li></ol>
+              <div class="traj-more" id="traj-later" hidden><button type="button" class="linkish" id="btn-later">Show later events</button></div>
+            </div>
+
+            <div class="ws-pane" id="pane-mem" role="tabpanel" aria-labelledby="tab-mem" hidden>
+              <div class="ws-body">
+                <section class="ws-block">
+                  <ul class="ws-leads" id="ws-leads"></ul>
+                </section>
+                <details class="ws-block ws-notes-box">
+                  <summary>Working notes (internal, unchecked) <span class="count" id="ws-notes-count">0</span></summary>
+                  <ol class="ws-notes" id="ws-notes"></ol>
+                </details>
+              </div>
+            </div>
           </section>
         </aside>
       </div>
@@ -85,25 +113,6 @@
       <div class="soon" id="soon" hidden>
         <span class="soon-label">Coming soon</span>
         <ul id="soon-list"></ul>
-      </div>
-    </section>
-
-    <section class="zone workspace" id="workspace" aria-labelledby="workspace-h">
-      <div class="zone-head">
-        <h2 id="workspace-h">Agent workspace</h2>
-        <span class="internal-tag">Internal · unchecked</span>
-        <span class="ws-steps" id="ws-steps"></span>
-        <p id="ws-note"></p>
-      </div>
-      <div class="ws-body">
-        <section class="ws-block">
-          <h3>Open leads <span class="count" id="ws-leads-count">0</span></h3>
-          <ul class="ws-leads" id="ws-leads"></ul>
-        </section>
-        <details class="ws-block ws-notes-box">
-          <summary>Working notes (internal, unchecked) <span class="count" id="ws-notes-count">0</span></summary>
-          <ol class="ws-notes" id="ws-notes"></ol>
-        </details>
       </div>
     </section>
 
