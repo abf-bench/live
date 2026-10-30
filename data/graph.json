@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum: live trace",
   "incident_utc": "2026-10-29T20:24:00Z",
-  "updated_utc": "2026-10-30T20:28:38Z",
+  "updated_utc": "2026-10-30T20:28:55Z",
   "head_block": 26307945,
   "chain": "ethereum",
   "notes": [
@@ -141,10 +141,10 @@
   {
    "id": 17,
    "started_utc": "2026-10-30T20:25:52Z",
-   "ended_utc": null,
-   "actions": 21,
+   "ended_utc": "2026-10-30T20:28:28Z",
+   "actions": 27,
    "model": "gpt-5.5",
-   "summary": ""
+   "summary": "ok"
   }
  ],
  "nodes": [
@@ -710,7 +710,7 @@
    "id": "0x624b8798d5460d24295e107fb439508a5a0c70a8",
    "chain": "ethereum",
    "label": null,
-   "role": "pocket",
+   "role": "open",
    "note": null
   },
   {
@@ -8670,6 +8670,11 @@
    "reason": null
   },
   {
+   "account": "lead_0x624b_ETH",
+   "status": "open",
+   "reason": null
+  },
+  {
    "account": "lead_0x8532_ETH",
    "status": "closed",
    "reason": "Open: 0x8532fa14acaf483729c449b8458aeddb900543d4 ETH received 195460000000000000000000 in tx 0x551d...; trace outflows in window. (closed: Account activity for 0x8532fa14acaf483729c449b8458aeddb900543d4 shows no outgoing transfers in blocks 26300770-26306466; ETH pocket remains at account in current window.)"
@@ -9059,6 +9064,10 @@
    {
     "key": "lead_0xb79cc_ETH",
     "text": "Trace ETH pocket at 0xb79cc0167ac66899696252b3ebcad022f6af36dc after 0x091dfa routed ETH transfer tx 0xb3e856648ed575c6ba1a57f8e5994846d1032c138b8113bb910a817a5ea6f55d amount 749891211100500000; check all ETH outflows in block window."
+   },
+   {
+    "key": "lead_0x624b_ETH",
+    "text": "Trace ETH pocket at 0x624b8798d5460d24295e107fb439508a5a0c70a8 after 0x091dfa routed ETH transfer tx 0xa4c4098e8f226eacd29b1eeddbc5ec91b68d827248067db2bc59fe1762db116c amount 445322425226616274; check all ETH outflows in block window."
    }
   ],
   "notes": [
