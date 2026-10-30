@@ -231,11 +231,16 @@
     (Array.isArray(data.nodes) ? data.nodes : []).forEach(function (n) {
       if (!n || !n.id) return;
       var id = lc(n.id);
-      // Issuer freezes read on chain: [{asset, token, issuer, note}]
-      var frozen = (Array.isArray(n.frozen) ? n.frozen : []).filter(function (f) { return f && str(f.asset); }).map(function (f) {
-        return { asset: str(f.asset), token: lc(f.token), issuer: str(f.issuer), note: str(f.note) };
-      });
-      S.nodes.set(id, { id: id, chain: lc(n.chain) || defaultChain, label: str(n.label), role: ROLES[n.role] ? n.role : 'unknown', note: str(n.note), frozen: frozen });
+      // Issuer freezes read on chain: [{asset, token, issuer, held, note}]; freezable: balances the
+      // issuer has not frozen (balanceOf and the blacklist read on chain, dust left out by the exporter)
+      function issuerList(list) {
+        return (Array.isArray(list) ? list : []).filter(function (f) { return f && str(f.asset); }).map(function (f) {
+          var held = parseFloat(f.held);
+          return { asset: str(f.asset), token: lc(f.token), issuer: str(f.issuer), note: str(f.note), held: isFinite(held) ? held : null };
+        });
+      }
+      S.nodes.set(id, { id: id, chain: lc(n.chain) || defaultChain, label: str(n.label), role: ROLES[n.role] ? n.role : 'unknown', note: str(n.note),
+        frozen: issuerList(n.frozen), freezable: issuerList(n.freezable) });
     });
 
     S.ops = new Map();
@@ -298,7 +303,7 @@
       S.touched.add(from);
       S.touched.add(to);
       [from, to].forEach(function (a) {
-        if (!S.nodes.has(a)) S.nodes.set(a, { id: a, chain: defaultChain, label: null, role: 'unknown', note: null, frozen: [] });
+        if (!S.nodes.has(a)) S.nodes.set(a, { id: a, chain: defaultChain, label: null, role: 'unknown', note: null, frozen: [], freezable: [] });
       });
     });
 
@@ -491,6 +496,7 @@
       if (sw.length > 1) lines.push('+' + plural(sw.length - 1, 'more swap'));
     }
     if (n.frozen && n.frozen.length) lines.push(n.frozen.map(function (f) { return f.asset; }).join(', ') + ' frozen');
+    if (n.freezable && n.freezable.length) lines.push(n.freezable.map(function (f) { return f.asset; }).join(', ') + ' still freezable');
     // Labelled or non-open nodes say how many open leads the agent still holds on them.
     if (leads && (role !== 'open' || n.label)) lines.push(plural(leads, 'open lead'));
     return lines;
@@ -527,6 +533,7 @@
     return {
       label: lines.join('\n'),
       frozenMark: n.frozen && n.frozen.length ? 1 : 0,
+      freezableMark: n.freezable && n.freezable.length ? 1 : 0,
       w: Math.max(92, Math.ceil(w) + 26),
       h: Math.round(lines.length * NODE_FONT_PX * 1.4 + 16),
       color: ROLES[role].color,
@@ -572,6 +579,7 @@
     { selector: 'node.r-open, node.frontier', style: { 'border-style': 'dashed', 'border-width': 1.5, 'border-color': C.ink } },
     { selector: 'node.r-unknown', style: { 'border-style': 'dotted' } },
     { selector: 'node[frozenMark > 0]', style: { 'border-style': 'double', 'border-width': 5 } },
+    { selector: 'node[freezableMark > 0]', style: { 'border-style': 'solid', 'border-width': 3, 'border-color': C.signal, 'underlay-color': C.signal, 'underlay-opacity': 0.18, 'underlay-padding': 6 } },
     { selector: 'node.pulse', style: { 'underlay-opacity': 0.13 } },
     { selector: 'node.sel', style: { 'underlay-color': C.ink, 'underlay-opacity': 0.22, 'underlay-padding': 5 } },
     { selector: 'node.hover', style: { 'underlay-color': C.amber, 'underlay-opacity': 0.4, 'underlay-padding': 7, 'transition-duration': 0.15 } },
@@ -873,16 +881,31 @@
 
   // Per asset, what traced flows left at addresses where the issuer froze that asset:
   // received minus sent, so funds that pass between two frozen addresses count once.
+  // When the export carries the balance read on chain (held), that is the frozen amount: an exchange
+  // edge is in the asset it delivered, so received minus sent overstates what stayed after a swap.
   function frozenTotals(view) {
     var m = new Map();
     view.nodes.forEach(function (id) {
       var n = S.nodes.get(id), inflow = view.inflow.get(id), outflow = view.outflow.get(id);
+      if (n && (n.frozen || []).some(function (f) { return f.held !== null; })) {
+        n.frozen.forEach(function (f) { if (f.held > 0) m.set(f.asset, (m.get(f.asset) || 0) + f.held); });
+        return;
+      }
       if (!n || !inflow) return;
       if (n.role === 'frozen') { inflow.forEach(function (v, a) { m.set(a, (m.get(a) || 0) + v); }); return; }
       (n.frozen || []).forEach(function (f) {
         var held = (inflow.get(f.asset) || 0) - ((outflow && outflow.get(f.asset)) || 0);
         if (held > 0) m.set(f.asset, (m.get(f.asset) || 0) + held);
       });
+    });
+    return m;
+  }
+
+  function freezableTotals(view) {
+    var m = new Map();
+    view.nodes.forEach(function (id) {
+      var n = S.nodes.get(id);
+      (n && n.freezable || []).forEach(function (f) { if (f.held > 0) m.set(f.asset, (m.get(f.asset) || 0) + f.held); });
     });
     return m;
   }
@@ -921,6 +944,14 @@
       return el('div', { class: 'stat small' }, el('div', { class: 'stat-label' }, label),
         el('div', { class: 'stat-value' }, onclick ? el('button', { type: 'button', class: 'amt rej-btn', title: title || null, onclick: onclick }, String(value)) : el('span', null, String(value))));
     }
+    // Frozen, and under it what the issuers could still freeze (none: everything held is frozen)
+    function frozenCell(v) {
+      var cell = amountCell('', 'Frozen', ROLES.frozen.color, frozenTotals(v), 2);
+      var still = totals(freezableTotals(v));
+      append(cell, el('div', { class: 'stat-sub' + (still.length ? ' alert' : '') }, 'Still freezable: ',
+        still.length ? still.map(function (p) { return el('b', null, fmt(p[1], 2) + ' ' + p[0] + ' '); }) : 'none'));
+      return cell;
+    }
     var c = checkerCounts(view.N);
     var checkerCell = el('div', { class: 'stat checker' },
       el('div', { class: 'stat-label' }, el('span', { class: 'swatch', style: 'color:var(--ok)' }), 'Checked by the verifier'),
@@ -932,7 +963,7 @@
     append(box, [
       amountCell('wide', 'Taken from victims', ROLES.victim.color, byRole('victim', view.outflow), 4),
       amountCell('', 'Not moved yet', ROLES.resting.color, byRole('resting', view.inflow), 2),
-      amountCell('', 'Frozen', ROLES.frozen.color, frozenTotals(view), 2),
+      frozenCell(view),
       amountCell('', 'Tracing stopped', ROLES.stop.color, byRole('stop', view.inflow), 2),
       countCell('Flows traced', view.flows, function () { $('flows').scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block: 'start' }); }, 'Show the list of all flows'),
       checkerCell,
@@ -958,6 +989,9 @@
     var anyFrozen = false;
     viewAt(S.total).nodes.forEach(function (id) { var n = S.nodes.get(id); if (n.frozen && n.frozen.length) anyFrozen = true; });
     if (anyFrozen && !present.has('frozen')) box.appendChild(el('span', { class: 'item' }, el('span', { class: 'node-swatch frozen', style: '--c:' + C.ink2 }), 'Double border: an asset here is frozen by its issuer'));
+    var anyFreezable = false;
+    viewAt(S.total).nodes.forEach(function (id) { var n = S.nodes.get(id); if (n.freezable && n.freezable.length) anyFreezable = true; });
+    if (anyFreezable) box.appendChild(el('span', { class: 'item' }, el('span', { class: 'node-swatch', style: '--c:' + C.signal + ';border-color:' + C.signal }), 'Red border: stablecoins here its issuer could still freeze'));
     box.appendChild(el('span', { class: 'lines' },
       el('span', { class: 'item' }, el('span', { class: 'line-swatch' }), 'Checked by the verifier'),
       el('span', { class: 'item' }, el('span', { class: 'line-swatch dashed' }), 'Agent claim the checker could not evaluate yet')));
@@ -1193,6 +1227,12 @@
       el('div', { class: 'addr-tools' }, addrLink(n.id, n.chain), reportLink(function () { return addressTarget(n); })),
       n.note ? el('p', { class: 'd-note', style: '--c:' + ROLES[n.role].color }, n.note) : null,
       frontier ? el('p', { class: 'd-note' }, 'At step ' + view.N + ', where these funds went next was not traced yet.') : null,
+      (n.freezable || []).map(function (f) {
+        return el('div', { class: 'frozen-box freezable' },
+          el('span', { class: 'badge frzable' }, f.asset + ' still freezable'),
+          f.note ? el('p', null, f.note) : null,
+          isAddr(f.token) ? el('div', null, addrLink(f.token, n.chain, (f.issuer ? f.issuer + ' ' : '') + f.asset + ' contract')) : null);
+      }),
       (n.frozen || []).map(function (f) {
         return el('div', { class: 'frozen-box' },
           el('span', { class: 'badge frz' }, f.asset + ' frozen'),

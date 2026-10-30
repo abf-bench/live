@@ -1292,3 +1292,10 @@ body.embed .stat-value { font-size: 17px; }
 .meta .case-name { display: none; }
 body.embed .stats { grid-template-columns: minmax(0, 1.8fr) repeat(3, minmax(0, 1fr)) minmax(0, 0.7fr) minmax(0, 1.5fr) minmax(0, 0.7fr) minmax(0, 0.8fr); }
 .mast-side .budget { align-self: stretch; }
+
+/* ---------- still freezable ---------- */
+.stat-sub { margin-top: 6px; font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+.stat-sub.alert { color: var(--signal); }
+.stat-sub.alert b { font-weight: 600; }
+.frozen-box.freezable { border-left-color: var(--signal); }
+.badge.frzable { --c: var(--signal); }
