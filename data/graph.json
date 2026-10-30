@@ -2,8 +2,8 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum: live trace",
   "incident_utc": "2026-10-29T20:24:00Z",
-  "updated_utc": "2026-10-30T21:16:51Z",
-  "head_block": 26308068,
+  "updated_utc": "2026-10-30T21:19:52Z",
+  "head_block": 26308200,
   "chain": "ethereum",
   "notes": [
    "Amounts follow the poison rule: once stolen funds enter an address, everything that later leaves it is counted. ETH figures therefore include ETH bought with stolen tokens."
@@ -153,6 +153,14 @@
    "actions": 24,
    "model": "gpt-5.5",
    "summary": "ok"
+  },
+  {
+   "id": 19,
+   "started_utc": "2026-10-30T21:16:57Z",
+   "ended_utc": null,
+   "actions": 20,
+   "model": "gpt-5.5",
+   "summary": ""
   }
  ],
  "nodes": [
@@ -189,14 +197,14 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "1175464712.875462",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 1175464712.875462 USDT, of which up to 1175464712.875462 USDT arrived through traced flows, as of block 26308068."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 1175464712.875462 USDT, of which up to 1175464712.875462 USDT arrived through traced flows, as of block 26308200."
     },
     {
      "asset": "USDC",
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
      "issuer": "Circle",
      "held": "823000000",
-     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 823000000 USDC, of which up to 823000000 USDC arrived through traced flows, as of block 26308068."
+     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 823000000 USDC, of which up to 823000000 USDC arrived through traced flows, as of block 26308200."
     }
    ]
   },
@@ -212,7 +220,7 @@
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
      "issuer": "Circle",
      "held": "0",
-     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 123175.527942 USDC, of which up to 0 USDC arrived through traced flows, as of block 26308068."
+     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 123175.527942 USDC, of which up to 0 USDC arrived through traced flows, as of block 26308200."
     }
    ]
   },
@@ -228,7 +236,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "0.0006",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0006 USDT, of which up to 0.0006 USDT arrived through traced flows, as of block 26308068."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0006 USDT, of which up to 0.0006 USDT arrived through traced flows, as of block 26308200."
     }
    ]
   },
@@ -244,7 +252,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "0.0001",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26308068."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26308200."
     }
    ]
   },
@@ -253,7 +261,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26308068."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26308200."
   },
   {
    "id": "0x5c23023ca6633f91ded909b4a753a3ca00fea4fc",
@@ -274,7 +282,7 @@
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
      "issuer": "Circle",
      "held": "0",
-     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 33005.117139 USDC, of which up to 0 USDC arrived through traced flows, as of block 26308068."
+     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 33005.117139 USDC, of which up to 0 USDC arrived through traced flows, as of block 26308200."
     }
    ]
   },
@@ -297,14 +305,14 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26308068."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26308200."
   },
   {
    "id": "0x54401f80da97893a15d43566184635b6674bc942",
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26308068."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26308200."
   },
   {
    "id": "0x8c7111e9a3270457b76f0bd137209089047a6aa4",
@@ -318,14 +326,14 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26308068."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26308200."
   },
   {
    "id": "0xc2096a12ebe0944f4d39e59979f485afd92d850a",
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26308068."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26308200."
   },
   {
    "id": "0xa3b3dee870f01560fdbe5af659c9c9135748886f",
@@ -339,7 +347,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26308068."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26308200."
   },
   {
    "id": "0x8d53903625b8e839b9df4bd28b0efb1cd6b8639a",
@@ -353,7 +361,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "0.0001",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26308068."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26308200."
     }
    ]
   },
@@ -376,7 +384,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "0.0001",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26308068."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26308200."
     }
    ]
   },
@@ -392,7 +400,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "0.0001",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26308068."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26308200."
     }
    ]
   },
@@ -408,7 +416,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "30000000",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 30000000 USDT, of which up to 30000000 USDT arrived through traced flows, as of block 26308068."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 30000000 USDT, of which up to 30000000 USDT arrived through traced flows, as of block 26308200."
     }
    ]
   },
@@ -417,7 +425,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26308068."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26308200."
   },
   {
    "id": "0x811f15855476156ebf86ba3b84fafb8ceaa4e84c",
@@ -431,7 +439,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26308068."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26308200."
   },
   {
    "id": "0x42cdf00c85005630cc8605731b9364f712077810",
@@ -452,7 +460,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "174999872.32762",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 174999872.32762 USDT, of which up to 174999872.32762 USDT arrived through traced flows, as of block 26308068."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 174999872.32762 USDT, of which up to 174999872.32762 USDT arrived through traced flows, as of block 26308200."
     }
    ]
   },
@@ -545,14 +553,14 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced USDT since it arrived, as of block 26308068.",
+   "note": "No outflow of the traced USDT since it arrived, as of block 26308200.",
    "freezable": [
     {
      "asset": "USDT",
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "127.67248",
-     "note": "Tether has not frozen this address for USDT: USDT isBlackListed returns false on chain; balanceOf returns 57959.792781 USDT, of which up to 127.67248 USDT arrived through traced flows, as of block 26308068."
+     "note": "Tether has not frozen this address for USDT: USDT isBlackListed returns false on chain; balanceOf returns 57964.626661 USDT, of which up to 127.67248 USDT arrived through traced flows, as of block 26308200."
     }
    ]
   },
@@ -603,14 +611,14 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26308068.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26308200.",
    "frozen": [
     {
      "asset": "USDC",
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
      "issuer": "Circle",
      "held": "0",
-     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 0 USDC, of which up to 0 USDC arrived through traced flows, as of block 26308068."
+     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 0 USDC, of which up to 0 USDC arrived through traced flows, as of block 26308200."
     }
    ]
   },
@@ -626,21 +634,30 @@
    "chain": "ethereum",
    "label": null,
    "role": "open",
-   "note": null
+   "note": null,
+   "freezable": [
+    {
+     "asset": "USDC",
+     "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+     "issuer": "Circle",
+     "held": "330473.320964",
+     "note": "Circle has not frozen this address for USDC: USDC isBlacklisted returns false on chain; balanceOf returns 2017213.798965 USDC, of which up to 330473.320964 USDC arrived through traced flows, as of block 26308200."
+    }
+   ]
   },
   {
    "id": "0x0c2c40f59d416d17879508fb977aabf05c7a51f6",
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26308068."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26308200."
   },
   {
    "id": "0x44342998b9cd3b45ff992875b93c61c71dcabcf2",
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26308068."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26308200."
   },
   {
    "id": "0x94d36132722d772fe053ea13c57bbdbdf435c085",
@@ -668,7 +685,7 @@
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
      "issuer": "Circle",
      "held": "3088.572212",
-     "note": "Circle has not frozen this address for USDC: USDC isBlacklisted returns false on chain; balanceOf returns 25410.028328 USDC, of which up to 3088.572212 USDC arrived through traced flows, as of block 26308068."
+     "note": "Circle has not frozen this address for USDC: USDC isBlacklisted returns false on chain; balanceOf returns 25410.028328 USDC, of which up to 3088.572212 USDC arrived through traced flows, as of block 26308200."
     }
    ]
   },
@@ -677,7 +694,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26308068."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26308200."
   },
   {
    "id": "0x1431375c684a06b7f2ceeebd7b945ef1e0a97905",
@@ -712,14 +729,14 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26308068."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26308200."
   },
   {
    "id": "0x624b8798d5460d24295e107fb439508a5a0c70a8",
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26308068."
+   "note": "No outflow of the traced ETH since it arrived, as of block 26308200."
   },
   {
    "id": "0x89cd3bced9ba38ab53f538ba56cfa5aa81981ffb",
@@ -740,16 +757,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "open",
-   "note": null,
-   "freezable": [
-    {
-     "asset": "USDC",
-     "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-     "issuer": "Circle",
-     "held": "3094.870272",
-     "note": "Circle has not frozen this address for USDC: USDC isBlacklisted returns false on chain; balanceOf returns 170202.667475 USDC, of which up to 3094.870272 USDC arrived through traced flows, as of block 26308068."
-    }
-   ]
+   "note": null
   },
   {
    "id": "0xd46dc287e71b6c2399addfddfa548f08b82db5e5",
@@ -764,6 +772,45 @@
    "label": "Across_Ethereum_SpokePool",
    "role": "stop",
    "note": "listed bridge_router"
+  },
+  {
+   "id": "0x05ff6964d21e5dae3b1010d5ae0465b3c450f381",
+   "chain": "ethereum",
+   "label": null,
+   "role": "open",
+   "note": null,
+   "freezable": [
+    {
+     "asset": "USDC",
+     "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+     "issuer": "Circle",
+     "held": "390.176534",
+     "note": "Circle has not frozen this address for USDC: USDC isBlacklisted returns false on chain; balanceOf returns 8842816.53096 USDC, of which up to 390.176534 USDC arrived through traced flows, as of block 26308200."
+    }
+   ]
+  },
+  {
+   "id": "0xc51e9af67c16a7176e244d8803a32aaf1430cb08",
+   "chain": "ethereum",
+   "label": null,
+   "role": "open",
+   "note": null,
+   "freezable": [
+    {
+     "asset": "USDC",
+     "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+     "issuer": "Circle",
+     "held": "566.404242",
+     "note": "Circle has not frozen this address for USDC: USDC isBlacklisted returns false on chain; balanceOf returns 123982.463157 USDC, of which up to 566.404242 USDC arrived through traced flows, as of block 26308200."
+    }
+   ]
+  },
+  {
+   "id": "0xa984c4ca650b265e9db76f8713a9a626f704b83a",
+   "chain": "ethereum",
+   "label": null,
+   "role": "pocket",
+   "note": null
   },
   {
    "id": "0x75220b7600c300005038432a0000f308e0000068",
@@ -4233,6 +4280,406 @@
    "source_position": "transaction value",
    "target_position": "Transfer event #976",
    "tx_url": "https://etherscan.io/tx/0xe037ddb7f7f118d269ca6fac7339ccc81f522129ec7809f40c23ad120b64cb4c",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdc_89cd_05ff_0x1b58:0",
+   "from": "0x89cd3bced9ba38ab53f538ba56cfa5aa81981ffb",
+   "to": "0x05ff6964d21e5dae3b1010d5ae0465b3c450f381",
+   "asset": "USDC",
+   "amount": "390.176534",
+   "tx": "0x1b586d0b1c8c597ebabfc091e76f93ca11a707d94ada4ed45f7ecd7313168e49",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26305862,
+   "time_utc": "2026-10-30T13:26:59Z",
+   "operation_id": "op_usdc_89cd_05ff_0x1b58",
+   "session": 19,
+   "seq": 172,
+   "step": 520,
+   "source_position": "Transfer event #83",
+   "target_position": "Transfer event #83",
+   "tx_url": "https://etherscan.io/tx/0x1b586d0b1c8c597ebabfc091e76f93ca11a707d94ada4ed45f7ecd7313168e49",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdc_d46_c51e_0x8c06:0",
+   "from": "0xd46dc287e71b6c2399addfddfa548f08b82db5e5",
+   "to": "0xc51e9af67c16a7176e244d8803a32aaf1430cb08",
+   "asset": "USDC",
+   "amount": "566.404242",
+   "tx": "0x8c06055fbbf69ac5671aa71032f6cddd5e5f65b39cb9a60c2593ca401812e44f",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26306720,
+   "time_utc": "2026-10-30T16:18:47Z",
+   "operation_id": "op_usdc_d46_c51e_0x8c06",
+   "session": 19,
+   "seq": 173,
+   "step": 520,
+   "source_position": "Transfer event #1050",
+   "target_position": "Transfer event #1050",
+   "tx_url": "https://etherscan.io/tx/0x8c06055fbbf69ac5671aa71032f6cddd5e5f65b39cb9a60c2593ca401812e44f",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x8bc7:0",
+   "from": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+   "to": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+   "asset": "USDC",
+   "amount": "7007.223128",
+   "tx": "0x8bc7f3192352e28698f1c9d298b55082c901b2d9174add58de0e12ac22edba4a",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26306238,
+   "time_utc": "2026-10-30T14:42:11Z",
+   "operation_id": "op_usdc_4cd_f70da_0x8bc7",
+   "session": 19,
+   "seq": 174,
+   "step": 520,
+   "source_position": "Transfer event #141",
+   "target_position": "Transfer event #141",
+   "tx_url": "https://etherscan.io/tx/0x8bc7f3192352e28698f1c9d298b55082c901b2d9174add58de0e12ac22edba4a",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdc_4cd_a984_0xe9ff:0",
+   "from": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+   "to": "0xa984c4ca650b265e9db76f8713a9a626f704b83a",
+   "asset": "USDC",
+   "amount": "9.699825",
+   "tx": "0xe9ff747e3641e19cff92305daefce0ebf42c12fcaa57cdb72b711540fef91559",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26306238,
+   "time_utc": "2026-10-30T14:42:11Z",
+   "operation_id": "op_usdc_4cd_a984_0xe9ff",
+   "session": 19,
+   "seq": 175,
+   "step": 520,
+   "source_position": "Transfer event #837",
+   "target_position": "Transfer event #837",
+   "tx_url": "https://etherscan.io/tx/0xe9ff747e3641e19cff92305daefce0ebf42c12fcaa57cdb72b711540fef91559",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x6eca:0",
+   "from": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+   "to": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+   "asset": "USDC",
+   "amount": "2411.918776",
+   "tx": "0x6eca2744ceb8bb0f2cc5b83c37aff9d70b709d1f1d2f05f548210bdd8245af1f",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26306243,
+   "time_utc": "2026-10-30T14:43:11Z",
+   "operation_id": "op_usdc_4cd_f70da_0x6eca",
+   "session": 19,
+   "seq": 176,
+   "step": 520,
+   "source_position": "Transfer event #369",
+   "target_position": "Transfer event #369",
+   "tx_url": "https://etherscan.io/tx/0x6eca2744ceb8bb0f2cc5b83c37aff9d70b709d1f1d2f05f548210bdd8245af1f",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x2a2e:0",
+   "from": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+   "to": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+   "asset": "USDC",
+   "amount": "12754.776516",
+   "tx": "0x2a2e1ef3da72828b0db933c3ccea6d85bc43b5607e16eb972ff00f07fa74ad9b",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26306249,
+   "time_utc": "2026-10-30T14:44:23Z",
+   "operation_id": "op_usdc_4cd_f70da_0x2a2e",
+   "session": 19,
+   "seq": 177,
+   "step": 525,
+   "source_position": "Transfer event #212",
+   "target_position": "Transfer event #212",
+   "tx_url": "https://etherscan.io/tx/0x2a2e1ef3da72828b0db933c3ccea6d85bc43b5607e16eb972ff00f07fa74ad9b",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x3314:0",
+   "from": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+   "to": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+   "asset": "USDC",
+   "amount": "35395.081089",
+   "tx": "0x3314447e44a6869780bf6c497bd524ed4e891961da8eb8b0e0c55091c23c075e",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26306253,
+   "time_utc": "2026-10-30T14:45:11Z",
+   "operation_id": "op_usdc_4cd_f70da_0x3314",
+   "session": 19,
+   "seq": 178,
+   "step": 525,
+   "source_position": "Transfer event #359",
+   "target_position": "Transfer event #359",
+   "tx_url": "https://etherscan.io/tx/0x3314447e44a6869780bf6c497bd524ed4e891961da8eb8b0e0c55091c23c075e",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x95ed:0",
+   "from": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+   "to": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+   "asset": "USDC",
+   "amount": "90450.247135",
+   "tx": "0x95ed2c5cc253e0b2f1908ddf391398fe88f2f6b96826c00a9f756f138e6a2228",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26306257,
+   "time_utc": "2026-10-30T14:45:59Z",
+   "operation_id": "op_usdc_4cd_f70da_0x95ed",
+   "session": 19,
+   "seq": 179,
+   "step": 525,
+   "source_position": "Transfer event #775",
+   "target_position": "Transfer event #775",
+   "tx_url": "https://etherscan.io/tx/0x95ed2c5cc253e0b2f1908ddf391398fe88f2f6b96826c00a9f756f138e6a2228",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0xe09e:0",
+   "from": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+   "to": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+   "asset": "USDC",
+   "amount": "129218.04565",
+   "tx": "0xe09e664ef1846f77616f625b4d9ff12ba06ccdfa5e592a5103f2bf92fc6c6186",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26306263,
+   "time_utc": "2026-10-30T14:47:11Z",
+   "operation_id": "op_usdc_4cd_f70da_0xe09e",
+   "session": 19,
+   "seq": 180,
+   "step": 525,
+   "source_position": "Transfer event #85",
+   "target_position": "Transfer event #85",
+   "tx_url": "https://etherscan.io/tx/0xe09e664ef1846f77616f625b4d9ff12ba06ccdfa5e592a5103f2bf92fc6c6186",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x3c8a:0",
+   "from": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+   "to": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+   "asset": "USDC",
+   "amount": "3053.190806",
+   "tx": "0x3c8a176b40e9fb125c240ae91410161f7773ff053dba7eea36dd10a585a3424c",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26306268,
+   "time_utc": "2026-10-30T14:48:11Z",
+   "operation_id": "op_usdc_4cd_f70da_0x3c8a",
+   "session": 19,
+   "seq": 181,
+   "step": 525,
+   "source_position": "Transfer event #267",
+   "target_position": "Transfer event #267",
+   "tx_url": "https://etherscan.io/tx/0x3c8a176b40e9fb125c240ae91410161f7773ff053dba7eea36dd10a585a3424c",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x8b5a:0",
+   "from": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+   "to": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+   "asset": "USDC",
+   "amount": "2749.571516",
+   "tx": "0x8b5a06df08551bc1e33767cd76ce6226a09d4593efca7d5db072d22660ebc4c0",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26306273,
+   "time_utc": "2026-10-30T14:49:11Z",
+   "operation_id": "op_usdc_4cd_f70da_0x8b5a",
+   "session": 19,
+   "seq": 182,
+   "step": 530,
+   "source_position": "Transfer event #248",
+   "target_position": "Transfer event #248",
+   "tx_url": "https://etherscan.io/tx/0x8b5a06df08551bc1e33767cd76ce6226a09d4593efca7d5db072d22660ebc4c0",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0xb0e3:0",
+   "from": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+   "to": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+   "asset": "USDC",
+   "amount": "11634.443734",
+   "tx": "0xb0e377e177de4a6e4c60d7d3daca1e9c1df3aa8a6ea99c32988c4364a19892c5",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26306278,
+   "time_utc": "2026-10-30T14:50:11Z",
+   "operation_id": "op_usdc_4cd_f70da_0xb0e3",
+   "session": 19,
+   "seq": 183,
+   "step": 530,
+   "source_position": "Transfer event #206",
+   "target_position": "Transfer event #206",
+   "tx_url": "https://etherscan.io/tx/0xb0e377e177de4a6e4c60d7d3daca1e9c1df3aa8a6ea99c32988c4364a19892c5",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x0ae5:0",
+   "from": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+   "to": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+   "asset": "USDC",
+   "amount": "7676.111275",
+   "tx": "0x0ae502d092cb2770c0c8c4b2477c2f6359230c3e9caa05457544919ca97452ac",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26306282,
+   "time_utc": "2026-10-30T14:50:59Z",
+   "operation_id": "op_usdc_4cd_f70da_0x0ae5",
+   "session": 19,
+   "seq": 184,
+   "step": 530,
+   "source_position": "Transfer event #280",
+   "target_position": "Transfer event #280",
+   "tx_url": "https://etherscan.io/tx/0x0ae502d092cb2770c0c8c4b2477c2f6359230c3e9caa05457544919ca97452ac",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x8e9c:0",
+   "from": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+   "to": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+   "asset": "USDC",
+   "amount": "10351.481673",
+   "tx": "0x8e9cfde2d6b5bc22ddb5e8cac96b78a542cda7a7426e163537225e0655d866a8",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26306287,
+   "time_utc": "2026-10-30T14:51:59Z",
+   "operation_id": "op_usdc_4cd_f70da_0x8e9c",
+   "session": 19,
+   "seq": 185,
+   "step": 530,
+   "source_position": "Transfer event #97",
+   "target_position": "Transfer event #97",
+   "tx_url": "https://etherscan.io/tx/0x8e9cfde2d6b5bc22ddb5e8cac96b78a542cda7a7426e163537225e0655d866a8",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x3b15:0",
+   "from": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+   "to": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+   "asset": "USDC",
+   "amount": "4867.144903",
+   "tx": "0x3b151b3c27db93bfc0f244a662d71fb11d603f0cd3456f617380ed27b583a84a",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26306293,
+   "time_utc": "2026-10-30T14:53:11Z",
+   "operation_id": "op_usdc_4cd_f70da_0x3b15",
+   "session": 19,
+   "seq": 186,
+   "step": 530,
+   "source_position": "Transfer event #260",
+   "target_position": "Transfer event #260",
+   "tx_url": "https://etherscan.io/tx/0x3b151b3c27db93bfc0f244a662d71fb11d603f0cd3456f617380ed27b583a84a",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x571b:0",
+   "from": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+   "to": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+   "asset": "USDC",
+   "amount": "4414.734429",
+   "tx": "0x571b47f45cae2ddb729dec98d326c1b704e5e2899cd3ddd8f8a60046be6fc4c8",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26306301,
+   "time_utc": "2026-10-30T14:54:47Z",
+   "operation_id": "op_usdc_4cd_f70da_0x571b",
+   "session": 19,
+   "seq": 187,
+   "step": 535,
+   "source_position": "Transfer event #173",
+   "target_position": "Transfer event #173",
+   "tx_url": "https://etherscan.io/tx/0x571b47f45cae2ddb729dec98d326c1b704e5e2899cd3ddd8f8a60046be6fc4c8",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0xf0ea:0",
+   "from": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+   "to": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+   "asset": "USDC",
+   "amount": "1432.629122",
+   "tx": "0xf0ea1cc4f94311be239bca55c34bf064d424db380188d1d7558fdf214f1208de",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26306303,
+   "time_utc": "2026-10-30T14:55:11Z",
+   "operation_id": "op_usdc_4cd_f70da_0xf0ea",
+   "session": 19,
+   "seq": 188,
+   "step": 535,
+   "source_position": "Transfer event #416",
+   "target_position": "Transfer event #416",
+   "tx_url": "https://etherscan.io/tx/0xf0ea1cc4f94311be239bca55c34bf064d424db380188d1d7558fdf214f1208de",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0xff25:0",
+   "from": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+   "to": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+   "asset": "USDC",
+   "amount": "2115.792605",
+   "tx": "0xff259145656ebabd1f0c29cf7a27f08c35bff6a2dc3df6138ac7f0076ffb37c6",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26306308,
+   "time_utc": "2026-10-30T14:56:11Z",
+   "operation_id": "op_usdc_4cd_f70da_0xff25",
+   "session": 19,
+   "seq": 189,
+   "step": 535,
+   "source_position": "Transfer event #123",
+   "target_position": "Transfer event #123",
+   "tx_url": "https://etherscan.io/tx/0xff259145656ebabd1f0c29cf7a27f08c35bff6a2dc3df6138ac7f0076ffb37c6",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x87a7:0",
+   "from": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+   "to": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+   "asset": "USDC",
+   "amount": "1570.315836",
+   "tx": "0x87a785a382b78b01a5ef7dc9a1bb4a1b0681d125d0f68cfee90b9eb8b2d8212f",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26306313,
+   "time_utc": "2026-10-30T14:57:11Z",
+   "operation_id": "op_usdc_4cd_f70da_0x87a7",
+   "session": 19,
+   "seq": 190,
+   "step": 535,
+   "source_position": "Transfer event #131",
+   "target_position": "Transfer event #131",
+   "tx_url": "https://etherscan.io/tx/0x87a785a382b78b01a5ef7dc9a1bb4a1b0681d125d0f68cfee90b9eb8b2d8212f",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x14f3:0",
+   "from": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+   "to": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+   "asset": "USDC",
+   "amount": "3370.612771",
+   "tx": "0x14f325a7fd14fbc1e46bcfecf0585acd2e91a816ada65bc5b91d4193a4bd95bb",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26306317,
+   "time_utc": "2026-10-30T14:57:59Z",
+   "operation_id": "op_usdc_4cd_f70da_0x14f3",
+   "session": 19,
+   "seq": 191,
+   "step": 535,
+   "source_position": "Transfer event #438",
+   "target_position": "Transfer event #438",
+   "tx_url": "https://etherscan.io/tx/0x14f325a7fd14fbc1e46bcfecf0585acd2e91a816ada65bc5b91d4193a4bd95bb",
    "tier": "verified"
   }
  ],
@@ -8849,6 +9296,526 @@
      "url": "https://etherscan.io/tx/0xe037ddb7f7f118d269ca6fac7339ccc81f522129ec7809f40c23ad120b64cb4c#eventlog"
     }
    ]
+  },
+  {
+   "id": "op_usdc_89cd_05ff_0x1b58",
+   "type": "transfer",
+   "claim": "transfer: 390.176534 USDC 0x89cd\u20261ffb to 0x05ff\u2026f381",
+   "via": {
+    "contract": "0xee39678386f5bfc68df2c65656ec8e23f60063b5",
+    "name": "ERC1967Proxy",
+    "function": null,
+    "explorer": "https://etherscan.io/address/0xee39678386f5bfc68df2c65656ec8e23f60063b5"
+   },
+   "session": 19,
+   "seq": 172,
+   "step": 520,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdc_89cd_05ff_0x1b58:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x1b586d0b1c8c597ebabfc091e76f93ca11a707d94ada4ed45f7ecd7313168e49",
+     "url": "https://etherscan.io/tx/0x1b586d0b1c8c597ebabfc091e76f93ca11a707d94ada4ed45f7ecd7313168e49#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_usdc_d46_c51e_0x8c06",
+   "type": "transfer",
+   "claim": "transfer: 566.404242 USDC 0xd46d\u2026b5e5 to 0xc51e\u2026cb08",
+   "via": {
+    "contract": "0xd46dc287e71b6c2399addfddfa548f08b82db5e5",
+    "name": null,
+    "function": null,
+    "explorer": "https://etherscan.io/address/0xd46dc287e71b6c2399addfddfa548f08b82db5e5"
+   },
+   "session": 19,
+   "seq": 173,
+   "step": 520,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdc_d46_c51e_0x8c06:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x8c06055fbbf69ac5671aa71032f6cddd5e5f65b39cb9a60c2593ca401812e44f",
+     "url": "https://etherscan.io/tx/0x8c06055fbbf69ac5671aa71032f6cddd5e5f65b39cb9a60c2593ca401812e44f#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x8bc7",
+   "type": "transfer",
+   "claim": "transfer: 7007.223128 USDC 0x4cd0\u2026bc31 to 0xf70d\u2026dbef",
+   "via": {
+    "contract": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+    "name": "RelayDepository",
+    "function": "execute",
+    "explorer": "https://etherscan.io/address/0x4cd00e387622c35bddb9b4c962c136462338bc31"
+   },
+   "session": 19,
+   "seq": 174,
+   "step": 520,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdc_4cd_f70da_0x8bc7:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x8bc7f3192352e28698f1c9d298b55082c901b2d9174add58de0e12ac22edba4a",
+     "url": "https://etherscan.io/tx/0x8bc7f3192352e28698f1c9d298b55082c901b2d9174add58de0e12ac22edba4a#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_usdc_4cd_a984_0xe9ff",
+   "type": "transfer",
+   "claim": "transfer: 9.699825 USDC 0x4cd0\u2026bc31 to 0xa984\u2026b83a",
+   "via": {
+    "contract": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+    "name": "RelayDepository",
+    "function": "execute",
+    "explorer": "https://etherscan.io/address/0x4cd00e387622c35bddb9b4c962c136462338bc31"
+   },
+   "session": 19,
+   "seq": 175,
+   "step": 520,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdc_4cd_a984_0xe9ff:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xe9ff747e3641e19cff92305daefce0ebf42c12fcaa57cdb72b711540fef91559",
+     "url": "https://etherscan.io/tx/0xe9ff747e3641e19cff92305daefce0ebf42c12fcaa57cdb72b711540fef91559#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x6eca",
+   "type": "transfer",
+   "claim": "transfer: 2411.918776 USDC 0x4cd0\u2026bc31 to 0xf70d\u2026dbef",
+   "via": {
+    "contract": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+    "name": "RelayDepository",
+    "function": "execute",
+    "explorer": "https://etherscan.io/address/0x4cd00e387622c35bddb9b4c962c136462338bc31"
+   },
+   "session": 19,
+   "seq": 176,
+   "step": 520,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdc_4cd_f70da_0x6eca:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x6eca2744ceb8bb0f2cc5b83c37aff9d70b709d1f1d2f05f548210bdd8245af1f",
+     "url": "https://etherscan.io/tx/0x6eca2744ceb8bb0f2cc5b83c37aff9d70b709d1f1d2f05f548210bdd8245af1f#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x2a2e",
+   "type": "transfer",
+   "claim": "transfer: 12754.776516 USDC 0x4cd0\u2026bc31 to 0xf70d\u2026dbef",
+   "via": {
+    "contract": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+    "name": "RelayDepository",
+    "function": "execute",
+    "explorer": "https://etherscan.io/address/0x4cd00e387622c35bddb9b4c962c136462338bc31"
+   },
+   "session": 19,
+   "seq": 177,
+   "step": 525,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdc_4cd_f70da_0x2a2e:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x2a2e1ef3da72828b0db933c3ccea6d85bc43b5607e16eb972ff00f07fa74ad9b",
+     "url": "https://etherscan.io/tx/0x2a2e1ef3da72828b0db933c3ccea6d85bc43b5607e16eb972ff00f07fa74ad9b#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x3314",
+   "type": "transfer",
+   "claim": "transfer: 35395.081089 USDC 0x4cd0\u2026bc31 to 0xf70d\u2026dbef",
+   "via": {
+    "contract": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+    "name": "RelayDepository",
+    "function": "execute",
+    "explorer": "https://etherscan.io/address/0x4cd00e387622c35bddb9b4c962c136462338bc31"
+   },
+   "session": 19,
+   "seq": 178,
+   "step": 525,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdc_4cd_f70da_0x3314:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x3314447e44a6869780bf6c497bd524ed4e891961da8eb8b0e0c55091c23c075e",
+     "url": "https://etherscan.io/tx/0x3314447e44a6869780bf6c497bd524ed4e891961da8eb8b0e0c55091c23c075e#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x95ed",
+   "type": "transfer",
+   "claim": "transfer: 90450.247135 USDC 0x4cd0\u2026bc31 to 0xf70d\u2026dbef",
+   "via": {
+    "contract": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+    "name": "RelayDepository",
+    "function": "execute",
+    "explorer": "https://etherscan.io/address/0x4cd00e387622c35bddb9b4c962c136462338bc31"
+   },
+   "session": 19,
+   "seq": 179,
+   "step": 525,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdc_4cd_f70da_0x95ed:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x95ed2c5cc253e0b2f1908ddf391398fe88f2f6b96826c00a9f756f138e6a2228",
+     "url": "https://etherscan.io/tx/0x95ed2c5cc253e0b2f1908ddf391398fe88f2f6b96826c00a9f756f138e6a2228#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0xe09e",
+   "type": "transfer",
+   "claim": "transfer: 129218.04565 USDC 0x4cd0\u2026bc31 to 0xf70d\u2026dbef",
+   "via": {
+    "contract": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+    "name": "RelayDepository",
+    "function": "execute",
+    "explorer": "https://etherscan.io/address/0x4cd00e387622c35bddb9b4c962c136462338bc31"
+   },
+   "session": 19,
+   "seq": 180,
+   "step": 525,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdc_4cd_f70da_0xe09e:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xe09e664ef1846f77616f625b4d9ff12ba06ccdfa5e592a5103f2bf92fc6c6186",
+     "url": "https://etherscan.io/tx/0xe09e664ef1846f77616f625b4d9ff12ba06ccdfa5e592a5103f2bf92fc6c6186#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x3c8a",
+   "type": "transfer",
+   "claim": "transfer: 3053.190806 USDC 0x4cd0\u2026bc31 to 0xf70d\u2026dbef",
+   "via": {
+    "contract": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+    "name": "RelayDepository",
+    "function": "execute",
+    "explorer": "https://etherscan.io/address/0x4cd00e387622c35bddb9b4c962c136462338bc31"
+   },
+   "session": 19,
+   "seq": 181,
+   "step": 525,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdc_4cd_f70da_0x3c8a:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x3c8a176b40e9fb125c240ae91410161f7773ff053dba7eea36dd10a585a3424c",
+     "url": "https://etherscan.io/tx/0x3c8a176b40e9fb125c240ae91410161f7773ff053dba7eea36dd10a585a3424c#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x8b5a",
+   "type": "transfer",
+   "claim": "transfer: 2749.571516 USDC 0x4cd0\u2026bc31 to 0xf70d\u2026dbef",
+   "via": {
+    "contract": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+    "name": "RelayDepository",
+    "function": "execute",
+    "explorer": "https://etherscan.io/address/0x4cd00e387622c35bddb9b4c962c136462338bc31"
+   },
+   "session": 19,
+   "seq": 182,
+   "step": 530,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdc_4cd_f70da_0x8b5a:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x8b5a06df08551bc1e33767cd76ce6226a09d4593efca7d5db072d22660ebc4c0",
+     "url": "https://etherscan.io/tx/0x8b5a06df08551bc1e33767cd76ce6226a09d4593efca7d5db072d22660ebc4c0#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0xb0e3",
+   "type": "transfer",
+   "claim": "transfer: 11634.443734 USDC 0x4cd0\u2026bc31 to 0xf70d\u2026dbef",
+   "via": {
+    "contract": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+    "name": "RelayDepository",
+    "function": "execute",
+    "explorer": "https://etherscan.io/address/0x4cd00e387622c35bddb9b4c962c136462338bc31"
+   },
+   "session": 19,
+   "seq": 183,
+   "step": 530,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdc_4cd_f70da_0xb0e3:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xb0e377e177de4a6e4c60d7d3daca1e9c1df3aa8a6ea99c32988c4364a19892c5",
+     "url": "https://etherscan.io/tx/0xb0e377e177de4a6e4c60d7d3daca1e9c1df3aa8a6ea99c32988c4364a19892c5#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x0ae5",
+   "type": "transfer",
+   "claim": "transfer: 7676.111275 USDC 0x4cd0\u2026bc31 to 0xf70d\u2026dbef",
+   "via": {
+    "contract": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+    "name": "RelayDepository",
+    "function": "execute",
+    "explorer": "https://etherscan.io/address/0x4cd00e387622c35bddb9b4c962c136462338bc31"
+   },
+   "session": 19,
+   "seq": 184,
+   "step": 530,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdc_4cd_f70da_0x0ae5:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x0ae502d092cb2770c0c8c4b2477c2f6359230c3e9caa05457544919ca97452ac",
+     "url": "https://etherscan.io/tx/0x0ae502d092cb2770c0c8c4b2477c2f6359230c3e9caa05457544919ca97452ac#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x8e9c",
+   "type": "transfer",
+   "claim": "transfer: 10351.481673 USDC 0x4cd0\u2026bc31 to 0xf70d\u2026dbef",
+   "via": {
+    "contract": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+    "name": "RelayDepository",
+    "function": "execute",
+    "explorer": "https://etherscan.io/address/0x4cd00e387622c35bddb9b4c962c136462338bc31"
+   },
+   "session": 19,
+   "seq": 185,
+   "step": 530,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdc_4cd_f70da_0x8e9c:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x8e9cfde2d6b5bc22ddb5e8cac96b78a542cda7a7426e163537225e0655d866a8",
+     "url": "https://etherscan.io/tx/0x8e9cfde2d6b5bc22ddb5e8cac96b78a542cda7a7426e163537225e0655d866a8#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x3b15",
+   "type": "transfer",
+   "claim": "transfer: 4867.144903 USDC 0x4cd0\u2026bc31 to 0xf70d\u2026dbef",
+   "via": {
+    "contract": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+    "name": "RelayDepository",
+    "function": "execute",
+    "explorer": "https://etherscan.io/address/0x4cd00e387622c35bddb9b4c962c136462338bc31"
+   },
+   "session": 19,
+   "seq": 186,
+   "step": 530,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdc_4cd_f70da_0x3b15:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x3b151b3c27db93bfc0f244a662d71fb11d603f0cd3456f617380ed27b583a84a",
+     "url": "https://etherscan.io/tx/0x3b151b3c27db93bfc0f244a662d71fb11d603f0cd3456f617380ed27b583a84a#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x571b",
+   "type": "transfer",
+   "claim": "transfer: 4414.734429 USDC 0x4cd0\u2026bc31 to 0xf70d\u2026dbef",
+   "via": {
+    "contract": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+    "name": "RelayDepository",
+    "function": "execute",
+    "explorer": "https://etherscan.io/address/0x4cd00e387622c35bddb9b4c962c136462338bc31"
+   },
+   "session": 19,
+   "seq": 187,
+   "step": 535,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdc_4cd_f70da_0x571b:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x571b47f45cae2ddb729dec98d326c1b704e5e2899cd3ddd8f8a60046be6fc4c8",
+     "url": "https://etherscan.io/tx/0x571b47f45cae2ddb729dec98d326c1b704e5e2899cd3ddd8f8a60046be6fc4c8#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0xf0ea",
+   "type": "transfer",
+   "claim": "transfer: 1432.629122 USDC 0x4cd0\u2026bc31 to 0xf70d\u2026dbef",
+   "via": {
+    "contract": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+    "name": "RelayDepository",
+    "function": "execute",
+    "explorer": "https://etherscan.io/address/0x4cd00e387622c35bddb9b4c962c136462338bc31"
+   },
+   "session": 19,
+   "seq": 188,
+   "step": 535,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdc_4cd_f70da_0xf0ea:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xf0ea1cc4f94311be239bca55c34bf064d424db380188d1d7558fdf214f1208de",
+     "url": "https://etherscan.io/tx/0xf0ea1cc4f94311be239bca55c34bf064d424db380188d1d7558fdf214f1208de#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0xff25",
+   "type": "transfer",
+   "claim": "transfer: 2115.792605 USDC 0x4cd0\u2026bc31 to 0xf70d\u2026dbef",
+   "via": {
+    "contract": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+    "name": "RelayDepository",
+    "function": "execute",
+    "explorer": "https://etherscan.io/address/0x4cd00e387622c35bddb9b4c962c136462338bc31"
+   },
+   "session": 19,
+   "seq": 189,
+   "step": 535,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdc_4cd_f70da_0xff25:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xff259145656ebabd1f0c29cf7a27f08c35bff6a2dc3df6138ac7f0076ffb37c6",
+     "url": "https://etherscan.io/tx/0xff259145656ebabd1f0c29cf7a27f08c35bff6a2dc3df6138ac7f0076ffb37c6#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x87a7",
+   "type": "transfer",
+   "claim": "transfer: 1570.315836 USDC 0x4cd0\u2026bc31 to 0xf70d\u2026dbef",
+   "via": {
+    "contract": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+    "name": "RelayDepository",
+    "function": "execute",
+    "explorer": "https://etherscan.io/address/0x4cd00e387622c35bddb9b4c962c136462338bc31"
+   },
+   "session": 19,
+   "seq": 190,
+   "step": 535,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdc_4cd_f70da_0x87a7:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x87a785a382b78b01a5ef7dc9a1bb4a1b0681d125d0f68cfee90b9eb8b2d8212f",
+     "url": "https://etherscan.io/tx/0x87a785a382b78b01a5ef7dc9a1bb4a1b0681d125d0f68cfee90b9eb8b2d8212f#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_usdc_4cd_f70da_0x14f3",
+   "type": "transfer",
+   "claim": "transfer: 3370.612771 USDC 0x4cd0\u2026bc31 to 0xf70d\u2026dbef",
+   "via": {
+    "contract": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+    "name": "RelayDepository",
+    "function": "execute",
+    "explorer": "https://etherscan.io/address/0x4cd00e387622c35bddb9b4c962c136462338bc31"
+   },
+   "session": 19,
+   "seq": 191,
+   "step": 535,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdc_4cd_f70da_0x14f3:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x14f325a7fd14fbc1e46bcfecf0585acd2e91a816ada65bc5b91d4193a4bd95bb",
+     "url": "https://etherscan.io/tx/0x14f325a7fd14fbc1e46bcfecf0585acd2e91a816ada65bc5b91d4193a4bd95bb#eventlog"
+    }
+   ]
   }
  ],
  "leads": [
@@ -9034,6 +10001,21 @@
   },
   {
    "account": "lead_0x11f81_73d7",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x05ff_USDC",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0xc51e_USDC",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0xf70da_USDC",
    "status": "open",
    "reason": null
   },
@@ -9466,6 +10448,18 @@
    {
     "key": "lead_0x11f81_73d7",
     "text": "Trace 0x73d7c860998ca3c01ce8c808f5577d94d545d1b4 pocket at 0x11f81bf5ad3f7e373adcacfc59940b1eb4e6f3da after tx 0x699a2e41fef3c25243efec1270399cc0f7fc4ddf897f0de3be19b45563cd7153 log 377 amount 21891585494909113490837; check token outflows in block window."
+   },
+   {
+    "key": "lead_0x05ff_USDC",
+    "text": "Trace USDC pocket at 0x05ff6964d21e5dae3b1010d5ae0465b3c450f381 after tx 0x1b586d0b1c8c597ebabfc091e76f93ca11a707d94ada4ed45f7ecd7313168e49 log 83 amount 390176534; check all USDC outflows in block window."
+   },
+   {
+    "key": "lead_0xc51e_USDC",
+    "text": "Trace USDC pocket at 0xc51e9af67c16a7176e244d8803a32aaf1430cb08 after tx 0x8c06055fbbf69ac5671aa71032f6cddd5e5f65b39cb9a60c2593ca401812e44f log 1050 amount 566404242; check all USDC outflows in block window."
+   },
+   {
+    "key": "lead_0xf70da_USDC",
+    "text": "Trace USDC pocket at 0xf70da97812cb96acdf810712aa562db8dfa3dbef after USDC receipts from 0x4cd00e387622c35bddb9b4c962c136462338bc31 (tx 0x8bc7f3192352e28698f1c9d298b55082c901b2d9174add58de0e12ac22edba4a log 141 amount 7007223128; tx 0x6eca2744ceb8bb0f2cc5b83c37aff9d70b709d1f1d2f05f548210bdd8245af1f log 369 amount 2411918776); check all USDC outflows in block window."
    }
   ],
   "notes": [
@@ -9518,8 +10512,13 @@
    "Served receipt+trace for 0x091dfa routed ETH txs 0x2f9f6e6b2efd8845ea0deeee1fe0ca3083ce638ed9206b7ab98681f0eb1e1736, 0xd2e77695dd4109393c4fcc647624f28a112c9d0c5f496cf07b1c6f9deb460e67, and 0x08fa36249760a14c7995c59359b6e082421624ec0369f0d8c24236d5a6d5a4d0. All status 1; in each 0x091dfa pays 0x75220 at trace [0,1], and 0x75220 immediately forwards same amount at trace [0,1,0]. Final keepers/amounts: 0x2f9f -> 0xf70da97812cb96acdf810712aa562db8dfa3dbef amount 1094904256546851981; 0xd2e7 -> 0x44342998b9cd3b45ff992875b93c61c71dcabcf2 amount 711703083810757303; 0x08fa -> 0x94d36132722d772fe053ea13c57bbdbdf435c085 amount 176821929795474613.",
    "Served receipt+trace for 0x091dfa routed ETH txs 0x316814200d319f20de784290de47d802cfbde818d27e5595a4b4072b7fd39040, 0xca879553fe4ccfdbc1a81a784a57b6de25c83b04c8379a7a6670cc897c384dd5, and 0xa44d374d4dd57d729409cc13dbb229d30a0473e9f0ec4aec72e38d59590943fc. All status 1; in each 0x091dfa pays 0x75220 at trace [0,1], and 0x75220 immediately forwards same amount at trace [0,1,0]. Final keepers/amounts: 0x3168 -> 0xf70da97812cb96acdf810712aa562db8dfa3dbef amount 750124549175962968; 0xca87 -> 0xa743bb0f944dea69f5b59577da5d7ad0681014ff amount 1636615188922377417; 0xa44d -> 0xf70da97812cb96acdf810712aa562db8dfa3dbef amount 1413539161963307645.",
    "Served evidence for three outflow-check txs. 0xfbb2d55f... status 1: USDC Transfer log721 from 0x94d36132722d772fe053ea13c57bbdbdf435c085 to 0x89cd3bced9ba38ab53f538ba56cfa5aa81981ffb amount 390176534. 0x8a9ccd65... status 1 simple ETH transfer from 0x1431375c684a06b7f2ceeebd7b945ef1e0a97905 to 0xbea9f7fd27f4ee20066f18def0bc586ec221055a amount 669976354000000000. 0x41212bd1... status 1 USDC Transfer log674 from 0x9876ec973f2493cbda0af09d0945bfed6b9d80d9 to 0x4cd00e387622c35bddb9b4c962c136462338bc31 amount 3094870272; custom log675 names same deposit data.",
-   "Served tx+receipt+trace for 0x13fed ETH outflow txs 0x44b9d49c... and 0x4352b434.... Both status 1, transaction values 392000000000000000 and 299000000000000000 to 0x0000000000000068f116a894984e2db1123eb395. Traces show router paying sellers/fees (0x44b9: 0x7f4d6c4ba570a6033907b9c0a653032f6c2fdd31 got 357112000000000000 plus fee recipients; ERC721 0x993873... token 0xd08 transferred to 0x13fed. 0x4352: 0xc8ddbf0ed5c19f0f40b8276f9905608775a1bd03 got 272389000000000000 plus fee recipients; ERC721 0x993873... token 0xdda transferred to 0x13fed). These are NFT purchase/exchange outflows; not recorded yet because graph asset format supports ETH/BTC/ERC20, not ERC721, and seller recipients also lose NFT in tx. Served tx+receipt for 0xe037ddb7... from 0x7eed: status 1, tx value 265000000000000000 to LiFi/Across path, WETH Deposit log976 credits disclosed bridge_router 0x5c7bcd6e7de5423a257d81b442095a1a6ced35c5 amount 264947000000000000; record as bridge stop."
+   "Served tx+receipt+trace for 0x13fed ETH outflow txs 0x44b9d49c... and 0x4352b434.... Both status 1, transaction values 392000000000000000 and 299000000000000000 to 0x0000000000000068f116a894984e2db1123eb395. Traces show router paying sellers/fees (0x44b9: 0x7f4d6c4ba570a6033907b9c0a653032f6c2fdd31 got 357112000000000000 plus fee recipients; ERC721 0x993873... token 0xd08 transferred to 0x13fed. 0x4352: 0xc8ddbf0ed5c19f0f40b8276f9905608775a1bd03 got 272389000000000000 plus fee recipients; ERC721 0x993873... token 0xdda transferred to 0x13fed). These are NFT purchase/exchange outflows; not recorded yet because graph asset format supports ETH/BTC/ERC20, not ERC721, and seller recipients also lose NFT in tx. Served tx+receipt for 0xe037ddb7... from 0x7eed: status 1, tx value 265000000000000000 to LiFi/Across path, WETH Deposit log976 credits disclosed bridge_router 0x5c7bcd6e7de5423a257d81b442095a1a6ced35c5 amount 264947000000000000; record as bridge stop.",
+   "New session over ethereum blocks 26300770-26308200. Outflow check reopened pockets with unrecorded outflows; will fetch served records for selected listed outflows and record only evidenced movements. Focus first on ERC20 outflows where receipt logs directly show source/target/amount.",
+   "Served ERC20 receipts in this run. 0x1b586d0b... status 1: USDC log83 from 0x89cd3bced9ba38ab53f538ba56cfa5aa81981ffb to 0x05ff6964d21e5dae3b1010d5ae0465b3c450f381 amount 390176534. 0x8c06055f... status 1: USDC log1050 from 0xd46dc287e71b6c2399addfddfa548f08b82db5e5 to 0xc51e9af67c16a7176e244d8803a32aaf1430cb08 amount 566404242. 0x8bc7f319... status 1: USDC log141 from 0x4cd00e387622c35bddb9b4c962c136462338bc31 to 0xf70da97812cb96acdf810712aa562db8dfa3dbef amount 7007223128. 0xe9ff747e... status 1: USDC log837 from 0x4cd00e387622c35bddb9b4c962c136462338bc31 to 0xa984c4ca650b265e9db76f8713a9a626f704b83a amount 9699825. 0x6eca2744... status 1: USDC log369 from 0x4cd00e387622c35bddb9b4c962c136462338bc31 to 0xf70da97812cb96acdf810712aa562db8dfa3dbef amount 2411918776.",
+   "Served more 0x4cd USDC receipts in this run. 0x2a2e1ef3... status 1: USDC log212 from 0x4cd00e387622c35bddb9b4c962c136462338bc31 to 0xf70da97812cb96acdf810712aa562db8dfa3dbef amount 12754776516. 0x3314447e... status 1: USDC log359 from 0x4cd00e387622c35bddb9b4c962c136462338bc31 to 0xf70da97812cb96acdf810712aa562db8dfa3dbef amount 35395081089. 0x95ed2c5c... status 1: USDC log775 from 0x4cd... to 0xf70da... amount 90450247135. 0xe09e664e... status 1: USDC log85 from 0x4cd... to 0xf70da... amount 129218045650. 0x3c8a176b... status 1: USDC log267 from 0x4cd... to 0xf70da... amount 3053190806.",
+   "Served additional 0x4cd USDC receipts in this run. 0x8b5a06df... status 1: USDC log248 from 0x4cd00e387622c35bddb9b4c962c136462338bc31 to 0xf70da97812cb96acdf810712aa562db8dfa3dbef amount 2749571516. 0xb0e377e1... status 1: USDC log206 from 0x4cd... to 0xf70da... amount 11634443734. 0x0ae502d0... status 1: USDC log280 from 0x4cd... to 0xf70da... amount 7676111275. 0x8e9cfde2... status 1: USDC log97 from 0x4cd... to 0xf70da... amount 10351481673. 0x3b151b3c... status 1: USDC log260 from 0x4cd... to 0xf70da... amount 4867144903.",
+   "Served additional 0x4cd USDC receipts in this run. 0x571b47f4... status 1: USDC log173 from 0x4cd00e387622c35bddb9b4c962c136462338bc31 to 0xf70da97812cb96acdf810712aa562db8dfa3dbef amount 4414734429. 0xf0ea1cc4... status 1: USDC log416 from 0x4cd... to 0xf70da... amount 1432629122. 0xff259145... status 1: USDC log123 from 0x4cd... to 0xf70da... amount 2115792605. 0x87a785a3... status 1: USDC log131 from 0x4cd... to 0xf70da... amount 1570315836. 0x14f325a7... status 1: USDC log438 from 0x4cd... to 0xf70da... amount 3370612771."
   ],
-  "total_steps": 515
+  "total_steps": 540
  }
 }
