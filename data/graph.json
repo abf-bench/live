@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum: live trace",
   "incident_utc": "2026-10-29T20:24:00Z",
-  "updated_utc": "2026-10-30T23:18:07Z",
+  "updated_utc": "2026-10-30T23:40:09Z",
   "head_block": 26308787,
   "chain": "ethereum",
   "notes": [
@@ -896,7 +896,7 @@
    "id": "0xce5854abe65221d796769999f07322bfe8cbc90d",
    "chain": "ethereum",
    "label": null,
-   "role": "open",
+   "role": "pocket",
    "note": null
   },
   {
@@ -910,28 +910,28 @@
    "id": "0x346fb571ecfc524e5a4d77260815ea9f321af3d3",
    "chain": "ethereum",
    "label": null,
-   "role": "pocket",
+   "role": "open",
    "note": null
   },
   {
    "id": "0x2913e84c4a9065dab453c6746b61fd5f99ace221",
    "chain": "ethereum",
    "label": null,
-   "role": "pocket",
-   "note": null
+   "role": "resting",
+   "note": "No outflow of the traced WETH since it arrived, as of block 26308787."
   },
   {
    "id": "0x49a487574b8cad2838ea90bd93196cb49f1fffcb",
    "chain": "ethereum",
    "label": null,
-   "role": "pocket",
-   "note": null
+   "role": "resting",
+   "note": "No outflow of the traced WETH since it arrived, as of block 26308787."
   },
   {
    "id": "0xe7e5041d8dbc0e70a84b5e7589b0e3cbe6e9b825",
    "chain": "ethereum",
    "label": null,
-   "role": "pocket",
+   "role": "open",
    "note": null
   },
   {
@@ -11845,12 +11845,27 @@
    "reason": null
   },
   {
-   "account": "lead_0xce5854_ETH_check",
+   "account": "lead_0xf70fa_WETH",
    "status": "open",
    "reason": null
   },
   {
-   "account": "lead_0xf70fa_WETH",
+   "account": "lead_0xf70fa1_IMD_check",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0xafa96b_USDC_check",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x346fb5_ETH_check",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0xe7e504_WETH_check",
    "status": "open",
    "reason": null
   },
@@ -12128,6 +12143,11 @@
    "account": "lead_0xe11263_WETH_check",
    "status": "closed",
    "reason": "Closed by the outflow check: no unrecorded outflow of 0xe112632f6ed84c03006099f77b6f7e83c1ee0fd1's pockets where at least half of what arrived was traced, as of 2026-10-30T22:49:16Z."
+  },
+  {
+   "account": "lead_0xce5854_ETH_check",
+   "status": "closed",
+   "reason": "Closed by the outflow check: no unrecorded outflow of 0xce5854abe65221d796769999f07322bfe8cbc90d's pockets where at least half of what arrived was traced, as of 2026-10-30T23:39:50Z."
   }
  ],
  "coming_soon": [
@@ -12360,12 +12380,24 @@
     "text": "Trace CRV pocket (0xd533a949740bb3306d119cc777fa900ba034cd52) at 0xdff69a3f4d07bfeeb4dc470af2f16bca6216e521 after ETH->CRV exchanges tx 0x779f308f277688b0743660043e599b987f73e0d41b7399fb591227ced271e02d log 590 amount 1991327340798549796312 and tx 0x9b4b7d011cd6502518423470d34da44ea6c2dbe50f4739a04bb0916c7d42f581 log 648 amount 2426370181701617360611; check CRV outflows in block window."
    },
    {
-    "key": "lead_0xce5854_ETH_check",
-    "text": "Opened by the outflow check: 0xce5854abe65221d796769999f07322bfe8cbc90d ETH (ETH): 1 positive outflows at or after block 26304178, where traced value first arrived, are not recorded: 0xafb07460783644f36ffefdd5bd1df9246409fcf700e21258a25a99ebdd5874a0 (block 26304396, 33997147404373000)"
-   },
-   {
     "key": "lead_0xf70fa_WETH",
     "text": "Trace WETH pocket at 0xf70fa1b8443c620ca7d43a9d17f4bde8b09031cc after wrap txs 0x6acf25b1d55731dc2ab68f673218d9a3e07bb8eac99712759fa26e2ac730e8a5 log 1063 amount 705000000000000000, 0x2ba9d7ec5820b6b2722e09f72d69240e5682963d18edf9d2a2b6bf0d53301416 log 843 amount 268000000000000000, and 0xd12e90008a75c316b339eb0f71429737e0c1fc0fc49078cda24579f70b2810a8 log 733 amount 29400000000000000; check all WETH outflows in block window."
+   },
+   {
+    "key": "lead_0xf70fa1_IMD_check",
+    "text": "Opened by the outflow check: 0xf70fa1b8443c620ca7d43a9d17f4bde8b09031cc 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 (IMD): 1 positive outflows at or after block 26304252, where traced value first arrived, are not recorded: 0xf88f5bb3cfc3ec3924a92bf57659052dfd39effc5966f2ac8dee275eaf400c07 (block 26304286, 500000000000000000)"
+   },
+   {
+    "key": "lead_0xafa96b_USDC_check",
+    "text": "Opened by the outflow check: 0xafa96b2f796968da543b77e9d1a04f80321acd04 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 (USDC): 1 positive outflows at or after block 26304300, where traced value first arrived, are not recorded: 0x9980932fd0c7209ab6c0ed76e2d986e67b47932e66c42b5617cbd3ca407577e6 (block 26304307, 1118000000)"
+   },
+   {
+    "key": "lead_0x346fb5_ETH_check",
+    "text": "Opened by the outflow check: 0x346fb571ecfc524e5a4d77260815ea9f321af3d3 ETH (ETH): 1 positive outflows at or after block 26304341, where traced value first arrived, are not recorded: 0x8693089e49b8681c1b3eca376d02b0ad980b5fe934db49c0c0107a3e522694e3 (block 26304418, 12429494650749153000)"
+   },
+   {
+    "key": "lead_0xe7e504_WETH_check",
+    "text": "Opened by the outflow check: 0xe7e5041d8dbc0e70a84b5e7589b0e3cbe6e9b825 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 (WETH): 1 positive outflows at or after block 26308497, where traced value first arrived, are not recorded: 0xcfdd2f4aed2826adb16b3f4549d6816002119488fbf43bc37cae0bf43e061fde (block 26308564, 3286322794000000)"
    }
   ],
   "notes": [
