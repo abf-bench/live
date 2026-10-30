@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum: live trace",
   "incident_utc": "2026-10-29T20:24:00Z",
-  "updated_utc": "2026-10-30T21:54:04Z",
+  "updated_utc": "2026-10-30T21:58:02Z",
   "head_block": 26308325,
   "chain": "ethereum",
   "notes": [
@@ -165,10 +165,10 @@
   {
    "id": 20,
    "started_utc": "2026-10-30T21:42:05Z",
-   "ended_utc": null,
-   "actions": 18,
+   "ended_utc": "2026-10-30T21:50:54Z",
+   "actions": 23,
    "model": "gpt-5.5",
-   "summary": ""
+   "summary": "ok"
   }
  ],
  "nodes": [
@@ -805,6 +805,27 @@
   },
   {
    "id": "0x74c5cd972cb18337b88fe139b9ef1a3d9d7a0130",
+   "chain": "ethereum",
+   "label": null,
+   "role": "open",
+   "note": null
+  },
+  {
+   "id": "0xafa96b2f796968da543b77e9d1a04f80321acd04",
+   "chain": "ethereum",
+   "label": null,
+   "role": "open",
+   "note": null
+  },
+  {
+   "id": "0x1b23df2e713e496a7d3b754b2e6d4c6b9f9a2362",
+   "chain": "ethereum",
+   "label": null,
+   "role": "open",
+   "note": null
+  },
+  {
+   "id": "0xe112632f6ed84c03006099f77b6f7e83c1ee0fd1",
    "chain": "ethereum",
    "label": null,
    "role": "pocket",
@@ -4818,6 +4839,86 @@
    "source_position": "Transfer event #684",
    "target_position": "Transfer event #687",
    "tx_url": "https://etherscan.io/tx/0xee06994e7ee9115dc7181e2f8746c8006e94cb55e3624b9fec336163ea953b46",
+   "tier": "verified"
+  },
+  {
+   "id": "op_weth_to_eth_a54dc_0x1e9d:0",
+   "from": "0xa54dc4425190570cb5c841adf445bbecf3b249f5",
+   "to": "0xafa96b2f796968da543b77e9d1a04f80321acd04",
+   "asset": "ETH",
+   "amount": "0.479848",
+   "tx": "0x1e9dffdf271e929344ffa3b2f8e6912d96574693a6c4037330b48b966a6a10c8",
+   "from_asset": "WETH",
+   "kind": "exchange",
+   "block": 26304283,
+   "time_utc": "2026-10-30T08:09:23Z",
+   "operation_id": "op_weth_to_eth_a54dc_0x1e9d",
+   "session": 20,
+   "seq": 199,
+   "step": 558,
+   "source_position": "Transfer event #2303",
+   "target_position": "internal call 0.3.0",
+   "tx_url": "https://etherscan.io/tx/0x1e9dffdf271e929344ffa3b2f8e6912d96574693a6c4037330b48b966a6a10c8",
+   "tier": "verified"
+  },
+  {
+   "id": "op_weth_to_eth_a54dc_0x1383:0",
+   "from": "0xa54dc4425190570cb5c841adf445bbecf3b249f5",
+   "to": "0x1b23df2e713e496a7d3b754b2e6d4c6b9f9a2362",
+   "asset": "ETH",
+   "amount": "0.438269",
+   "tx": "0x13839060cc7e213729013f5c2daa75e9210605a3f8b479984344d2c67f792d06",
+   "from_asset": "WETH",
+   "kind": "exchange",
+   "block": 26304319,
+   "time_utc": "2026-10-30T08:16:35Z",
+   "operation_id": "op_weth_to_eth_a54dc_0x1383",
+   "session": 20,
+   "seq": 200,
+   "step": 558,
+   "source_position": "Transfer event #761",
+   "target_position": "internal call 0.3.0",
+   "tx_url": "https://etherscan.io/tx/0x13839060cc7e213729013f5c2daa75e9210605a3f8b479984344d2c67f792d06",
+   "tier": "verified"
+  },
+  {
+   "id": "op_weth_to_eth_a54dc_0x67ca:0",
+   "from": "0xa54dc4425190570cb5c841adf445bbecf3b249f5",
+   "to": "0x11f81bf5ad3f7e373adcacfc59940b1eb4e6f3da",
+   "asset": "ETH",
+   "amount": "0.499841",
+   "tx": "0x67cac6faf8283fe032cceab184b9e7bd6de0b7e9f98c6ecbde7446daf9744c14",
+   "from_asset": "WETH",
+   "kind": "exchange",
+   "block": 26304351,
+   "time_utc": "2026-10-30T08:22:59Z",
+   "operation_id": "op_weth_to_eth_a54dc_0x67ca",
+   "session": 20,
+   "seq": 201,
+   "step": 558,
+   "source_position": "Transfer event #409",
+   "target_position": "internal call 0.3.0",
+   "tx_url": "https://etherscan.io/tx/0x67cac6faf8283fe032cceab184b9e7bd6de0b7e9f98c6ecbde7446daf9744c14",
+   "tier": "verified"
+  },
+  {
+   "id": "op_weth_a54dc_e112_0x4956:0",
+   "from": "0xa54dc4425190570cb5c841adf445bbecf3b249f5",
+   "to": "0xe112632f6ed84c03006099f77b6f7e83c1ee0fd1",
+   "asset": "WETH",
+   "amount": "7.84665",
+   "tx": "0x49564fefdfc3d363e322ae3a4d9c7d3b2aa735202ccbc39eea556b059b0be70c",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26304555,
+   "time_utc": "2026-10-30T09:04:11Z",
+   "operation_id": "op_weth_a54dc_e112_0x4956",
+   "session": 20,
+   "seq": 202,
+   "step": 563,
+   "source_position": "Transfer event #1014",
+   "target_position": "Transfer event #1017",
+   "tx_url": "https://etherscan.io/tx/0x49564fefdfc3d363e322ae3a4d9c7d3b2aa735202ccbc39eea556b059b0be70c",
    "tier": "verified"
   }
  ],
@@ -10155,6 +10256,130 @@
      "url": "https://etherscan.io/tx/0xee06994e7ee9115dc7181e2f8746c8006e94cb55e3624b9fec336163ea953b46#eventlog"
     }
    ]
+  },
+  {
+   "id": "op_weth_to_eth_a54dc_0x1e9d",
+   "type": "exchange_with_receiver",
+   "claim": "exchange_with_receiver: 0.479848 ETH 0xa54d\u202649f5 to 0xafa9\u2026cd04",
+   "via": {
+    "contract": "0xe742f9df04a61ac0a6aea0b87d3c3b96ac6eea88",
+    "name": null,
+    "function": null,
+    "explorer": "https://etherscan.io/address/0xe742f9df04a61ac0a6aea0b87d3c3b96ac6eea88"
+   },
+   "session": 20,
+   "seq": 199,
+   "step": 558,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_weth_to_eth_a54dc_0x1e9d:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x1e9dffdf271e929344ffa3b2f8e6912d96574693a6c4037330b48b966a6a10c8",
+     "url": "https://etherscan.io/tx/0x1e9dffdf271e929344ffa3b2f8e6912d96574693a6c4037330b48b966a6a10c8#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x1e9dffdf271e929344ffa3b2f8e6912d96574693a6c4037330b48b966a6a10c8",
+     "url": "https://etherscan.io/tx/0x1e9dffdf271e929344ffa3b2f8e6912d96574693a6c4037330b48b966a6a10c8#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_weth_to_eth_a54dc_0x1383",
+   "type": "exchange_with_receiver",
+   "claim": "exchange_with_receiver: 0.438269 ETH 0xa54d\u202649f5 to 0x1b23\u20262362",
+   "via": {
+    "contract": "0xe742f9df04a61ac0a6aea0b87d3c3b96ac6eea88",
+    "name": null,
+    "function": null,
+    "explorer": "https://etherscan.io/address/0xe742f9df04a61ac0a6aea0b87d3c3b96ac6eea88"
+   },
+   "session": 20,
+   "seq": 200,
+   "step": 558,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_weth_to_eth_a54dc_0x1383:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x13839060cc7e213729013f5c2daa75e9210605a3f8b479984344d2c67f792d06",
+     "url": "https://etherscan.io/tx/0x13839060cc7e213729013f5c2daa75e9210605a3f8b479984344d2c67f792d06#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x13839060cc7e213729013f5c2daa75e9210605a3f8b479984344d2c67f792d06",
+     "url": "https://etherscan.io/tx/0x13839060cc7e213729013f5c2daa75e9210605a3f8b479984344d2c67f792d06#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_weth_to_eth_a54dc_0x67ca",
+   "type": "exchange_with_receiver",
+   "claim": "exchange_with_receiver: 0.499841 ETH 0xa54d\u202649f5 to 0x11f8\u2026f3da",
+   "via": {
+    "contract": "0xe742f9df04a61ac0a6aea0b87d3c3b96ac6eea88",
+    "name": null,
+    "function": null,
+    "explorer": "https://etherscan.io/address/0xe742f9df04a61ac0a6aea0b87d3c3b96ac6eea88"
+   },
+   "session": 20,
+   "seq": 201,
+   "step": 558,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_weth_to_eth_a54dc_0x67ca:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x67cac6faf8283fe032cceab184b9e7bd6de0b7e9f98c6ecbde7446daf9744c14",
+     "url": "https://etherscan.io/tx/0x67cac6faf8283fe032cceab184b9e7bd6de0b7e9f98c6ecbde7446daf9744c14#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x67cac6faf8283fe032cceab184b9e7bd6de0b7e9f98c6ecbde7446daf9744c14",
+     "url": "https://etherscan.io/tx/0x67cac6faf8283fe032cceab184b9e7bd6de0b7e9f98c6ecbde7446daf9744c14#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_weth_a54dc_e112_0x4956",
+   "type": "transfer",
+   "claim": "transfer: 7.84665 WETH 0xa54d\u202649f5 to 0xe112\u20260fd1",
+   "via": {
+    "contract": "0xe742f9df04a61ac0a6aea0b87d3c3b96ac6eea88",
+    "name": null,
+    "function": null,
+    "explorer": "https://etherscan.io/address/0xe742f9df04a61ac0a6aea0b87d3c3b96ac6eea88"
+   },
+   "session": 20,
+   "seq": 202,
+   "step": 563,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_weth_a54dc_e112_0x4956:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x49564fefdfc3d363e322ae3a4d9c7d3b2aa735202ccbc39eea556b059b0be70c",
+     "url": "https://etherscan.io/tx/0x49564fefdfc3d363e322ae3a4d9c7d3b2aa735202ccbc39eea556b059b0be70c#eventlog"
+    },
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x49564fefdfc3d363e322ae3a4d9c7d3b2aa735202ccbc39eea556b059b0be70c",
+     "url": "https://etherscan.io/tx/0x49564fefdfc3d363e322ae3a4d9c7d3b2aa735202ccbc39eea556b059b0be70c#eventlog"
+    }
+   ]
   }
  ],
  "leads": [
@@ -10365,6 +10590,21 @@
   },
   {
    "account": "lead_0xd3f92_ETH",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0xafa96_ETH",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x1b23_ETH",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x74c5_WETH",
    "status": "open",
    "reason": null
   },
@@ -10827,6 +11067,18 @@
    {
     "key": "lead_0xd3f92_ETH",
     "text": "Trace ETH pocket at 0xd3f92cbf60588d5d2a2d89bf5883ff97e607efdc after a54dc WETH unwind tx 0xfc339358a0609682237e8584baa5ef5932e8b6bac61b41cddf93cc238a6e4420 trace 0.3.0 amount 752953099307337695; check ETH outflows in block window."
+   },
+   {
+    "key": "lead_0xafa96_ETH",
+    "text": "Trace ETH pocket at 0xafa96b2f796968da543b77e9d1a04f80321acd04 after a54dc WETH unwind tx 0x1e9dffdf271e929344ffa3b2f8e6912d96574693a6c4037330b48b966a6a10c8 trace 0.3.0 amount 479848113013297106; check ETH outflows in block window."
+   },
+   {
+    "key": "lead_0x1b23_ETH",
+    "text": "Trace ETH pocket at 0x1b23df2e713e496a7d3b754b2e6d4c6b9f9a2362 after a54dc WETH unwind tx 0x13839060cc7e213729013f5c2daa75e9210605a3f8b479984344d2c67f792d06 trace 0.3.0 amount 438268707553883141; check ETH outflows in block window."
+   },
+   {
+    "key": "lead_0x74c5_WETH",
+    "text": "Trace WETH pocket at 0x74c5cd972cb18337b88fe139b9ef1a3d9d7a0130 after a54dc WETH transfer tx 0xee06994e7ee9115dc7181e2f8746c8006e94cb55e3624b9fec336163ea953b46 log 687 amount 999390100000000000; check WETH outflows in block window."
    }
   ],
   "notes": [
