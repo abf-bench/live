@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum: live trace",
   "incident_utc": "2026-10-29T20:24:00Z",
-  "updated_utc": "2026-10-30T21:19:52Z",
+  "updated_utc": "2026-10-30T21:20:18Z",
   "head_block": 26308200,
   "chain": "ethereum",
   "notes": [
@@ -157,10 +157,10 @@
   {
    "id": 19,
    "started_utc": "2026-10-30T21:16:57Z",
-   "ended_utc": null,
-   "actions": 20,
+   "ended_utc": "2026-10-30T21:19:41Z",
+   "actions": 25,
    "model": "gpt-5.5",
-   "summary": ""
+   "summary": "ok"
   }
  ],
  "nodes": [
@@ -560,7 +560,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "127.67248",
-     "note": "Tether has not frozen this address for USDT: USDT isBlackListed returns false on chain; balanceOf returns 57964.626661 USDT, of which up to 127.67248 USDT arrived through traced flows, as of block 26308200."
+     "note": "Tether has not frozen this address for USDT: USDT isBlackListed returns false on chain; balanceOf returns 57965.43937 USDT, of which up to 127.67248 USDT arrived through traced flows, as of block 26308200."
     }
    ]
   },
@@ -641,7 +641,7 @@
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
      "issuer": "Circle",
      "held": "330473.320964",
-     "note": "Circle has not frozen this address for USDC: USDC isBlacklisted returns false on chain; balanceOf returns 2017213.798965 USDC, of which up to 330473.320964 USDC arrived through traced flows, as of block 26308200."
+     "note": "Circle has not frozen this address for USDC: USDC isBlacklisted returns false on chain; balanceOf returns 2015518.013394 USDC, of which up to 330473.320964 USDC arrived through traced flows, as of block 26308200."
     }
    ]
   },
@@ -10517,7 +10517,8 @@
    "Served ERC20 receipts in this run. 0x1b586d0b... status 1: USDC log83 from 0x89cd3bced9ba38ab53f538ba56cfa5aa81981ffb to 0x05ff6964d21e5dae3b1010d5ae0465b3c450f381 amount 390176534. 0x8c06055f... status 1: USDC log1050 from 0xd46dc287e71b6c2399addfddfa548f08b82db5e5 to 0xc51e9af67c16a7176e244d8803a32aaf1430cb08 amount 566404242. 0x8bc7f319... status 1: USDC log141 from 0x4cd00e387622c35bddb9b4c962c136462338bc31 to 0xf70da97812cb96acdf810712aa562db8dfa3dbef amount 7007223128. 0xe9ff747e... status 1: USDC log837 from 0x4cd00e387622c35bddb9b4c962c136462338bc31 to 0xa984c4ca650b265e9db76f8713a9a626f704b83a amount 9699825. 0x6eca2744... status 1: USDC log369 from 0x4cd00e387622c35bddb9b4c962c136462338bc31 to 0xf70da97812cb96acdf810712aa562db8dfa3dbef amount 2411918776.",
    "Served more 0x4cd USDC receipts in this run. 0x2a2e1ef3... status 1: USDC log212 from 0x4cd00e387622c35bddb9b4c962c136462338bc31 to 0xf70da97812cb96acdf810712aa562db8dfa3dbef amount 12754776516. 0x3314447e... status 1: USDC log359 from 0x4cd00e387622c35bddb9b4c962c136462338bc31 to 0xf70da97812cb96acdf810712aa562db8dfa3dbef amount 35395081089. 0x95ed2c5c... status 1: USDC log775 from 0x4cd... to 0xf70da... amount 90450247135. 0xe09e664e... status 1: USDC log85 from 0x4cd... to 0xf70da... amount 129218045650. 0x3c8a176b... status 1: USDC log267 from 0x4cd... to 0xf70da... amount 3053190806.",
    "Served additional 0x4cd USDC receipts in this run. 0x8b5a06df... status 1: USDC log248 from 0x4cd00e387622c35bddb9b4c962c136462338bc31 to 0xf70da97812cb96acdf810712aa562db8dfa3dbef amount 2749571516. 0xb0e377e1... status 1: USDC log206 from 0x4cd... to 0xf70da... amount 11634443734. 0x0ae502d0... status 1: USDC log280 from 0x4cd... to 0xf70da... amount 7676111275. 0x8e9cfde2... status 1: USDC log97 from 0x4cd... to 0xf70da... amount 10351481673. 0x3b151b3c... status 1: USDC log260 from 0x4cd... to 0xf70da... amount 4867144903.",
-   "Served additional 0x4cd USDC receipts in this run. 0x571b47f4... status 1: USDC log173 from 0x4cd00e387622c35bddb9b4c962c136462338bc31 to 0xf70da97812cb96acdf810712aa562db8dfa3dbef amount 4414734429. 0xf0ea1cc4... status 1: USDC log416 from 0x4cd... to 0xf70da... amount 1432629122. 0xff259145... status 1: USDC log123 from 0x4cd... to 0xf70da... amount 2115792605. 0x87a785a3... status 1: USDC log131 from 0x4cd... to 0xf70da... amount 1570315836. 0x14f325a7... status 1: USDC log438 from 0x4cd... to 0xf70da... amount 3370612771."
+   "Served additional 0x4cd USDC receipts in this run. 0x571b47f4... status 1: USDC log173 from 0x4cd00e387622c35bddb9b4c962c136462338bc31 to 0xf70da97812cb96acdf810712aa562db8dfa3dbef amount 4414734429. 0xf0ea1cc4... status 1: USDC log416 from 0x4cd... to 0xf70da... amount 1432629122. 0xff259145... status 1: USDC log123 from 0x4cd... to 0xf70da... amount 2115792605. 0x87a785a3... status 1: USDC log131 from 0x4cd... to 0xf70da... amount 1570315836. 0x14f325a7... status 1: USDC log438 from 0x4cd... to 0xf70da... amount 3370612771.",
+   "Served two more 0x4cd USDC receipts and three a54dc WETH receipts in this run. 0x7b27e52f... status 1: USDC log167 from 0x4cd00e387622c35bddb9b4c962c136462338bc31 to 0xf70da97812cb96acdf810712aa562db8dfa3dbef amount 5931391670. 0x2279e066... status 1: USDC log216 from 0x4cd... to 0xf70da... amount 24009403029. WETH txs 0x1c545f1e..., 0x2da756ef..., 0x44b96309... status 1 show WETH Transfer from 0xa54dc4425190570cb5c841adf445bbecf3b249f5 to 0xe742f9df04a61ac0a6aea0b87d3c3b96ac6eea88, immediately followed by WETH Withdrawal by 0xe742... and 0x75220 log; need traces to identify final ETH landing before recording WETH outflow."
   ],
   "total_steps": 540
  }
