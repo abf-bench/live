@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum: live trace",
   "incident_utc": "2026-10-29T20:24:00Z",
-  "updated_utc": "2026-10-30T19:13:59Z",
+  "updated_utc": "2026-10-30T19:14:15Z",
   "head_block": 26307574,
   "chain": "ethereum",
   "notes": [
@@ -117,10 +117,10 @@
   {
    "id": 14,
    "started_utc": "2026-10-30T19:11:13Z",
-   "ended_utc": null,
-   "actions": 28,
+   "ended_utc": "2026-10-30T19:13:56Z",
+   "actions": 35,
    "model": "gpt-5.5",
-   "summary": ""
+   "summary": "ok"
   }
  ],
  "nodes": [
@@ -520,7 +520,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "127.67248",
-     "note": "Tether has not frozen this address for USDT: USDT isBlackListed returns false on chain; balanceOf returns 57588.069746 USDT, of which up to 127.67248 USDT arrived through traced flows, as of block 26307574."
+     "note": "Tether has not frozen this address for USDT: USDT isBlackListed returns false on chain; balanceOf returns 57589.036398 USDT, of which up to 127.67248 USDT arrived through traced flows, as of block 26307574."
     }
    ]
   },
@@ -3267,6 +3267,26 @@
    "source_position": "transaction value",
    "target_position": "transaction value",
    "tx_url": "https://etherscan.io/tx/0x1d9f2eb4efedd7bb458b191d735205fa2a5ff912b79e68b1808c0a20f37bc6b8",
+   "tier": "verified"
+  },
+  {
+   "id": "op_eth_dd6d_5227_0xa3df:0",
+   "from": "0xdd6dbbe67262ccc9b1824de1257999efc6c52296",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "amount": "0.543",
+   "tx": "0xa3df03c37b2b7820a8339d546a15b8e2d8a909a04010898f54f323e2ded85784",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26303912,
+   "time_utc": "2026-10-30T06:55:11Z",
+   "operation_id": "op_eth_dd6d_5227_0xa3df",
+   "session": 14,
+   "seq": 125,
+   "step": 397,
+   "source_position": "transaction value",
+   "target_position": "transaction value",
+   "tx_url": "https://etherscan.io/tx/0xa3df03c37b2b7820a8339d546a15b8e2d8a909a04010898f54f323e2ded85784",
    "tier": "verified"
   }
  ],
@@ -6733,6 +6753,32 @@
      "kind": "transaction_receipt",
      "tx": "0x1d9f2eb4efedd7bb458b191d735205fa2a5ff912b79e68b1808c0a20f37bc6b8",
      "url": "https://etherscan.io/tx/0x1d9f2eb4efedd7bb458b191d735205fa2a5ff912b79e68b1808c0a20f37bc6b8#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_eth_dd6d_5227_0xa3df",
+   "type": "transfer",
+   "claim": "transfer: 0.543 ETH 0xdd6d\u20262296 to 0x5227\u20262f8c",
+   "via": null,
+   "session": 14,
+   "seq": 125,
+   "step": 397,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_eth_dd6d_5227_0xa3df:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction",
+     "tx": "0xa3df03c37b2b7820a8339d546a15b8e2d8a909a04010898f54f323e2ded85784",
+     "url": "https://etherscan.io/tx/0xa3df03c37b2b7820a8339d546a15b8e2d8a909a04010898f54f323e2ded85784"
+    },
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xa3df03c37b2b7820a8339d546a15b8e2d8a909a04010898f54f323e2ded85784",
+     "url": "https://etherscan.io/tx/0xa3df03c37b2b7820a8339d546a15b8e2d8a909a04010898f54f323e2ded85784#eventlog"
     }
    ]
   }
