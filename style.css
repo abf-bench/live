@@ -1056,6 +1056,33 @@ th.ft-amt { text-align: right; }
   z-index: 60;
 }
 
+/* ---------- live status, notes, cost, fresh flows ---------- */
+
+.live-status { margin-left: auto; letter-spacing: 0.04em; text-transform: none; color: var(--faint); font-size: 11px; }
+.stat-notes { margin-top: -8px; }
+.stat-notes p { margin: 0; font-size: 12px; line-height: 1.45; color: var(--muted); max-width: 980px; }
+.stat-notes p::before { content: "Note. "; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); }
+.ws-cost {
+  padding: 0;
+  background: none;
+  border: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  cursor: help;
+  text-decoration: underline dotted;
+  text-decoration-color: var(--line-2);
+  text-underline-offset: 3px;
+}
+.ws-cost:hover { color: var(--ink-2); }
+.ws-cost-note { margin: 0 0 10px; font-family: var(--sans); font-size: 11.5px; line-height: 1.45; color: var(--faint); }
+.step-title .spent { color: var(--muted); font-weight: 400; }
+.ft-row.fresh td { animation: fresh-row 10s ease-out; }
+@keyframes fresh-row {
+  0%, 20% { background-color: rgba(232, 194, 90, 0.16); }
+  100% { background-color: transparent; }
+}
+
 /* ---------- report a problem ---------- */
 
 .report-link {

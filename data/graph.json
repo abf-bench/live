@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum: live trace",
   "incident_utc": "2026-10-29T20:24:00Z",
-  "updated_utc": "2026-10-30T17:15:36Z",
+  "updated_utc": "2026-10-30T17:25:13Z",
   "head_block": 26306988,
   "chain": "ethereum",
   "notes": [
@@ -534,6 +534,58 @@
    "tx": "0x55ba4dabc41b468e580751373ad31acdee6f5ba398682df2c93e5a8340870556",
    "block": 26301167,
    "time_utc": "2026-10-29T21:44:11Z",
+   "operation_id": "theft",
+   "session": 0,
+   "tier": "verified"
+  },
+  {
+   "id": "seed:0x2e100162:0x5227f6:RLUSD",
+   "from": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "RLUSD",
+   "amount": "25943825.8",
+   "tx": "0x2e1001627db976a77c5ce2feddef516f2c729b1de101c25d0d5af7699e5ffeb3",
+   "block": 26300772,
+   "time_utc": "2026-10-29T20:24:47Z",
+   "operation_id": "theft",
+   "session": 0,
+   "tier": "verified"
+  },
+  {
+   "id": "seed:0x2c45d787:0x5227f6:WBTC",
+   "from": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "WBTC",
+   "amount": "84.5",
+   "tx": "0x2c45d7874dd60a5f1fa6e400933378efbc96b66abb988b8e3ed9bc010e6f260b",
+   "block": 26300772,
+   "time_utc": "2026-10-29T20:24:47Z",
+   "operation_id": "theft",
+   "session": 0,
+   "tier": "verified"
+  },
+  {
+   "id": "seed:0x31c4c9fe:0x5227f6:USDT",
+   "from": "0x28c6c06298d514db089934071355e5743bf21d60",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "USDT",
+   "amount": "3917639.767927",
+   "tx": "0x31c4c9fe287d54fb9d3b79980477a8c793a11f774b98d0a9a92de1dad888a91d",
+   "block": 26300968,
+   "time_utc": "2026-10-29T21:04:23Z",
+   "operation_id": "theft",
+   "session": 0,
+   "tier": "verified"
+  },
+  {
+   "id": "seed:0x31c4c9fe:0x5227f6:WBTC",
+   "from": "0x28c6c06298d514db089934071355e5743bf21d60",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "WBTC",
+   "amount": "0.102277",
+   "tx": "0x31c4c9fe287d54fb9d3b79980477a8c793a11f774b98d0a9a92de1dad888a91d",
+   "block": 26300968,
+   "time_utc": "2026-10-29T21:04:23Z",
    "operation_id": "theft",
    "session": 0,
    "tier": "verified"
@@ -2084,6 +2136,10 @@
     "seed:0x31c4c9fe:0x5227f6:ETH",
     "seed:0x55ba4dab:0x5227f6:ETH",
     "seed:0x55ba4dab:0x5227f6:USDT",
+    "seed:0x2e100162:0x5227f6:RLUSD",
+    "seed:0x2c45d787:0x5227f6:WBTC",
+    "seed:0x31c4c9fe:0x5227f6:USDT",
+    "seed:0x31c4c9fe:0x5227f6:WBTC",
     "seed:0x4a4aed83:0xa97bf7:ETH",
     "seed:0x4395d51d:0xa97bf7:ETH"
    ]
@@ -4129,15 +4185,15 @@
  "coming_soon": [
   {
    "chain": "Arbitrum",
-   "note": "about 8,426 ETH reported taken from Binance wallets"
+   "note": "attacker funds reported on Arbitrum; not traced here yet"
   },
   {
    "chain": "Avalanche",
-   "note": "about 1.81M AVAX and 8.4M USDT reported taken"
+   "note": "attacker funds reported on Avalanche; not traced here yet"
   },
   {
    "chain": "Optimism",
-   "note": "related receipts reported"
+   "note": "related transfers reported on Optimism; not traced here yet"
   },
   {
    "chain": "Bitcoin",

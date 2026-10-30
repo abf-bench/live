@@ -19,6 +19,7 @@
         <span>Live trace</span>
         <span class="sep">/</span>
         <span id="chain-name">Ethereum</span>
+        <span class="live-status" id="live-status" hidden></span>
       </div>
       <h1 id="case-title">Loading</h1>
       <p class="meta">
@@ -36,6 +37,7 @@
       </div>
 
       <div class="stats" id="stats" aria-label="Totals"></div>
+      <div class="stat-notes" id="stat-notes" hidden></div>
 
       <div class="board" id="graph-anchor">
         <div class="graph-col">
@@ -44,7 +46,6 @@
             <div class="watermark" id="watermark" hidden>MOCK DATA</div>
             <div class="graph-msg" id="graph-msg" hidden></div>
             <div class="graph-tools">
-              <button type="button" class="tool new-data" id="btn-new" hidden>New data. Reload</button>
               <button type="button" class="tool" id="btn-fit" title="Fit graph to view" aria-label="Fit graph to view">
                 <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
               </button>
@@ -79,12 +80,14 @@
                 <h2 id="workspace-h">Agent workspace</h2>
                 <span class="internal-tag">Internal · unchecked</span>
                 <span class="ws-steps" id="ws-steps"></span>
+                <button type="button" class="ws-cost" id="ws-cost" aria-controls="ws-cost-note" hidden></button>
               </div>
               <div class="ws-tabs" role="tablist" aria-label="Agent workspace views">
                 <button type="button" role="tab" class="ws-tab" id="tab-traj" aria-controls="pane-traj" aria-selected="true">How the agent worked</button>
                 <button type="button" role="tab" class="ws-tab" id="tab-mem" aria-controls="pane-mem" aria-selected="false">Open leads <span class="count" id="ws-leads-count">0</span></button>
               </div>
             </div>
+            <p class="ws-cost-note" id="ws-cost-note" hidden></p>
             <p class="ws-note" id="ws-note"></p>
 
             <div class="ws-pane" id="pane-traj" role="tabpanel" aria-labelledby="tab-traj">
@@ -120,7 +123,7 @@
             <button type="button" data-f="rejected" aria-pressed="false">Rejected</button>
           </div>
         </div>
-        <div class="ft-scroll">
+        <div class="ft-scroll" id="ft-scroll">
           <table class="ft">
             <thead>
               <tr>

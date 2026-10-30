@@ -22,7 +22,7 @@
   var EMBED = PARAMS.get('embed') === '1';
   var SPLIT_ASSETS = PARAMS.get('split') === 'asset';
   var DATA_URL = safeDataPath(PARAMS.get('data')) || 'data/graph.json';
-  var POLL_MS = 3 * 60 * 1000;
+  var POLL_MS = 2 * 60 * 1000; // live updates: check for a new export every two minutes
   var PLAY_EVENT_MS = 1200;   // pause on a step that adds flows
   var PLAY_IDLE_MS = 140;     // pass quickly over steps that add nothing
   var MAX_LABEL_LINES = 4;
@@ -135,6 +135,7 @@
   }
 
   function pad(n) { return n < 10 ? '0' + n : String(n); }
+  function parseTime(iso) { if (!iso) return null; var d = new Date(iso); return isNaN(d.getTime()) ? null : d; }
   function fmtTime(iso, withSeconds) {
     var d = iso ? new Date(iso) : null;
     if (!d || isNaN(d.getTime())) return iso ? String(iso) : '';
@@ -275,7 +276,7 @@
         kind: str(e.kind), fromAsset: str(e.from_asset), toAsset: str(e.asset) || '?',
         swap: e.kind === 'exchange' && from === to,
         tier: e.tier === 'verified' ? 'verified' : 'unverified', // solid only when the export says so
-        rejected: !!((op && op.verdict === 'INVALID') || (listed && listed.verdict === 'INVALID'))
+        rejected: e.tier === 'rejected' || !!((op && op.verdict === 'INVALID') || (listed && listed.verdict === 'INVALID'))
       });
       S.touched.add(from);
       S.touched.add(to);
@@ -304,13 +305,14 @@
       var gk = e.from + '|' + e.to + '|' + e.asset + '|' + e.tier;
       var g = gByKey.get(gk);
       if (!g) {
-        g = { id: 'g' + S.groups.length, from: e.from, to: e.to, asset: e.asset, tier: e.tier, edges: [] };
+        g = { id: 'g:' + gk, from: e.from, to: e.to, asset: e.asset, tier: e.tier, edges: [] };
         gByKey.set(gk, g);
         S.groups.push(g);
         var bk = e.from + '|' + e.to + '|' + e.tier + (SPLIT_ASSETS ? '|' + e.asset : '');
         var b = bByKey.get(bk);
         if (!b) {
-          b = { id: 'b' + S.bundles.length, from: e.from, to: e.to, tier: e.tier, groups: [] };
+          // Stable ids keep the same drawn edge across live updates.
+          b = { id: 'b:' + bk, from: e.from, to: e.to, tier: e.tier, groups: [] };
           bByKey.set(bk, b);
           S.bundles.push(b);
           S.bundleById.set(b.id, b);
@@ -549,7 +551,7 @@
       'text-background-shape': 'round-rectangle',
       'text-border-width': 1, 'text-border-color': '#2e2f35', 'text-border-opacity': 1,
       'overlay-padding': 7, 'overlay-opacity': 0,
-      'transition-property': 'opacity', 'transition-duration': 0.55
+      'transition-property': 'opacity, line-color, target-arrow-color', 'transition-duration': 0.55
     } },
     // Fan-in and fan-out edges carry their label near the spread-out end so labels don't pile up.
     { selector: 'edge.lbl-src', style: { 'label': '', 'source-label': 'data(label)', 'source-text-offset': 'data(off)' } },
@@ -565,6 +567,8 @@
     } },
     { selector: 'edge.hl', style: { 'line-color': C.ink2, 'target-arrow-color': C.ink2, 'z-index': 5 } },
     { selector: 'edge.sel', style: { 'line-color': C.signal, 'target-arrow-color': C.signal, 'color': C.ink, 'text-border-color': C.signal, 'z-index': 10 } },
+    { selector: 'edge.fresh', style: { 'line-color': C.amber, 'target-arrow-color': C.amber, 'z-index': 8 } },
+    { selector: 'node.fresh', style: { 'underlay-color': C.amber, 'underlay-opacity': 0.45, 'underlay-padding': 8 } },
     { selector: '.dim', style: { 'opacity': 0.16 } },
     { selector: '.entering', style: { 'opacity': 0 } },
     { selector: '.gone', style: { 'display': 'none' } }
@@ -848,6 +852,14 @@
     return m;
   }
 
+  function renderNotes() {
+    var box = $('stat-notes');
+    clear(box);
+    var notes = Array.isArray(S.caseInfo.notes) ? S.caseInfo.notes.map(str).filter(Boolean) : [];
+    notes.forEach(function (n) { box.appendChild(el('p', null, n)); });
+    box.hidden = !notes.length;
+  }
+
   function renderStats(view) {
     var box = $('stats');
     clear(box);
@@ -937,6 +949,8 @@
     var title = $('step-title');
     clear(title);
     append(title, [el('b', null, 'Step ' + S.step), ' of ' + S.total]);
+    var spent = costAt(S.step);
+    if (spent !== null) append(title, [el('span', { class: 'spent' }, ' · $' + spent.toFixed(2) + ' spent')]);
     var summary;
     if (S.step === 0) summary = 'Case start: the theft transfers the case was opened with.';
     else summary = plural(view.flows, 'flow') + ' recorded so far' + (view.flowsNow ? ', ' + view.flowsNow + ' at this step.' : '.');
@@ -1035,7 +1049,8 @@
         el('div', { class: 'rej-head' }, el('span', { class: 'badge bad' }, 'Invalid'), el('span', { class: 'op-type' }, prettyType(o.type)), o.step !== null ? el('span', null, 'step ' + o.step) : null),
         o.claim && !codeLike(o.claim) && o.reasons.indexOf(o.claim) === -1 ? el('p', { class: 'rej-claim' }, o.claim) : null,
         edges.map(function (e) {
-          return el('div', { class: 'rej-edge' }, short(e.from) + ' to ' + short(e.to) + ' · ' + fmt(e.amount) + ' ' + e.asset);
+          return el('div', { class: 'rej-edge' }, e.swap ? short(e.from) + ' swapped ' + (e.fromAsset || '?') + ' to ' + fmt(e.amount) + ' ' + e.toAsset
+            : short(e.from) + ' to ' + short(e.to) + ' · ' + fmt(e.amount) + ' ' + e.asset);
         }),
         el('span', { class: 'chain-label' }, 'Checker\u2019s reasons'),
         o.reasons.length ? el('ul', { class: 'reasons' }, o.reasons.map(reasonItem))
@@ -1308,9 +1323,16 @@
     evs.forEach(function (e, k) { e._order = num(e.i) !== null ? num(e.i) : k; });
     evs.sort(function (a, b) { return a._order - b._order; });
     var leadOpen = new Set();
+    T.byKey = new Map();
+    T.cost = num(d && d.cost_usd);
+    T.costNote = str(d && d.cost_note);
+    var lastCost = null;
     evs.forEach(function (e, k) {
       e._k = k;
       e._step = num(e.step) === null ? 0 : num(e.step);
+      var c = num(e.cost_usd);
+      e._cost = c === null ? lastCost : c;
+      lastCost = e._cost;
       if (e.kind === 'memory' && e.args && typeof e.args === 'object') {
         var a = e.args, key = str(a.key);
         if (a.section === 'findings' && key && !T.byKey.has(key)) T.byKey.set(key, k);
@@ -1322,6 +1344,7 @@
     });
     T.events = evs;
     T.loaded = true;
+    renderCost();
     // The timeline may run past the last recorded flow; stretch the replay to cover it.
     var tTotal = Math.max(num(d && d.total_steps) || 0, evs.length ? evs[evs.length - 1]._step : 0);
     if (tTotal > S.total) {
@@ -1360,6 +1383,23 @@
     T.rendered = false;
     syncTrajectory(false);
     handleEventLink();
+  }
+
+  // Model spend after the last event at or before a step (cumulative, from the trajectory).
+  function costAt(N) {
+    if (!T.loaded || !T.events.length || T.cost === null) return null;
+    var c = T.events[lastEventAtOrBefore(N)]._cost;
+    return c === null || c === undefined ? null : c;
+  }
+
+  function renderCost() {
+    var b = $('ws-cost');
+    if (T.cost === null) { b.hidden = true; return; }
+    b.hidden = false;
+    b.textContent = '$' + T.cost.toFixed(2) + ' model cost';
+    b.title = T.costNote || '';
+    $('ws-cost-note').textContent = T.costNote || '';
+    if (S.view) renderTimeline(S.view);
   }
 
   function lastEventAtOrBefore(N) {
@@ -1731,9 +1771,16 @@
       rows.push({ step: e.step, seed: e.seed, type: e.op ? prettyType(e.op.type) : (e.kind || 'transfer'), from: e.from, to: e.to,
         swap: e.swap, amount: e.amount, asset: e.swap ? e.toAsset : e.asset, fromAsset: e.fromAsset, verdict: verdictOf(e), edge: e, block: e.block || 0 });
     });
-    // Rejected claims stay in the list; the export does not carry their transfers.
+    // Rejected claims stay in the list, with their transfers when the export carries them.
+    var withEdges = new Set();
+    S.edges.forEach(function (e) {
+      if (!e.rejected) return;
+      if (e.op) withEdges.add(e.op);
+      rows.push({ step: e.step, type: e.op ? prettyType(e.op.type) : (e.kind || 'transfer'), from: e.from, to: e.to, swap: e.swap,
+        amount: e.amount, asset: e.swap ? e.toAsset : e.asset, fromAsset: e.fromAsset, verdict: 'rejected', edge: e, op: e.op, block: e.block || 0 });
+    });
     S.ops.forEach(function (o) {
-      if (o.verdict !== 'INVALID' || o.seedOp) return;
+      if (o.verdict !== 'INVALID' || o.seedOp || withEdges.has(o)) return;
       rows.push({ step: o.step === null ? S.total : o.step, type: prettyType(o.type), verdict: 'rejected', op: o, block: 0 });
     });
     FT.rows = rows;
@@ -1753,15 +1800,15 @@
     if (!rows.length) { body.appendChild(el('tr', null, el('td', { colspan: '6', class: 'ft-empty' }, 'No flows match this filter.'))); return; }
     rows.forEach(function (r) {
       var badge = VERDICT_BADGE[r.verdict];
-      var tr = el('tr', { class: 'ft-row' + (r.step > S.step ? ' future' : ''), 'data-step': String(r.step), tabindex: '0', role: 'button',
+      var tr = el('tr', { class: 'ft-row' + (r.step > S.step ? ' future' : '') + (r.edge && LIVE.fresh.has(r.edge.id) ? ' fresh' : ''), 'data-step': String(r.step), tabindex: '0', role: 'button',
           title: r.op ? 'Show this rejected claim' : (r.swap ? 'Show this swap and its evidence' : 'Show this flow in the graph'),
           onclick: function () { openFlowRow(r); },
           onkeydown: function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); openFlowRow(r); } } },
         el('td', { class: 'ft-step' }, r.seed ? 'start' : String(r.step)),
         el('td', null, r.type),
         el('td', { class: 'ft-addr' }, r.from ? nameOf(r.from) : el('span', { class: 'ft-none' }, 'not exported')),
-        el('td', { class: 'ft-addr' }, r.op ? el('span', { class: 'ft-none' }, 'not exported') : (r.swap ? el('span', { class: 'ft-none' }, 'same address') : nameOf(r.to))),
-        el('td', { class: 'ft-amt' }, r.op ? '' : fmt(r.amount) + ' ' + r.asset + (r.swap && r.fromAsset ? ' from ' + r.fromAsset : '')),
+        el('td', { class: 'ft-addr' }, !r.to ? el('span', { class: 'ft-none' }, 'not exported') : (r.swap ? el('span', { class: 'ft-none' }, 'same address') : nameOf(r.to))),
+        el('td', { class: 'ft-amt' }, r.edge ? fmt(r.amount) + ' ' + r.asset + (r.swap && r.fromAsset ? ' from ' + r.fromAsset : '') : ''),
         el('td', null, el('span', { class: 'badge ' + badge[0] }, badge[1])));
       body.appendChild(tr);
     });
@@ -1778,7 +1825,7 @@
     stopPlay();
     var anchor = $('graph-anchor').getBoundingClientRect();
     if (anchor.top < 0 || anchor.top > window.innerHeight * 0.5) $('graph-anchor').scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block: 'start' });
-    if (r.op) { focusOp(r.op.id); return; }
+    if (r.verdict === 'rejected' && r.op) { focusOp(r.op.id); return; }
     var e = r.edge;
     if (e.step > S.step) apply(Math.max(S.step, e.step), { fit: false });
     if (r.swap) {
@@ -1885,6 +1932,14 @@
     var ctx = [['Flagged', 'a claim the checker rejected'], ['Operation', mdCode(o.id) + ' (' + prettyType(o.type) + ')']];
     if (o.step !== null) ctx.push(['Recorded', 'agent step ' + o.step]);
     ctx.push(['Checker reasons', o.reasons.length ? o.reasons.map(mdCode).join(', ') : 'none given']);
+    var claimed = S.edges.filter(function (e) { return e.op === o; });
+    claimed.slice(0, 6).forEach(function (e) {
+      var chain = (S.nodes.get(e.from) || {}).chain;
+      ctx.push(['Claimed transfer', e.swap
+        ? mdAddr(e.from, chain) + ' swapped ' + (e.fromAsset || '?') + ' to ' + fmtExact(e.amountStr) + ' ' + e.toAsset
+        : mdAddr(e.from, chain) + ' to ' + mdAddr(e.to, chain) + ', ' + fmtExact(e.amountStr) + ' ' + e.asset]);
+    });
+    if (claimed.length > 6) ctx.push(['More transfers', String(claimed.length - 6)]);
     txs.forEach(function (h) { ctx.push(['Transaction', mdTx(h, S.caseInfo.chain)]); });
     return {
       summary: 'Rejected ' + prettyType(o.type) + ' claim' + (o.step !== null ? ' at step ' + o.step : ''),
@@ -2031,15 +2086,163 @@
     flashEl(li);
   }
 
-  // ---------- new exports ----------
+  // ---------- live updates ----------
+  // Every two minutes: fetch graph.json; when the export changed, fetch the timeline too and
+  // apply both in place, keeping the visitor's selection, replay position and scroll.
 
-  function poll() {
-    fetch(DATA_URL + '?t=' + Date.now(), { cache: 'no-store' })
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (d) {
-        if (d && d.case && d.case.updated_utc && d.case.updated_utc !== S.caseInfo.updated_utc) $('btn-new').hidden = false;
+  var LIVE = { lastCheck: 0, failed: false, busy: false, fresh: new Set(), freshTimer: null };
+
+  function agoText(iso) {
+    var d = parseTime(iso);
+    if (!d) return null;
+    var min = Math.floor((Date.now() - d.getTime()) / 60000);
+    if (min < 1) return 'just now';
+    if (min < 60) return min + ' min ago';
+    var h = Math.floor(min / 60);
+    if (h < 48) return h + ' h ago';
+    return fmtTime(iso);
+  }
+  function renderLiveStatus() {
+    var box = $('live-status');
+    if (!box || EMBED) return;
+    var ago = agoText(S.caseInfo.updated_utc);
+    box.textContent = (ago ? 'Updated ' + ago + ' · ' : '') + (LIVE.failed ? 'could not check for updates, trying again' : 'checks every ' + Math.round(POLL_MS / 60000) + ' min');
+    box.hidden = false;
+  }
+
+  function poll(force) {
+    if (LIVE.busy || (document.hidden && !force)) return Promise.resolve(false);
+    LIVE.busy = true;
+    LIVE.lastCheck = Date.now();
+    return fetch(DATA_URL + '?t=' + Date.now(), { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (g) {
+        LIVE.failed = false;
+        if (!g || !g.case || (g.case.updated_utc && g.case.updated_utc === S.caseInfo.updated_utc)) return false;
+        return fetch(TRAJ_URL + '?t=' + Date.now(), { cache: 'no-store' })
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .catch(function () { return null; })
+          .then(function (t) { applyUpdate(g, t); return true; });
       })
-      .catch(function () { /* offline; try again next round */ });
+      .catch(function () { LIVE.failed = true; return false; })
+      .then(function (changed) { LIVE.busy = false; renderLiveStatus(); return changed; });
+  }
+
+  function runLayout(animate, done) {
+    if (!S.cy || !S.cy.nodes().length) { if (done) done(); return; }
+    var l = S.cy.layout({
+      name: typeof dagre !== 'undefined' ? 'dagre' : 'breadthfirst',
+      rankDir: NARROW ? 'TB' : 'LR', nodeSep: NARROW ? 30 : 24, rankSep: NARROW ? 90 : 150, edgeSep: 14, ranker: 'network-simplex',
+      directed: true, fit: false, animate: !!animate && !REDUCED_MOTION, animationDuration: 700, animationEasing: 'ease-in-out-cubic'
+    });
+    l.one('layoutstop', function () { placeEdgeLabels(); if (done) done(); });
+    l.run();
+  }
+
+  // Bring the drawn graph in line with the new data without rebuilding it.
+  function updateGraph() {
+    var cy = S.cy, latest = viewAt(S.total), added = [];
+    S.maxByAsset = new Map();
+    latest.groups.forEach(function (gv) {
+      if (gv.group.from === gv.group.to) return;
+      S.maxByAsset.set(gv.group.asset, Math.max(S.maxByAsset.get(gv.group.asset) || 0, gv.sum));
+    });
+    var wantB = new Map();
+    latest.bundles.forEach(function (bv) { if (bv.bundle.from !== bv.bundle.to) wantB.set(bv.bundle.id, bv); });
+    cy.batch(function () {
+      cy.edges().forEach(function (e) { if (!wantB.has(e.id())) e.remove(); });
+      cy.nodes().forEach(function (n) { if (!latest.nodes.has(n.id())) n.remove(); });
+      latest.nodes.forEach(function (id) {
+        var n = S.nodes.get(id), d = nodeData(n, latest), ele = cy.getElementById(id);
+        if (ele.empty()) { added.push(cy.add({ group: 'nodes', data: Object.assign({ id: id }, d), classes: 'r-' + n.role })); return; }
+        ele.data(d);
+        ROLE_ORDER.forEach(function (r) { if (r !== n.role) ele.removeClass('r-' + r); });
+        ele.addClass('r-' + n.role);
+      });
+      wantB.forEach(function (bv, id) {
+        var ele = cy.getElementById(id), d = bundleData(bv);
+        if (ele.empty()) added.push(cy.add({ group: 'edges', data: Object.assign({ id: id, source: bv.bundle.from, target: bv.bundle.to, off: 90, loop: 40 }, d), classes: bv.bundle.tier === 'unverified' ? 'dashed' : '' }));
+        else ele.data(d);
+      });
+    });
+    // New addresses start next to a neighbour already on screen, so the layout grows them out of the graph.
+    added.forEach(function (ele) {
+      if (!ele.isNode()) return;
+      var nb = ele.neighborhood('node').filter(function (x) { return added.indexOf(x) === -1; });
+      if (nb.nonempty()) ele.position({ x: nb[0].position('x') + 40, y: nb[0].position('y') });
+    });
+    return added;
+  }
+
+  function markFresh(edgeIds, addedNodes) {
+    clearTimeout(LIVE.freshTimer);
+    LIVE.fresh = new Set(edgeIds);
+    var cy = S.cy;
+    cy.batch(function () {
+      cy.elements('.fresh').removeClass('fresh');
+      S.bundles.forEach(function (b) {
+        if (b.groups.some(function (g) { return g.edges.some(function (e) { return LIVE.fresh.has(e.id); }); })) {
+          var ele = cy.getElementById(b.id);
+          if (ele.nonempty()) ele.addClass('fresh');
+        }
+      });
+      addedNodes.forEach(function (ele) { if (ele.isNode() && ele.inside()) ele.addClass('fresh'); });
+    });
+    LIVE.freshTimer = setTimeout(function () {
+      LIVE.fresh = new Set();
+      if (S.cy) S.cy.elements('.fresh').removeClass('fresh');
+      Array.prototype.forEach.call(document.querySelectorAll('#ft-body tr.fresh'), function (tr) { tr.classList.remove('fresh'); });
+    }, 10000);
+  }
+
+  function applyUpdate(raw, traj) {
+    var prev = {
+      follow: S.step >= S.total, step: S.step, selected: S.selected, tab: activeTab(),
+      flowIds: new Set(S.edges.filter(function (e) { return !e.rejected; }).map(function (e) { return e.id; })),
+      ws: $('workspace').scrollTop, detail: $('detail').scrollTop, ft: $('ft-scroll').scrollTop, winY: window.scrollY
+    };
+    normalize(raw);
+    FT.rows = null;
+    renderHeader();
+    renderNotes();
+    renderComingSoon();
+    renderLegend();
+    renderWorkspace();
+    buildTimelineControls();
+    var added = updateGraph();
+    var sel = prev.selected;
+    if (sel && sel.kind === 'bundle' && !S.bundleById.has(sel.id)) sel = null;
+    if (sel && (sel.kind === 'node' || sel.kind === 'swaps') && !S.nodes.has(sel.id)) sel = null;
+    S.selected = sel;
+    apply(prev.follow ? S.total : Math.min(prev.step, S.total), { fit: false });
+    runLayout(added.length > 0, function () { if (!S.userMoved) fitView(true); });
+    renderFlowTable();
+    if (traj) {
+      initTrajectory(traj);
+      if (prev.follow && S.step < S.total) apply(S.total, { fit: false });
+    }
+    if (prev.tab !== activeTab() && !$('tab-' + prev.tab).hidden) setTab(prev.tab);
+    // Put the visitor back where they were reading.
+    $('detail').scrollTop = prev.detail;
+    $('ft-scroll').scrollTop = prev.ft;
+    if (!prev.follow || activeTab() !== 'traj') $('workspace').scrollTop = prev.ws;
+    window.scrollTo(window.scrollX, prev.winY);
+    var fresh = S.edges.filter(function (e) { return !e.rejected && !prev.flowIds.has(e.id); }).map(function (e) { return e.id; });
+    markFresh(fresh, added);
+    renderFlowTable();
+    $('ft-scroll').scrollTop = prev.ft;
+    if (fresh.length) toast('+' + plural(fresh.length, 'new flow'), 5000);
+  }
+
+  function startLive() {
+    if (EMBED) return;
+    renderLiveStatus();
+    setInterval(function () { poll(false); }, POLL_MS);
+    setInterval(renderLiveStatus, 30000);
+    // A tab that comes back after a while checks right away.
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden && Date.now() - LIVE.lastCheck > POLL_MS) poll(true);
+    });
   }
 
   // ---------- boot ----------
@@ -2065,7 +2268,7 @@
     $('btn-later').addEventListener('click', function () { renderWindow(Math.min(T.events.length - 1, T.end + Math.floor(TRAJ_WINDOW / 2) - 1)); markNow(); });
     $('btn-play').addEventListener('click', function () { if (S.playing) stopPlay(); else startPlay(); });
     $('btn-fit').addEventListener('click', function () { fitView(true); });
-    $('btn-new').addEventListener('click', function () { window.location.reload(); });
+    $('ws-cost').addEventListener('click', function () { var n = $('ws-cost-note'); n.hidden = !n.hidden || !n.textContent; this.setAttribute('aria-expanded', n.hidden ? 'false' : 'true'); });
     document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && !$('report').open) select(null); });
     // Refit when the graph area changes size, unless the visitor has panned or zoomed.
     var t;
@@ -2114,8 +2317,9 @@
       apply(S.step, { fit: true });
       requestAnimationFrame(function () { fitView(false); handleDeepLinks(); });
       startPulse();
-      if (!EMBED) { setInterval(poll, POLL_MS); loadTrajectory(); }
-      if (PARAMS.get('debug') === '1') window.__abf = { state: S, select: select, apply: apply, focusNode: focusNode, viewAt: viewAt, markNode: markNode, markLeads: markLeads, traj: T, setTab: setTab, showInTimeline: showInTimeline, report: R, openReport: openReport, flowTarget: flowTarget, buildIssueUrl: buildIssueUrl };
+      renderNotes();
+      if (!EMBED) { startLive(); loadTrajectory(); }
+      if (PARAMS.get('debug') === '1') window.__abf = { state: S, select: select, apply: apply, focusNode: focusNode, viewAt: viewAt, markNode: markNode, markLeads: markLeads, traj: T, setTab: setTab, showInTimeline: showInTimeline, poll: poll, live: LIVE, report: R, openReport: openReport, flowTarget: flowTarget, buildIssueUrl: buildIssueUrl };
       document.body.setAttribute('data-ready', '1');
     }).catch(function (err) {
       fail('Could not load ' + DATA_URL + ' (' + (err && err.message ? err.message : 'unknown error') + ').');
