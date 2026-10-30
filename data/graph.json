@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum: live trace",
   "incident_utc": "2026-10-29T20:24:00Z",
-  "updated_utc": "2026-10-30T21:58:02Z",
+  "updated_utc": "2026-10-30T22:23:25Z",
   "head_block": 26308325,
   "chain": "ethereum",
   "notes": [
@@ -786,8 +786,8 @@
    "id": "0x4ea642d60ffe923a9f3924c8832b3c1ba5089e51",
    "chain": "ethereum",
    "label": null,
-   "role": "open",
-   "note": null
+   "role": "resting",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26308325."
   },
   {
    "id": "0xf70fa1b8443c620ca7d43a9d17f4bde8b09031cc",
@@ -828,7 +828,7 @@
    "id": "0xe112632f6ed84c03006099f77b6f7e83c1ee0fd1",
    "chain": "ethereum",
    "label": null,
-   "role": "pocket",
+   "role": "open",
    "note": null
   },
   {
@@ -10609,6 +10609,11 @@
    "reason": null
   },
   {
+   "account": "lead_0xe11263_WETH_check",
+   "status": "open",
+   "reason": null
+  },
+  {
    "account": "lead_0x8532_ETH",
    "status": "closed",
    "reason": "Open: 0x8532fa14acaf483729c449b8458aeddb900543d4 ETH received 195460000000000000000000 in tx 0x551d...; trace outflows in window. (closed: Account activity for 0x8532fa14acaf483729c449b8458aeddb900543d4 shows no outgoing transfers in blocks 26300770-26306466; ETH pocket remains at account in current window.)"
@@ -11079,6 +11084,10 @@
    {
     "key": "lead_0x74c5_WETH",
     "text": "Trace WETH pocket at 0x74c5cd972cb18337b88fe139b9ef1a3d9d7a0130 after a54dc WETH transfer tx 0xee06994e7ee9115dc7181e2f8746c8006e94cb55e3624b9fec336163ea953b46 log 687 amount 999390100000000000; check WETH outflows in block window."
+   },
+   {
+    "key": "lead_0xe11263_WETH_check",
+    "text": "Opened by the outflow check: 0xe112632f6ed84c03006099f77b6f7e83c1ee0fd1 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 (WETH): 1 positive outflows at or after block 26304555, where traced value first arrived, are not recorded: 0xc4f544b7ac764d67f742112ab5df33cdc86e2f73af0835522d8fa3089edbb51f (block 26304557, 7846650300000000000)"
    }
   ],
   "notes": [
