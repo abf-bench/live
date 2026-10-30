@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum: live trace",
   "incident_utc": "2026-10-29T20:24:00Z",
-  "updated_utc": "2026-10-30T22:52:48Z",
+  "updated_utc": "2026-10-30T23:14:37Z",
   "head_block": 26308661,
   "chain": "ethereum",
   "notes": [
@@ -879,7 +879,7 @@
    "id": "0xce5854abe65221d796769999f07322bfe8cbc90d",
    "chain": "ethereum",
    "label": null,
-   "role": "pocket",
+   "role": "open",
    "note": null
   },
   {
@@ -11206,6 +11206,11 @@
    "reason": null
   },
   {
+   "account": "lead_0xce5854_ETH_check",
+   "status": "open",
+   "reason": null
+  },
+  {
    "account": "lead_0x8532_ETH",
    "status": "closed",
    "reason": "Open: 0x8532fa14acaf483729c449b8458aeddb900543d4 ETH received 195460000000000000000000 in tx 0x551d...; trace outflows in window. (closed: Account activity for 0x8532fa14acaf483729c449b8458aeddb900543d4 shows no outgoing transfers in blocks 26300770-26306466; ETH pocket remains at account in current window.)"
@@ -11709,6 +11714,10 @@
    {
     "key": "lead_0xdff69_CRV",
     "text": "Trace CRV pocket (0xd533a949740bb3306d119cc777fa900ba034cd52) at 0xdff69a3f4d07bfeeb4dc470af2f16bca6216e521 after ETH->CRV exchanges tx 0x779f308f277688b0743660043e599b987f73e0d41b7399fb591227ced271e02d log 590 amount 1991327340798549796312 and tx 0x9b4b7d011cd6502518423470d34da44ea6c2dbe50f4739a04bb0916c7d42f581 log 648 amount 2426370181701617360611; check CRV outflows in block window."
+   },
+   {
+    "key": "lead_0xce5854_ETH_check",
+    "text": "Opened by the outflow check: 0xce5854abe65221d796769999f07322bfe8cbc90d ETH (ETH): 1 positive outflows at or after block 26304178, where traced value first arrived, are not recorded: 0xafb07460783644f36ffefdd5bd1df9246409fcf700e21258a25a99ebdd5874a0 (block 26304396, 33997147404373000)"
    }
   ],
   "notes": [
