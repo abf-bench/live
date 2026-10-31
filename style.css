@@ -1341,3 +1341,16 @@ body.embed .highlights { display: none; }
 .cov-label { color: var(--muted); }
 .cov-note { margin: 6px 0 0; font-size: 11.5px; color: var(--faint); }
 .cov-seg.untraced { background: repeating-linear-gradient(45deg, var(--line) 0 2px, transparent 2px 7px) !important; outline: 1px solid var(--line); outline-offset: -1px; }
+
+/* ---------- full screen: the graph and its legend fill the screen ---------- */
+.tool .i-exit { display: none; }
+.graph-col:fullscreen .tool .i-full, .graph-col:-webkit-full-screen .tool .i-full { display: none; }
+.graph-col:fullscreen .tool .i-exit, .graph-col:-webkit-full-screen .tool .i-exit { display: block; }
+.graph-col:fullscreen, .graph-col:-webkit-full-screen { width: 100vw; height: 100vh; border: 0; }
+.graph-col:fullscreen .graph-wrap, .graph-col:-webkit-full-screen .graph-wrap { flex: 1; min-height: 0; }
+.graph-col:fullscreen .timeline, .graph-col:-webkit-full-screen .timeline { display: none; }
+.graph-caption { display: none; }
+.graph-col:fullscreen .graph-caption, .graph-col:-webkit-full-screen .graph-caption {
+  display: block; position: absolute; left: 14px; bottom: 10px; z-index: 2;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; color: var(--muted);
+}

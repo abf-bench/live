@@ -2720,6 +2720,30 @@
     }, { passive: true });
     $('btn-play').addEventListener('click', function () { if (S.playing) stopPlay(); else startPlay(); });
     $('btn-fit').addEventListener('click', function () { fitView(true); });
+    // Full screen: the graph and its legend fill the screen (browser Fullscreen API), refitted; Esc leaves
+    var col = document.querySelector('.graph-col');
+    var full = $('btn-full');
+    if (col && (col.requestFullscreen || col.webkitRequestFullscreen)) {
+      full.hidden = false;
+      full.addEventListener('click', function () {
+        if (document.fullscreenElement || document.webkitFullscreenElement) {
+          (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+        } else {
+          var c = S.caseInfo || {};
+          $('graph-caption').textContent = 'ABF-Agent · live trace of the Binance hot-wallet hack · ' +
+            (c.updated_utc ? 'as of ' + fmtTime(c.updated_utc) + ' · ' : '') + location.host + location.pathname;
+          (col.requestFullscreen || col.webkitRequestFullscreen).call(col);
+        }
+      });
+      ['fullscreenchange', 'webkitfullscreenchange'].forEach(function (ev) {
+        document.addEventListener(ev, function () {
+          var on = !!(document.fullscreenElement || document.webkitFullscreenElement);
+          full.setAttribute('title', on ? 'Leave full screen' : 'Full screen');
+          full.setAttribute('aria-label', on ? 'Leave full screen' : 'Full screen');
+          setTimeout(function () { if (S.cy) { S.cy.resize(); fitView(false); } }, 80);
+        });
+      });
+    }
     $('ws-cost').addEventListener('click', function () { var n = $('ws-cost-note'); n.hidden = !n.hidden || !n.textContent; this.setAttribute('aria-expanded', n.hidden ? 'false' : 'true'); });
     document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && !$('report').open) select(null); });
     // Refit when the graph area changes size, unless the visitor has panned or zoomed.
