@@ -4974,5 +4974,450 @@
       "status": "ok",
       "total_cost_units": 32.0
     }
+  },
+  {
+    "request": {
+      "action": "account.activity",
+      "params": {
+        "account": "0x8d4b8ee62124b7ee140a51ddd07390a56f1c9e19",
+        "block_window": [
+          26300770,
+          26313929
+        ],
+        "chain": "ethereum",
+        "direction": "out",
+        "limit": 50
+      }
+    },
+    "response": {
+      "action": "account.activity",
+      "action_count": 33,
+      "cost_units": 1.0,
+      "observation": {
+        "account": "0x8d4b8ee62124b7ee140a51ddd07390a56f1c9e19",
+        "block_window": [
+          26300770,
+          26313929
+        ],
+        "chain": "ethereum",
+        "direction": "out",
+        "items": [],
+        "next_cursor": null,
+        "total": 0,
+        "truncated": false
+      },
+      "response_hash": "a6f47a237837b8ddb665032658989e2c8b6a7cc21f13a77ed8738acf10c8aef6",
+      "status": "ok",
+      "total_cost_units": 33.0
+    }
+  },
+  {
+    "request": {
+      "action": "account.activity",
+      "params": {
+        "account": "0x84614d0bfce3417088e20e2bd9d6d6091279e9b8",
+        "block_window": [
+          26300770,
+          26313929
+        ],
+        "chain": "ethereum",
+        "direction": "out",
+        "limit": 20
+      }
+    },
+    "response": {
+      "action": "account.activity",
+      "action_count": 34,
+      "cost_units": 1.0,
+      "observation": {
+        "account": "0x84614d0bfce3417088e20e2bd9d6d6091279e9b8",
+        "block_window": [
+          26300770,
+          26313929
+        ],
+        "chain": "ethereum",
+        "direction": "out",
+        "items": [],
+        "next_cursor": null,
+        "total": 0,
+        "truncated": false
+      },
+      "response_hash": "66c00000ff18ccc0c7c2d45674cc9eb02af148eaba29e87d9834a46e1f1aa90c",
+      "status": "ok",
+      "total_cost_units": 34.0
+    }
+  },
+  {
+    "request": {
+      "action": "account.activity",
+      "params": {
+        "account": "0x209178dd0f192213e374af795d785539e919562a",
+        "block_window": [
+          26300770,
+          26313929
+        ],
+        "chain": "ethereum",
+        "direction": "out",
+        "limit": 20
+      }
+    },
+    "response": {
+      "action": "account.activity",
+      "action_count": 35,
+      "cost_units": 1.0,
+      "observation": {
+        "account": "0x209178dd0f192213e374af795d785539e919562a",
+        "block_window": [
+          26300770,
+          26313929
+        ],
+        "chain": "ethereum",
+        "direction": "out",
+        "items": [
+          {
+            "activity_kind": "transaction",
+            "amount": "244941686418768067442",
+            "asset": "ETH",
+            "block_number": 26313154,
+            "failed": false,
+            "from": "0x209178dd0f192213e374af795d785539e919562a",
+            "nonce": 0,
+            "to": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+            "transaction_index": 120,
+            "tx_hash": "0x1fbff19d9de401743b8fe5244316426b5ab02286e94788383a712a5e4e9f0a52"
+          },
+          {
+            "activity_kind": "erc20_transfer",
+            "amount": "244941686418768067442",
+            "asset": "0x5be78ea23eb2395a79e226631ee29821402b0eb6",
+            "block_number": 26313171,
+            "failed": false,
+            "from": "0x209178dd0f192213e374af795d785539e919562a",
+            "to": "0xa97bd0f3fbc7143ce502225147289ab796228d10",
+            "transaction_index": 64,
+            "tx_hash": "0x049207418c13754fea10506664d30bef61c2e68fdd607be518201756d650debd"
+          },
+          {
+            "activity_kind": "transaction",
+            "amount": "0",
+            "asset": "ETH",
+            "block_number": 26313190,
+            "failed": false,
+            "from": "0x209178dd0f192213e374af795d785539e919562a",
+            "nonce": 1,
+            "to": "0xfdffb411c4a70aa7c95d5c981a6fb4da867e1111",
+            "transaction_index": 495,
+            "tx_hash": "0x07830128c74ee525bbda8e421551252912e74c855cfbff1d3062842c81888f83"
+          },
+          {
+            "activity_kind": "transaction",
+            "amount": "0",
+            "asset": "ETH",
+            "block_number": 26313194,
+            "failed": false,
+            "from": "0x209178dd0f192213e374af795d785539e919562a",
+            "nonce": 2,
+            "to": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+            "transaction_index": 0,
+            "tx_hash": "0x4ecfa81301a7930b75c2d0c8d59c5c8163e5a957b315d3ecf8024d087c5350ac"
+          },
+          {
+            "activity_kind": "erc20_transfer",
+            "amount": "30545723250000000000000000",
+            "asset": "0xfdffb411c4a70aa7c95d5c981a6fb4da867e1111",
+            "block_number": 26313194,
+            "failed": false,
+            "from": "0x209178dd0f192213e374af795d785539e919562a",
+            "to": "0x579dbd06b0ae1f239d5d9b9829e356673e5e3aee",
+            "transaction_index": 0,
+            "tx_hash": "0x4ecfa81301a7930b75c2d0c8d59c5c8163e5a957b315d3ecf8024d087c5350ac"
+          },
+          {
+            "activity_kind": "transaction",
+            "amount": "0",
+            "asset": "ETH",
+            "block_number": 26313200,
+            "failed": false,
+            "from": "0x209178dd0f192213e374af795d785539e919562a",
+            "nonce": 3,
+            "to": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+            "transaction_index": 1,
+            "tx_hash": "0x10d94c505cef028a23dcb05d05712ed6968d3d2003d877ccbfa394b45a6c18c1"
+          },
+          {
+            "activity_kind": "erc20_transfer",
+            "amount": "29847535290000000000000000",
+            "asset": "0xfdffb411c4a70aa7c95d5c981a6fb4da867e1111",
+            "block_number": 26313200,
+            "failed": false,
+            "from": "0x209178dd0f192213e374af795d785539e919562a",
+            "to": "0x4cbb36887d76281f0abe6ce5886d2a9fd9ef8237",
+            "transaction_index": 1,
+            "tx_hash": "0x10d94c505cef028a23dcb05d05712ed6968d3d2003d877ccbfa394b45a6c18c1"
+          },
+          {
+            "activity_kind": "transaction",
+            "amount": "0",
+            "asset": "ETH",
+            "block_number": 26313222,
+            "failed": false,
+            "from": "0x209178dd0f192213e374af795d785539e919562a",
+            "nonce": 4,
+            "to": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+            "transaction_index": 1,
+            "tx_hash": "0x3256f59613252e54c421aeeb77744708fca2b873add1a6f86c85fe98cfa7202b"
+          },
+          {
+            "activity_kind": "erc20_transfer",
+            "amount": "9425537460000000000000000",
+            "asset": "0xfdffb411c4a70aa7c95d5c981a6fb4da867e1111",
+            "block_number": 26313222,
+            "failed": false,
+            "from": "0x209178dd0f192213e374af795d785539e919562a",
+            "to": "0x579dbd06b0ae1f239d5d9b9829e356673e5e3aee",
+            "transaction_index": 1,
+            "tx_hash": "0x3256f59613252e54c421aeeb77744708fca2b873add1a6f86c85fe98cfa7202b"
+          },
+          {
+            "activity_kind": "transaction",
+            "amount": "132554983703577667114",
+            "asset": "ETH",
+            "block_number": 26313231,
+            "failed": false,
+            "from": "0x209178dd0f192213e374af795d785539e919562a",
+            "nonce": 5,
+            "to": "0x8d4b8ee62124b7ee140a51ddd07390a56f1c9e19",
+            "transaction_index": 219,
+            "tx_hash": "0xfd925882028a9dc712583d94ff9687bc9a4213d690eab511e009dcd831ea98b3"
+          },
+          {
+            "activity_kind": "erc20_transfer",
+            "amount": "100000000000000000",
+            "asset": "0x7bdb347d124979513f17fa0d9b5e0bceaa66e7eb",
+            "block_number": 26313232,
+            "failed": false,
+            "from": "0x209178dd0f192213e374af795d785539e919562a",
+            "to": "0x8d4b23122e6dbc75b8eaec544554e1c0ef1c9e19",
+            "transaction_index": 146,
+            "tx_hash": "0x7f048d12fb11053d46b1fdbfe04c181a59c63281af499ff68b2e909d7c886844"
+          },
+          {
+            "activity_kind": "erc20_transfer",
+            "amount": "132554983703577667114",
+            "asset": "0xf046fb8cc3790d31eecec665bd5416bfbb7468f7",
+            "block_number": 26313234,
+            "failed": false,
+            "from": "0x209178dd0f192213e374af795d785539e919562a",
+            "to": "0x8d4d3a05398743a873bc285cd89db923ea1c9e19",
+            "transaction_index": 195,
+            "tx_hash": "0x55a9bb56ca35c15444f8b9e021915f4a74f9012a3bed62f0273600f58a035b83"
+          },
+          {
+            "activity_kind": "erc20_transfer",
+            "amount": "132554983703577667114",
+            "asset": "0xf046fb8cc3790d31eecec665bd5416bfbb7468f7",
+            "block_number": 26313235,
+            "failed": false,
+            "from": "0x209178dd0f192213e374af795d785539e919562a",
+            "to": "0x8d4d3a05398743a873bc285cd89db923ea1c9e19",
+            "transaction_index": 111,
+            "tx_hash": "0x0171401acb0be5619243a46828ba868382f5f5313fd46866c888632315f5efc4"
+          }
+        ],
+        "next_cursor": null,
+        "total": 13,
+        "truncated": false
+      },
+      "response_hash": "53a0c93dff3fbdec7aacc93b35ca451c5751c4a305107f3fb73276eecf7c798a",
+      "status": "ok",
+      "total_cost_units": 35.0
+    }
+  },
+  {
+    "request": {
+      "action": "account.activity",
+      "params": {
+        "account": "0xe1b92d6e3075bba3d0ab921dd5e95f97e1ad52aa",
+        "block_window": [
+          26300770,
+          26313929
+        ],
+        "chain": "ethereum",
+        "direction": "out",
+        "limit": 20
+      }
+    },
+    "response": {
+      "action": "account.activity",
+      "action_count": 36,
+      "cost_units": 1.0,
+      "observation": {
+        "account": "0xe1b92d6e3075bba3d0ab921dd5e95f97e1ad52aa",
+        "block_window": [
+          26300770,
+          26313929
+        ],
+        "chain": "ethereum",
+        "direction": "out",
+        "items": [
+          {
+            "activity_kind": "transaction",
+            "amount": "0",
+            "asset": "ETH",
+            "block_number": 26313711,
+            "failed": false,
+            "from": "0xe1b92d6e3075bba3d0ab921dd5e95f97e1ad52aa",
+            "nonce": 0,
+            "to": "0x467719ad09025fcc6cf6f8311755809d45a5e5f3",
+            "transaction_index": 179,
+            "tx_hash": "0xe6c071b11f653a9d9f15b4e3aab0142373af8ce7de24dfe98fd89086369b9a96"
+          },
+          {
+            "activity_kind": "transaction",
+            "amount": "0",
+            "asset": "ETH",
+            "block_number": 26313713,
+            "failed": false,
+            "from": "0xe1b92d6e3075bba3d0ab921dd5e95f97e1ad52aa",
+            "nonce": 1,
+            "to": "0xfe837a3530dd566401d35befcd55582af7c4dffc",
+            "transaction_index": 41,
+            "tx_hash": "0xc80c967b6b815c3d5710e5ae087bf28d4287cee195aa504afe468a335244bb84"
+          },
+          {
+            "activity_kind": "erc20_transfer",
+            "amount": "698949000000",
+            "asset": "0x467719ad09025fcc6cf6f8311755809d45a5e5f3",
+            "block_number": 26313713,
+            "failed": false,
+            "from": "0xe1b92d6e3075bba3d0ab921dd5e95f97e1ad52aa",
+            "to": "0xfe837a3530dd566401d35befcd55582af7c4dffc",
+            "transaction_index": 41,
+            "tx_hash": "0xc80c967b6b815c3d5710e5ae087bf28d4287cee195aa504afe468a335244bb84"
+          },
+          {
+            "activity_kind": "transaction",
+            "amount": "0",
+            "asset": "ETH",
+            "block_number": 26313718,
+            "failed": false,
+            "from": "0xe1b92d6e3075bba3d0ab921dd5e95f97e1ad52aa",
+            "nonce": 2,
+            "to": "0xfe837a3530dd566401d35befcd55582af7c4dffc",
+            "transaction_index": 66,
+            "tx_hash": "0x893159bae7a61da4dd2137a40b54a792329c12ae15e70ec2331ce22455ce67eb"
+          },
+          {
+            "activity_kind": "erc20_transfer",
+            "amount": "1000000000000",
+            "asset": "0x467719ad09025fcc6cf6f8311755809d45a5e5f3",
+            "block_number": 26313718,
+            "failed": false,
+            "from": "0xe1b92d6e3075bba3d0ab921dd5e95f97e1ad52aa",
+            "to": "0xfe837a3530dd566401d35befcd55582af7c4dffc",
+            "transaction_index": 66,
+            "tx_hash": "0x893159bae7a61da4dd2137a40b54a792329c12ae15e70ec2331ce22455ce67eb"
+          },
+          {
+            "activity_kind": "transaction",
+            "amount": "0",
+            "asset": "ETH",
+            "block_number": 26313722,
+            "failed": false,
+            "from": "0xe1b92d6e3075bba3d0ab921dd5e95f97e1ad52aa",
+            "nonce": 3,
+            "to": "0xfe837a3530dd566401d35befcd55582af7c4dffc",
+            "transaction_index": 1,
+            "tx_hash": "0x94ac7472bf854a596aa7d9b9e8d8aad78bb9484b938d12770faa44d99452a7d5"
+          },
+          {
+            "activity_kind": "erc20_transfer",
+            "amount": "3000000000000",
+            "asset": "0x467719ad09025fcc6cf6f8311755809d45a5e5f3",
+            "block_number": 26313722,
+            "failed": false,
+            "from": "0xe1b92d6e3075bba3d0ab921dd5e95f97e1ad52aa",
+            "to": "0x9393a68e904b1f52a081cdfcf02ec56d842bf239",
+            "transaction_index": 1,
+            "tx_hash": "0x94ac7472bf854a596aa7d9b9e8d8aad78bb9484b938d12770faa44d99452a7d5"
+          },
+          {
+            "activity_kind": "transaction",
+            "amount": "0",
+            "asset": "ETH",
+            "block_number": 26313725,
+            "failed": false,
+            "from": "0xe1b92d6e3075bba3d0ab921dd5e95f97e1ad52aa",
+            "nonce": 4,
+            "to": "0xfe837a3530dd566401d35befcd55582af7c4dffc",
+            "transaction_index": 48,
+            "tx_hash": "0x01246308e524fd8634e694ddef3dd27227729a752d60126ce651e4fd9f72c3d4"
+          },
+          {
+            "activity_kind": "erc20_transfer",
+            "amount": "3000000000000",
+            "asset": "0x467719ad09025fcc6cf6f8311755809d45a5e5f3",
+            "block_number": 26313725,
+            "failed": false,
+            "from": "0xe1b92d6e3075bba3d0ab921dd5e95f97e1ad52aa",
+            "to": "0x9393a68e904b1f52a081cdfcf02ec56d842bf239",
+            "transaction_index": 48,
+            "tx_hash": "0x01246308e524fd8634e694ddef3dd27227729a752d60126ce651e4fd9f72c3d4"
+          },
+          {
+            "activity_kind": "transaction",
+            "amount": "0",
+            "asset": "ETH",
+            "block_number": 26313728,
+            "failed": false,
+            "from": "0xe1b92d6e3075bba3d0ab921dd5e95f97e1ad52aa",
+            "nonce": 5,
+            "to": "0xfe837a3530dd566401d35befcd55582af7c4dffc",
+            "transaction_index": 9,
+            "tx_hash": "0x8212acdb9e426f37c88d9806860507e531aa20abbd4ee3900fb8b040cecca8ab"
+          },
+          {
+            "activity_kind": "erc20_transfer",
+            "amount": "3000000000000",
+            "asset": "0x467719ad09025fcc6cf6f8311755809d45a5e5f3",
+            "block_number": 26313728,
+            "failed": false,
+            "from": "0xe1b92d6e3075bba3d0ab921dd5e95f97e1ad52aa",
+            "to": "0xfe837a3530dd566401d35befcd55582af7c4dffc",
+            "transaction_index": 9,
+            "tx_hash": "0x8212acdb9e426f37c88d9806860507e531aa20abbd4ee3900fb8b040cecca8ab"
+          },
+          {
+            "activity_kind": "transaction",
+            "amount": "208135766176288102155",
+            "asset": "ETH",
+            "block_number": 26313731,
+            "failed": false,
+            "from": "0xe1b92d6e3075bba3d0ab921dd5e95f97e1ad52aa",
+            "nonce": 6,
+            "to": "0x8d4b8ee62124b7ee140a51ddd07390a56f1c9e19",
+            "transaction_index": 131,
+            "tx_hash": "0x2f3c71a4b1443cdb0cd736797dd24f6e541deb66a0b06272640e0f460400d44f"
+          },
+          {
+            "activity_kind": "erc20_transfer",
+            "amount": "208135766176288102155",
+            "asset": "0xb1b29b0374471317fea44b51c123c876c8782c49",
+            "block_number": 26313735,
+            "failed": false,
+            "from": "0xe1b92d6e3075bba3d0ab921dd5e95f97e1ad52aa",
+            "to": "0x8d4d3a05398743a873bc285cd89db923ea1c9e19",
+            "transaction_index": 265,
+            "tx_hash": "0xc4aa86dc48bb25a6319553094bd8b74b57d1206360a2c53c0f0c6de68ede75f1"
+          }
+        ],
+        "next_cursor": null,
+        "total": 13,
+        "truncated": false
+      },
+      "response_hash": "2824c86a50f0710b962f3f3930226df215edac996350d66698127fb67cccc7cd",
+      "status": "ok",
+      "total_cost_units": 36.0
+    }
   }
 ]
