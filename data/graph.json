@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum and Bitcoin: live trace",
   "incident_utc": "2026-10-29T20:20:00Z",
-  "updated_utc": "2026-10-31T10:12:19Z",
+  "updated_utc": "2026-10-31T10:13:45Z",
   "head_block": 26312046,
   "chain": "ethereum",
   "notes": [
@@ -269,10 +269,10 @@
   {
    "id": 33,
    "started_utc": "2026-10-31T10:09:12Z",
-   "ended_utc": null,
-   "actions": 23,
+   "ended_utc": "2026-10-31T10:13:31Z",
+   "actions": 34,
    "model": "gpt-5.5",
-   "summary": ""
+   "summary": "ok"
   }
  ],
  "nodes": [
@@ -1470,7 +1470,7 @@
     {
      "asset": "ETH",
      "token": "ETH",
-     "amount": "0.961943"
+     "amount": "1.01784"
     },
     {
      "asset": "USDC",
@@ -2558,6 +2558,125 @@
   },
   {
    "id": "bc1qm2j6v3247khlwzxl7p9vqnfkghcllyhv9wjaat",
+   "chain": "bitcoin",
+   "label": null,
+   "role": "pocket",
+   "note": null,
+   "dormant": [
+    {
+     "asset": "BTC",
+     "token": "BTC",
+     "amount": "1000"
+    }
+   ]
+  },
+  {
+   "id": "bc1qrg025e2pgx0rwya2kpgtj30972p64jt0hn6zyt",
+   "chain": "bitcoin",
+   "label": null,
+   "role": "pocket",
+   "note": null,
+   "dormant": [
+    {
+     "asset": "BTC",
+     "token": "BTC",
+     "amount": "832.499901"
+    }
+   ]
+  },
+  {
+   "id": "bc1qz8hdwv8gmml0u96dsvnzsagz6krjyzxmgxupdp",
+   "chain": "bitcoin",
+   "label": null,
+   "role": "pocket",
+   "note": null,
+   "dormant": [
+    {
+     "asset": "BTC",
+     "token": "BTC",
+     "amount": "1000"
+    }
+   ]
+  },
+  {
+   "id": "bc1qvws6kh5vjf7apg7f82wd5av8w2gmfj2zxkm8jc",
+   "chain": "bitcoin",
+   "label": null,
+   "role": "pocket",
+   "note": null
+  },
+  {
+   "id": "bc1qalwnl7dtaa73fsq5tyn0ghfy3fgfpqkt69tca8",
+   "chain": "bitcoin",
+   "label": null,
+   "role": "pocket",
+   "note": null,
+   "dormant": [
+    {
+     "asset": "BTC",
+     "token": "BTC",
+     "amount": "1000"
+    }
+   ]
+  },
+  {
+   "id": "bc1qdyy9q2lrnn5qh3ju996pgt95eesvc38lppdewn",
+   "chain": "bitcoin",
+   "label": null,
+   "role": "pocket",
+   "note": null
+  },
+  {
+   "id": "bc1qg3nrzpuvq2pxqx74tcrywr09dc208ze96n3t53",
+   "chain": "bitcoin",
+   "label": null,
+   "role": "pocket",
+   "note": null,
+   "dormant": [
+    {
+     "asset": "BTC",
+     "token": "BTC",
+     "amount": "1000"
+    }
+   ]
+  },
+  {
+   "id": "bc1q63qrfrpsg5hh0zzn3kp2xx9vljl7dq7tatsjxp",
+   "chain": "bitcoin",
+   "label": null,
+   "role": "pocket",
+   "note": null,
+   "dormant": [
+    {
+     "asset": "BTC",
+     "token": "BTC",
+     "amount": "1000"
+    }
+   ]
+  },
+  {
+   "id": "bc1q66l8z9htj4cd7pf8nnlc6mrxyssudm6hyg7a2a",
+   "chain": "bitcoin",
+   "label": null,
+   "role": "pocket",
+   "note": null
+  },
+  {
+   "id": "bc1qf5cyvv9w50tx9xx9s3xwsne0z87wvjj9l8a35u",
+   "chain": "bitcoin",
+   "label": null,
+   "role": "pocket",
+   "note": null,
+   "dormant": [
+    {
+     "asset": "BTC",
+     "token": "BTC",
+     "amount": "1000"
+    }
+   ]
+  },
+  {
+   "id": "bc1qs6xnmhar38z44g2za93pv8ygdcwurrh8l87w3v",
    "chain": "bitcoin",
    "label": null,
    "role": "pocket",
@@ -12368,6 +12487,279 @@
    "target_position": "output 1",
    "tx_url": "https://mempool.space/tx/38d64c737bab0c1d66ec58de568be6d99d3291e62328473eed019464e693a499",
    "tier": "verified"
+  },
+  {
+   "id": "op_btc_b167_merge_to_rg0:0",
+   "from": "bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e",
+   "to": "bc1qrg025e2pgx0rwya2kpgtj30972p64jt0hn6zyt",
+   "asset": "BTC",
+   "token": "BTC",
+   "amount": "832.499901",
+   "tx": "b167dcb05d54f545587d690bb8990e1ccef68910fb20fc7fdb2036eddaa38922",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 973732,
+   "time_utc": "2026-10-29T20:20:06Z",
+   "operation_id": "op_btc_b167_merge_to_rg0",
+   "session": 33,
+   "seq": 291,
+   "step": 794,
+   "source_position": "transaction value",
+   "target_position": "output 0",
+   "tx_url": "https://mempool.space/tx/b167dcb05d54f545587d690bb8990e1ccef68910fb20fc7fdb2036eddaa38922",
+   "tier": "verified"
+  },
+  {
+   "id": "op_btc_bc1qsmv_97e_split:0",
+   "from": "bc1qsmvvvvya6ak2gmsjcxc06ns7yrsx7q4x492vf2",
+   "to": "bc1qz8hdwv8gmml0u96dsvnzsagz6krjyzxmgxupdp",
+   "asset": "BTC",
+   "token": "BTC",
+   "amount": "1000",
+   "tx": "97e1646871896e56c856218ac30c0d47a56eb9a030d31beade1900046d0ae71c",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 973732,
+   "time_utc": "2026-10-29T20:20:06Z",
+   "operation_id": "op_btc_bc1qsmv_97e_split",
+   "session": 33,
+   "seq": 292,
+   "step": 797,
+   "source_position": "output 1",
+   "target_position": "output 0",
+   "tx_url": "https://mempool.space/tx/97e1646871896e56c856218ac30c0d47a56eb9a030d31beade1900046d0ae71c",
+   "tier": "verified"
+  },
+  {
+   "id": "op_btc_bc1qsmv_97e_split:1",
+   "from": "bc1qsmvvvvya6ak2gmsjcxc06ns7yrsx7q4x492vf2",
+   "to": "bc1qvws6kh5vjf7apg7f82wd5av8w2gmfj2zxkm8jc",
+   "asset": "BTC",
+   "token": "BTC",
+   "amount": "4636.799985",
+   "tx": "97e1646871896e56c856218ac30c0d47a56eb9a030d31beade1900046d0ae71c",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 973732,
+   "time_utc": "2026-10-29T20:20:06Z",
+   "operation_id": "op_btc_bc1qsmv_97e_split",
+   "session": 33,
+   "seq": 292,
+   "step": 797,
+   "source_position": "output 1",
+   "target_position": "output 1",
+   "tx_url": "https://mempool.space/tx/97e1646871896e56c856218ac30c0d47a56eb9a030d31beade1900046d0ae71c",
+   "tier": "verified"
+  },
+  {
+   "id": "op_btc_bc1q96q_aa4e_split:0",
+   "from": "bc1q96qkjsye5qruf9yksqdqg09lzdmur7wau2ga6u",
+   "to": "bc1qalwnl7dtaa73fsq5tyn0ghfy3fgfpqkt69tca8",
+   "asset": "BTC",
+   "token": "BTC",
+   "amount": "1000",
+   "tx": "aa4e740e19c4162e39592da7459ce8a9b5946a61f718e3df463672a9023365ec",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 973732,
+   "time_utc": "2026-10-29T20:20:06Z",
+   "operation_id": "op_btc_bc1q96q_aa4e_split",
+   "session": 33,
+   "seq": 293,
+   "step": 797,
+   "source_position": "output 1",
+   "target_position": "output 0",
+   "tx_url": "https://mempool.space/tx/aa4e740e19c4162e39592da7459ce8a9b5946a61f718e3df463672a9023365ec",
+   "tier": "verified"
+  },
+  {
+   "id": "op_btc_bc1q96q_aa4e_split:1",
+   "from": "bc1q96qkjsye5qruf9yksqdqg09lzdmur7wau2ga6u",
+   "to": "bc1qdyy9q2lrnn5qh3ju996pgt95eesvc38lppdewn",
+   "asset": "BTC",
+   "token": "BTC",
+   "amount": "1696.599985",
+   "tx": "aa4e740e19c4162e39592da7459ce8a9b5946a61f718e3df463672a9023365ec",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 973732,
+   "time_utc": "2026-10-29T20:20:06Z",
+   "operation_id": "op_btc_bc1q96q_aa4e_split",
+   "session": 33,
+   "seq": 293,
+   "step": 797,
+   "source_position": "output 1",
+   "target_position": "output 1",
+   "tx_url": "https://mempool.space/tx/aa4e740e19c4162e39592da7459ce8a9b5946a61f718e3df463672a9023365ec",
+   "tier": "verified"
+  },
+  {
+   "id": "op_btc_bc1qk8k_b27d_split:0",
+   "from": "bc1qk8kpt0suefus8zz3fp78w8993frc5x97w423wl",
+   "to": "bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e",
+   "asset": "BTC",
+   "token": "BTC",
+   "amount": "643.499963",
+   "tx": "b27d181645ef592dbc145f63b62cdeab68afd8e725f539e43ad66a273d24dbdd",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 973732,
+   "time_utc": "2026-10-29T20:20:06Z",
+   "operation_id": "op_btc_bc1qk8k_b27d_split",
+   "session": 33,
+   "seq": 294,
+   "step": 797,
+   "source_position": "output 0",
+   "target_position": "output 0",
+   "tx_url": "https://mempool.space/tx/b27d181645ef592dbc145f63b62cdeab68afd8e725f539e43ad66a273d24dbdd",
+   "tier": "verified"
+  },
+  {
+   "id": "op_btc_bc1qk8k_b27d_split:1",
+   "from": "bc1qk8kpt0suefus8zz3fp78w8993frc5x97w423wl",
+   "to": "bc1qg3nrzpuvq2pxqx74tcrywr09dc208ze96n3t53",
+   "asset": "BTC",
+   "token": "BTC",
+   "amount": "1000",
+   "tx": "b27d181645ef592dbc145f63b62cdeab68afd8e725f539e43ad66a273d24dbdd",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 973732,
+   "time_utc": "2026-10-29T20:20:06Z",
+   "operation_id": "op_btc_bc1qk8k_b27d_split",
+   "session": 33,
+   "seq": 294,
+   "step": 797,
+   "source_position": "output 0",
+   "target_position": "output 1",
+   "tx_url": "https://mempool.space/tx/b27d181645ef592dbc145f63b62cdeab68afd8e725f539e43ad66a273d24dbdd",
+   "tier": "verified"
+  },
+  {
+   "id": "op_btc_bc1qvws_d5b_split:0",
+   "from": "bc1qvws6kh5vjf7apg7f82wd5av8w2gmfj2zxkm8jc",
+   "to": "bc1q63qrfrpsg5hh0zzn3kp2xx9vljl7dq7tatsjxp",
+   "asset": "BTC",
+   "token": "BTC",
+   "amount": "1000",
+   "tx": "d5b12696e51d70b4d5caa634f08f9afdfa17ee924c282868a0773cbcab831f13",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 973732,
+   "time_utc": "2026-10-29T20:20:06Z",
+   "operation_id": "op_btc_bc1qvws_d5b_split",
+   "session": 33,
+   "seq": 295,
+   "step": 802,
+   "source_position": "output 1",
+   "target_position": "output 0",
+   "tx_url": "https://mempool.space/tx/d5b12696e51d70b4d5caa634f08f9afdfa17ee924c282868a0773cbcab831f13",
+   "tier": "verified"
+  },
+  {
+   "id": "op_btc_bc1qvws_d5b_split:1",
+   "from": "bc1qvws6kh5vjf7apg7f82wd5av8w2gmfj2zxkm8jc",
+   "to": "bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e",
+   "asset": "BTC",
+   "token": "BTC",
+   "amount": "3636.79998",
+   "tx": "d5b12696e51d70b4d5caa634f08f9afdfa17ee924c282868a0773cbcab831f13",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 973732,
+   "time_utc": "2026-10-29T20:20:06Z",
+   "operation_id": "op_btc_bc1qvws_d5b_split",
+   "session": 33,
+   "seq": 295,
+   "step": 802,
+   "source_position": "output 1",
+   "target_position": "output 1",
+   "tx_url": "https://mempool.space/tx/d5b12696e51d70b4d5caa634f08f9afdfa17ee924c282868a0773cbcab831f13",
+   "tier": "verified"
+  },
+  {
+   "id": "op_btc_bc1qdyy_046a_split:0",
+   "from": "bc1qdyy9q2lrnn5qh3ju996pgt95eesvc38lppdewn",
+   "to": "bc1q66l8z9htj4cd7pf8nnlc6mrxyssudm6hyg7a2a",
+   "asset": "BTC",
+   "token": "BTC",
+   "amount": "696.59998",
+   "tx": "046a4f5a187ce946d0ec783e1d1557a5ea655974a2259ac01e9b55e1284b2687",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 973732,
+   "time_utc": "2026-10-29T20:20:06Z",
+   "operation_id": "op_btc_bc1qdyy_046a_split",
+   "session": 33,
+   "seq": 296,
+   "step": 802,
+   "source_position": "output 1",
+   "target_position": "output 0",
+   "tx_url": "https://mempool.space/tx/046a4f5a187ce946d0ec783e1d1557a5ea655974a2259ac01e9b55e1284b2687",
+   "tier": "verified"
+  },
+  {
+   "id": "op_btc_bc1qdyy_046a_split:1",
+   "from": "bc1qdyy9q2lrnn5qh3ju996pgt95eesvc38lppdewn",
+   "to": "bc1qf5cyvv9w50tx9xx9s3xwsne0z87wvjj9l8a35u",
+   "asset": "BTC",
+   "token": "BTC",
+   "amount": "1000",
+   "tx": "046a4f5a187ce946d0ec783e1d1557a5ea655974a2259ac01e9b55e1284b2687",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 973732,
+   "time_utc": "2026-10-29T20:20:06Z",
+   "operation_id": "op_btc_bc1qdyy_046a_split",
+   "session": 33,
+   "seq": 296,
+   "step": 802,
+   "source_position": "output 1",
+   "target_position": "output 1",
+   "tx_url": "https://mempool.space/tx/046a4f5a187ce946d0ec783e1d1557a5ea655974a2259ac01e9b55e1284b2687",
+   "tier": "verified"
+  },
+  {
+   "id": "op_btc_bc1qrsr_2034_split:0",
+   "from": "bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e",
+   "to": "bc1qs6xnmhar38z44g2za93pv8ygdcwurrh8l87w3v",
+   "asset": "BTC",
+   "token": "BTC",
+   "amount": "1000",
+   "tx": "20347f020d04608bf6aba4a814090aeab72092d0dcc4ded84c206b7d7dd2b0f5",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 973732,
+   "time_utc": "2026-10-29T20:20:06Z",
+   "operation_id": "op_btc_bc1qrsr_2034_split",
+   "session": 33,
+   "seq": 297,
+   "step": 805,
+   "source_position": "output 1",
+   "target_position": "output 0",
+   "tx_url": "https://mempool.space/tx/20347f020d04608bf6aba4a814090aeab72092d0dcc4ded84c206b7d7dd2b0f5",
+   "tier": "verified"
+  },
+  {
+   "id": "op_btc_bc1qrsr_2034_split:1",
+   "from": "bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e",
+   "to": "bc1qk8kpt0suefus8zz3fp78w8993frc5x97w423wl",
+   "asset": "BTC",
+   "token": "BTC",
+   "amount": "2636.799975",
+   "tx": "20347f020d04608bf6aba4a814090aeab72092d0dcc4ded84c206b7d7dd2b0f5",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 973732,
+   "time_utc": "2026-10-29T20:20:06Z",
+   "operation_id": "op_btc_bc1qrsr_2034_split",
+   "session": 33,
+   "seq": 297,
+   "step": 805,
+   "source_position": "output 1",
+   "target_position": "output 1",
+   "tx_url": "https://mempool.space/tx/20347f020d04608bf6aba4a814090aeab72092d0dcc4ded84c206b7d7dd2b0f5",
+   "tier": "verified"
   }
  ],
  "operations": [
@@ -20533,6 +20925,159 @@
      "url": "https://mempool.space/tx/38d64c737bab0c1d66ec58de568be6d99d3291e62328473eed019464e693a499"
     }
    ]
+  },
+  {
+   "id": "op_btc_b167_merge_to_rg0",
+   "type": "transfer",
+   "claim": "transfer: 832.499901 BTC bc1qrs\u2026ue5e to bc1qrg\u20266zyt",
+   "via": null,
+   "session": 33,
+   "seq": 291,
+   "step": 794,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_btc_b167_merge_to_rg0:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction",
+     "tx": "b167dcb05d54f545587d690bb8990e1ccef68910fb20fc7fdb2036eddaa38922",
+     "url": "https://mempool.space/tx/b167dcb05d54f545587d690bb8990e1ccef68910fb20fc7fdb2036eddaa38922"
+    }
+   ]
+  },
+  {
+   "id": "op_btc_bc1qsmv_97e_split",
+   "type": "transfer",
+   "claim": "transfer: 1000 BTC bc1qsm\u20262vf2 to bc1qz8\u2026updp; 4636.799985 BTC bc1qsm\u20262vf2 to bc1qvw\u2026m8jc",
+   "via": null,
+   "session": 33,
+   "seq": 292,
+   "step": 797,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_btc_bc1qsmv_97e_split:0",
+    "op_btc_bc1qsmv_97e_split:1"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction",
+     "tx": "97e1646871896e56c856218ac30c0d47a56eb9a030d31beade1900046d0ae71c",
+     "url": "https://mempool.space/tx/97e1646871896e56c856218ac30c0d47a56eb9a030d31beade1900046d0ae71c"
+    }
+   ]
+  },
+  {
+   "id": "op_btc_bc1q96q_aa4e_split",
+   "type": "transfer",
+   "claim": "transfer: 1000 BTC bc1q96\u2026ga6u to bc1qal\u2026tca8; 1696.599985 BTC bc1q96\u2026ga6u to bc1qdy\u2026dewn",
+   "via": null,
+   "session": 33,
+   "seq": 293,
+   "step": 797,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_btc_bc1q96q_aa4e_split:0",
+    "op_btc_bc1q96q_aa4e_split:1"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction",
+     "tx": "aa4e740e19c4162e39592da7459ce8a9b5946a61f718e3df463672a9023365ec",
+     "url": "https://mempool.space/tx/aa4e740e19c4162e39592da7459ce8a9b5946a61f718e3df463672a9023365ec"
+    }
+   ]
+  },
+  {
+   "id": "op_btc_bc1qk8k_b27d_split",
+   "type": "transfer",
+   "claim": "transfer: 643.499963 BTC bc1qk8\u202623wl to bc1qrs\u2026ue5e; 1000 BTC bc1qk8\u202623wl to bc1qg3\u20263t53",
+   "via": null,
+   "session": 33,
+   "seq": 294,
+   "step": 797,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_btc_bc1qk8k_b27d_split:0",
+    "op_btc_bc1qk8k_b27d_split:1"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction",
+     "tx": "b27d181645ef592dbc145f63b62cdeab68afd8e725f539e43ad66a273d24dbdd",
+     "url": "https://mempool.space/tx/b27d181645ef592dbc145f63b62cdeab68afd8e725f539e43ad66a273d24dbdd"
+    }
+   ]
+  },
+  {
+   "id": "op_btc_bc1qvws_d5b_split",
+   "type": "transfer",
+   "claim": "transfer: 1000 BTC bc1qvw\u2026m8jc to bc1q63\u2026sjxp; 3636.79998 BTC bc1qvw\u2026m8jc to bc1qrs\u2026ue5e",
+   "via": null,
+   "session": 33,
+   "seq": 295,
+   "step": 802,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_btc_bc1qvws_d5b_split:0",
+    "op_btc_bc1qvws_d5b_split:1"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction",
+     "tx": "d5b12696e51d70b4d5caa634f08f9afdfa17ee924c282868a0773cbcab831f13",
+     "url": "https://mempool.space/tx/d5b12696e51d70b4d5caa634f08f9afdfa17ee924c282868a0773cbcab831f13"
+    }
+   ]
+  },
+  {
+   "id": "op_btc_bc1qdyy_046a_split",
+   "type": "transfer",
+   "claim": "transfer: 696.59998 BTC bc1qdy\u2026dewn to bc1q66\u20267a2a; 1000 BTC bc1qdy\u2026dewn to bc1qf5\u2026a35u",
+   "via": null,
+   "session": 33,
+   "seq": 296,
+   "step": 802,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_btc_bc1qdyy_046a_split:0",
+    "op_btc_bc1qdyy_046a_split:1"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction",
+     "tx": "046a4f5a187ce946d0ec783e1d1557a5ea655974a2259ac01e9b55e1284b2687",
+     "url": "https://mempool.space/tx/046a4f5a187ce946d0ec783e1d1557a5ea655974a2259ac01e9b55e1284b2687"
+    }
+   ]
+  },
+  {
+   "id": "op_btc_bc1qrsr_2034_split",
+   "type": "transfer",
+   "claim": "transfer: 1000 BTC bc1qrs\u2026ue5e to bc1qs6\u20267w3v; 2636.799975 BTC bc1qrs\u2026ue5e to bc1qk8\u202623wl",
+   "via": null,
+   "session": 33,
+   "seq": 297,
+   "step": 805,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_btc_bc1qrsr_2034_split:0",
+    "op_btc_bc1qrsr_2034_split:1"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction",
+     "tx": "20347f020d04608bf6aba4a814090aeab72092d0dcc4ded84c206b7d7dd2b0f5",
+     "url": "https://mempool.space/tx/20347f020d04608bf6aba4a814090aeab72092d0dcc4ded84c206b7d7dd2b0f5"
+    }
+   ]
   }
  ],
  "leads": [
@@ -21352,9 +21897,9 @@
   "valued_at": "USD at prices at 2026-10-29T20:20:00Z, DefiLlama historical",
   "stolen_usd": 5260153802.69,
   "frozen_usd": 2374913188.6,
-  "dormant_usd": 1960609968.51,
+  "dormant_usd": 2509276858.94,
   "stop_usd": 613.28,
-  "unaccounted_usd": 924630032.29,
+  "unaccounted_usd": 375963141.86,
   "unpriced_assets": [
    "0x998ffe1e43facffb941dc337dd0468d52ba5b48a"
   ]
@@ -21843,8 +22388,9 @@
    "Served address_transactions for BTC seed bc1q0mtc2f5agpkvlq6hhahmfr3hlr55kyfjhl2mnm. It lists 11 seed receipts at block 973732 and 6 spend txs from the seed in-window: 07f4a693 spends 5de232...:0; 27cdbffb spends d308...:0 and d9bf...:0; 50a9d0ab spends 82c0...:0; b1473693 spends 3b1d...:0; f47b5991 spends 574b...:0; 58bb6e42 spends five smaller seed txos 48ba/6722/6736/8b02/f9dc to one output. Also a later 779 sat dust/OP_RETURN inbound is not traced.",
    "Served bitcoin transaction records for seed spend txs 07f4a693..., 27cdbffb..., 50a9d0ab..., b1473693..., f47b5991..., 58bb6e42.... Each record shows seed address inputs and output addresses/values: 07f4 outputs 40949999500 to bc1q96q... and 100000000000 to bc1qxrx...; 27cd outputs 14269999300 to bc1qrsr... and 100000000000 to bc1qnq6...; 50a9 outputs 100000000000 to bc1qjwd... and 663679999500 to bc1qt8m...; b147 outputs 100000000000 to bc1q0ts... and 369659999500 to bc1qhuq...; f47b outputs 100000000000 to bc1qs3a... and 194689999500 to bc1qn43...; 58bb outputs 43769998739 to bc1qxg0....",
    "Served outspends for BTC first-hop txs. Spent in block 973732: 07f4 v0 -> a9ed8a851a83912bd0ee16d66155f5225805f086e152da73204859f6ed4bc676; 27cd v0 -> b167dcb05d54f545587d690bb8990e1ccef68910fb20fc7fdb2036eddaa38922; 50a9 v1 -> 8fc80bf32e1d19c61d9210bf558addaa3eff0b15f5a2c161296f5ac3ec40adb3; b147 v1 -> fb5956f2861a30d93b3c03588e3c9ab9eae1a0f8aa09f21640d7f967f1142492; f47b v1 -> 38d64c737bab0c1d66ec58de568be6d99d3291e62328473eed019464e693a499. Unspent/resting: 07f4 v1, 27cd v1, 50a9 v0, b147 v0, f47b v0, 58bb v0.",
-   "Served bitcoin transaction records for second-hop spender txs a9ed8a..., b167dc..., 8fc80b..., fb5956..., 38d64c.... a9ed spends traced 07f4:v0 (bc1q96q, 40949999500) plus an untraced bc1qrsr input and outputs 5299995100 to bc1qn43... and 100000000000 to bc1qepc... . b167 spends traced 27cd:v0 (bc1qrsr, 14269999300), plus untraced bc1qrsr input and a9ed:v0 (bc1qn43, not yet recorded if tainted), and outputs 83249990088 to bc1qrg0... . 8fc80b spends traced 50a9:v1 and outputs 100000000000 to bc1qdfh... and 563679999000 to bc1qsmv... . fb5956 spends traced b147:v1 and outputs 100000000000 to bc1q2wv... and 269659999000 to bc1q96q... . 38d64c spends traced f47b:v1 and outputs 94689999000 to bc1qk8k... and 100000000000 to bc1qm2j... ."
+   "Served bitcoin transaction records for second-hop spender txs a9ed8a..., b167dc..., 8fc80b..., fb5956..., 38d64c.... a9ed spends traced 07f4:v0 (bc1q96q, 40949999500) plus an untraced bc1qrsr input and outputs 5299995100 to bc1qn43... and 100000000000 to bc1qepc... . b167 spends traced 27cd:v0 (bc1qrsr, 14269999300), plus untraced bc1qrsr input and a9ed:v0 (bc1qn43, not yet recorded if tainted), and outputs 83249990088 to bc1qrg0... . 8fc80b spends traced 50a9:v1 and outputs 100000000000 to bc1qdfh... and 563679999000 to bc1qsmv... . fb5956 spends traced b147:v1 and outputs 100000000000 to bc1q2wv... and 269659999000 to bc1q96q... . 38d64c spends traced f47b:v1 and outputs 94689999000 to bc1qk8k... and 100000000000 to bc1qm2j... .",
+   "Served third-hop BTC tx records. 97e164 spends traced 8fc80b:v1 (bc1qsmv, 563679999000) and outputs 100000000000 to bc1qz8h... and 463679998500 to bc1qvws... . aa4e74 spends traced fb5956:v1 (bc1q96q, 269659999000) and outputs 100000000000 to bc1qalw... and 169659998500 to bc1qdyy... . b27d18 spends traced 38d64c:v0 (bc1qk8k, 94689999000) plus untraced input and outputs 64349996300 to bc1qrsr... and 100000000000 to bc1qg3n... ."
   ],
-  "total_steps": 797
+  "total_steps": 805
  }
 }
