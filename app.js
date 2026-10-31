@@ -107,7 +107,8 @@
     comingSoon: [],
     pinned: new Set(),     // legend entries pinned by a click: their graph elements stay lit
     // the graph grouped into a band per chain (default) or drawn as one graph with a chain badge per node
-    groupChains: (function () { try { return localStorage.getItem('abf.groupChains') !== '0'; } catch (e) { return true; } })(),
+    // one graph by default (the original view); grouping is a toggle until it is the default again
+    groupChains: (function () { try { return localStorage.getItem('abf.groupChains2') === '1'; } catch (e) { return false; } })(),
     step: 0,
     view: null,
     cy: null,
@@ -525,7 +526,9 @@
     }
     return lines;
   }
-  function nodeClasses(n) { return 'r-' + n.role + ' ch-' + lc(n.chain || 'ethereum') + (S.groupChains ? '' : ' badge'); }
+  //: chain badges on nodes in the one-graph view (off for now: that view stays the original one)
+  var CHAIN_BADGES = false;
+  function nodeClasses(n) { return 'r-' + n.role + ' ch-' + lc(n.chain || 'ethereum') + (CHAIN_BADGES && !S.groupChains ? ' badge' : ''); }
   function edgeClasses(b) {
     var a = S.nodes.get(b.from), z = S.nodes.get(b.to);
     var cross = a && z && lc(a.chain || 'ethereum') !== lc(z.chain || 'ethereum');
@@ -669,9 +672,9 @@
     { selector: '.dim', style: { 'opacity': 0.16 } },
     { selector: '.ldim', style: { 'opacity': 0.08 } },
     { selector: 'edge.cross', style: { 'line-color': '#d7c8ff', 'target-arrow-color': '#d7c8ff', 'width': 2.4, 'z-index': 6 } },
-    { selector: 'node.lane', style: { 'shape': 'rectangle', 'width': 'data(w)', 'height': 'data(h)', 'label': '',
-        'background-color': 'data(color)', 'background-opacity': 0.045, 'border-width': 1, 'border-color': 'data(color)',
-        'border-opacity': 0.35, 'events': 'no', 'z-index-compare': 'manual', 'z-index': -20 } },
+    { selector: 'node.lane', style: { 'shape': 'round-rectangle', 'width': 'data(w)', 'height': 'data(h)', 'label': '',
+        'background-color': 'data(color)', 'background-opacity': 0.035, 'border-width': 1, 'border-color': 'data(color)',
+        'border-opacity': 0.28, 'events': 'no', 'z-index-compare': 'manual', 'z-index': -20 } },
     { selector: 'node.lane.empty', style: { 'border-style': 'dashed', 'background-opacity': 0.015 } },
     { selector: 'node.lanelbl', style: { 'shape': 'rectangle', 'width': 1, 'height': 1, 'background-opacity': 0, 'border-width': 0,
         'label': 'data(label)', 'text-halign': 'right', 'text-valign': 'center', 'color': 'data(color)', 'font-family': MONO,
@@ -2665,7 +2668,7 @@
 
   function runLayout(animate, done) { layoutGraph(animate, done); }
 
-  var BAND = { pad: 26, title: 22, sep: 18, gap: 26, empty: 34 };
+  var BAND = { pad: 30, gap: 90 };
   function isBridge(id) { var n = S.nodes.get(id); return !!n && n.role === 'stop' && BRIDGE_CLASSES.indexOf(n.stopClass) !== -1; }
   function grouping() { return S.groupChains && !NARROW; }
   function layoutGraph(animate, done) {
@@ -2689,7 +2692,7 @@
           data: { id: 'lane:' + b.chain, w: b.x2 - b.x1, h: b.y2 - b.y1, color: b.color } });
       });
       real.forEach(function (n) {
-        n.toggleClass('badge', !grouping());
+        n.toggleClass('badge', CHAIN_BADGES && !grouping());
       });
     });
     S.bands = bands;
@@ -2716,13 +2719,14 @@
       var n = S.cy.getElementById('lane:' + b.chain);
       if (n.empty()) return;
       var r = n.renderedBoundingBox();
-      if (r.h < 13 || r.y2 < 0 || r.y1 > h) return;
-      box.appendChild(el('div', { class: 'lane-label' + (b.empty ? ' empty' : ''),
-        style: 'left:' + Math.max(6, r.x1 + 8) + 'px;top:' + Math.max(2, r.y1 + 3) + 'px;color:' + b.color }, b.label));
+      if (r.y2 < 0 || r.y1 > h) return;
+      box.appendChild(el('div', { class: 'lane-label',
+        style: 'left:' + Math.max(6, r.x1) + 'px;top:' + Math.max(2, r.y1 - 19) + 'px;color:' + b.color }, b.label));
     });
   }
-  // Each chain's addresses in a band of their own, in the columns dagre gave them; then an empty band
-  // per chain the trace does not read yet. Positions are written into target; the bands are returned.
+  // Grouped by chain: dagre's own layout is kept (each address where dagre put it); a chain whose block
+  // overlaps the one above is moved down as a whole; each chain gets a faint region hugging its own
+  // addresses, named above it; a bridge sits on its region's edge, toward the chain it leads to.
   function packBands(real, target) {
     var by = new Map();
     real.forEach(function (n) {
@@ -2730,55 +2734,46 @@
       if (!by.has(c)) by.set(c, []);
       by.get(c).push(n);
     });
-    var untraced = (S.coverage && S.coverage.untraced_chains) || [];
-    var chains = Array.from(by.keys()).sort(function (a, b) {
-      return (a === 'ethereum' ? -1 : 0) - (b === 'ethereum' ? -1 : 0) || by.get(b).length - by.get(a).length;
-    });
-    if (chains.length < 2 && !untraced.length) return [];
-    var x1 = Infinity, x2 = -Infinity;
-    real.forEach(function (n) { var t = target[n.id()]; x1 = Math.min(x1, t.x - n.width() / 2); x2 = Math.max(x2, t.x + n.width() / 2); });
-    x1 -= BAND.pad; x2 += BAND.pad;
-    var bands = [], y = 0;
+    if (by.size < 2) return [];
+    function box(ns) {
+      var b = { x1: Infinity, x2: -Infinity, y1: Infinity, y2: -Infinity };
+      ns.forEach(function (n) {
+        if (isBridge(n.id())) return;
+        var t = target[n.id()], w = n.width() / 2, h = n.height() / 2;
+        b.x1 = Math.min(b.x1, t.x - w); b.x2 = Math.max(b.x2, t.x + w);
+        b.y1 = Math.min(b.y1, t.y - h); b.y2 = Math.max(b.y2, t.y + h);
+      });
+      return b;
+    }
+    var chains = Array.from(by.keys());
+    var mean = {};
+    chains.forEach(function (c) { var b = box(by.get(c)); mean[c] = isFinite(b.y1) ? (b.y1 + b.y2) / 2 : 0; });
+    chains.sort(function (a, b) { return mean[a] - mean[b]; });
+    var bands = [], floor = -Infinity;
     chains.forEach(function (c) {
-      var cols = new Map();
-      by.get(c).forEach(function (n) {
-        var k = Math.round(target[n.id()].x / 8);
-        if (!cols.has(k)) cols.set(k, []);
-        cols.get(k).push(n);
-      });
-      var top = y + BAND.title + BAND.pad / 2, deepest = top, bridges = [];
-      cols.forEach(function (ns) {
-        ns.sort(function (a, b) { return target[a.id()].y - target[b.id()].y; });
-        var at = top;
-        ns.forEach(function (n) {
-          if (isBridge(n.id())) { bridges.push(n); return; }
-          target[n.id()].y = at + n.height() / 2; at += n.height() + BAND.sep;
-        });
-        deepest = Math.max(deepest, at - BAND.sep);
-      });
-      var ch = chainInfo(c), y1 = y, y2 = deepest + BAND.pad;
-      // a bridge sits on the band's edge (its column kept), the upper edge when it leads to a chain above
-      bridges.forEach(function (n) {
+      var ns = by.get(c), b = box(ns);
+      if (!isFinite(b.y1)) b = { x1: 0, x2: 0, y1: 0, y2: 0 };
+      var dy = Math.max(0, floor + BAND.gap - (b.y1 - BAND.pad));
+      if (dy) { ns.forEach(function (n) { target[n.id()].y += dy; }); b.y1 += dy; b.y2 += dy; }
+      var ch = chainInfo(c);
+      var band = { chain: c, color: ch.color, label: ch.name.toUpperCase() + ' · ' + plural(ns.length, 'address', 'addresses'),
+        x1: b.x1 - BAND.pad, x2: b.x2 + BAND.pad, y1: b.y1 - BAND.pad, y2: b.y2 + BAND.pad };
+      ns.forEach(function (n) {
+        if (!isBridge(n.id())) return;
         var up = n.outgoers('node').some(function (m) {
           var mc = lc((S.nodes.get(m.id()) || {}).chain || 'ethereum');
           return chains.indexOf(mc) !== -1 && chains.indexOf(mc) < chains.indexOf(c);
         });
-        target[n.id()].y = up ? y1 : y2;
+        target[n.id()].y = up ? band.y1 : band.y2;
+        band.x1 = Math.min(band.x1, target[n.id()].x - n.width() / 2 - BAND.pad);
+        band.x2 = Math.max(band.x2, target[n.id()].x + n.width() / 2 + BAND.pad);
       });
-      bands.push({ chain: c, color: ch.color, label: ch.name.toUpperCase() + ' · ' + plural(by.get(c).length, 'address', 'addresses'),
-        x1: x1, x2: x2, y1: y1, y2: y2 });
-      y = y2 + BAND.gap + (bridges.length ? 24 : 0);
-    });
-    // an empty band keeps a readable height when the whole graph is in view
-    var emptyH = Math.max(BAND.empty, y * 0.022);
-    untraced.forEach(function (r) {
-      var ch = chainInfo(r.chain);
-      bands.push({ chain: r.chain, color: ch.color, empty: true, x1: x1, x2: x2, y1: y, y2: y + emptyH,
-        label: (str(r.name) || ch.name).toUpperCase() + ' · ' + usd(Number(r.usd) || 0) + ' taken · not traced yet' });
-      y += emptyH + Math.max(BAND.gap / 2, emptyH * 0.25);
+      bands.push(band);
+      floor = band.y2 + (ns.some(function (n) { return isBridge(n.id()); }) ? 30 : 0);
     });
     return bands;
   }
+
 
 
   // Bring the drawn graph in line with the new data without rebuilding it.
@@ -3055,7 +3050,7 @@
     groupButton();
     $('btn-group').addEventListener('click', function () {
       S.groupChains = !S.groupChains;
-      try { localStorage.setItem('abf.groupChains', S.groupChains ? '1' : '0'); } catch (e) { /* private mode */ }
+      try { localStorage.setItem('abf.groupChains2', S.groupChains ? '1' : '0'); } catch (e) { /* private mode */ }
       groupButton();
       layoutGraph(true, function () { fitView(true); });
     });
