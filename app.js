@@ -1412,7 +1412,7 @@
 
   function timelineUnavailable() {
     clear($('traj'));
-    $('traj').appendChild(el('li', { class: 'traj-loading' }, 'My timeline isn\'t available yet. What I found and my open leads still load.'));
+    $('traj').appendChild(el('li', { class: 'traj-loading' }, 'My timeline isn\'t available yet. Everything I traced and my open leads still load.'));
     $('tab-traj').hidden = true;
     setTab('mem');
   }
@@ -2551,7 +2551,7 @@
     if (dot) dot.className = 'live-dot st-' + state;
   }
 
-  // "Possibly new": a short hand-picked list (data/highlights.json); the panel stays hidden without it.
+  // "What I found": a short hand-picked list (data/highlights.json); the panel stays hidden without it.
   function loadHighlights() {
     fetchJson(DATA_DIR + 'highlights.json').then(function (d) {
       var items = d && Array.isArray(d.items) ? d.items : [];
