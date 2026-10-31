@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum and Bitcoin: live trace",
   "incident_utc": "2026-10-29T20:05:00Z",
-  "updated_utc": "2026-10-31T17:15:17Z",
+  "updated_utc": "2026-10-31T17:17:48Z",
   "head_block": 26314131,
   "chain": "ethereum",
   "notes": [
@@ -349,10 +349,10 @@
   {
    "id": 43,
    "started_utc": "2026-10-31T17:08:29Z",
-   "ended_utc": null,
-   "actions": 68,
+   "ended_utc": "2026-10-31T17:17:28Z",
+   "actions": 79,
    "model": "gpt-5.5",
-   "summary": ""
+   "summary": "ok"
   }
  ],
  "nodes": [
@@ -2034,7 +2034,7 @@
     {
      "asset": "ESP",
      "token": "0x031de51f3e8016514bd0963d0b2ab825a591db9a",
-     "amount": "2936523"
+     "amount": "1875000"
     }
    ]
   },
@@ -15756,6 +15756,90 @@
    "source_position": "Transfer event #181",
    "target_position": "Transfer event #181",
    "tx_url": "https://etherscan.io/tx/0x9babff99c1d3282a073e6494dd838032945bbdb0511432b383e7cea358fb4d93",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdc_to_eth_a97_0x75ed:0",
+   "from": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+   "to": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "53.616251",
+   "tx": "0x75edd4bd12a8c012e9323bbfa0b0a790ad2a076aa16756b4f936d0e9c573ece8",
+   "from_asset": "USDC",
+   "kind": "exchange",
+   "block": 26302909,
+   "time_utc": "2026-10-30T03:34:23Z",
+   "operation_id": "op_usdc_to_eth_a97_0x75ed",
+   "session": 43,
+   "seq": 557,
+   "step": 906,
+   "source_position": "Transfer event #10",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0x75edd4bd12a8c012e9323bbfa0b0a790ad2a076aa16756b4f936d0e9c573ece8",
+   "tier": "verified"
+  },
+  {
+   "id": "op_usdc_to_eth_a97_0xdacd:0",
+   "from": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+   "to": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "17.696179",
+   "tx": "0xdacd6457e416096303883791c2f115402b06b612d6ddea673abbc50651a14b94",
+   "from_asset": "USDC",
+   "kind": "exchange",
+   "block": 26302932,
+   "time_utc": "2026-10-30T03:38:59Z",
+   "operation_id": "op_usdc_to_eth_a97_0xdacd",
+   "session": 43,
+   "seq": 558,
+   "step": 906,
+   "source_position": "Transfer event #50",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xdacd6457e416096303883791c2f115402b06b612d6ddea673abbc50651a14b94",
+   "tier": "verified"
+  },
+  {
+   "id": "op_ctsi_a3b3_5227_0xe6c3:0",
+   "from": "0xa3b3dee870f01560fdbe5af659c9c9135748886f",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "CTSI",
+   "token": "0x491604c0fdf08347dd1fa4ee062a822a5dd06b5d",
+   "amount": "13875383.02",
+   "tx": "0xe6c317881432c66e15cab516594e04e247ec556c62b99b2973f51e710393b4f3",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26303753,
+   "time_utc": "2026-10-30T06:23:23Z",
+   "operation_id": "op_ctsi_a3b3_5227_0xe6c3",
+   "session": 43,
+   "seq": 559,
+   "step": 906,
+   "source_position": "Transfer event #502",
+   "target_position": "Transfer event #502",
+   "tx_url": "https://etherscan.io/tx/0xe6c317881432c66e15cab516594e04e247ec556c62b99b2973f51e710393b4f3",
+   "tier": "verified"
+  },
+  {
+   "id": "op_ctsi_to_eth_5227_0x19c2:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "0.022688",
+   "tx": "0x19c2a82ee1b801b5c2c9e41c0f9d599a81234c8098e1c35b49958f2eafd22a31",
+   "from_asset": "CTSI",
+   "kind": "exchange",
+   "block": 26307052,
+   "time_utc": "2026-10-30T17:25:23Z",
+   "operation_id": "op_ctsi_to_eth_5227_0x19c2",
+   "session": 43,
+   "seq": 560,
+   "step": 908,
+   "source_position": "Transfer event #0",
+   "target_position": "internal call 6",
+   "tx_url": "https://etherscan.io/tx/0x19c2a82ee1b801b5c2c9e41c0f9d599a81234c8098e1c35b49958f2eafd22a31",
    "tier": "verified"
   },
   {
@@ -30718,6 +30802,125 @@
    ]
   },
   {
+   "id": "op_usdc_to_eth_a97_0x75ed",
+   "type": "exchange",
+   "claim": "exchange: 53.616251 ETH 0xa97b\u20268d10 to 0xa97b\u20268d10",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 43,
+   "seq": 557,
+   "step": 906,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdc_to_eth_a97_0x75ed:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x75edd4bd12a8c012e9323bbfa0b0a790ad2a076aa16756b4f936d0e9c573ece8",
+     "url": "https://etherscan.io/tx/0x75edd4bd12a8c012e9323bbfa0b0a790ad2a076aa16756b4f936d0e9c573ece8#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x75edd4bd12a8c012e9323bbfa0b0a790ad2a076aa16756b4f936d0e9c573ece8",
+     "url": "https://etherscan.io/tx/0x75edd4bd12a8c012e9323bbfa0b0a790ad2a076aa16756b4f936d0e9c573ece8#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_usdc_to_eth_a97_0xdacd",
+   "type": "exchange",
+   "claim": "exchange: 17.696179 ETH 0xa97b\u20268d10 to 0xa97b\u20268d10",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 43,
+   "seq": 558,
+   "step": 906,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usdc_to_eth_a97_0xdacd:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xdacd6457e416096303883791c2f115402b06b612d6ddea673abbc50651a14b94",
+     "url": "https://etherscan.io/tx/0xdacd6457e416096303883791c2f115402b06b612d6ddea673abbc50651a14b94#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xdacd6457e416096303883791c2f115402b06b612d6ddea673abbc50651a14b94",
+     "url": "https://etherscan.io/tx/0xdacd6457e416096303883791c2f115402b06b612d6ddea673abbc50651a14b94#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_ctsi_a3b3_5227_0xe6c3",
+   "type": "transfer",
+   "claim": "transfer: 13875383.02 CTSI 0xa3b3\u2026886f to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x491604c0fdf08347dd1fa4ee062a822a5dd06b5d",
+    "name": "CartesiToken",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0x491604c0fdf08347dd1fa4ee062a822a5dd06b5d"
+   },
+   "session": 43,
+   "seq": 559,
+   "step": 906,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_ctsi_a3b3_5227_0xe6c3:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xe6c317881432c66e15cab516594e04e247ec556c62b99b2973f51e710393b4f3",
+     "url": "https://etherscan.io/tx/0xe6c317881432c66e15cab516594e04e247ec556c62b99b2973f51e710393b4f3#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_ctsi_to_eth_5227_0x19c2",
+   "type": "exchange",
+   "claim": "exchange: 0.022688 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+    "name": "UniswapV2Router02",
+    "function": "swapExactTokensForETHSupportingFeeOnTransferTokens",
+    "explorer": "https://etherscan.io/address/0x7a250d5630b4cf539739df2c5dacb4c659f2488d"
+   },
+   "session": 43,
+   "seq": 560,
+   "step": 908,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_ctsi_to_eth_5227_0x19c2:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x19c2a82ee1b801b5c2c9e41c0f9d599a81234c8098e1c35b49958f2eafd22a31",
+     "url": "https://etherscan.io/tx/0x19c2a82ee1b801b5c2c9e41c0f9d599a81234c8098e1c35b49958f2eafd22a31#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x19c2a82ee1b801b5c2c9e41c0f9d599a81234c8098e1c35b49958f2eafd22a31",
+     "url": "https://etherscan.io/tx/0x19c2a82ee1b801b5c2c9e41c0f9d599a81234c8098e1c35b49958f2eafd22a31#internal"
+    }
+   ]
+  },
+  {
    "id": "op_eth_00fc_091d_0x6529",
    "type": "transfer",
    "claim": "transfer: 9.998 ETH 0x00fc\u2026223e to 0x091d\u202628ce",
@@ -35182,10 +35385,10 @@
   "valued_at": "USD at prices at 2026-10-29T20:05:00Z, DefiLlama historical",
   "stolen_usd": 6415394289.12,
   "frozen_usd": 2378474891.41,
-  "dormant_usd": 2714670649.27,
+  "dormant_usd": 2714580511.01,
   "stop_usd": 0.0,
   "bridged_usd": 0.0,
-  "unaccounted_usd": 169648432.13,
+  "unaccounted_usd": 169738570.38,
   "unpriced_assets": [
    "0x998ffe1e43facffb941dc337dd0468d52ba5b48a"
   ],
@@ -36668,8 +36871,12 @@
    "Looked up full note 134: a97bf7 ARKM has four served event-search outflow logs to 0x9cb91e5451d29c84b51ffd40df0b724b639bf841 (txs 0x752af4, 0x4273fb, 0xe84e77, 0xd75b30); need receipts/traces before recording.",
    "Served ARKM evidence this run: events.search shows four a97bf7 ARKM outflow logs (correct amounts: 11790469627485522786553, 11790469627485522786553, 10224071059622225538704, 5514651284972711569619413) to 0x9cb91e5451d29c84b51ffd40df0b724b639bf841; receipts status 1 and account traces show ETH returned to a97bf7 at trace [1,2] in each tx with amounts 70969352893055318, 67714051844733616, 400153683960174730, 95074688411245952543.",
    "Served evidence for low-count a97 token outflows. MASK txs 0x1b4c/0xe744/0x5c5f are MASK->USDC swaps (receipt has USDC Transfer back to a97 logs 17/2/83 amounts 119289811983, 123175527942, 40010876270). ID/CHZ/SSV/AI/MEME/BIGTIME swaps return ETH to a97 at trace [1,2] with amounts from run output. CTSI first three return ETH at trace [6]; fourth tx 0x9bab is direct CTSI transfer to 0xa3b3 with no token/native return.",
-   "Checked extension blocks 26314046-26314131 with account.activity for a97bf7 and a3b3: a97bf7 has only three zero-amount ERC20 out rows (ALICE/HEI/ACX poison-like zero transfers to 0xa1473860...), no positive ETH/USDC/traced-token outflows in extension; a3b3 has no out activity in extension. account_overview is not available inside abf_env script (errors only), so use direct tool if needed."
+   "Checked extension blocks 26314046-26314131 with account.activity for a97bf7 and a3b3: a97bf7 has only three zero-amount ERC20 out rows (ALICE/HEI/ACX poison-like zero transfers to 0xa1473860...), no positive ETH/USDC/traced-token outflows in extension; a3b3 has no out activity in extension. account_overview is not available inside abf_env script (errors only), so use direct tool if needed.",
+   "account_overview direct: a97bf7 USDC from MASK swaps had 282476216195 in, 159300688253 out in 2 transfers at blocks 26302909/26302932 (to Uniswap pools 0x8ad599... amount 119289811983 and 0x88e6... amount 40010876270), leaving 123175527942 USDC resting at a97 through 26314131; these correspond to USDC from MASK tx 0xe744 with no later outflow. a3b3 CTSI from tx 0x9bab was fully sent out once at block 26303753 to 0x5227; need serve event/receipt for that CTSI outflow before recording.",
+   "Served a97bf7 USDC outflows this run: two positive USDC transfers after MASK->USDC swaps. Tx 0x75edd4bd... log10 sends 119289811983 USDC from a97bf7 to 0x8ad599... and account trace shows 53616251460204763887 wei ETH returned to a97bf7 at trace [1,2]. Tx 0xdacd6457... log50 sends 40010876270 USDC from a97bf7 to 0x88e6... and account trace shows 17696178735810036834 wei ETH returned to a97bf7 at trace [1,2].",
+   "Served a3b3 CTSI outflow this run: events.search for CTSI from 0xa3b3 found one positive Transfer in tx 0xe6c317881432c66e15cab516594e04e247ec556c62b99b2973f51e710393b4f3 log502, amount 13875383020000000402784256 to 0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c; receipt status 1 and account trace for a3b3 had no native transfers, so it is a direct token transfer.",
+   "Served 0x5227 CTSI outflow after a3b3 return: events.search found tx 0x19c2a82e... log0 CTSI Transfer from 0x5227 to pool 0x58eeb5... amount 13875383020000000402784256. Receipt status 1 shows WETH Withdrawal log5 and account trace shows ETH returned to 0x5227 at trace [6] amount 22687695442512841, so this is CTSI->ETH exchange."
   ],
-  "total_steps": 906
+  "total_steps": 908
  }
 }
