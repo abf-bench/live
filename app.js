@@ -145,9 +145,14 @@
     return parts.length > 1 ? int + '.' + parts[1] : int;
   }
   // ETH first, then larger totals first
+  // Major assets first in a fixed order; the rest by amount. Token counts are not comparable across
+  // assets (7.77 trillion PEPE would otherwise come before 1.88 billion USDT).
+  var MAJOR_ASSETS = ['ETH', 'USDT', 'USDC', 'RLUSD', 'WBTC', 'WETH'];
   function assetOrder(a, b) {
-    var ea = /^w?eth$/i.test(a[0]) ? 0 : 1, eb = /^w?eth$/i.test(b[0]) ? 0 : 1;
-    return ea - eb || b[1] - a[1];
+    var ra = MAJOR_ASSETS.indexOf(String(a[0]).toUpperCase()), rb = MAJOR_ASSETS.indexOf(String(b[0]).toUpperCase());
+    ra = ra === -1 ? MAJOR_ASSETS.length : ra;
+    rb = rb === -1 ? MAJOR_ASSETS.length : rb;
+    return ra - rb || b[1] - a[1];
   }
 
   function pad(n) { return n < 10 ? '0' + n : String(n); }
@@ -954,7 +959,7 @@
     }
     // Frozen, and under it what the issuers could still freeze (none: everything held is frozen)
     function frozenCell(v) {
-      var cell = amountCell('', 'Frozen', ROLES.frozen.color, frozenTotals(v), 2);
+      var cell = amountCell('', 'Frozen', ROLES.frozen.color, frozenTotals(v), 3);
       var still = totals(freezableTotals(v));
       append(cell, el('div', { class: 'stat-sub' + (still.length ? ' alert' : '') }, 'Still freezable: ',
         still.length ? still.map(function (p) { return el('b', null, fmt(p[1], 2) + ' ' + p[0] + ' '); }) : 'none'));
