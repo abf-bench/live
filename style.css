@@ -1449,3 +1449,14 @@ body.embed .highlights { display: none; }
 @media (prefers-reduced-motion: reduce) { .news-card { animation: none; } }
 @media (max-width: 700px) { .news { left: 10px; right: 10px; bottom: 10px; width: auto; } }
 body.embed .news { display: none; }
+
+/* the end of the agent's timeline: its state now (pulsing while it traces), and a way back to it */
+.ev-tail { display: flex; align-items: baseline; gap: 8px; margin: 14px 0 6px; font-family: var(--mono); font-size: 11px; color: var(--ink-2); }
+.ev-tail::before { display: none; }
+.ev-tail .live-dot { position: absolute; left: -17px; top: 4px; }
+.ev-tail.st-tracing .tail-text { color: var(--ink); }
+.ev-tail .tail-step { color: var(--faint); }
+.to-latest { position: sticky; bottom: 12px; z-index: 3; display: block; margin: 8px 0 0 auto; padding: 5px 12px; background: var(--ink); color: var(--bg); border: 0; border-radius: 14px; font-family: var(--mono); font-size: 11px; cursor: pointer; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45); }
+.to-latest:hover { background: #fff; }
+.to-latest[hidden] { display: none; }
+

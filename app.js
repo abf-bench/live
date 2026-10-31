@@ -24,7 +24,7 @@
   var DATA_URL = safeDataPath(PARAMS.get('data')) || 'data/graph.json';
   var POLL_MS = 2 * 60 * 1000; // live updates: check for a new export every two minutes,
   var POLL_TRACING_MS = 60 * 1000; // and every minute while the agent is tracing
-  function pollMs() { return LIVE.status && LIVE.status.state === 'tracing' ? POLL_TRACING_MS : POLL_MS; }
+  function pollMs() { return LIVE.status && agentState().state === 'tracing' ? POLL_TRACING_MS : POLL_MS; }
   var PLAY_EVENT_MS = 1200;   // pause on a step that adds flows
   var PLAY_IDLE_MS = 140;     // pass quickly over steps that add nothing
   var MAX_LABEL_LINES = 4;
@@ -1935,6 +1935,44 @@
     }
     $('traj-earlier').hidden = start === 0;
     $('traj-later').hidden = end >= T.n;
+    if (end >= T.n) list.appendChild(el('li', { class: 'ev ev-tail', id: 'traj-tail' }));
+    renderLiveTail();
+    updateLatestButton();
+  }
+
+  // The last line of the timeline: the agent's state now, pulsing while it traces.
+  function renderLiveTail() {
+    var li = $('traj-tail');
+    if (!li) return;
+    var info = LIVE.status ? agentState() : null;
+    clear(li);
+    li.className = 'ev ev-tail' + (info ? ' st-' + info.state : '');
+    append(li, [el('span', { class: 'live-dot' + (info ? ' st-' + info.state : ' st-stopped'), 'aria-hidden': 'true' }),
+      el('span', { class: 'tail-text' }, info ? info.short : 'Latest'),
+      el('span', { class: 'tail-step' }, '· latest step ' + S.total)]);
+  }
+
+  // "Jump to latest" shows while the reader is away from the newest event (replaying or scrolled up).
+  function updateLatestButton() {
+    var b = $('btn-latest');
+    if (!b || !T.loaded) return;
+    var box = $('workspace');
+    var atEnd = S.step >= S.total && T.end >= T.n && (!WIDE() || box.scrollHeight - box.scrollTop - box.clientHeight < 160);
+    b.hidden = atEnd;
+  }
+  function jumpToLatest() {
+    stopPlay();
+    T.pinK = null;
+    if (S.step < S.total) apply(S.total, { fit: false });
+    var w = windowAround(T.n - 1);
+    ensureRange(w[0], w[1]).then(function () {
+      renderWindow(T.n - 1);
+      markNow();
+      var tail = $('traj-tail'), box = $('workspace'), how = REDUCED_MOTION ? 'auto' : 'smooth';
+      if (WIDE()) box.scrollTo({ top: box.scrollHeight, behavior: how });
+      else if (tail) tail.scrollIntoView({ block: 'end', behavior: how });
+      setTimeout(updateLatestButton, 600);
+    });
   }
 
   function markNow() {
@@ -1961,6 +1999,8 @@
     if (!T.rendered || idx < T.start || idx >= T.end) renderWindow(idx);
     markNow();
     if (activeTab() === 'traj' && WIDE()) scrollToEvent(idx, smooth);
+    renderLiveTail();
+    updateLatestButton();
   }
 
   // Move the window earlier or later, loading chunks first, keeping the reader's place.
@@ -2071,7 +2111,7 @@
   function eventItem(e) {
     var li;
     if (e.kind === 'thinking' || e.kind === 'message') li = thoughtItem(e);
-    else if (e.kind === 'reset') li = el('li', { class: 'ev ev-reset' }, el('span', { title: str(e.text) || null }, str(e.text) || 'The agent restarted and continued from its working memory.'));
+    else if (e.kind === 'reset') li = el('li', { class: 'ev ev-reset' }, el('span', { title: str(e.text) || null }, (hhmm(e.utc) ? hhmm(e.utc) + ' · ' : '') + (str(e.text) || 'The agent restarted and continued from its working memory.')));
     else if (e.kind === 'system' || e.kind === 'task') li = promptItem(e);
     else if (e.kind === 'review') li = el('li', { class: 'ev ev-review' }, el('span', { class: 'review-name' }, 'Human review'), el('span', null, str(e.text)));
     else if (e.kind === 'deferred') li = deferredItem(e);
@@ -2204,7 +2244,7 @@
     var li = el('li', { class: 'ev ev-act' + (isReport ? ' ev-report' : '') + (e.kind === 'action' ? ' is-action' : ''),
       title: e.kind === 'action' ? 'Move the replay to step ' + e._step : null },
       el('div', { class: 'act-head' },
-        el('span', { class: 'act-step' }, 'Step ' + e._step),
+        el('span', { class: 'act-step' }, 'Step ' + e._step + (hhmm(e.utc) ? ' · ' + hhmm(e.utc) : '')),
         el('span', { class: 'act-tool' }, isReport ? (REPORT_TITLES[tool] || prettyType(tool)) : tool),
         reportLink(function () { return eventTarget(e); })),
       argLine.length ? el('div', { class: 'act-args' }, argLine) : null);
@@ -2909,7 +2949,7 @@
       var main = fmt(g.sum) + ' ' + (e.swap ? e.toAsset : e.asset);
       var sub = e.swap ? (n > 1 ? plural(n, 'swap') + ' from ' : 'Swapped from ') + e.fromAsset + ' at ' + nameOf(e.from)
         : nameOf(e.from) + ' to ' + nameOf(e.to);
-      var kicker = (n > 1 ? plural(n, 'new flow') : 'New flow') + ' · step ' + e.step;
+      var kicker = (n > 1 ? plural(n, 'new flow') : 'New flow') + ' · step ' + e.step + (hhmm(S.caseInfo.updated_utc) ? ' · ' + hhmm(S.caseInfo.updated_utc) : '');
       card(main, sub, kicker, function () { openFlowRow({ edge: e, swap: e.swap, verdict: verdictOf(e) }); }, kicker + ': ' + main + ', ' + sub);
     });
     var rest = groups.slice(NEWS_MAX).reduce(function (a, g) { return a + g.edges.length; }, 0);
@@ -2977,21 +3017,30 @@
     box.hidden = false;
   }
 
+  // The agent's state from the scheduler's status file; short is the end-of-timeline wording.
+  function agentState() {
+    var st = LIVE.status, hb = st && parseTime(st.heartbeat_utc);
+    var state = !st || !hb || Date.now() - hb.getTime() > STALE_MS ? 'stopped' : String(st.state || 'stopped');
+    // a round starts with the outflow check, a few minutes before the agent runs: past the announced time, it is tracing
+    var next = state === 'waiting' ? parseTime(st.next_wave_utc) : null;
+    if (next && next.getTime() <= Date.now()) state = 'tracing';
+    if (state === 'tracing') return { state: state, text: 'I\'m tracing now', short: 'Tracing now' };
+    if (state === 'waiting') {
+      var t = next ? 'Next round around ' + hhmm(st.next_wave_utc) : 'Waiting for the next round';
+      return { state: state, text: t, short: t };
+    }
+    if (state === 'paused_budget') return { state: state, text: 'Paused: I\'ve hit my token cap for now. Waiting for a human to wake up and top it up.', short: 'Paused at my token cap' };
+    return { state: 'stopped', text: 'Not running right now', short: 'Not running right now' };
+  }
+
   function renderStatusBadge() {
+    renderLiveTail();
     var badge = $('agent-status'), dot = document.querySelector('.kicker .live-dot');
     var st = LIVE.status;
     renderBudget(st);
     if (!st) { badge.hidden = true; $('rounds-note').hidden = true; if (dot) dot.className = 'live-dot'; return; }
     var hb = parseTime(st.heartbeat_utc);
-    var state = !hb || Date.now() - hb.getTime() > STALE_MS ? 'stopped' : String(st.state || 'stopped');
-    var text;
-    if (state === 'tracing') text = 'I\'m tracing now';
-    else if (state === 'waiting') {
-      var next = parseTime(st.next_wave_utc);
-      text = !next ? 'Waiting for the next round' : next.getTime() <= Date.now() ? 'Starting the next round' : 'Next round around ' + hhmm(st.next_wave_utc);
-    }
-    else if (state === 'paused_budget') text = 'Paused: I\'ve hit my token cap for now. Waiting for a human to wake up and top it up.';
-    else { state = 'stopped'; text = 'Not running right now'; }
+    var info = agentState(), state = info.state, text = info.text;
     badge.textContent = text;
     badge.className = 'agent-status st-' + state;
     badge.hidden = false;
@@ -3084,6 +3133,7 @@
     on($('ws-to-flows'), 'click', function (ev) { ev.preventDefault(); $('flows').scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block: 'start' }); });
     on($('btn-earlier'), 'click', function () { shiftWindow(-1); });
     on($('btn-later'), 'click', function () { shiftWindow(1); });
+    on($('btn-latest'), 'click', jumpToLatest);
     // Reaching the top or bottom of the timeline loads the neighbouring events.
     var ticking = false;
     on($('workspace'), 'scroll', function () {
@@ -3092,6 +3142,7 @@
       requestAnimationFrame(function () {
         ticking = false;
         var box = $('workspace');
+        updateLatestButton();
         if (box.scrollTop < 140 && T.start > 0) shiftWindow(-1);
         else if (box.scrollHeight - box.scrollTop - box.clientHeight < 140 && T.end < T.n) shiftWindow(1);
       });
