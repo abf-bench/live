@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum: live trace",
   "incident_utc": "2026-10-29T20:24:00Z",
-  "updated_utc": "2026-10-31T02:04:55Z",
+  "updated_utc": "2026-10-31T02:07:13Z",
   "head_block": 26309418,
   "chain": "ethereum",
   "notes": [
@@ -17414,6 +17414,41 @@
    "reason": null
   },
   {
+   "account": "lead_0x5227f6_wBETH_check",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x5227f6_UNI_check",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x5227f6_ENA_check",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x5227f6_PEPE_check",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x5227f6_LINK_check",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x5227f6_AAVE_check",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0xa97bf7_ENA_check",
+   "status": "open",
+   "reason": null
+  },
+  {
    "account": "lead_0x8532_ETH",
    "status": "closed",
    "reason": "Open: 0x8532fa14acaf483729c449b8458aeddb900543d4 ETH received 195460000000000000000000 in tx 0x551d...; trace outflows in window. (closed: Account activity for 0x8532fa14acaf483729c449b8458aeddb900543d4 shows no outgoing transfers in blocks 26300770-26306466; ETH pocket remains at account in current window.)"
@@ -18068,6 +18103,34 @@
    {
     "key": "lead_0xa984c4_USDC_check",
     "text": "Opened by the outflow check: 0xa984c4ca650b265e9db76f8713a9a626f704b83a 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 (USDC): 5 positive outflows at or after block 26306238, where traced value first arrived, are not recorded: 0x3feffdcfe9869be772e771c1ad1a156a1a89c178392d6fa4136cb3320c6b6a6e (block 26306240, 9699825); 0x5269f2d2e45901adbd16ada852380d675b71fb3a615a228be3fdd18bdef84314 (block 26306751, 37571827); 0x7a8386f9c30cb6a0d2586d574843defdfac9bf41e11ec8fdea4ac9779ee554f8 (block 26308036, 12493876); 0xa235fbb501ef2a16aefd4c44c626b5bdfcdd028f1289f3384c82efcad4d499ce (block 26309336, 11572273); 0xda437bc79368c259a5d4d72c5eb16b19b962e048681c6bf4abc252d9bc4649c5 (block 26309520, 13870687)"
+   },
+   {
+    "key": "lead_0x5227f6_wBETH_check",
+    "text": "Opened by the outflow check: 0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c 0xa2e3356610840701bdf5611a53974510ae27e2e1 (wBETH): 1 positive outflows at or after block 26300770, where traced value first arrived, are not recorded: 0xc19a2dcc7508e45f2743558cebefa50140fe68d9450ab18d14fd34039eb4bce2 (block 26301210, 29934013163146020067927)"
+   },
+   {
+    "key": "lead_0x5227f6_UNI_check",
+    "text": "Opened by the outflow check: 0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c 0x1f9840a85d5af5bf1d1762f925bdaddc4201f984 (UNI): 1 positive outflows at or after block 26300770, where traced value first arrived, are not recorded: 0x028bdd8b5f0bda6503a760b734090f1cdbc213e90b71394b8a089b3d66eada74 (block 26301181, 7018792332152540012203478)"
+   },
+   {
+    "key": "lead_0x5227f6_ENA_check",
+    "text": "Opened by the outflow check: 0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c 0x57e114b691db790c35207b2e685d4a43181e6061 (ENA): 1 positive outflows at or after block 26300770, where traced value first arrived, are not recorded: 0x8bcbacb34b4e49b3e86675b3bc2a988461ded1207cc7e3a23bfd2577deb35aee (block 26301257, 217497348010793666524433584)"
+   },
+   {
+    "key": "lead_0x5227f6_PEPE_check",
+    "text": "Opened by the outflow check: 0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c 0x6982508145454ce325ddbe47a25d4ec3d2311933 (PEPE): 1 positive outflows at or after block 26300770, where traced value first arrived, are not recorded: 0x7408734f52b076bb57c3e96d044e01827f6639deddf55d877f57589dc25072a5 (block 26301192, 7772977017415968168766645550511)"
+   },
+   {
+    "key": "lead_0x5227f6_LINK_check",
+    "text": "Opened by the outflow check: 0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c 0x514910771af9ca656af840dff83e8264ecf986ca (LINK): 2 positive outflows at or after block 26300770, where traced value first arrived, are not recorded: 0x317328369dfc29bf0c2236b2f7d8003f2b2f711c5174a919f2c7f0c139941b6f (block 26301421, 2568257370000000000000000); 0x3a9e765c8bb4ea34e42fb01f9b4fa96a8a84fbaa4a31ce9a6d65061aa2c19014 (block 26302874, 6590781132306194104996)"
+   },
+   {
+    "key": "lead_0x5227f6_AAVE_check",
+    "text": "Opened by the outflow check: 0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c 0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9 (AAVE): 2 positive outflows at or after block 26300770, where traced value first arrived, are not recorded: 0x68fb0da5ace5d3c415e34f71084d46be4c7f4bf443d4391bc853ff785ad6bf43 (block 26301432, 127952740000000000000000); 0xf94c9c8fa3468d316da727da4a150a1e3db20e54333e7d46e72a124875bee33e (block 26302882, 81572130556282284061)"
+   },
+   {
+    "key": "lead_0xa97bf7_ENA_check",
+    "text": "Opened by the outflow check: 0xa97bf7836f8a08f9ed91d41453d371493fae8d10 0x57e114b691db790c35207b2e685d4a43181e6061 (ENA): 1 positive outflows at or after block 26301444, where traced value first arrived, are not recorded: 0x08b31c71ada491a3bd449e2815ca38d91450c020523da2ce9daed69adcca4c6d (block 26303524, 980906420562590000000000)"
    }
   ],
   "notes": [
