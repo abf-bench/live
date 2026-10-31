@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum: live trace",
   "incident_utc": "2026-10-29T20:24:00Z",
-  "updated_utc": "2026-10-31T00:33:37Z",
+  "updated_utc": "2026-10-31T00:55:53Z",
   "head_block": 26309169,
   "chain": "ethereum",
   "notes": [
@@ -814,16 +814,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "open",
-   "note": null,
-   "freezable": [
-    {
-     "asset": "USDC",
-     "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-     "issuer": "Circle",
-     "held": "566.404242",
-     "note": "Circle has not frozen this address for USDC: USDC isBlacklisted returns false on chain; balanceOf returns 722.86 USDC, of which up to 566.404242 USDC arrived through traced flows, as of block 26309169."
-    }
-   ]
+   "note": null
   },
   {
    "id": "0xa984c4ca650b265e9db76f8713a9a626f704b83a",
@@ -1071,8 +1062,8 @@
    "id": "0xe834b3b783612087c6c4e95345fa5f4ad166a014",
    "chain": "ethereum",
    "label": null,
-   "role": "open",
-   "note": null
+   "role": "resting",
+   "note": "No outflow of the traced WETH since it arrived, as of block 26309169."
   },
   {
    "id": "0x3d26ca3b34177fbdd404081faa3e7251437af2b6",
@@ -1106,8 +1097,8 @@
    "id": "0x6d9421ed7b03f04e1a9321980bba8f606ad1750a",
    "chain": "ethereum",
    "label": null,
-   "role": "pocket",
-   "note": null
+   "role": "resting",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26309169."
   },
   {
    "id": "0x75220b7600c300005038432a0000f308e0000068",
