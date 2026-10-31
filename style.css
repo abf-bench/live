@@ -1300,19 +1300,28 @@ body.embed .stats { grid-template-columns: minmax(0, 1.8fr) repeat(3, minmax(0, 
 .frozen-box.freezable { border-left-color: var(--signal); }
 .badge.frzable { --c: var(--signal); }
 
-/* ---------- possibly new (hand-picked) ---------- */
-.highlights { margin-top: 18px; }
-.highlights .zone-head h2 {
-  font-family: var(--serif);
-  font-size: 30px;
-  line-height: 1;
+/* ---------- what I found: a one-item ticker ---------- */
+.highlights { margin-top: 16px; border-top: 1px solid var(--line); padding: 9px 0 0; }
+.hl-bar { display: grid; grid-template-columns: auto auto auto auto minmax(0, 1fr); align-items: start; column-gap: 8px; }
+.hl-label { margin: 0; padding-top: 2px; font-family: var(--mono); font-size: 11px; font-weight: 400; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--amber); white-space: nowrap; }
+.hl-count { padding-top: 2px; font-family: var(--mono); font-size: 11px; color: var(--muted); min-width: 2.2em; }
+.hl-nav { border: 1px solid var(--line-2); background: none; color: var(--ink-2); font-size: 14px; line-height: 1; padding: 1px 6px;
+  border-radius: 2px; cursor: pointer; }
+.hl-nav:hover { color: var(--ink); border-color: var(--ink-2); }
+.hl-item { min-width: 0; }
+.hl-text { all: unset; cursor: pointer; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;
+  font-size: 13.5px; line-height: 1.5; color: var(--ink); }
+.hl-item.open .hl-text { -webkit-line-clamp: unset; display: block; }
+.hl-text:hover, .hl-text:focus-visible { color: #fff; text-decoration: underline dotted var(--muted); }
+.hl-ev { margin: 4px 0 0; font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+.hl-ev a { color: var(--ink-2); }
+.hl-note { margin: 6px 0 0; font-size: 11.5px; color: var(--muted); }
+@media (max-width: 999px) {
+  .hl-bar { grid-template-columns: auto auto auto auto minmax(0, 1fr); row-gap: 6px; }
+  .hl-item { grid-column: 1 / -1; }
+  .hl-text { -webkit-line-clamp: 3; }
 }
-.hl-list { margin: 10px 0 0; padding: 0 0 0 20px; display: grid; gap: 10px; max-width: 980px; }
-.hl-list li { font-size: 14px; line-height: 1.5; color: var(--ink); }
-.hl-list li::marker { color: var(--amber); font-family: var(--mono); font-size: 12px; }
-.hl-list p { margin: 0; }
-.hl-list .hl-ev { margin-top: 3px; font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
-.hl-list .hl-ev a { color: var(--ink-2); }
 body.embed .highlights { display: none; }
 
 /* the kicker wraps between items, never inside one (a long paused message squeezed "Live trace") */

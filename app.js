@@ -2551,23 +2551,53 @@
     if (dot) dot.className = 'live-dot st-' + state;
   }
 
-  // "What I found": a short hand-picked list (data/highlights.json); the panel stays hidden without it.
+  // "What I found": a short hand-picked list (data/highlights.json) shown as a one-item ticker; a click
+  // opens the item with its records. Hidden without the file.
+  var HL = { items: [], i: 0, open: false, hover: false, timer: null };
+  function renderHighlight() {
+    var box = $('highlights-item');
+    if (!box || !HL.items.length) return;
+    var it = HL.items[HL.i];
+    clear(box);
+    box.classList.toggle('open', HL.open);
+    var links = (Array.isArray(it.evidence) ? it.evidence : []).filter(function (e) { return e && /^https:\/\//.test(String(e.url)); });
+    append(box, [
+      el('button', { type: 'button', class: 'hl-text', 'aria-expanded': HL.open ? 'true' : 'false',
+        title: HL.open ? 'Show less' : 'Show the records', onclick: function () { HL.open = !HL.open; renderHighlight(); } }, str(it.text)),
+      HL.open && links.length ? el('p', { class: 'hl-ev' }, links.map(function (e, k) {
+        return [k ? ' · ' : null, el('a', { href: String(e.url), target: '_blank', rel: 'noopener' }, str(e.label) || 'record')];
+      })) : null
+    ]);
+    if ($('highlights-count')) $('highlights-count').textContent = HL.items.length > 1 ? (HL.i + 1) + '/' + HL.items.length : '';
+    var note = $('highlights-note');
+    if (note) note.hidden = !HL.open;
+  }
+  function stepHighlight(d) {
+    if (!HL.items.length) return;
+    HL.i = (HL.i + d + HL.items.length) % HL.items.length;
+    HL.open = false;
+    renderHighlight();
+  }
   function loadHighlights() {
     fetchJson(DATA_DIR + 'highlights.json').then(function (d) {
-      var items = d && Array.isArray(d.items) ? d.items : [];
-      var box = $('highlights'), list = $('highlights-list');
-      if (!box || !list || !items.length) return;
-      clear(list);
-      items.forEach(function (it) {
-        var links = (Array.isArray(it.evidence) ? it.evidence : []).filter(function (e) { return e && /^https:\/\//.test(String(e.url)); });
-        list.appendChild(el('li', null,
-          el('p', null, str(it.text)),
-          links.length ? el('p', { class: 'hl-ev' }, links.map(function (e, i) {
-            return [i ? ' · ' : null, el('a', { href: String(e.url), target: '_blank', rel: 'noopener' }, str(e.label) || 'record')];
-          })) : null));
-      });
+      HL.items = d && Array.isArray(d.items) ? d.items.filter(function (it) { return it && str(it.text); }) : [];
+      var box = $('highlights');
+      if (!box || !HL.items.length) return;
       if ($('highlights-note')) $('highlights-note').textContent = str(d.note) || '';
+      var multi = HL.items.length > 1;
+      ['hl-prev', 'hl-next'].forEach(function (id, k) {
+        var b = $(id);
+        if (!b) return;
+        b.hidden = !multi;
+        b.onclick = function () { stepHighlight(k ? 1 : -1); };
+      });
+      box.onmouseenter = function () { HL.hover = true; };
+      box.onmouseleave = function () { HL.hover = false; };
+      renderHighlight();
       box.hidden = false;
+      if (multi && !REDUCED_MOTION && !HL.timer) {
+        HL.timer = setInterval(function () { if (!HL.hover && !HL.open && !document.hidden) stepHighlight(1); }, 9000);
+      }
     }, function () { /* no list: nothing shown */ });
   }
 
