@@ -21,7 +21,6 @@
   var PARAMS = new URLSearchParams(window.location.search);
   var EMBED = PARAMS.get('embed') === '1';
   var SPLIT_ASSETS = PARAMS.get('split') === 'asset';
-  if (PARAMS.get('layout') === 'stack') document.body.classList.add('stack-head'); // layout preview
   var DATA_URL = safeDataPath(PARAMS.get('data')) || 'data/graph.json';
   var POLL_MS = 2 * 60 * 1000; // live updates: check for a new export every two minutes,
   var POLL_TRACING_MS = 60 * 1000; // and every minute while the agent is tracing
@@ -1085,7 +1084,8 @@
       { key: 'untraced', group: 'Not yet traced', label: 'Untraced chains', v: Number(c.untraced_usd) || 0, color: null,
         desc: 'Theft on chains I don\'t read yet',
         detail: [el('div', { class: 'cov-detail' }, (c.untraced_chains || []).map(function (r) {
-          return el('span', { class: 'amt' }, str(r.name) || cap(str(r.chain) || ''), el('span', { class: 'asset' }, usd(Number(r.usd) || 0)));
+          return el('span', { class: 'amt', 'data-chain': str(r.chain), onmouseenter: function () { chainFocus(str(r.chain)); },
+            onmouseleave: function () { chainFocus(null); } }, str(r.name) || cap(str(r.chain) || ''), el('span', { class: 'asset' }, usd(Number(r.usd) || 0)));
         }))] }
     ].filter(function (p) { return p.v > 0; });
     function fill(p, cls) {
@@ -1172,12 +1172,25 @@
     ]);
     Array.prototype.forEach.call(box.querySelectorAll('[data-chain]'), function (e) {
       var c = e.getAttribute('data-chain');
-      e.addEventListener('mouseenter', function () {
-        box.classList.add('focusing');
-        Array.prototype.forEach.call(box.querySelectorAll('.co-seg'), function (x) { x.classList.toggle('on', x.getAttribute('data-chain') === c); });
-      });
-      e.addEventListener('mouseleave', function () { box.classList.remove('focusing'); });
+      e.addEventListener('mouseenter', function () { chainFocus(c); });
+      e.addEventListener('mouseleave', function () { chainFocus(null); });
     });
+  }
+
+  // One chain lit everywhere it is named: its bar segment and chip, and its name in the coverage cards.
+  function chainFocus(c) {
+    function light(root, cls) {
+      if (!root) return;
+      var any = false;
+      Array.prototype.forEach.call(root.querySelectorAll('[data-chain]'), function (x) {
+        var on = x.getAttribute('data-chain') === c;
+        x.classList.toggle('hl', on);
+        any = any || on;
+      });
+      root.classList.toggle(cls, !!c && any);
+    }
+    light($('chain-overview'), 'focusing');
+    light($('coverage'), 'chain-focusing');
   }
 
   function dormantTotals(view) {

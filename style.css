@@ -1420,7 +1420,11 @@ body.embed .highlights { display: none; }
 .co-bar { display: flex; height: 8px; margin-top: 6px; border-radius: 2px; overflow: hidden; background: var(--line); }
 .co-seg { display: block; height: 100%; min-width: 2px; transition: opacity 0.15s; }
 .co-seg.untraced { opacity: 0.45; outline: 1px dashed var(--bg); outline-offset: -1px; }
-.chain-overview.focusing .co-seg:not(.on) { opacity: 0.15; }
+.chain-overview.focusing .co-seg:not(.hl) { opacity: 0.15; }
+.chain-overview.focusing .co-chip:not(.hl) { opacity: 0.3; }
+#coverage.chain-focusing .cov-detail [data-chain]:not(.hl) { opacity: 0.3; }
+.cov-detail [data-chain] { transition: opacity 0.15s; cursor: default; }
+.co-chip { transition: opacity 0.15s; }
 .co-chips { display: flex; flex-wrap: wrap; gap: 4px 10px; margin-top: 7px; }
 .co-chip { all: unset; cursor: pointer; font-family: var(--mono); font-size: 11px; color: var(--muted); display: inline-flex; align-items: baseline; gap: 4px; }
 .co-chip b { font-weight: 600; }
@@ -1463,7 +1467,7 @@ body.embed .news { display: none; }
 
 /* section head: the title on its own row, then what was taken by chain and where it is now, both full width
    on the same scale (2026-10-31: the chain overview beside the title left an empty band above it);
-   preview with ?layout=stack */
-body.stack-head .zone-head { grid-template-columns: minmax(0, 1fr); row-gap: 16px; align-items: start; }
-body.stack-head .chain-overview { padding-left: 0; border-left: 0; }
-body.stack-head .co-chips { gap: 4px 16px; }
+   the owner chose it */
+.zone-head { grid-template-columns: minmax(0, 1fr); row-gap: 16px; align-items: start; }
+.chain-overview { padding-left: 0; border-left: 0; }
+.co-chips { gap: 4px 16px; }
