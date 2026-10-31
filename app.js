@@ -55,9 +55,10 @@
     optimism:  { name: 'Optimism Etherscan', base: 'https://optimistic.etherscan.io' },
     avalanche: { name: 'Snowtrace',          base: 'https://snowtrace.io' },
     base:      { name: 'Basescan',           base: 'https://basescan.org' },
-    bsc:       { name: 'BscScan',            base: 'https://bscscan.com' }
+    bsc:       { name: 'BscScan',            base: 'https://bscscan.com' },
+    bitcoin:   { name: 'mempool.space',      base: 'https://mempool.space' }
   };
-  var EXPLORER_HOSTS = /(^|\.)(etherscan\.io|arbiscan\.io|snowtrace\.io|basescan\.org|bscscan\.com)$/;
+  var EXPLORER_HOSTS = /(^|\.)(etherscan\.io|arbiscan\.io|snowtrace\.io|basescan\.org|bscscan\.com|mempool\.space)$/;
   var EVIDENCE_NAMES = { transaction: 'Transaction', transaction_receipt: 'Event logs', transaction_trace: 'Internal calls' };
 
   // ---------- state ----------
@@ -114,11 +115,13 @@
   function safeUrl(u) {
     try { var x = new URL(u); return x.protocol === 'https:' && EXPLORER_HOSTS.test(x.hostname) ? x.href : null; } catch (e) { return null; }
   }
-  function lc(s) { return typeof s === 'string' ? s.trim().toLowerCase() : ''; }
+  // base58 Bitcoin addresses are case-sensitive and stay as they are; everything else is folded
+  var BASE58_ADDR = /^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$/;
+  function lc(s) { return typeof s !== 'string' ? '' : (BASE58_ADDR.test(s.trim()) ? s.trim() : s.trim().toLowerCase()); }
   function str(s) { return typeof s === 'string' && s.trim() !== '' ? s.trim() : null; }
   function num(v) { return v === null || v === undefined || v === '' || !Number.isFinite(+v) ? null : +v; }
-  function isAddr(s) { return /^0x[0-9a-f]{40}$/.test(s); }
-  function isHash(s) { return /^0x[0-9a-fA-F]{64}$/.test(s); }
+  function isAddr(s) { return /^0x[0-9a-f]{40}$/.test(s) || /^bc1[02-9ac-hj-np-z]{11,71}$/.test(s) || BASE58_ADDR.test(s); }
+  function isHash(s) { return /^(0x)?[0-9a-fA-F]{64}$/.test(s); }
   function short(s) { return !s ? '' : (s.length > 14 ? s.slice(0, 6) + '…' + s.slice(-4) : s); }
   function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
   function trimZeros(s) { return s.indexOf('.') === -1 ? s : s.replace(/\.?0+$/, ''); }
@@ -886,7 +889,8 @@
     });
     document.title = (/mock/i.test(title) ? 'MOCK DATA: ' : '') + 'ABF-Agent: tracing the Binance hack live';
     $('watermark').hidden = !/mock/i.test(title);
-    $('chain-name').textContent = cap(lc(c.chain) || 'ethereum');
+    $('chain-name').textContent = chainsText();
+    $('intro').textContent = 'I follow the stolen funds on ' + chainsText() + ' one transaction at a time. Keep an eye on this page; it updates on its own.';
 
     var inc = $('incident');
     clear(inc);
@@ -946,6 +950,13 @@
     if (a >= 1e6) return '$' + (x / 1e6).toFixed(1) + 'M';
     return '$' + Math.round(x).toLocaleString('en-US');
   }
+  // the chains the traced graph covers, in words ("Ethereum and Bitcoin")
+  function chainsText() {
+    var seen = [];
+    S.nodes.forEach(function (n) { var c = cap(n.chain || 'ethereum'); if (seen.indexOf(c) === -1) seen.push(c); });
+    seen.sort(function (a, b) { return a === 'Ethereum' ? -1 : b === 'Ethereum' ? 1 : a.localeCompare(b); });
+    return seen.length > 1 ? seen.slice(0, -1).join(', ') + ' and ' + seen[seen.length - 1] : (seen[0] || 'Ethereum');
+  }
   function renderCoverage() {
     var box = $('coverage');
     if (!box) return;
@@ -962,7 +973,7 @@
     ].filter(function (p) { return p.v > 0; });
     function pct(v) { var x = 100 * v / total; return (x > 0 && x < 0.1 ? '<0.1' : x.toFixed(1)) + '%'; }
     append(box, [
-      el('div', { class: 'cov-title' }, 'Where the ' + usd(total) + ' taken on Ethereum is now'),
+      el('div', { class: 'cov-title' }, 'Where the ' + usd(total) + ' taken on ' + chainsText() + ' is now'),
       el('div', { class: 'cov-bar', role: 'img', 'aria-label': parts.map(function (p) { return p.label + ' ' + pct(p.v); }).join(', ') },
         parts.map(function (p) {
           return el('span', { class: 'cov-seg ' + p.key, style: 'width:' + (100 * p.v / total) + '%;background:' + p.color,
