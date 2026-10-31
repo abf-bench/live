@@ -1332,6 +1332,7 @@ body.embed .stats { grid-template-columns: max-content max-content max-content m
 .hl-text:hover, .hl-text:focus-visible { color: #fff; text-decoration: underline dotted var(--muted); }
 .hl-ev { margin: 4px 0 0; font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
 .hl-ev a { color: var(--ink-2); }
+.hl-item-note { margin: 6px 0 0; font-size: 11.5px; line-height: 1.45; color: var(--muted); }
 .hl-note { margin: 6px 0 0; font-size: 11.5px; color: var(--muted); }
 @media (max-width: 999px) {
   .hl-bar { grid-template-columns: auto auto auto auto minmax(0, 1fr); row-gap: 6px; }

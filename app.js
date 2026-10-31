@@ -3075,6 +3075,7 @@
     append(box, [
       el('button', { type: 'button', class: 'hl-text', 'aria-expanded': HL.open ? 'true' : 'false',
         title: HL.open ? 'Show less' : 'Show the records', onclick: function () { HL.open = !HL.open; renderHighlight(); } }, str(it.text)),
+      HL.open && str(it.note) ? el('p', { class: 'hl-item-note' }, str(it.note)) : null,
       HL.open && links.length ? el('p', { class: 'hl-ev' }, links.map(function (e, k) {
         return [k ? ' · ' : null, el('a', { href: String(e.url), target: '_blank', rel: 'noopener' }, str(e.label) || 'record')];
       })) : null
