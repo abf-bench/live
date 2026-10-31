@@ -150,7 +150,7 @@
   // ETH first, then larger totals first
   // Major assets first in a fixed order; the rest by amount. Token counts are not comparable across
   // assets (7.77 trillion PEPE would otherwise come before 1.88 billion USDT).
-  var MAJOR_ASSETS = ['ETH', 'USDT', 'USDC', 'RLUSD', 'WBTC', 'WETH'];
+  var MAJOR_ASSETS = ['ETH', 'BTC', 'USDT', 'USDC', 'RLUSD', 'WBTC', 'WETH'];
   function assetOrder(a, b) {
     var ra = MAJOR_ASSETS.indexOf(String(a[0]).toUpperCase()), rb = MAJOR_ASSETS.indexOf(String(b[0]).toUpperCase());
     ra = ra === -1 ? MAJOR_ASSETS.length : ra;
@@ -1041,7 +1041,7 @@
           onclick: function () { stopPlay(); select({ kind: 'rejected' }); } }, String(c.rejected), el('span', { class: 'asset' }, 'rejected')),
         el('span', { class: 'amt' }, String(c.unchecked), el('span', { class: 'asset' }, 'unchecked'))));
     append(box, [
-      amountCell('wide', 'Taken from victims', ROLES.victim.color, byRole('victim', view.outflow), 4),
+      amountCell('wide', 'Taken from victims', ROLES.victim.color, byRole('victim', view.outflow), 5),
       amountCell('', 'Dormant', ROLES.resting.color, dormantTotals(view), 2),
       frozenCell(view),
       amountCell('', 'Tracing stopped', ROLES.stop.color, byRole('stop', view.inflow), 2),
