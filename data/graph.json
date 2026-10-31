@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum and Bitcoin: live trace",
   "incident_utc": "2026-10-29T20:05:00Z",
-  "updated_utc": "2026-10-31T17:04:10Z",
+  "updated_utc": "2026-10-31T17:04:58Z",
   "head_block": 26314096,
   "chain": "ethereum",
   "notes": [
@@ -341,10 +341,10 @@
   {
    "id": 42,
    "started_utc": "2026-10-31T17:01:23Z",
-   "ended_utc": null,
-   "actions": 29,
+   "ended_utc": "2026-10-31T17:04:47Z",
+   "actions": 41,
    "model": "gpt-5.5",
-   "summary": ""
+   "summary": "ok"
   }
  ],
  "nodes": [
@@ -1111,7 +1111,7 @@
     {
      "asset": "ETH",
      "token": "ETH",
-     "amount": "4069.644788"
+     "amount": "4408.043215"
     }
    ]
   },
@@ -2024,11 +2024,6 @@
    "note": null,
    "dormant": [
     {
-     "asset": "BREV",
-     "token": "0x086f405146ce90135750bbec9a063a8b20a8bffb",
-     "amount": "3920273"
-    },
-    {
      "asset": "ESP",
      "token": "0x031de51f3e8016514bd0963d0b2ab825a591db9a",
      "amount": "2936523"
@@ -2277,7 +2272,7 @@
    "id": "0x337403dc35a87bbd787ae8e7b61a7fcb19e3e6a5",
    "chain": "ethereum",
    "label": null,
-   "role": "open",
+   "role": "pocket",
    "note": null,
    "dormant": [
     {
@@ -15191,6 +15186,27 @@
    "source_position": "Transfer event #1",
    "target_position": "internal call 1.2",
    "tx_url": "https://etherscan.io/tx/0xeda7c7ebf5304d7d0b06b117095639d47f3b9326370aa0d18e2d037e143a0ee1",
+   "tier": "verified"
+  },
+  {
+   "id": "op_eth_3374_8d4b_0x032a:0",
+   "from": "0x337403dc35a87bbd787ae8e7b61a7fcb19e3e6a5",
+   "to": "0x8d4b8ee62124b7ee140a51ddd07390a56f1c9e19",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "338.398427",
+   "tx": "0x032a3d3022ba22e1de540a5f423d5c91220da521810c48648df6405b18b04d1c",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26312880,
+   "time_utc": "2026-10-31T12:55:47Z",
+   "operation_id": "op_eth_3374_8d4b_0x032a",
+   "session": 42,
+   "seq": 530,
+   "step": 905,
+   "source_position": "transaction value",
+   "target_position": "transaction value",
+   "tx_url": "https://etherscan.io/tx/0x032a3d3022ba22e1de540a5f423d5c91220da521810c48648df6405b18b04d1c",
    "tier": "verified"
   },
   {
@@ -29341,6 +29357,32 @@
    ]
   },
   {
+   "id": "op_eth_3374_8d4b_0x032a",
+   "type": "transfer",
+   "claim": "transfer: 338.398427 ETH 0x3374\u2026e6a5 to 0x8d4b\u20269e19",
+   "via": null,
+   "session": 42,
+   "seq": 530,
+   "step": 905,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_eth_3374_8d4b_0x032a:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction",
+     "tx": "0x032a3d3022ba22e1de540a5f423d5c91220da521810c48648df6405b18b04d1c",
+     "url": "https://etherscan.io/tx/0x032a3d3022ba22e1de540a5f423d5c91220da521810c48648df6405b18b04d1c"
+    },
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x032a3d3022ba22e1de540a5f423d5c91220da521810c48648df6405b18b04d1c",
+     "url": "https://etherscan.io/tx/0x032a3d3022ba22e1de540a5f423d5c91220da521810c48648df6405b18b04d1c#eventlog"
+    }
+   ]
+  },
+  {
    "id": "op_eth_00fc_091d_0x6529",
    "type": "transfer",
    "claim": "transfer: 9.998 ETH 0x00fc\u2026223e to 0x091d\u202628ce",
@@ -33487,7 +33529,7 @@
    "reason": null
   },
   {
-   "account": "lead_0x3374_ENSO",
+   "account": "lead_0x8d4b_ETH_from_3374",
    "status": "open",
    "reason": null
   },
@@ -33790,6 +33832,11 @@
    "account": "lead_a97bf7_ETH_from_POL",
    "status": "closed",
    "reason": "Reopened by the outflow check: 0xa97bf7836f8a08f9ed91d41453d371493fae8d10 0x455e53cbb86018ac2b8092fdcd39d8444affc3f6 (POL): 9 positive outflows at or after block 26301444, where traced value first arrived, are not recorded: 0xeceac4eecbf6a93d0d9065e9fb872d7467d732b4d602580f633f0c9a2dd8ea90 (block 26302368, 1734920499051552734640960); 0xf32c20396f89b39107e9ccf3542b9f50adf52c21c1049bffc932a7cbcc4d11b0 (block 26302372, 1230508428031008698828681); 0xb866850c0e920360dbf504090788c30362693be8c5a48a347f71d5b5ada74165 (block 26302376, 1073642699575097472404894); 0x94083f8076b860db1c0cbe900158f0507c7b32000be2c9b6bf858d97f8fd7f22 (block 26302384, 784661971912475759148969); 0xd8c0322356bc295bc6f13b9abd5e3d419c2a32f6fb041d87f52e5957b26ea5d6 (block 26302393, 782278213234887131209027); and 4 more (closed: All 27 a97bf7 POL outflows in the block window are now recorded as POL->ETH exchanges (18 prior findings plus 9 added this session). account_overview shows a97bf7 ETH outflows in-window are only the two previously recorded transfers to 0xc209 and 0xa3b3; no later ETH outflows through block 26314045/26314096, so the ETH returned by the POL swaps rests at a97bf7 after recorded transfers.)"
+  },
+  {
+   "account": "lead_0x3374_ENSO",
+   "status": "closed",
+   "reason": "Trace ENSO pocket at 0x337403dc35a87bbd787ae8e7b61a7fcb19e3e6a5 after tx 0x6b26c08536086457eda141a8d71a8b8508ae6ef78f39076ac3bf5ebc66924c46 log1116 amount 5743819979564969078816768; check all ENSO outflows in block window. (closed: Served events.search/account.activity show all ENSO outflows from 0x337403dc35a87bbd787ae8e7b61a7fcb19e3e6a5 after the traced receipt: three swaps in txs 0x7f96ec..., 0x252d6a..., and 0xeda7c7..., all recorded. Its resulting ETH outflow tx 0x032a3d... to 0x8d4b8 is also recorded; no other ETH outflows through block 26314096 per account_overview.)"
   }
  ],
  "coming_soon": [],
@@ -33800,10 +33847,10 @@
   "valued_at": "USD at prices at 2026-10-29T20:05:00Z, DefiLlama historical",
   "stolen_usd": 6415394289.12,
   "frozen_usd": 2378351784.07,
-  "dormant_usd": 2714368152.85,
+  "dormant_usd": 2714824162.05,
   "stop_usd": 0.0,
   "bridged_usd": 0.0,
-  "unaccounted_usd": 170074035.88,
+  "unaccounted_usd": 169618026.68,
   "unpriced_assets": [
    "0x998ffe1e43facffb941dc337dd0468d52ba5b48a"
   ],
@@ -35172,8 +35219,8 @@
     "text": "Trace token pockets from one-count a97bf7 token outflows recorded this session: 0xe5912b8eb692305a55370ec68cb6a9ab139c7aaa received TREE/SOLV/NOM; 0xa3b3dee870f01560fdbe5af659c9c9135748886f received Neiro/EURI/WXRP/DAR; 0xce9d97ee40aa605ac117c333b5397839cc3fe807 received MDT/EPIC/HEMI; 0xa1477b07f370d8e0dc84e94538dd40f75a523fc7 received HEI/ACX; 0x1439e9d8dd8e543b660609b81b4b4df66901ae1a received ESP/TLM; 0xd0ec028a3d21533fdd200838f39c85b03679285d received KNC/HIGH/DOLO/CELR/SIGN/RESOLV/LQTY/FTT/HOT; 0xaed8fcc3b124e754d4a8def82f2ca579b4370058 received TURTLE. Check all outflows of each asset in block window."
    },
    {
-    "key": "lead_0x3374_ENSO",
-    "text": "Trace ENSO pocket at 0x337403dc35a87bbd787ae8e7b61a7fcb19e3e6a5 after tx 0x6b26c08536086457eda141a8d71a8b8508ae6ef78f39076ac3bf5ebc66924c46 log1116 amount 5743819979564969078816768; check all ENSO outflows in block window."
+    "key": "lead_0x8d4b_ETH_from_3374",
+    "text": "Trace ETH pocket at 0x8d4b8ee62124b7ee140a51ddd07390a56f1c9e19 after tx 0x032a3d3022ba22e1de540a5f423d5c91220da521810c48648df6405b18b04d1c amount 338398426923292167963 from 0x337403dc35a87bbd787ae8e7b61a7fcb19e3e6a5; check all ETH outflows in block window."
    }
   ],
   "notes": [
@@ -35280,8 +35327,10 @@
    "Served events.search for all 27 a97bf7 POL Transfer outflows to 0x88ada7b1dd1c728ea87404cea7a0780139eb35d1 in blocks 26302252-26302408. Findings already cover first 18 txs through 0x63ceb4; missing 9 txs are 0xeceac4 log91, 0xf32c20 log208, 0xb86685 log186, 0x94083f log468, 0xd8c032 log30, 0xdedddd log30, 0x049be1 log256, 0xe06545 log24, 0x244ec4 log50. Need receipts+traces to record POL->ETH exchanges.",
    "Served receipts+account-filtered traces for 9 missing a97bf7 POL swap txs. Each receipt status 1 shows POL Transfer from a97bf7 to 0x88ada7... at logs 91/208/186/468/30/30/256/24/50 and account trace shows ETH returned to a97bf7 at trace [1,2]. ETH amounts: 0xeceac4 59502706173410134563; 0xf32c20 43845286189096876072; 0xb86685 38190129740065525723; 0x94083f 28156892237895846981; 0xd8c032 27826418551305435470; 0xdedddd 37439146261244447824; 0x049be1 40702455762239792505; 0xe06545 40794354689108306411; 0x244ec4 1041090509294689106. Ready to record exchange ops.",
    "Served events.search for a97bf7 ENSO (0x699f088b5dddcafb7c4824db5b10b57b37cb0c66) outflows in full window. One positive Transfer: tx 0x6b26c08536086457eda141a8d71a8b8508ae6ef78f39076ac3bf5ebc66924c46 log1116 amount 5743819979564969078816768 to 0x337403dc35a87bbd787ae8e7b61a7fcb19e3e6a5; later tx 0x1bd4... is zero-value poison/ignored. Need receipt+trace for tx 0x6b26 to classify direct transfer vs swap.",
-   "Served receipt+account trace for ENSO tx 0x6b26c085...: receipt status 1 has only ENSO Transfer log1116 from a97bf7 to 0x337403dc35a87bbd787ae8e7b61a7fcb19e3e6a5 amount 5743819979564969078816768; account-filtered trace for a97bf7 has no native transfers/frames. Recorded as direct token transfer."
+   "Served receipt+account trace for ENSO tx 0x6b26c085...: receipt status 1 has ENSO Transfer log1116 from a97bf7 to 0x337403dc35a87bbd787ae8e7b61a7fcb19e3e6a5 amount 1435185000000000000000000 (correcting earlier misread); account-filtered trace for a97bf7 has no native transfers/frames. Recorded as direct token transfer.",
+   "Served 0x337403dc35a87bbd787ae8e7b61a7fcb19e3e6a5 ENSO/ETH outflow records. ENSO outflows after a97bf7 transfer are exactly three swaps: 0x7f96 log1 amount 251157375000000000000000 -> ETH trace [1,2] 55991929011409139912; 0x252d log27 amount 284794523437500000000000 -> ETH trace [1,2] 68641756971355120801; 0xeda7 log1 amount 899233101562500000000000 -> ETH trace [1,2] 213714814032537470914. account_overview/account.activity show the resulting ETH plus small dust then one ETH outflow: simple tx 0x032a3d... amount 338398426923292167963 to 0x8d4b8ee62124b7ee140a51ddd07390a56f1c9e19; recorded all four operations.",
+   "Served events.search for a97bf7 ARKM (0x6e2a43be0b1d33b726f0ca3b8de60b3482b8b050) outflows in full window. Four positive Transfers, all to 0x9cb91e5451d29c84b51ffd40df0b724b639bf841: tx 0x752af4 log93 amount 3017479277499999783161; tx 0x4273fb log2 same amount 3017479277499999783161; tx 0xe84e77 log58 amount 2557743090000000167568; tx 0xd75b30 log15 amount 1365106725489999977392597. Need receipts+traces to classify as transfer or exchange."
   ],
-  "total_steps": 905
+  "total_steps": 906
  }
 }
