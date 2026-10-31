@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum and Bitcoin: live trace",
   "incident_utc": "2026-10-29T20:05:00Z",
-  "updated_utc": "2026-10-31T17:33:54Z",
+  "updated_utc": "2026-10-31T17:37:07Z",
   "head_block": 26314230,
   "chain": "ethereum",
   "notes": [
@@ -955,13 +955,13 @@
    "id": "0x5c23023ca6633f91ded909b4a753a3ca00fea4fc",
    "chain": "ethereum",
    "label": null,
-   "role": "pocket",
+   "role": "open",
    "note": null,
    "dormant": [
     {
      "asset": "ETH",
      "token": "ETH",
-     "amount": "0.5"
+     "amount": "0.000001"
     }
    ]
   },
@@ -40015,14 +40015,19 @@
    "reason": null
   },
   {
+   "account": "lead_0x5c230_8292",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x5c230_ETH",
+   "status": "open",
+   "reason": null
+  },
+  {
    "account": "lead_0x8532_ETH",
    "status": "closed",
    "reason": "Open: 0x8532fa14acaf483729c449b8458aeddb900543d4 ETH received 195460000000000000000000 in tx 0x551d...; trace outflows in window. (closed: Account activity for 0x8532fa14acaf483729c449b8458aeddb900543d4 shows no outgoing transfers in blocks 26300770-26306466; ETH pocket remains at account in current window.)"
-  },
-  {
-   "account": "lead_0x5c230_8292",
-   "status": "closed",
-   "reason": "Open: 0x5c23023ca6633f91ded909b4a753a3ca00fea4fc received 0x8292 token amount 88541065000000000000000000 in tx 0x1d3f... log32; trace outflows in window. (closed: Recorded the only positive outgoing 0x8292 transfer from 0x5c230 in window, tx 0x12605d... log 484; later 0x8292 outflow was zero amount. Other 0x5c230 outflows were ETH or different tokens and not this 0x8292 pocket.)"
   },
   {
    "account": "lead_0x008f_8292",
@@ -40148,11 +40153,6 @@
    "account": "lead_0xe7024_ETH_from_5c230",
    "status": "closed",
    "reason": "Open/finish check: 0xe7024ab80143b1ef843efe6a58368696cb87958d ETH received 79047446609058075 from 0x5c230 in tx 0xf761c018...; prior complete activity fetch showed all positive ETH outflows in window already recorded (0x5c711713..., 0x2c64a2e2..., 0xe615d0d1...). (closed: 0xe7024ab80143b1ef843efe6a58368696cb87958d ETH out activity through block 26306889 was previously fetched; all positive ETH outflows in the window were already recorded (txs 0x5c711713..., 0x2c64a2e2..., 0xe615d0d1...). Other rows were zero-value ETH or non-traced ERC20 transfers.)"
-  },
-  {
-   "account": "lead_0x5c230_ETH",
-   "status": "closed",
-   "reason": "Open: 0x5c23023ca6633f91ded909b4a753a3ca00fea4fc ETH received traced value from 0x974929 in tx 0x925dda93...; trace ETH outflows in window. (closed: Fetched 0x5c23023ca6633f91ded909b4a753a3ca00fea4fc out activity through block 26306889. Positive traced ETH outflows found were tx 0x8e68e82f... to 0x008f06... and tx 0xf761c018... to 0xe7024..., both recorded. Other rows were the earlier 0x8292 token flow already traced or non-traced activity.)"
   },
   {
    "account": "lead_0x470b3f_ETH",
@@ -40328,10 +40328,10 @@
   "valued_at": "USD at prices at 2026-10-29T20:05:00Z, DefiLlama historical",
   "stolen_usd": 6415394289.12,
   "frozen_usd": 2378474891.41,
-  "dormant_usd": 2713847323.21,
+  "dormant_usd": 2713846165.83,
   "stop_usd": 0.0,
   "bridged_usd": 0.0,
-  "unaccounted_usd": 170471758.18,
+  "unaccounted_usd": 170472915.57,
   "unpriced_assets": [
    "0x998ffe1e43facffb941dc337dd0468d52ba5b48a"
   ],
@@ -41702,6 +41702,14 @@
    {
     "key": "lead_0x8d4b_ETH_from_3374",
     "text": "Trace ETH pocket at 0x8d4b8ee62124b7ee140a51ddd07390a56f1c9e19 after tx 0x032a3d3022ba22e1de540a5f423d5c91220da521810c48648df6405b18b04d1c amount 338398426923292167963 from 0x337403dc35a87bbd787ae8e7b61a7fcb19e3e6a5; check all ETH outflows in block window."
+   },
+   {
+    "key": "lead_0x5c230_8292",
+    "text": "Reopened by the outflow check: 0x5c23023ca6633f91ded909b4a753a3ca00fea4fc ETH (ETH): 1 positive outflows at or after block 26300952, where traced value first arrived, are not recorded: 0xd5778390f8c75d1485c0aff9e4d2b8a15749d742dd9fc025722c1dbdf9d6eaf5 (block 26314264, 479676974064498558284) | 0x5c23023ca6633f91ded909b4a753a3ca00fea4fc 0x93a2db22b7c736b341c32ff666307f4a9ed910f5 (HYPER): 3 positive outflows at or after block 26313095, where traced value first arrived, are not recorded: 0xf952c89363056b73665aa2c5b7f2d23bcbf1567ac61154bc319aea98899d82c8 (block 26314242, 357617000000000000000000); 0xf0b8fa63dabc1960b0b70913b4c757284edf3dd3a8102a73742a1d23a280e9c8 (block 26314252, 2250000000000000000000000); 0xa5207a3be6f42ae4783c4311a82a9d2fb62c9649eae09f1d48804fb3c31cc581 (block 26314260, 6750000000000000000000000)"
+   },
+   {
+    "key": "lead_0x5c230_ETH",
+    "text": "Reopened by the outflow check: 0x5c23023ca6633f91ded909b4a753a3ca00fea4fc ETH (ETH): 1 positive outflows at or after block 26300952, where traced value first arrived, are not recorded: 0xd5778390f8c75d1485c0aff9e4d2b8a15749d742dd9fc025722c1dbdf9d6eaf5 (block 26314264, 479676974064498558284)"
    }
   ],
   "notes": [
