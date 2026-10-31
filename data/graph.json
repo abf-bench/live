@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum and Bitcoin: live trace",
   "incident_utc": "2026-10-29T20:20:00Z",
-  "updated_utc": "2026-10-31T10:43:42Z",
+  "updated_utc": "2026-10-31T10:44:01Z",
   "head_block": 26312188,
   "chain": "ethereum",
   "notes": [
@@ -277,10 +277,10 @@
   {
    "id": 34,
    "started_utc": "2026-10-31T10:37:35Z",
-   "ended_utc": null,
+   "ended_utc": "2026-10-31T10:43:25Z",
    "actions": 91,
    "model": "gpt-5.5",
-   "summary": ""
+   "summary": "ok"
   }
  ],
  "nodes": [
@@ -2833,6 +2833,41 @@
    "chain": "ethereum",
    "label": null,
    "role": "open",
+   "note": null
+  },
+  {
+   "id": "0xd017617f6f0fd22796e137a8240cc38f52a147b2",
+   "chain": "ethereum",
+   "label": null,
+   "role": "pocket",
+   "note": null
+  },
+  {
+   "id": "0x06b1655b9d560de112759b4f0bf57d6f005e72fe",
+   "chain": "ethereum",
+   "label": null,
+   "role": "pocket",
+   "note": null
+  },
+  {
+   "id": "0x948b54a93f5ad1df6b8bff6dc249d99ca2eca052",
+   "chain": "ethereum",
+   "label": null,
+   "role": "pocket",
+   "note": null
+  },
+  {
+   "id": "0x24ee2c6b9597f035088cda8575e9d5e15a84b9df",
+   "chain": "ethereum",
+   "label": null,
+   "role": "pocket",
+   "note": null
+  },
+  {
+   "id": "0xe310d7acdb331af81904e747d6ec005de0ac1162",
+   "chain": "ethereum",
+   "label": null,
+   "role": "pocket",
    "note": null
   },
   {
@@ -13501,6 +13536,258 @@
    "target_position": "Transfer event #81",
    "tx_url": "https://etherscan.io/tx/0x80c4bbcb2661f71fb6e267a608c9f3ce7edb18674bcbf0109188cff2b0db8c7b",
    "tier": "rejected"
+  },
+  {
+   "id": "op_gtc_5227_d017_0x2389:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0xd017617f6f0fd22796e137a8240cc38f52a147b2",
+   "asset": "GTC",
+   "token": "0xde30da39c46104798bb5aa3fe8b9e0e1f348163f",
+   "amount": "54216.03802",
+   "tx": "0x238916d3f729bf9ffa3f9f9c59183fb44c7e539354ad8af131642c100a6bad83",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302283,
+   "time_utc": "2026-10-30T01:28:23Z",
+   "operation_id": "op_gtc_5227_d017_0x2389",
+   "session": 34,
+   "seq": 324,
+   "step": 816,
+   "source_position": "Transfer event #6",
+   "target_position": "Transfer event #6",
+   "tx_url": "https://etherscan.io/tx/0x238916d3f729bf9ffa3f9f9c59183fb44c7e539354ad8af131642c100a6bad83",
+   "tier": "rejected"
+  },
+  {
+   "id": "op_gtc_5227_d017_0xf947:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0xd017617f6f0fd22796e137a8240cc38f52a147b2",
+   "asset": "GTC",
+   "token": "0xde30da39c46104798bb5aa3fe8b9e0e1f348163f",
+   "amount": "14403.394101",
+   "tx": "0xf94748b87e4bb90848d73d913b583aaaa28b4cde453d17b1a923bbcf80937ae3",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302286,
+   "time_utc": "2026-10-30T01:28:59Z",
+   "operation_id": "op_gtc_5227_d017_0xf947",
+   "session": 34,
+   "seq": 325,
+   "step": 816,
+   "source_position": "Transfer event #34",
+   "target_position": "Transfer event #34",
+   "tx_url": "https://etherscan.io/tx/0xf94748b87e4bb90848d73d913b583aaaa28b4cde453d17b1a923bbcf80937ae3",
+   "tier": "rejected"
+  },
+  {
+   "id": "op_gtc_5227_d017_0x9e4f:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0xd017617f6f0fd22796e137a8240cc38f52a147b2",
+   "asset": "GTC",
+   "token": "0xde30da39c46104798bb5aa3fe8b9e0e1f348163f",
+   "amount": "28648.480497",
+   "tx": "0x9e4f0c58831d2dd6b9851beca5085c3793f0f2e12415c6c03ac93bceede410fb",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302291,
+   "time_utc": "2026-10-30T01:29:59Z",
+   "operation_id": "op_gtc_5227_d017_0x9e4f",
+   "session": 34,
+   "seq": 326,
+   "step": 816,
+   "source_position": "Transfer event #22",
+   "target_position": "Transfer event #22",
+   "tx_url": "https://etherscan.io/tx/0x9e4f0c58831d2dd6b9851beca5085c3793f0f2e12415c6c03ac93bceede410fb",
+   "tier": "rejected"
+  },
+  {
+   "id": "op_gtc_5227_d017_0x783f:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0xd017617f6f0fd22796e137a8240cc38f52a147b2",
+   "asset": "GTC",
+   "token": "0xde30da39c46104798bb5aa3fe8b9e0e1f348163f",
+   "amount": "35900.855565",
+   "tx": "0x783fb1f66376b0e9b7ae5f1693cad749cec0de273dc2b9617bf94fc0e069a55d",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302294,
+   "time_utc": "2026-10-30T01:30:35Z",
+   "operation_id": "op_gtc_5227_d017_0x783f",
+   "session": 34,
+   "seq": 327,
+   "step": 816,
+   "source_position": "Transfer event #58",
+   "target_position": "Transfer event #58",
+   "tx_url": "https://etherscan.io/tx/0x783fb1f66376b0e9b7ae5f1693cad749cec0de273dc2b9617bf94fc0e069a55d",
+   "tier": "rejected"
+  },
+  {
+   "id": "op_gtc_5227_d017_0x92cf:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0xd017617f6f0fd22796e137a8240cc38f52a147b2",
+   "asset": "GTC",
+   "token": "0xde30da39c46104798bb5aa3fe8b9e0e1f348163f",
+   "amount": "44831.193387",
+   "tx": "0x92cf47ef8ac5f9dddac77e79d4f710d1a99709ad80250a83ddf37bbd0f91f72d",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302297,
+   "time_utc": "2026-10-30T01:31:11Z",
+   "operation_id": "op_gtc_5227_d017_0x92cf",
+   "session": 34,
+   "seq": 328,
+   "step": 816,
+   "source_position": "Transfer event #183",
+   "target_position": "Transfer event #183",
+   "tx_url": "https://etherscan.io/tx/0x92cf47ef8ac5f9dddac77e79d4f710d1a99709ad80250a83ddf37bbd0f91f72d",
+   "tier": "rejected"
+  },
+  {
+   "id": "op_gtc_5227_06b1_0xfcd0:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x06b1655b9d560de112759b4f0bf57d6f005e72fe",
+   "asset": "GTC",
+   "token": "0xde30da39c46104798bb5aa3fe8b9e0e1f348163f",
+   "amount": "1381979.601975",
+   "tx": "0xfcd0eb3f55f9af0848789ee170a01a213833c770b521780042292af1ac62f76f",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302321,
+   "time_utc": "2026-10-30T01:35:59Z",
+   "operation_id": "op_gtc_5227_06b1_0xfcd0",
+   "session": 34,
+   "seq": 329,
+   "step": 816,
+   "source_position": "Transfer event #21",
+   "target_position": "Transfer event #21",
+   "tx_url": "https://etherscan.io/tx/0xfcd0eb3f55f9af0848789ee170a01a213833c770b521780042292af1ac62f76f",
+   "tier": "rejected"
+  },
+  {
+   "id": "op_gtc_5227_06b1_0xc3d6:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x06b1655b9d560de112759b4f0bf57d6f005e72fe",
+   "asset": "GTC",
+   "token": "0xde30da39c46104798bb5aa3fe8b9e0e1f348163f",
+   "amount": "1088308.936556",
+   "tx": "0xc3d6226e9375dbe3637d977493cc05d141e48494ef9c38f0731a87b0fcf457fd",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302325,
+   "time_utc": "2026-10-30T01:36:47Z",
+   "operation_id": "op_gtc_5227_06b1_0xc3d6",
+   "session": 34,
+   "seq": 330,
+   "step": 816,
+   "source_position": "Transfer event #2",
+   "target_position": "Transfer event #2",
+   "tx_url": "https://etherscan.io/tx/0xc3d6226e9375dbe3637d977493cc05d141e48494ef9c38f0731a87b0fcf457fd",
+   "tier": "rejected"
+  },
+  {
+   "id": "op_gtc_5227_06b1_0x616b:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x06b1655b9d560de112759b4f0bf57d6f005e72fe",
+   "asset": "GTC",
+   "token": "0xde30da39c46104798bb5aa3fe8b9e0e1f348163f",
+   "amount": "1560557.278668",
+   "tx": "0x616ba292fd6e71d884cae1e60249422097c740e1f8aae39ad32c012d5e1fb3e8",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302330,
+   "time_utc": "2026-10-30T01:37:47Z",
+   "operation_id": "op_gtc_5227_06b1_0x616b",
+   "session": 34,
+   "seq": 331,
+   "step": 816,
+   "source_position": "Transfer event #22",
+   "target_position": "Transfer event #22",
+   "tx_url": "https://etherscan.io/tx/0x616ba292fd6e71d884cae1e60249422097c740e1f8aae39ad32c012d5e1fb3e8",
+   "tier": "rejected"
+  },
+  {
+   "id": "op_fet_5227_948b_0x91f6:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x948b54a93f5ad1df6b8bff6dc249d99ca2eca052",
+   "asset": "FET",
+   "token": "0xaea46a60368a7bd060eec7df8cba43b7ef41ad85",
+   "amount": "865897.143538",
+   "tx": "0x91f6eb26ea5500e202fe41362908ab21dc205d7ab317eee206804d92419b2fa9",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302229,
+   "time_utc": "2026-10-30T01:17:35Z",
+   "operation_id": "op_fet_5227_948b_0x91f6",
+   "session": 34,
+   "seq": 332,
+   "step": 816,
+   "source_position": "Transfer event #46",
+   "target_position": "Transfer event #46",
+   "tx_url": "https://etherscan.io/tx/0x91f6eb26ea5500e202fe41362908ab21dc205d7ab317eee206804d92419b2fa9",
+   "tier": "rejected"
+  },
+  {
+   "id": "op_fet_5227_948b_0x300c:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x948b54a93f5ad1df6b8bff6dc249d99ca2eca052",
+   "asset": "FET",
+   "token": "0xaea46a60368a7bd060eec7df8cba43b7ef41ad85",
+   "amount": "11212894.471314",
+   "tx": "0x300c06f9b7a7d414b925c20d29fe5829868001d4b055084de26d9e3d9da0ba44",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302259,
+   "time_utc": "2026-10-30T01:23:35Z",
+   "operation_id": "op_fet_5227_948b_0x300c",
+   "session": 34,
+   "seq": 333,
+   "step": 816,
+   "source_position": "Transfer event #57",
+   "target_position": "Transfer event #57",
+   "tx_url": "https://etherscan.io/tx/0x300c06f9b7a7d414b925c20d29fe5829868001d4b055084de26d9e3d9da0ba44",
+   "tier": "rejected"
+  },
+  {
+   "id": "op_qnt_5227_24ee_0x8321:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x24ee2c6b9597f035088cda8575e9d5e15a84b9df",
+   "asset": "QNT",
+   "token": "0x4a220e6096b25eadb88358cb44068a3248254675",
+   "amount": "655.564498",
+   "tx": "0x832127a494e585286b7905414f1eb2f02b7e19f8a726a043492afaf17612484f",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302402,
+   "time_utc": "2026-10-30T01:52:11Z",
+   "operation_id": "op_qnt_5227_24ee_0x8321",
+   "session": 34,
+   "seq": 334,
+   "step": 816,
+   "source_position": "Transfer event #107",
+   "target_position": "Transfer event #107",
+   "tx_url": "https://etherscan.io/tx/0x832127a494e585286b7905414f1eb2f02b7e19f8a726a043492afaf17612484f",
+   "tier": "rejected"
+  },
+  {
+   "id": "op_qnt_5227_e310_0x9238:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0xe310d7acdb331af81904e747d6ec005de0ac1162",
+   "asset": "QNT",
+   "token": "0x4a220e6096b25eadb88358cb44068a3248254675",
+   "amount": "2819.376944",
+   "tx": "0x9238806d7a7e19113c87ed27c41d610000ce7b65d6452e149caf253956ad8ac7",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302427,
+   "time_utc": "2026-10-30T01:57:11Z",
+   "operation_id": "op_qnt_5227_e310_0x9238",
+   "session": 34,
+   "seq": 335,
+   "step": 816,
+   "source_position": "Transfer event #44",
+   "target_position": "Transfer event #44",
+   "tx_url": "https://etherscan.io/tx/0x9238806d7a7e19113c87ed27c41d610000ce7b65d6452e149caf253956ad8ac7",
+   "tier": "rejected"
   }
  ],
  "operations": [
@@ -22510,6 +22797,342 @@
      "kind": "transaction_receipt",
      "tx": "0x80c4bbcb2661f71fb6e267a608c9f3ce7edb18674bcbf0109188cff2b0db8c7b",
      "url": "https://etherscan.io/tx/0x80c4bbcb2661f71fb6e267a608c9f3ce7edb18674bcbf0109188cff2b0db8c7b#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_gtc_5227_d017_0x2389",
+   "type": "transfer",
+   "claim": "transfer: 54216.03802 GTC 0x5227\u20262f8c to 0xd017\u202647b2",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 34,
+   "seq": 324,
+   "step": 816,
+   "verdict": "INVALID",
+   "edge_ids": [
+    "op_gtc_5227_d017_0x2389:0"
+   ],
+   "checker": [
+    "contradicted:exchange_not_delivery"
+   ],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x238916d3f729bf9ffa3f9f9c59183fb44c7e539354ad8af131642c100a6bad83",
+     "url": "https://etherscan.io/tx/0x238916d3f729bf9ffa3f9f9c59183fb44c7e539354ad8af131642c100a6bad83#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_gtc_5227_d017_0xf947",
+   "type": "transfer",
+   "claim": "transfer: 14403.394101 GTC 0x5227\u20262f8c to 0xd017\u202647b2",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 34,
+   "seq": 325,
+   "step": 816,
+   "verdict": "INVALID",
+   "edge_ids": [
+    "op_gtc_5227_d017_0xf947:0"
+   ],
+   "checker": [
+    "contradicted:exchange_not_delivery"
+   ],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xf94748b87e4bb90848d73d913b583aaaa28b4cde453d17b1a923bbcf80937ae3",
+     "url": "https://etherscan.io/tx/0xf94748b87e4bb90848d73d913b583aaaa28b4cde453d17b1a923bbcf80937ae3#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_gtc_5227_d017_0x9e4f",
+   "type": "transfer",
+   "claim": "transfer: 28648.480497 GTC 0x5227\u20262f8c to 0xd017\u202647b2",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 34,
+   "seq": 326,
+   "step": 816,
+   "verdict": "INVALID",
+   "edge_ids": [
+    "op_gtc_5227_d017_0x9e4f:0"
+   ],
+   "checker": [
+    "contradicted:exchange_not_delivery"
+   ],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x9e4f0c58831d2dd6b9851beca5085c3793f0f2e12415c6c03ac93bceede410fb",
+     "url": "https://etherscan.io/tx/0x9e4f0c58831d2dd6b9851beca5085c3793f0f2e12415c6c03ac93bceede410fb#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_gtc_5227_d017_0x783f",
+   "type": "transfer",
+   "claim": "transfer: 35900.855565 GTC 0x5227\u20262f8c to 0xd017\u202647b2",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 34,
+   "seq": 327,
+   "step": 816,
+   "verdict": "INVALID",
+   "edge_ids": [
+    "op_gtc_5227_d017_0x783f:0"
+   ],
+   "checker": [
+    "contradicted:exchange_not_delivery"
+   ],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x783fb1f66376b0e9b7ae5f1693cad749cec0de273dc2b9617bf94fc0e069a55d",
+     "url": "https://etherscan.io/tx/0x783fb1f66376b0e9b7ae5f1693cad749cec0de273dc2b9617bf94fc0e069a55d#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_gtc_5227_d017_0x92cf",
+   "type": "transfer",
+   "claim": "transfer: 44831.193387 GTC 0x5227\u20262f8c to 0xd017\u202647b2",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 34,
+   "seq": 328,
+   "step": 816,
+   "verdict": "INVALID",
+   "edge_ids": [
+    "op_gtc_5227_d017_0x92cf:0"
+   ],
+   "checker": [
+    "contradicted:exchange_not_delivery"
+   ],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x92cf47ef8ac5f9dddac77e79d4f710d1a99709ad80250a83ddf37bbd0f91f72d",
+     "url": "https://etherscan.io/tx/0x92cf47ef8ac5f9dddac77e79d4f710d1a99709ad80250a83ddf37bbd0f91f72d#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_gtc_5227_06b1_0xfcd0",
+   "type": "transfer",
+   "claim": "transfer: 1381979.601975 GTC 0x5227\u20262f8c to 0x06b1\u202672fe",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 34,
+   "seq": 329,
+   "step": 816,
+   "verdict": "INVALID",
+   "edge_ids": [
+    "op_gtc_5227_06b1_0xfcd0:0"
+   ],
+   "checker": [
+    "contradicted:exchange_not_delivery"
+   ],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xfcd0eb3f55f9af0848789ee170a01a213833c770b521780042292af1ac62f76f",
+     "url": "https://etherscan.io/tx/0xfcd0eb3f55f9af0848789ee170a01a213833c770b521780042292af1ac62f76f#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_gtc_5227_06b1_0xc3d6",
+   "type": "transfer",
+   "claim": "transfer: 1088308.936556 GTC 0x5227\u20262f8c to 0x06b1\u202672fe",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 34,
+   "seq": 330,
+   "step": 816,
+   "verdict": "INVALID",
+   "edge_ids": [
+    "op_gtc_5227_06b1_0xc3d6:0"
+   ],
+   "checker": [
+    "contradicted:exchange_not_delivery"
+   ],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xc3d6226e9375dbe3637d977493cc05d141e48494ef9c38f0731a87b0fcf457fd",
+     "url": "https://etherscan.io/tx/0xc3d6226e9375dbe3637d977493cc05d141e48494ef9c38f0731a87b0fcf457fd#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_gtc_5227_06b1_0x616b",
+   "type": "transfer",
+   "claim": "transfer: 1560557.278668 GTC 0x5227\u20262f8c to 0x06b1\u202672fe",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 34,
+   "seq": 331,
+   "step": 816,
+   "verdict": "INVALID",
+   "edge_ids": [
+    "op_gtc_5227_06b1_0x616b:0"
+   ],
+   "checker": [
+    "contradicted:exchange_not_delivery"
+   ],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x616ba292fd6e71d884cae1e60249422097c740e1f8aae39ad32c012d5e1fb3e8",
+     "url": "https://etherscan.io/tx/0x616ba292fd6e71d884cae1e60249422097c740e1f8aae39ad32c012d5e1fb3e8#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_fet_5227_948b_0x91f6",
+   "type": "transfer",
+   "claim": "transfer: 865897.143538 FET 0x5227\u20262f8c to 0x948b\u2026a052",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 34,
+   "seq": 332,
+   "step": 816,
+   "verdict": "INVALID",
+   "edge_ids": [
+    "op_fet_5227_948b_0x91f6:0"
+   ],
+   "checker": [
+    "contradicted:exchange_not_delivery"
+   ],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x91f6eb26ea5500e202fe41362908ab21dc205d7ab317eee206804d92419b2fa9",
+     "url": "https://etherscan.io/tx/0x91f6eb26ea5500e202fe41362908ab21dc205d7ab317eee206804d92419b2fa9#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_fet_5227_948b_0x300c",
+   "type": "transfer",
+   "claim": "transfer: 11212894.471314 FET 0x5227\u20262f8c to 0x948b\u2026a052",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 34,
+   "seq": 333,
+   "step": 816,
+   "verdict": "INVALID",
+   "edge_ids": [
+    "op_fet_5227_948b_0x300c:0"
+   ],
+   "checker": [
+    "contradicted:exchange_not_delivery"
+   ],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x300c06f9b7a7d414b925c20d29fe5829868001d4b055084de26d9e3d9da0ba44",
+     "url": "https://etherscan.io/tx/0x300c06f9b7a7d414b925c20d29fe5829868001d4b055084de26d9e3d9da0ba44#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_qnt_5227_24ee_0x8321",
+   "type": "transfer",
+   "claim": "transfer: 655.564498 QNT 0x5227\u20262f8c to 0x24ee\u2026b9df",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 34,
+   "seq": 334,
+   "step": 816,
+   "verdict": "INVALID",
+   "edge_ids": [
+    "op_qnt_5227_24ee_0x8321:0"
+   ],
+   "checker": [
+    "contradicted:exchange_not_delivery"
+   ],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x832127a494e585286b7905414f1eb2f02b7e19f8a726a043492afaf17612484f",
+     "url": "https://etherscan.io/tx/0x832127a494e585286b7905414f1eb2f02b7e19f8a726a043492afaf17612484f#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_qnt_5227_e310_0x9238",
+   "type": "transfer",
+   "claim": "transfer: 2819.376944 QNT 0x5227\u20262f8c to 0xe310\u20261162",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 34,
+   "seq": 335,
+   "step": 816,
+   "verdict": "INVALID",
+   "edge_ids": [
+    "op_qnt_5227_e310_0x9238:0"
+   ],
+   "checker": [
+    "contradicted:exchange_not_delivery"
+   ],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x9238806d7a7e19113c87ed27c41d610000ce7b65d6452e149caf253956ad8ac7",
+     "url": "https://etherscan.io/tx/0x9238806d7a7e19113c87ed27c41d610000ce7b65d6452e149caf253956ad8ac7#eventlog"
     }
    ]
   }
