@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum and Bitcoin: live trace",
   "incident_utc": "2026-10-29T20:05:00Z",
-  "updated_utc": "2026-10-31T21:01:58Z",
+  "updated_utc": "2026-10-31T21:25:45Z",
   "head_block": 26315279,
   "chain": "ethereum",
   "notes": [
@@ -1238,7 +1238,7 @@
    "id": "0x77edef23fbd05921c26fe29fcc3a65e14d2ac3eb",
    "chain": "ethereum",
    "label": null,
-   "role": "pocket",
+   "role": "open",
    "note": null,
    "dormant": [
     {
@@ -1249,7 +1249,7 @@
     {
      "asset": "ETH",
      "token": "ETH",
-     "amount": "0.013988"
+     "amount": "0.000987"
     }
    ]
   },
@@ -1257,7 +1257,7 @@
    "id": "0x7aa4d3029e4c6a8e916300014ad95b6d6c03bfd1",
    "chain": "ethereum",
    "label": null,
-   "role": "pocket",
+   "role": "open",
    "note": null,
    "frozen": [
     {
@@ -1272,7 +1272,7 @@
     {
      "asset": "ETH",
      "token": "ETH",
-     "amount": "0.044048"
+     "amount": "0.000047"
     }
    ]
   },
@@ -1280,7 +1280,7 @@
    "id": "0xccbef95633adb5cd2b5038db5a38d77e726ca263",
    "chain": "ethereum",
    "label": null,
-   "role": "pocket",
+   "role": "open",
    "note": null,
    "frozen": [
     {
@@ -1295,7 +1295,7 @@
     {
      "asset": "ETH",
      "token": "ETH",
-     "amount": "0.029018"
+     "amount": "0.000017"
     }
    ]
   },
@@ -1637,13 +1637,13 @@
    "id": "0x80358c5b8f9b2cc27147a1e0f2a6c9a30eb2c397",
    "chain": "ethereum",
    "label": null,
-   "role": "pocket",
+   "role": "open",
    "note": null,
    "dormant": [
     {
      "asset": "ETH",
      "token": "ETH",
-     "amount": "0.000041"
+     "amount": "0.00006"
     }
    ]
   },
@@ -56263,6 +56263,26 @@
    "reason": null
   },
   {
+   "account": "lead_0xccbef_ETH",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x7aa4_ETH",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x77edef_ETH",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x80358c_ETH_check",
+   "status": "open",
+   "reason": null
+  },
+  {
    "account": "lead_0x8532_ETH",
    "status": "closed",
    "reason": "Open: 0x8532fa14acaf483729c449b8458aeddb900543d4 ETH received 195460000000000000000000 in tx 0x551d...; trace outflows in window. (closed: Account activity for 0x8532fa14acaf483729c449b8458aeddb900543d4 shows no outgoing transfers in blocks 26300770-26306466; ETH pocket remains at account in current window.)"
@@ -56333,19 +56353,9 @@
    "reason": "Open: 0xccbef95633adb5cd2b5038db5a38d77e726ca263 received tainted USDT 30000000000000 from 0x7aa4 in tx 0x9a764... log424; trace outflows in window. (closed: All traced-USDT outflows of 0xccbef95633adb5cd2b5038db5a38d77e726ca263 in blocks 26300770-26306848 are recorded: transfer to 0xb171ca86f82070282138352ff7111b494060c8c3 in tx 0x1e6f851d... log132; activity showed no other outgoing real USDT, only lookalike/non-traced ERC20s.)"
   },
   {
-   "account": "lead_0xccbef_ETH",
-   "status": "closed",
-   "reason": "Open: 0xccbef95633adb5cd2b5038db5a38d77e726ca263 received tainted ETH 57891850000000000000000 from 0x7aa4 in tx 0x6d7e5c...; trace outflows in window. (closed: All traced-ETH outflows of 0xccbef95633adb5cd2b5038db5a38d77e726ca263 in blocks 26300770-26306848 are recorded: transfer to 0xb171ca86f82070282138352ff7111b494060c8c3 in tx 0x3ccb1b3b...; activity showed no other outgoing real ETH, only zero/non-traced/lookalike ERC20s.)"
-  },
-  {
    "account": "lead_0x7aa4_USDT",
    "status": "closed",
    "reason": "Open: 0x7aa4d3029e4c6a8e916300014ad95b6d6c03bfd1 received tainted USDT 80000000000000 from 0x77edef in tx 0x279d12... log701; account activity shows later USDT outflows in txs 0x808f54..., 0x2a1979..., 0x9a764... requiring evidence. (closed: All traced-USDT outflows of 0x7aa4d3029e4c6a8e916300014ad95b6d6c03bfd1 in blocks 26300770-26306848 are recorded: exchanges to ETH in txs 0x808f54... and 0x2a1979ae..., and transfer to 0xccbef... in tx 0x9a764...; account activity showed no other outgoing real USDT in the window.)"
-  },
-  {
-   "account": "lead_0x7aa4_ETH",
-   "status": "closed",
-   "reason": "Open: 0x7aa4d3029e4c6a8e916300014ad95b6d6c03bfd1 received tainted ETH 41397810000000000000000 from 0x77edef in tx 0x1171d7...; account activity shows later ETH outflow in tx 0x6d7e5c... amount 57891850000000000000000 requiring evidence. (closed: All traced-ETH outflows of 0x7aa4d3029e4c6a8e916300014ad95b6d6c03bfd1 in blocks 26300770-26306848 are recorded: transfer to 0xccbef... in tx 0x6d7e5c...; account activity showed no other outgoing real ETH in the window. ETH received from USDT exchanges remains commingled and the same outflow is already recorded.)"
   },
   {
    "account": "lead_0xb171_USDT",
@@ -56418,11 +56428,6 @@
    "reason": "Reopened by the outflow check: 0x77edef23fbd05921c26fe29fcc3a65e14d2ac3eb 0xdac17f958d2ee523a2206206994597c13d831ec7: 1 outflows not recorded, e.g. 0xb7d294873bf18a56ce99115794b8a9a76542791b58456e7a4f94d74f1ae4e41f (closed: Fetched 0x77edef out-activity through block 26307051; every real USDT outflow in the window is recorded (swaps 0xb7d294... and 0xcb8075..., transfer 0x279d12...). Later rows are non-traced/lookalike assets or zero-value USDT.)"
   },
   {
-   "account": "lead_0x77edef_ETH",
-   "status": "closed",
-   "reason": "Reopened by the outflow check: 0x77edef23fbd05921c26fe29fcc3a65e14d2ac3eb 0xdac17f958d2ee523a2206206994597c13d831ec7: 1 outflows not recorded, e.g. 0xb7d294873bf18a56ce99115794b8a9a76542791b58456e7a4f94d74f1ae4e41f (closed: Fetched 0x77edef out-activity through block 26307051; the only positive ETH outflow is tx 0x1171d7... to 0x7aa4 and it is recorded. Other ETH rows are zero-value calls and later token spam/non-traced assets.)"
-  },
-  {
    "account": "lead_0x974929_ETH",
    "status": "closed",
    "reason": "Reopened by the outflow check: 0x9749292d74fd460982d0912ea9515ea24736c762 0xdac17f958d2ee523a2206206994597c13d831ec7: 9 outflows not recorded, e.g. 0x1b623b4349356c6c5699f953c5df9d9a4bc278e598f90f1ef42f385399a07b66, 0x290e94a9d14294b1c22bbc5d167343fd91fe91233e89434f20532fe5fe7e8668, 0x3fd5ec345eaf60faca94c652f5ac5c0dca77b4ef3c355fb12cb8f5108464a0b6 (closed: Fetched 0x974929 out-activity through block 26307051; every real ETH outflow is already recorded (0x1980e7, 0x925dda, 0x332cb7, 0xb9ecd7, 0x8a52aa, 0xbba4ed, 0xbd7822, 0x38edbc). Later rows are lookalike/non-traced ERC20 transfers.)"
@@ -56456,11 +56461,6 @@
    "account": "lead_0x8d539_ETH",
    "status": "closed",
    "reason": "Closed by the outflow check: no unrecorded outflow of 0x8d53903625b8e839b9df4bd28b0efb1cd6b8639a's traced pockets as of 2026-10-30T19:10:58Z."
-  },
-  {
-   "account": "lead_0x80358c_ETH_check",
-   "status": "closed",
-   "reason": "Closed by the outflow check: no unrecorded outflow of 0x80358c5b8f9b2cc27147a1e0f2a6c9a30eb2c397's traced pockets as of 2026-10-30T19:35:17Z."
   },
   {
    "account": "lead_0xad456c_ETH_check",
@@ -56581,10 +56581,10 @@
   "valued_at": "USD at prices at 2026-10-29T20:05:00Z, DefiLlama historical",
   "stolen_usd": 6415394289.12,
   "frozen_usd": 2378474891.41,
-  "dormant_usd": 2708299235.33,
+  "dormant_usd": 2708299036.3,
   "stop_usd": 0.0,
   "bridged_usd": 0.0,
-  "unaccounted_usd": 176019846.07,
+  "unaccounted_usd": 176020045.1,
   "unpriced_assets": [
    "0x998ffe1e43facffb941dc337dd0468d52ba5b48a"
   ],
@@ -57963,6 +57963,22 @@
    {
     "key": "lead_fix_rejected_pepe_2cc45",
     "text": "Fix verifier-rejected op_pepe_600d_a7bc_0x2cc45aad; inspect tx 0x2cc45aadd4c68a1c7c6e3afd6ba95ac86327709fa1ce3dcf3c02d463fececad6 to determine valid exchange edge(s)."
+   },
+   {
+    "key": "lead_0xccbef_ETH",
+    "text": "Reopened by the outflow check: 0xccbef95633adb5cd2b5038db5a38d77e726ca263 ETH (ETH): 1 positive outflows at or after block 26301006, where traced value first arrived, are not recorded: 0x2ff90fde30eedbb80af37abd489d9e4d29f732b57bdf86249e341b7aa62e2cb4 (block 26315344, 29000000000000000)"
+   },
+   {
+    "key": "lead_0x7aa4_ETH",
+    "text": "Reopened by the outflow check: 0x7aa4d3029e4c6a8e916300014ad95b6d6c03bfd1 [EIP-7702 account delegating to 0x63c0c19a282a1b52b07dd5a65b58948a07dae32b] ETH (ETH): 1 positive outflows at or after block 26300984, where traced value first arrived, are not recorded: 0xfd3dd9e33936abbe34f34cd7da8562d81d51b5426acd730d93cb10f7eae326d7 (block 26315341, 44000000000000000)"
+   },
+   {
+    "key": "lead_0x77edef_ETH",
+    "text": "Reopened by the outflow check: 0x77edef23fbd05921c26fe29fcc3a65e14d2ac3eb [EIP-7702 account delegating to 0x63c0c19a282a1b52b07dd5a65b58948a07dae32b] ETH (ETH): 1 positive outflows at or after block 26300959, where traced value first arrived, are not recorded: 0xe6fd5a6d3aada125031a066610c2093115b67fe592f9044f56e9f5f89c16fef3 (block 26315337, 13000000000000000)"
+   },
+   {
+    "key": "lead_0x80358c_ETH_check",
+    "text": "Reopened by the outflow check: 0x80358c5b8f9b2cc27147a1e0f2a6c9a30eb2c397 ETH (ETH): 1 positive outflows at or after block 26304970, where traced value first arrived, are not recorded: 0xdbe32841d6579ecb24751dd6816ec48999bb9fb248f6d82c9b399ad918fe9a0e (block 26315410, 10000000000000000)"
    }
   ],
   "notes": [
