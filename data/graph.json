@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum and Bitcoin: live trace",
   "incident_utc": "2026-10-29T20:05:00Z",
-  "updated_utc": "2026-10-31T16:58:03Z",
+  "updated_utc": "2026-10-31T17:01:14Z",
   "head_block": 26314045,
   "chain": "ethereum",
   "notes": [
@@ -2044,7 +2044,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced NEWT, BARD, WOO, ANIME, RARE, GLM, ARPA since it arrived, as of block 26314045.",
+   "note": "No outflow of the traced NEWT, BARD, WOO, ANIME, RARE, GLM, ARPA, KNC, HOT, LQTY, RESOLV, FTX Token, SIGN, CELR, HIGH, DOLO since it arrived, as of block 26314045.",
    "dormant": [
     {
      "asset": "NEWT",
@@ -2132,8 +2132,8 @@
    "id": "0xa1477b07f370d8e0dc84e94538dd40f75a523fc7",
    "chain": "ethereum",
    "label": null,
-   "role": "resting",
-   "note": "No outflow of the traced F since it arrived, as of block 26314045.",
+   "role": "pocket",
+   "note": null,
    "dormant": [
     {
      "asset": "F",
@@ -2212,8 +2212,8 @@
    "id": "0xe5912b8eb692305a55370ec68cb6a9ab139c7aaa",
    "chain": "ethereum",
    "label": null,
-   "role": "open",
-   "note": null,
+   "role": "resting",
+   "note": "No outflow of the traced TREE, SOLV, NOM since it arrived, as of block 26314045.",
    "dormant": [
     {
      "asset": "TREE",
@@ -2255,8 +2255,8 @@
    "id": "0xaed8fcc3b124e754d4a8def82f2ca579b4370058",
    "chain": "ethereum",
    "label": null,
-   "role": "pocket",
-   "note": null,
+   "role": "resting",
+   "note": "No outflow of the traced TURTLE since it arrived, as of block 26314045.",
    "dormant": [
     {
      "asset": "TURTLE",
@@ -32789,6 +32789,11 @@
    "reason": null
   },
   {
+   "account": "lead_a97bf7_ETH_from_POL",
+   "status": "open",
+   "reason": null
+  },
+  {
    "account": "lead_0x8532_ETH",
    "status": "closed",
    "reason": "Open: 0x8532fa14acaf483729c449b8458aeddb900543d4 ETH received 195460000000000000000000 in tx 0x551d...; trace outflows in window. (closed: Account activity for 0x8532fa14acaf483729c449b8458aeddb900543d4 shows no outgoing transfers in blocks 26300770-26306466; ETH pocket remains at account in current window.)"
@@ -33082,11 +33087,6 @@
    "account": "lead_a97bf7_ETH_from_ENA",
    "status": "closed",
    "reason": "Trace ETH pocket at 0xa97bf7836f8a08f9ed91d41453d371493fae8d10 after ENA->ETH exchange tx 0x08b31c71ada491a3bd449e2815ca38d91450c020523da2ce9daed69adcca4c6d trace 1.2 amount 80075595826017525271; check ETH outflows in block window. (closed: Finished for current block window: account_overview for a97bf7 ETH through block 26314045 shows only two ETH outflows (3000 ETH to 0xc209 and 0.1 ETH to 0xa3b3), both already recorded, and no later ETH outflows; ETH from ENA swap rests at a97 after those recorded transfers.)"
-  },
-  {
-   "account": "lead_a97bf7_ETH_from_POL",
-   "status": "closed",
-   "reason": "Trace ETH pocket at 0xa97bf7836f8a08f9ed91d41453d371493fae8d10 after POL->ETH exchange tx 0xd0bf6957d547142e3701929dde1e6816a4b035c7d6aba01a5e9ec0f912bea856 trace 1.2 amount 1986430199284161679; check ETH outflows in block window. (closed: Finished for current block window: account_overview for a97bf7 ETH through block 26314045 shows only two ETH outflows (3000 ETH to 0xc209 and 0.1 ETH to 0xa3b3), both already recorded, and no later ETH outflows; ETH from POL swaps rests at a97 after those recorded transfers.)"
   }
  ],
  "coming_soon": [],
@@ -34378,7 +34378,7 @@
    },
    {
     "key": "lead_0x00fc00_ETH_check",
-    "text": "Reopened by the outflow check: 0x00fc00edbe7c003b006f870068c548940000223e [contract, verified as InputSettlerEscrowLIFI] ETH (ETH): 16 positive outflows at or after block 26301358, where traced value first arrived, are not recorded: 0x8d290501bf76cd651f84e7adf9d83d2c3f72964049e37b3be5a74a2b0a1fbbee (block 26303896, 199800000000000000); 0x6529852942e4dce1a9aa43a8a56cc30ebe1f5cc680eef0df30d9f57be0826401 (block 26305520, 9998000000000000000); 0xfbca5ae555b5fb88ce305cb88b97ad510597963e430f4a1bd51a8631129e76d1 (block 26305521, 9998000000000000000); 0xdc64340f2ff6aacd6ab03871f30d395dc879cda83c3f2484f4a3eebdf53fc8f9 (block 26308261, 5000000000000000000); 0x57834924cb0eaf25c0feba41a2c1de912085f2b8ddd909d16abb9b4c063bcf5b (block 26308880, 2045743432110573809); and 11 more"
+    "text": "Reopened by the outflow check: 0x00fc00edbe7c003b006f870068c548940000223e [contract, verified as InputSettlerEscrowLIFI] ETH (ETH): 17 positive outflows at or after block 26301358, where traced value first arrived, are not recorded: 0x8d290501bf76cd651f84e7adf9d83d2c3f72964049e37b3be5a74a2b0a1fbbee (block 26303896, 199800000000000000); 0x6529852942e4dce1a9aa43a8a56cc30ebe1f5cc680eef0df30d9f57be0826401 (block 26305520, 9998000000000000000); 0xfbca5ae555b5fb88ce305cb88b97ad510597963e430f4a1bd51a8631129e76d1 (block 26305521, 9998000000000000000); 0xdc64340f2ff6aacd6ab03871f30d395dc879cda83c3f2484f4a3eebdf53fc8f9 (block 26308261, 5000000000000000000); 0x57834924cb0eaf25c0feba41a2c1de912085f2b8ddd909d16abb9b4c063bcf5b (block 26308880, 2045743432110573809); and 12 more"
    },
    {
     "key": "lead_0xc1d134_ETH_check",
@@ -34467,6 +34467,10 @@
    {
     "key": "lead_session_a97_onecount_token_targets",
     "text": "Trace token pockets from one-count a97bf7 token outflows recorded this session: 0xe5912b8eb692305a55370ec68cb6a9ab139c7aaa received TREE/SOLV/NOM; 0xa3b3dee870f01560fdbe5af659c9c9135748886f received Neiro/EURI/WXRP/DAR; 0xce9d97ee40aa605ac117c333b5397839cc3fe807 received MDT/EPIC/HEMI; 0xa1477b07f370d8e0dc84e94538dd40f75a523fc7 received HEI/ACX; 0x1439e9d8dd8e543b660609b81b4b4df66901ae1a received ESP/TLM; 0xd0ec028a3d21533fdd200838f39c85b03679285d received KNC/HIGH/DOLO/CELR/SIGN/RESOLV/LQTY/FTT/HOT; 0xaed8fcc3b124e754d4a8def82f2ca579b4370058 received TURTLE. Check all outflows of each asset in block window."
+   },
+   {
+    "key": "lead_a97bf7_ETH_from_POL",
+    "text": "Reopened by the outflow check: 0xa97bf7836f8a08f9ed91d41453d371493fae8d10 0x455e53cbb86018ac2b8092fdcd39d8444affc3f6 (POL): 9 positive outflows at or after block 26301444, where traced value first arrived, are not recorded: 0xeceac4eecbf6a93d0d9065e9fb872d7467d732b4d602580f633f0c9a2dd8ea90 (block 26302368, 1734920499051552734640960); 0xf32c20396f89b39107e9ccf3542b9f50adf52c21c1049bffc932a7cbcc4d11b0 (block 26302372, 1230508428031008698828681); 0xb866850c0e920360dbf504090788c30362693be8c5a48a347f71d5b5ada74165 (block 26302376, 1073642699575097472404894); 0x94083f8076b860db1c0cbe900158f0507c7b32000be2c9b6bf858d97f8fd7f22 (block 26302384, 784661971912475759148969); 0xd8c0322356bc295bc6f13b9abd5e3d419c2a32f6fb041d87f52e5957b26ea5d6 (block 26302393, 782278213234887131209027); and 4 more"
    }
   ],
   "notes": [
