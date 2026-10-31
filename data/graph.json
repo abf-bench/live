@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum and Bitcoin: live trace",
   "incident_utc": "2026-10-29T20:05:00Z",
-  "updated_utc": "2026-10-31T15:13:00Z",
+  "updated_utc": "2026-10-31T15:36:46Z",
   "head_block": 26312474,
   "chain": "ethereum",
   "notes": [
@@ -491,7 +491,7 @@
     {
      "asset": "ETH",
      "token": "ETH",
-     "amount": "244.69153"
+     "amount": "0.000001"
     },
     {
      "asset": "ENSO",
@@ -542,11 +542,6 @@
      "asset": "BUSD",
      "token": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
      "amount": "572671.58168"
-    },
-    {
-     "asset": "SPK",
-     "token": "0xc20059e0317de91738d13af027dfc4a50781b066",
-     "amount": "29450000.152411"
     },
     {
      "asset": "HYPER",
@@ -1658,7 +1653,7 @@
     {
      "asset": "ETH",
      "token": "ETH",
-     "amount": "0.099389"
+     "amount": "0.099366"
     },
     {
      "asset": "IXS",
@@ -2802,7 +2797,7 @@
     {
      "asset": "FUN",
      "token": "0x419d0d8bdd9af5e606ae2232ed285aff190e711b",
-     "amount": "511327991.377299"
+     "amount": "506479323.699064"
     }
    ]
   },
@@ -24141,10 +24136,10 @@
   "valued_at": "USD at prices at 2026-10-29T20:05:00Z, DefiLlama historical",
   "stolen_usd": 6415394289.12,
   "frozen_usd": 2375604982.22,
-  "dormant_usd": 2704457885.9,
+  "dormant_usd": 2703310887.92,
   "stop_usd": 0.0,
   "bridged_usd": 614.96,
-  "unaccounted_usd": 182730489.73,
+  "unaccounted_usd": 183877487.7,
   "unpriced_assets": [
    "0x998ffe1e43facffb941dc337dd0468d52ba5b48a"
   ],
@@ -25590,7 +25585,7 @@
    },
    {
     "key": "lead_0xbe9e39_ETH_check",
-    "text": "Opened by the outflow check: 0xbe9e39df4657d10578ca0b9d0cc9805554c723ac ETH (ETH): 1 positive outflows at or after block 26305219, where traced value first arrived, are not recorded: 0x76a16580481b2a59d25a65eb4247d6807240a2658ee36b2cbd487eaa95d049ca (block 26305224, 5056520267153782)"
+    "text": "Opened by the outflow check: 0xbe9e39df4657d10578ca0b9d0cc9805554c723ac [contract, verified as CoinbaseSmartWallet] ETH (ETH): 1 positive outflows at or after block 26305219, where traced value first arrived, are not recorded: 0x76a16580481b2a59d25a65eb4247d6807240a2658ee36b2cbd487eaa95d049ca (block 26305224, 5056520267153782)"
    },
    {
     "key": "lead_0xa1ab_ETH",
@@ -25614,7 +25609,7 @@
    },
    {
     "key": "lead_0xe7e504_WETH_check",
-    "text": "Reopened by the outflow check: 0xe7e5041d8dbc0e70a84b5e7589b0e3cbe6e9b825 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 (WETH): 1 positive outflows at or after block 26308497, where traced value first arrived, are not recorded: 0xcfdd2f4aed2826adb16b3f4549d6816002119488fbf43bc37cae0bf43e061fde (block 26308564, 3286322794000000)"
+    "text": "Reopened by the outflow check: 0xe7e5041d8dbc0e70a84b5e7589b0e3cbe6e9b825 [EIP-7702 account delegating to 0x69007702764179f14f51cdce752f4f775d74e139] 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 (WETH): 1 positive outflows at or after block 26308497, where traced value first arrived, are not recorded: 0xcfdd2f4aed2826adb16b3f4549d6816002119488fbf43bc37cae0bf43e061fde (block 26308564, 3286322794000000)"
    },
    {
     "key": "lead_0xe834_WETH",
@@ -25642,7 +25637,7 @@
    },
    {
     "key": "lead_0x94df76_USDC_check",
-    "text": "Opened by the outflow check: 0x94df76e731ad2e8a831a255fc2c7e62b52d0beb9 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 (USDC): 1 positive outflows at or after block 26305006, where traced value first arrived, are not recorded: 0x7f068805b00be2eef2fb9c80370365e630c7769e78f750f293cfc6803513fe94 (block 26305024, 3000000000)"
+    "text": "Opened by the outflow check: 0x94df76e731ad2e8a831a255fc2c7e62b52d0beb9 [contract, verified as BeaconProxy, a proxy for TopUpV2] 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 (USDC): 1 positive outflows at or after block 26305006, where traced value first arrived, are not recorded: 0x7f068805b00be2eef2fb9c80370365e630c7769e78f750f293cfc6803513fe94 (block 26305024, 3000000000)"
    },
    {
     "key": "lead_0x90af71_ETH_check",
@@ -25654,7 +25649,7 @@
    },
    {
     "key": "lead_0x69cbe1_WETH_check",
-    "text": "Opened by the outflow check: 0x69cbe1041c57c7579442761a04e99fd64f9785f9 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 (WETH): 1 positive outflows at or after block 26308898, where traced value first arrived, are not recorded: 0x8ca66ee564cc95e617912914697d186a0203aec9661041ffd57101dabca910c0 (block 26308903, 40492939527000000)"
+    "text": "Opened by the outflow check: 0x69cbe1041c57c7579442761a04e99fd64f9785f9 [EIP-7702 account delegating to 0xd2e28229f6f2c235e57de2ebc727025a1d0530fb] 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 (WETH): 1 positive outflows at or after block 26308898, where traced value first arrived, are not recorded: 0x8ca66ee564cc95e617912914697d186a0203aec9661041ffd57101dabca910c0 (block 26308903, 40492939527000000)"
    },
    {
     "key": "lead_0xdbf65_ETH",
@@ -25678,19 +25673,19 @@
    },
    {
     "key": "lead_0x00fc00_ETH_check",
-    "text": "Reopened by the outflow check: 0x00fc00edbe7c003b006f870068c548940000223e ETH (ETH): 10 positive outflows at or after block 26301358, where traced value first arrived, are not recorded: 0xdc64340f2ff6aacd6ab03871f30d395dc879cda83c3f2484f4a3eebdf53fc8f9 (block 26308261, 5000000000000000000); 0x57834924cb0eaf25c0feba41a2c1de912085f2b8ddd909d16abb9b4c063bcf5b (block 26308880, 2045743432110573809); 0x0068627769a0acb19fb94bfbf27db3d26ed968876034c49daa0da4f405406043 (block 26308907, 323597868106211491); 0xe732698540b0254e2b06448dba9a1d96a4faf24f0b6b83c09c65a42796e40d4a (block 26309214, 1000093500000000000); 0x59a0fb54e8fee36ad86801ed243c2860b6200816597e7129a8fa7251022086a3 (block 26309287, 489902000000000000); and 5 more"
+    "text": "Reopened by the outflow check: 0x00fc00edbe7c003b006f870068c548940000223e [contract, verified as InputSettlerEscrowLIFI] ETH (ETH): 10 positive outflows at or after block 26301358, where traced value first arrived, are not recorded: 0xdc64340f2ff6aacd6ab03871f30d395dc879cda83c3f2484f4a3eebdf53fc8f9 (block 26308261, 5000000000000000000); 0x57834924cb0eaf25c0feba41a2c1de912085f2b8ddd909d16abb9b4c063bcf5b (block 26308880, 2045743432110573809); 0x0068627769a0acb19fb94bfbf27db3d26ed968876034c49daa0da4f405406043 (block 26308907, 323597868106211491); 0xe732698540b0254e2b06448dba9a1d96a4faf24f0b6b83c09c65a42796e40d4a (block 26309214, 1000093500000000000); 0x59a0fb54e8fee36ad86801ed243c2860b6200816597e7129a8fa7251022086a3 (block 26309287, 489902000000000000); and 5 more"
    },
    {
     "key": "lead_0xa54dc4_ETH_check",
-    "text": "Reopened by the outflow check: 0xa54dc4425190570cb5c841adf445bbecf3b249f5 ETH (ETH): 7 positive outflows at or after block 26303896, where traced value first arrived, are not recorded: 0x16a7025ce546b7e26851fd0147ca319c8311f0b518c259269e4d6e48c3b99705 (block 26308386, 100000000000000000000); 0xd56450c6b050fab5782421b0a22c0a2a904584756f19a573a47cc0dbf833cf63 (block 26308416, 35200000000000000000); 0x659b78296ac05ffac52468a4123f8c11cd4df569edc519c1713cd9c32dd00836 (block 26308753, 121000000000000000000); 0x924cde647acff630ad3dddb475a371530e04ff2a32c7d78a6d66b644ee292b5d (block 26310167, 10000000000000000000); 0xa96d84184591fb9dce108539157d18f321cbc366b995541118571410ebe7b55b (block 26310487, 32200000000000000000); and 2 more"
+    "text": "Reopened by the outflow check: 0xa54dc4425190570cb5c841adf445bbecf3b249f5 ETH (ETH): 9 positive outflows at or after block 26303896, where traced value first arrived, are not recorded: 0x16a7025ce546b7e26851fd0147ca319c8311f0b518c259269e4d6e48c3b99705 (block 26308386, 100000000000000000000); 0xd56450c6b050fab5782421b0a22c0a2a904584756f19a573a47cc0dbf833cf63 (block 26308416, 35200000000000000000); 0x659b78296ac05ffac52468a4123f8c11cd4df569edc519c1713cd9c32dd00836 (block 26308753, 121000000000000000000); 0x924cde647acff630ad3dddb475a371530e04ff2a32c7d78a6d66b644ee292b5d (block 26310167, 10000000000000000000); 0xa96d84184591fb9dce108539157d18f321cbc366b995541118571410ebe7b55b (block 26310487, 32200000000000000000); and 4 more"
    },
    {
     "key": "lead_0xc1d134_ETH_check",
-    "text": "Reopened by the outflow check: 0xc1d13492285eb664951e201bf7c80c7c6318a1b5 ETH (ETH): 744 positive outflows at or after block 26301102, where traced value first arrived, are not recorded: 0xbe1d7cf377e40258601517e0a77ad01295cdf3d4bd08e0cc4b0a2deee1af0593 (block 26301107, 42089000000000000); 0x2e8eb4127950653cf3639e4c260e296efb7d43f90cbef45946b97e137a37ee0c (block 26301108, 2099477000000000000); 0x6c1fae0f2ab0c943a6ada9099e101e5530a655e972eb274c52f33dca437e8b84 (block 26301108, 206105000000000000); 0x6e47bfb5ae1fe579a32db53425756f1c9acaa019f631ec14cb050e51d35c137c (block 26301108, 206077000000000000); 0xb36054a15a64dd7b2bb2ec4b86d5d278390efe5ad7134af7b0387159021fe928 (block 26301108, 602200000000000000); and 739 more"
+    "text": "Reopened by the outflow check: 0xc1d13492285eb664951e201bf7c80c7c6318a1b5 [contract, unverified] ETH (ETH): 744 positive outflows at or after block 26301102, where traced value first arrived, are not recorded: 0xbe1d7cf377e40258601517e0a77ad01295cdf3d4bd08e0cc4b0a2deee1af0593 (block 26301107, 42089000000000000); 0x2e8eb4127950653cf3639e4c260e296efb7d43f90cbef45946b97e137a37ee0c (block 26301108, 2099477000000000000); 0x6c1fae0f2ab0c943a6ada9099e101e5530a655e972eb274c52f33dca437e8b84 (block 26301108, 206105000000000000); 0x6e47bfb5ae1fe579a32db53425756f1c9acaa019f631ec14cb050e51d35c137c (block 26301108, 206077000000000000); 0xb36054a15a64dd7b2bb2ec4b86d5d278390efe5ad7134af7b0387159021fe928 (block 26301108, 602200000000000000); and 739 more"
    },
    {
     "key": "lead_0x091dfa_ETH_check",
-    "text": "Reopened by the outflow check: 0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce ETH (ETH): 43 positive outflows at or after block 26305520, where traced value first arrived, are not recorded: 0x9f79bf66698472e4cf99ccfc068c5e5b80e0e412f9197d07d18a60a7eaf2c1eb (block 26307001, 184638957916556577); 0x4eaf0ab99bedd0fb19b7761c56832f8e8d8f53fb88d1f5b7d2986944449201cc (block 26307046, 599919262819200000); 0x643091845ba9becc373dea629bccf36a4adccd693f41e593021b76b3597837c9 (block 26307059, 399921988462800000); 0x8ff5b41a1db597afbdb5c02962bfaf74628cc0de565157cd9493211455492183 (block 26307291, 728796613742771355); 0xcaf1079cad41178eea3f9273a04ec404a68aafaf2fe5f57f1c744112e1e2f44d (block 26307639, 823442311066275000); and 38 more"
+    "text": "Reopened by the outflow check: 0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce [contract, verified as ERC1967Proxy, a proxy for SolverVault] ETH (ETH): 44 positive outflows at or after block 26305520, where traced value first arrived, are not recorded: 0x9f79bf66698472e4cf99ccfc068c5e5b80e0e412f9197d07d18a60a7eaf2c1eb (block 26307001, 184638957916556577); 0x4eaf0ab99bedd0fb19b7761c56832f8e8d8f53fb88d1f5b7d2986944449201cc (block 26307046, 599919262819200000); 0x643091845ba9becc373dea629bccf36a4adccd693f41e593021b76b3597837c9 (block 26307059, 399921988462800000); 0x8ff5b41a1db597afbdb5c02962bfaf74628cc0de565157cd9493211455492183 (block 26307291, 728796613742771355); 0xcaf1079cad41178eea3f9273a04ec404a68aafaf2fe5f57f1c744112e1e2f44d (block 26307639, 823442311066275000); and 39 more"
    },
    {
     "key": "lead_0x356301_ETH_check",
