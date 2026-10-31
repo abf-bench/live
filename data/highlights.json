@@ -3,132 +3,59 @@
  "note": "Hand-picked from verified flows and chain reads; not reviewed by a human expert.",
  "items": [
   {
-   "text": "About 498,000 ETH, 98% of the ETH still at traced addresses, sits in six wallets first used during the hack (29 Oct 20:38 to 30 Oct 05:14 UTC). None of them had sent a transaction as of 31 Oct 17:15 UTC (block 26,314,124).",
-   "note": "The reports checked on 31 Oct give the attacker's ETH as a total only (Elliptic: 519,104 ETH across dozens of addresses; TRM: more than 420,000 ETH in a few wallets).",
+   "text": "Six wallets received 497,971 ETH through the traced flows and still hold it, nearly all the ETH on the Dormant card: 0x8532…43d4 197,460; 0xc887…286a 137,602; 0x897c…8df3 78,415; 0x79e7…544a 34,280; 0x5440…c942 32,954; 0x03b0…20ea 17,260. 0x8532 and 0x03b0 got theirs straight from the attacker's main wallet 0x5227…2f8c, the other four through other traced wallets. All six first appear between 29 Oct 20:38 and 30 Oct 05:14 UTC, and none had sent a transaction at block 26,314,124.",
+   "note": "The reports checked on 31 Oct give the attacker's ETH as a total only (Elliptic: 519,104 ETH; TRM: more than 420,000 ETH).",
    "evidence": [
-    {
-     "label": "0x8532…43d4 (197,460 ETH)",
-     "url": "https://etherscan.io/address/0x8532fa14acaf483729c449b8458aeddb900543d4"
-    },
-    {
-     "label": "0xc887…286a (137,602 ETH)",
-     "url": "https://etherscan.io/address/0xc887af690e0301cd4edbbce8f8d31b4ec65b286a"
-    },
-    {
-     "label": "0x897c…8df3 (78,415 ETH)",
-     "url": "https://etherscan.io/address/0x897c80d1a9729e94460e2bd93178bd5215158df3"
-    },
-    {
-     "label": "0x79e7…544a (34,280 ETH)",
-     "url": "https://etherscan.io/address/0x79e70d139fc05aa75f75611fdf2680e9952b544a"
-    },
-    {
-     "label": "0x5440…c942 (32,954 ETH)",
-     "url": "https://etherscan.io/address/0x54401f80da97893a15d43566184635b6674bc942"
-    },
-    {
-     "label": "0x03b0…20ea (17,260 ETH)",
-     "url": "https://etherscan.io/address/0x03b0ee5d82990cff1bda48651ac3e436d1a020ea"
-    }
+    {"label": "0x8532…43d4", "url": "https://etherscan.io/address/0x8532fa14acaf483729c449b8458aeddb900543d4"},
+    {"label": "0xc887…286a", "url": "https://etherscan.io/address/0xc887af690e0301cd4edbbce8f8d31b4ec65b286a"},
+    {"label": "0x897c…8df3", "url": "https://etherscan.io/address/0x897c80d1a9729e94460e2bd93178bd5215158df3"},
+    {"label": "0x79e7…544a", "url": "https://etherscan.io/address/0x79e70d139fc05aa75f75611fdf2680e9952b544a"},
+    {"label": "0x5440…c942", "url": "https://etherscan.io/address/0x54401f80da97893a15d43566184635b6674bc942"},
+    {"label": "0x03b0…20ea", "url": "https://etherscan.io/address/0x03b0ee5d82990cff1bda48651ac3e436d1a020ea"}
    ]
   },
   {
-   "text": "All 18,270.2 BTC taken on Bitcoin (about $1.47B) sits in 19 wallets: 17 hold 1,000 BTC each, the other two 832.5 and 437.7. The attacker split it there within 30 minutes of the theft. None of it had moved as of 31 Oct 17:15 UTC (Bitcoin block 973,999).",
+   "text": "The 18,270.2 BTC on the Dormant card sit in 19 wallets: 17 hold 1,000 BTC each, the other two 832.5 and 437.7. bc1q0mtc…2mnm, the address the theft paid, split it into them on 29 Oct in blocks 973,732 and 973,738 (20:20 and 20:48 UTC). None had moved at Bitcoin block 973,999.",
+   "note": "CoinDesk reported the split on 30 Oct.",
    "evidence": [
-    {
-     "label": "theft",
-     "url": "https://mempool.space/tx/48ba4e60cc695218ec35ee572f10d8f0bcb8bd4addb36b2d5f30b29e7ad1e6a1"
-    },
-    {
-     "label": "the split, from bc1q0mtc…2mnm",
-     "url": "https://mempool.space/address/bc1q0mtc2f5agpkvlq6hhahmfr3hlr55kyfjhl2mnm"
-    }
+    {"label": "theft", "url": "https://mempool.space/tx/48ba4e60cc695218ec35ee572f10d8f0bcb8bd4addb36b2d5f30b29e7ad1e6a1"},
+    {"label": "split, from bc1q0mtc…2mnm", "url": "https://mempool.space/address/bc1q0mtc2f5agpkvlq6hhahmfr3hlr55kyfjhl2mnm"},
+    {"label": "CoinDesk, 30 Oct", "url": "https://www.coindesk.com/markets/2026/10/30/binance-hacker-splits-usd1-4-billion-of-bitcoin-into-19-wallets-that-no-one-can-freeze"}
    ]
   },
   {
-   "text": "SAND's admin took back 58,397,344 SAND (about $2.75M) from the attacker's main wallet 0x5227…2f8c on 29 Oct at 23:27 UTC. Its Safe 0x6ec4…60a1, which the SAND contract names as admin, made itself a super-operator, moved the tokens to 0x84a9…d87d and gave the right up again, all in one transaction.",
+   "text": "On 29 Oct at 23:27 UTC, 58,397,344 SAND left the attacker's main wallet 0x5227…2f8c for 0x84a9…d87d in one transaction executed by SAND's admin, the Safe 0x6ec4…60a1 (getAdmin() on the SAND contract): it made itself a super-operator, moved the tokens and gave the right up. The Frozen card counts them as taken back, about $2.75M.",
    "note": "Not in the reports checked on 31 Oct (TRM, Elliptic, Chainalysis).",
    "evidence": [
-    {
-     "label": "the transaction",
-     "url": "https://etherscan.io/tx/0x0a68d2f422c51c5a9261a098f92d8c551445ffe8b20fbb86770704be2cab06a8"
-    },
-    {
-     "label": "SAND getAdmin()",
-     "url": "https://etherscan.io/address/0x3845badade8e6dff049820680d1f14bd3903a5d0#readContract"
-    },
-    {
-     "label": "admin Safe 0x6ec4…60a1",
-     "url": "https://etherscan.io/address/0x6ec4090d0f3cb76d9f3d8c4d5bb058a225e560a1"
-    }
+    {"label": "the transaction", "url": "https://etherscan.io/tx/0x0a68d2f422c51c5a9261a098f92d8c551445ffe8b20fbb86770704be2cab06a8"},
+    {"label": "SAND getAdmin()", "url": "https://etherscan.io/address/0x3845badade8e6dff049820680d1f14bd3903a5d0#readContract"},
+    {"label": "admin Safe 0x6ec4…60a1", "url": "https://etherscan.io/address/0x6ec4090d0f3cb76d9f3d8c4d5bb058a225e560a1"}
    ]
   },
   {
-   "text": "About three quarters of the 34,280 ETH at 0x79e7…544a, one of the six wallets, came from two wallets selling stolen tokens on Uniswap: 0x600d…8298 sold 7.68T PEPE and sent it about 14,050 ETH; 0xcf4c…23e0 sold 2.57M LINK and sent it about 11,561 ETH. The attacker's main wallet 0x5227…2f8c gave both wallets the tokens and their gas. The 19,740 ETH a 30 Oct report lists matches the balance before 05:27 UTC that day, before the LINK proceeds arrived.",
+   "text": "0x79e7…544a holds 34,280 ETH. 25,611 ETH of it came from two wallets that 0x5227…2f8c gave tokens and gas: 0x600d…8298 sold 7.68T PEPE on Uniswap and sent 14,050 ETH; 0xcf4c…23e0 sold 2.57M LINK and sent 11,561 ETH. The 19,740 ETH a 30 Oct report lists here is the balance before 05:27 UTC that day, before the LINK proceeds arrived.",
    "note": "Not in the reports checked on 31 Oct.",
    "evidence": [
-    {
-     "label": "0x79e7…544a",
-     "url": "https://etherscan.io/address/0x79e70d139fc05aa75f75611fdf2680e9952b544a"
-    },
-    {
-     "label": "11,561 ETH in",
-     "url": "https://etherscan.io/tx/0x9ec6a30efbc2f6e97cb2e6a4cfd8654a5d03970aa7dd431752090cc724636454"
-    },
-    {
-     "label": "LINK from 0x5227",
-     "url": "https://etherscan.io/tx/0x317328369dfc29bf0c2236b2f7d8003f2b2f711c5174a919f2c7f0c139941b6f"
-    },
-    {
-     "label": "gas from 0x5227",
-     "url": "https://etherscan.io/tx/0x3c29b71a9f2e66094ca76d6055f03331e378f0483840848522ed6c3eba1daaee"
-    },
-    {
-     "label": "LINK sales",
-     "url": "https://etherscan.io/address/0xcf4ca2bdf21bc3a467a00b6afe72b833982723e0#tokentxns"
-    },
-    {
-     "label": "PEPE sales",
-     "url": "https://etherscan.io/address/0x600d6f00eadabdb514561ceeb43730a7103e8298#tokentxns"
-    },
-    {
-     "label": "PEPE from 0x5227",
-     "url": "https://etherscan.io/tx/0x7408734f52b076bb57c3e96d044e01827f6639deddf55d877f57589dc25072a5"
-    },
-    {
-     "label": "14,040 ETH in",
-     "url": "https://etherscan.io/tx/0xa024c760b7fcabe748798b52c4806f4581389f770acff43ebac2938c4961d2e4"
-    },
-    {
-     "label": "report listing 19,740",
-     "url": "https://www.techflowpost.com/en-US/article/35012"
-    }
+    {"label": "0x79e7…544a", "url": "https://etherscan.io/address/0x79e70d139fc05aa75f75611fdf2680e9952b544a"},
+    {"label": "PEPE from 0x5227", "url": "https://etherscan.io/tx/0x7408734f52b076bb57c3e96d044e01827f6639deddf55d877f57589dc25072a5"},
+    {"label": "PEPE sales", "url": "https://etherscan.io/address/0x600d6f00eadabdb514561ceeb43730a7103e8298#tokentxns"},
+    {"label": "14,040 ETH in", "url": "https://etherscan.io/tx/0xa024c760b7fcabe748798b52c4806f4581389f770acff43ebac2938c4961d2e4"},
+    {"label": "LINK from 0x5227", "url": "https://etherscan.io/tx/0x317328369dfc29bf0c2236b2f7d8003f2b2f711c5174a919f2c7f0c139941b6f"},
+    {"label": "gas from 0x5227", "url": "https://etherscan.io/tx/0x3c29b71a9f2e66094ca76d6055f03331e378f0483840848522ed6c3eba1daaee"},
+    {"label": "LINK sales", "url": "https://etherscan.io/address/0xcf4ca2bdf21bc3a467a00b6afe72b833982723e0#tokentxns"},
+    {"label": "11,561 ETH in", "url": "https://etherscan.io/tx/0x9ec6a30efbc2f6e97cb2e6a4cfd8654a5d03970aa7dd431752090cc724636454"},
+    {"label": "report listing 19,740", "url": "https://www.techflowpost.com/en-US/article/35012"}
    ]
   },
   {
-   "text": "On 29 Oct between 21:31 and 22:22 UTC, about an hour after the theft, two wallets funded by 0x5227…2f8c sent 0.48 and 0.50 ETH into MetaBridge and 0.1998 ETH into LI.FI's intent escrow. Where they went on the other side is not traced yet.",
+   "text": "Between 21:31 and 22:22 UTC on 29 Oct, two wallets funded by 0x5227…2f8c sent ETH into bridges: 0x3e2b…32d5 sent 0.486 ETH and 0x0e77…77d3 0.5 ETH into MetaBridge, and 0x0e77 another 0.2 ETH into LI.FI. Where they went on the other chains is not traced yet.",
    "note": "Not in the reports checked on 31 Oct.",
    "evidence": [
-    {
-     "label": "MetaBridge 0.48",
-     "url": "https://etherscan.io/tx/0xc5892899fa23a64ab99339b8a3bd9e1ef00c81319b33bbd77467f4b55df1ec2c"
-    },
-    {
-     "label": "MetaBridge 0.50",
-     "url": "https://etherscan.io/tx/0xa5b80a23f712bdec620197e20c92808720665298f6afaf27b3aa7264aedbd6f9"
-    },
-    {
-     "label": "LI.FI 0.1998",
-     "url": "https://etherscan.io/tx/0xb1b8951383433a49dda9f9f9ff37d5ec61fa9aea369924ee18f553d60dd35354"
-    },
-    {
-     "label": "funding 0x3e2b",
-     "url": "https://etherscan.io/tx/0x345d58dac54ad579a7d61274c4ff64465b6dab1b5d1153191e530b6d4fa55e6a"
-    },
-    {
-     "label": "funding 0x0e77",
-     "url": "https://etherscan.io/tx/0x19fb8ac1507861db07b3aadeb3b41b74bb2c0959ef7602eb706019de463d10ca"
-    }
+    {"label": "funding 0x3e2b", "url": "https://etherscan.io/tx/0x345d58dac54ad579a7d61274c4ff64465b6dab1b5d1153191e530b6d4fa55e6a"},
+    {"label": "MetaBridge 0.486", "url": "https://etherscan.io/tx/0xc5892899fa23a64ab99339b8a3bd9e1ef00c81319b33bbd77467f4b55df1ec2c"},
+    {"label": "funding 0x0e77", "url": "https://etherscan.io/tx/0x19fb8ac1507861db07b3aadeb3b41b74bb2c0959ef7602eb706019de463d10ca"},
+    {"label": "MetaBridge 0.5", "url": "https://etherscan.io/tx/0xa5b80a23f712bdec620197e20c92808720665298f6afaf27b3aa7264aedbd6f9"},
+    {"label": "LI.FI 0.2", "url": "https://etherscan.io/tx/0xb1b8951383433a49dda9f9f9ff37d5ec61fa9aea369924ee18f553d60dd35354"}
    ]
   }
  ]
