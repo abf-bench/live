@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum and Bitcoin: live trace",
   "incident_utc": "2026-10-29T20:05:00Z",
-  "updated_utc": "2026-10-31T16:13:10Z",
+  "updated_utc": "2026-10-31T16:15:07Z",
   "head_block": 26313843,
   "chain": "ethereum",
   "notes": [
@@ -301,10 +301,10 @@
   {
    "id": 37,
    "started_utc": "2026-10-31T16:10:26Z",
-   "ended_utc": null,
-   "actions": 34,
+   "ended_utc": "2026-10-31T16:14:35Z",
+   "actions": 52,
    "model": "gpt-5.5",
-   "summary": ""
+   "summary": "ok"
   }
  ],
  "nodes": [
@@ -1495,14 +1495,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "open",
-   "note": null,
-   "dormant": [
-    {
-     "asset": "ETH",
-     "token": "ETH",
-     "amount": "0.1998"
-    }
-   ]
+   "note": null
   },
   {
    "id": "0x80358c5b8f9b2cc27147a1e0f2a6c9a30eb2c397",
@@ -1892,7 +1885,7 @@
     {
      "asset": "FUN",
      "token": "0x419d0d8bdd9af5e606ae2232ed285aff190e711b",
-     "amount": "503661003.997871"
+     "amount": "502725633.561875"
     }
    ]
   },
@@ -1926,6 +1919,134 @@
      "issuer": "Tether",
      "held": "0",
      "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 46529.048392 USDT, of which up to 0 USDT arrived through traced flows, as of block 26313843."
+    }
+   ]
+  },
+  {
+   "id": "0x84614d0bfce3417088e20e2bd9d6d6091279e9b8",
+   "chain": "ethereum",
+   "label": null,
+   "role": "pocket",
+   "note": null,
+   "dormant": [
+    {
+     "asset": "FF",
+     "token": "0xfa1c09fc8b491b6a4d3ff53a10cad29381b3f949",
+     "amount": "8668785"
+    }
+   ]
+  },
+  {
+   "id": "0x774138791890148b42822d9d1d69965ce38312ab",
+   "chain": "ethereum",
+   "label": null,
+   "role": "pocket",
+   "note": null
+  },
+  {
+   "id": "0x47de691e73647c94a14d2b08bfb132b134ec7226",
+   "chain": "ethereum",
+   "label": null,
+   "role": "pocket",
+   "note": null
+  },
+  {
+   "id": "0xac49b4c5be18b17bfcd6c9ec265f85f4387c29f9",
+   "chain": "ethereum",
+   "label": null,
+   "role": "pocket",
+   "note": null,
+   "dormant": [
+    {
+     "asset": "ZBT",
+     "token": "0xfab99fcf605fd8f4593edb70a43ba56542777777",
+     "amount": "9000000"
+    }
+   ]
+  },
+  {
+   "id": "0x209178dd0f192213e374af795d785539e919562a",
+   "chain": "ethereum",
+   "label": null,
+   "role": "pocket",
+   "note": null
+  },
+  {
+   "id": "0x1439e9d8dd8e543b660609b81b4b4df66901ae1a",
+   "chain": "ethereum",
+   "label": null,
+   "role": "pocket",
+   "note": null,
+   "dormant": [
+    {
+     "asset": "BREV",
+     "token": "0x086f405146ce90135750bbec9a063a8b20a8bffb",
+     "amount": "3920273"
+    }
+   ]
+  },
+  {
+   "id": "0xe1b92d6e3075bba3d0ab921dd5e95f97e1ad52aa",
+   "chain": "ethereum",
+   "label": null,
+   "role": "pocket",
+   "note": null
+  },
+  {
+   "id": "0xd0ec028a3d21533fdd200838f39c85b03679285d",
+   "chain": "ethereum",
+   "label": null,
+   "role": "pocket",
+   "note": null,
+   "dormant": [
+    {
+     "asset": "NEWT",
+     "token": "0xd0ec028a3d21533fdd200838f39c85b03679285d",
+     "amount": "8002418"
+    },
+    {
+     "asset": "BARD",
+     "token": "0xf0db65d17e30a966c2ae6a21f6bba71cea6e9754",
+     "amount": "3102719"
+    },
+    {
+     "asset": "WOO",
+     "token": "0x4691937a7508860f876c9c0a2a617e7d9e945d4b",
+     "amount": "31654227"
+    },
+    {
+     "asset": "ANIME",
+     "token": "0x4dc26fc5854e7648a064a4abd590bbe71724c277",
+     "amount": "111178556"
+    },
+    {
+     "asset": "RARE",
+     "token": "0xba5bde662c17e2adff1075610382b9b691296350",
+     "amount": "25997401"
+    },
+    {
+     "asset": "GLM",
+     "token": "0x7dd9c5cba05e151c895fde1cf355c9a1d5da6429",
+     "amount": "2852017"
+    },
+    {
+     "asset": "ARPA",
+     "token": "0xba50933c268f567bdc86e1ac131be072c6b0b71a",
+     "amount": "31465116"
+    }
+   ]
+  },
+  {
+   "id": "0xa1477b07f370d8e0dc84e94538dd40f75a523fc7",
+   "chain": "ethereum",
+   "label": null,
+   "role": "pocket",
+   "note": null,
+   "dormant": [
+    {
+     "asset": "F",
+     "token": "0x6e15a54b5ecac17e58dadeddbe8506a7560252f9",
+     "amount": "103201398"
     }
    ]
   },
@@ -10972,6 +11093,363 @@
    "tier": "verified"
   },
   {
+   "id": "op_ff_a97_84614_0x895c:0",
+   "from": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+   "to": "0x84614d0bfce3417088e20e2bd9d6d6091279e9b8",
+   "asset": "FF",
+   "token": "0xfa1c09fc8b491b6a4d3ff53a10cad29381b3f949",
+   "amount": "8668785",
+   "tx": "0x895c64190a1d7b3829c581c03b8d20942d866de2b613367cb78bc650a509b6ca",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26312871,
+   "time_utc": "2026-10-31T12:53:59Z",
+   "operation_id": "op_ff_a97_84614_0x895c",
+   "session": 37,
+   "seq": 346,
+   "step": 840,
+   "source_position": "Transfer event #1161",
+   "target_position": "Transfer event #1161",
+   "tx_url": "https://etherscan.io/tx/0x895c64190a1d7b3829c581c03b8d20942d866de2b613367cb78bc650a509b6ca",
+   "tier": "verified"
+  },
+  {
+   "id": "op_rez_a97_774138_0x09dc:0",
+   "from": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+   "to": "0x774138791890148b42822d9d1d69965ce38312ab",
+   "asset": "REZ",
+   "token": "0x3b50805453023a91a8bf641e279401a0b23fa6f9",
+   "amount": "175256822",
+   "tx": "0x09dc29b82b716cec20e4c4a77678af181a3cff33c822e67fe531ca0535fba1d4",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26312894,
+   "time_utc": "2026-10-31T12:58:35Z",
+   "operation_id": "op_rez_a97_774138_0x09dc",
+   "session": 37,
+   "seq": 347,
+   "step": 840,
+   "source_position": "Transfer event #135",
+   "target_position": "Transfer event #135",
+   "tx_url": "https://etherscan.io/tx/0x09dc29b82b716cec20e4c4a77678af181a3cff33c822e67fe531ca0535fba1d4",
+   "tier": "verified"
+  },
+  {
+   "id": "op_open_a97_47de_0x147e:0",
+   "from": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+   "to": "0x47de691e73647c94a14d2b08bfb132b134ec7226",
+   "asset": "OPEN",
+   "token": "0xa227cc36938f0c9e09ce0e64dfab226cad739447",
+   "amount": "7895462",
+   "tx": "0x147e72b5ed753a6ae8038494f86eefff3b4dceb19eab732a5f8c1ef23ceff725",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26312909,
+   "time_utc": "2026-10-31T13:01:35Z",
+   "operation_id": "op_open_a97_47de_0x147e",
+   "session": 37,
+   "seq": 348,
+   "step": 840,
+   "source_position": "Transfer event #1133",
+   "target_position": "Transfer event #1133",
+   "tx_url": "https://etherscan.io/tx/0x147e72b5ed753a6ae8038494f86eefff3b4dceb19eab732a5f8c1ef23ceff725",
+   "tier": "verified"
+  },
+  {
+   "id": "op_zbt_a97_ac49_0x6c9b:0",
+   "from": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+   "to": "0xac49b4c5be18b17bfcd6c9ec265f85f4387c29f9",
+   "asset": "ZBT",
+   "token": "0xfab99fcf605fd8f4593edb70a43ba56542777777",
+   "amount": "9084893",
+   "tx": "0x6c9b91d40e241ae3f0f75793c300ed9e30c031f0116e62f9163d7acd343b66bd",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26312999,
+   "time_utc": "2026-10-31T13:19:35Z",
+   "operation_id": "op_zbt_a97_ac49_0x6c9b",
+   "session": 37,
+   "seq": 349,
+   "step": 840,
+   "source_position": "Transfer event #891",
+   "target_position": "Transfer event #891",
+   "tx_url": "https://etherscan.io/tx/0x6c9b91d40e241ae3f0f75793c300ed9e30c031f0116e62f9163d7acd343b66bd",
+   "tier": "verified"
+  },
+  {
+   "id": "op_sahara_a97_209178_0x0b8c:0",
+   "from": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+   "to": "0x209178dd0f192213e374af795d785539e919562a",
+   "asset": "SAHARA",
+   "token": "0xfdffb411c4a70aa7c95d5c981a6fb4da867e1111",
+   "amount": "69818796",
+   "tx": "0x0b8c624709119f4fe449dd33cea8e410d75e56b692a548321937f1f18580c928",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26313173,
+   "time_utc": "2026-10-31T13:54:23Z",
+   "operation_id": "op_sahara_a97_209178_0x0b8c",
+   "session": 37,
+   "seq": 350,
+   "step": 840,
+   "source_position": "Transfer event #763",
+   "target_position": "Transfer event #763",
+   "tx_url": "https://etherscan.io/tx/0x0b8c624709119f4fe449dd33cea8e410d75e56b692a548321937f1f18580c928",
+   "tier": "verified"
+  },
+  {
+   "id": "op_cyber_a97_1439_0xa1a5:0",
+   "from": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+   "to": "0x1439e9d8dd8e543b660609b81b4b4df66901ae1a",
+   "asset": "CYBER",
+   "token": "0x14778860e937f509e651192a90589de711fb88a9",
+   "amount": "1756591",
+   "tx": "0xa1a5aad6f129db7130455e7f281ba8ec82859380fe372222782fe24f7d1ac5fe",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26313250,
+   "time_utc": "2026-10-31T14:09:59Z",
+   "operation_id": "op_cyber_a97_1439_0xa1a5",
+   "session": 37,
+   "seq": 351,
+   "step": 847,
+   "source_position": "Transfer event #819",
+   "target_position": "Transfer event #819",
+   "tx_url": "https://etherscan.io/tx/0xa1a5aad6f129db7130455e7f281ba8ec82859380fe372222782fe24f7d1ac5fe",
+   "tier": "verified"
+  },
+  {
+   "id": "op_axl_a97_e1b9_0x2da5:0",
+   "from": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+   "to": "0xe1b92d6e3075bba3d0ab921dd5e95f97e1ad52aa",
+   "asset": "AXL",
+   "token": "0x467719ad09025fcc6cf6f8311755809d45a5e5f3",
+   "amount": "10698949",
+   "tx": "0x2da5a530be0e190fea5fc671c7e6b1de0c2be1db7c6a8819458078638869c9d6",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26313185,
+   "time_utc": "2026-10-31T13:56:47Z",
+   "operation_id": "op_axl_a97_e1b9_0x2da5",
+   "session": 37,
+   "seq": 352,
+   "step": 847,
+   "source_position": "Transfer event #244",
+   "target_position": "Transfer event #244",
+   "tx_url": "https://etherscan.io/tx/0x2da5a530be0e190fea5fc671c7e6b1de0c2be1db7c6a8819458078638869c9d6",
+   "tier": "verified"
+  },
+  {
+   "id": "op_ocean_to_eth_a97_0x6a77:0",
+   "from": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+   "to": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "107.275267",
+   "tx": "0x6a7782c8a66780bae34205f9ecb83cae13961124daaafc9922ace131dda8dc01",
+   "from_asset": "OCEAN",
+   "kind": "exchange",
+   "block": 26303691,
+   "time_utc": "2026-10-30T06:10:59Z",
+   "operation_id": "op_ocean_to_eth_a97_0x6a77",
+   "session": 37,
+   "seq": 353,
+   "step": 847,
+   "source_position": "Transfer event #0",
+   "target_position": "internal call 6",
+   "tx_url": "https://etherscan.io/tx/0x6a7782c8a66780bae34205f9ecb83cae13961124daaafc9922ace131dda8dc01",
+   "tier": "verified"
+  },
+  {
+   "id": "op_newt_a97_token_0xbbf6:0",
+   "from": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+   "to": "0xd0ec028a3d21533fdd200838f39c85b03679285d",
+   "asset": "NEWT",
+   "token": "0xd0ec028a3d21533fdd200838f39c85b03679285d",
+   "amount": "8002418",
+   "tx": "0xbbf6808c495a4a076893cc0c73c4e2709cea86fd59f1bd55f9cf52e1e743af3d",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26303266,
+   "time_utc": "2026-10-30T04:45:47Z",
+   "operation_id": "op_newt_a97_token_0xbbf6",
+   "session": 37,
+   "seq": 354,
+   "step": 847,
+   "source_position": "Transfer event #29",
+   "target_position": "Transfer event #29",
+   "tx_url": "https://etherscan.io/tx/0xbbf6808c495a4a076893cc0c73c4e2709cea86fd59f1bd55f9cf52e1e743af3d",
+   "tier": "verified"
+  },
+  {
+   "id": "op_bard_a97_d0ec_0xe7e8:0",
+   "from": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+   "to": "0xd0ec028a3d21533fdd200838f39c85b03679285d",
+   "asset": "BARD",
+   "token": "0xf0db65d17e30a966c2ae6a21f6bba71cea6e9754",
+   "amount": "3102719",
+   "tx": "0xe7e81facd19288c7ed019386ef36d2c70d12f9899b75b51ebe3d7a9008919451",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26303268,
+   "time_utc": "2026-10-30T04:46:11Z",
+   "operation_id": "op_bard_a97_d0ec_0xe7e8",
+   "session": 37,
+   "seq": 355,
+   "step": 847,
+   "source_position": "Transfer event #991",
+   "target_position": "Transfer event #991",
+   "tx_url": "https://etherscan.io/tx/0xe7e81facd19288c7ed019386ef36d2c70d12f9899b75b51ebe3d7a9008919451",
+   "tier": "verified"
+  },
+  {
+   "id": "op_brev_a97_1439_0xbf56:0",
+   "from": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+   "to": "0x1439e9d8dd8e543b660609b81b4b4df66901ae1a",
+   "asset": "BREV",
+   "token": "0x086f405146ce90135750bbec9a063a8b20a8bffb",
+   "amount": "3920273",
+   "tx": "0xbf56c20306a3d805ed491a27f3eef07da6166b5b358ff32f20f1de742ff464d8",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26313311,
+   "time_utc": "2026-10-31T14:22:23Z",
+   "operation_id": "op_brev_a97_1439_0xbf56",
+   "session": 37,
+   "seq": 356,
+   "step": 847,
+   "source_position": "Transfer event #688",
+   "target_position": "Transfer event #688",
+   "tx_url": "https://etherscan.io/tx/0xbf56c20306a3d805ed491a27f3eef07da6166b5b358ff32f20f1de742ff464d8",
+   "tier": "verified"
+  },
+  {
+   "id": "op_woo_a97_d0ec_0x6cbb:0",
+   "from": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+   "to": "0xd0ec028a3d21533fdd200838f39c85b03679285d",
+   "asset": "WOO",
+   "token": "0x4691937a7508860f876c9c0a2a617e7d9e945d4b",
+   "amount": "31654227",
+   "tx": "0x6cbb9d622b3a17b37bf56855965e1e6d2b9f33d39758ebcc710f6f592d806c1e",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26303290,
+   "time_utc": "2026-10-30T04:50:35Z",
+   "operation_id": "op_woo_a97_d0ec_0x6cbb",
+   "session": 37,
+   "seq": 357,
+   "step": 853,
+   "source_position": "Transfer event #150",
+   "target_position": "Transfer event #150",
+   "tx_url": "https://etherscan.io/tx/0x6cbb9d622b3a17b37bf56855965e1e6d2b9f33d39758ebcc710f6f592d806c1e",
+   "tier": "verified"
+  },
+  {
+   "id": "op_anime_a97_d0ec_0x6f86:0",
+   "from": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+   "to": "0xd0ec028a3d21533fdd200838f39c85b03679285d",
+   "asset": "ANIME",
+   "token": "0x4dc26fc5854e7648a064a4abd590bbe71724c277",
+   "amount": "111178556",
+   "tx": "0x6f86678b7d549d2adf2db41086b335268a00ab6ae0d55357e65029223535203a",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26303293,
+   "time_utc": "2026-10-30T04:51:11Z",
+   "operation_id": "op_anime_a97_d0ec_0x6f86",
+   "session": 37,
+   "seq": 358,
+   "step": 853,
+   "source_position": "Transfer event #523",
+   "target_position": "Transfer event #523",
+   "tx_url": "https://etherscan.io/tx/0x6f86678b7d549d2adf2db41086b335268a00ab6ae0d55357e65029223535203a",
+   "tier": "verified"
+  },
+  {
+   "id": "op_rare_a97_d0ec_0xb3ed:0",
+   "from": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+   "to": "0xd0ec028a3d21533fdd200838f39c85b03679285d",
+   "asset": "RARE",
+   "token": "0xba5bde662c17e2adff1075610382b9b691296350",
+   "amount": "25997401",
+   "tx": "0xb3edf8264533d0798784886eef66b846daaca18222837586190222ab37b2384f",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26303295,
+   "time_utc": "2026-10-30T04:51:35Z",
+   "operation_id": "op_rare_a97_d0ec_0xb3ed",
+   "session": 37,
+   "seq": 359,
+   "step": 853,
+   "source_position": "Transfer event #109",
+   "target_position": "Transfer event #109",
+   "tx_url": "https://etherscan.io/tx/0xb3edf8264533d0798784886eef66b846daaca18222837586190222ab37b2384f",
+   "tier": "verified"
+  },
+  {
+   "id": "op_glm_a97_d0ec_0x7a5c:0",
+   "from": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+   "to": "0xd0ec028a3d21533fdd200838f39c85b03679285d",
+   "asset": "GLM",
+   "token": "0x7dd9c5cba05e151c895fde1cf355c9a1d5da6429",
+   "amount": "2852017",
+   "tx": "0x7a5cafefb84e56a1b2507b8eb03722bbb2cda95e40893682e2ad31e1b34d8dd8",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26303297,
+   "time_utc": "2026-10-30T04:51:59Z",
+   "operation_id": "op_glm_a97_d0ec_0x7a5c",
+   "session": 37,
+   "seq": 360,
+   "step": 853,
+   "source_position": "Transfer event #85",
+   "target_position": "Transfer event #85",
+   "tx_url": "https://etherscan.io/tx/0x7a5cafefb84e56a1b2507b8eb03722bbb2cda95e40893682e2ad31e1b34d8dd8",
+   "tier": "verified"
+  },
+  {
+   "id": "op_f_a97_a147_0x36ca:0",
+   "from": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+   "to": "0xa1477b07f370d8e0dc84e94538dd40f75a523fc7",
+   "asset": "F",
+   "token": "0x6e15a54b5ecac17e58dadeddbe8506a7560252f9",
+   "amount": "103201398",
+   "tx": "0x36ca28f52efc5f83d6c901b7961085133f29d07675b1b8765f91e1e1910c43bc",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26313319,
+   "time_utc": "2026-10-31T14:23:59Z",
+   "operation_id": "op_f_a97_a147_0x36ca",
+   "session": 37,
+   "seq": 361,
+   "step": 853,
+   "source_position": "Transfer event #1182",
+   "target_position": "Transfer event #1182",
+   "tx_url": "https://etherscan.io/tx/0x36ca28f52efc5f83d6c901b7961085133f29d07675b1b8765f91e1e1910c43bc",
+   "tier": "verified"
+  },
+  {
+   "id": "op_arpa_a97_d0ec_0x41bd:0",
+   "from": "0xa97bf7836f8a08f9ed91d41453d371493fae8d10",
+   "to": "0xd0ec028a3d21533fdd200838f39c85b03679285d",
+   "asset": "ARPA",
+   "token": "0xba50933c268f567bdc86e1ac131be072c6b0b71a",
+   "amount": "31465116",
+   "tx": "0x41bd6ffa0b2a1a5ad6a0a86df9e2c9514c4df8e6ce5be072dd8eaa40bc78f624",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26303305,
+   "time_utc": "2026-10-30T04:53:35Z",
+   "operation_id": "op_arpa_a97_d0ec_0x41bd",
+   "session": 37,
+   "seq": 362,
+   "step": 853,
+   "source_position": "Transfer event #154",
+   "target_position": "Transfer event #154",
+   "tx_url": "https://etherscan.io/tx/0x41bd6ffa0b2a1a5ad6a0a86df9e2c9514c4df8e6ce5be072dd8eaa40bc78f624",
+   "tier": "verified"
+  },
+  {
    "id": "op_eth_00fc_091d_0x6529:0",
    "from": "0x00fc00edbe7c003b006f870068c548940000223e",
    "to": "0x091dfa3913cf338a5c2b2090cc5ffa4fc09b28ce",
@@ -19672,6 +20150,453 @@
    ]
   },
   {
+   "id": "op_ff_a97_84614_0x895c",
+   "type": "transfer",
+   "claim": "transfer: 8668785 FF 0xa97b\u20268d10 to 0x8461\u2026e9b8",
+   "via": {
+    "contract": "0xfa1c09fc8b491b6a4d3ff53a10cad29381b3f949",
+    "name": "FF",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0xfa1c09fc8b491b6a4d3ff53a10cad29381b3f949"
+   },
+   "session": 37,
+   "seq": 346,
+   "step": 840,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_ff_a97_84614_0x895c:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x895c64190a1d7b3829c581c03b8d20942d866de2b613367cb78bc650a509b6ca",
+     "url": "https://etherscan.io/tx/0x895c64190a1d7b3829c581c03b8d20942d866de2b613367cb78bc650a509b6ca#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_rez_a97_774138_0x09dc",
+   "type": "transfer",
+   "claim": "transfer: 175256822 REZ 0xa97b\u20268d10 to 0x7741\u202612ab",
+   "via": {
+    "contract": "0x3b50805453023a91a8bf641e279401a0b23fa6f9",
+    "name": "Renzo",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0x3b50805453023a91a8bf641e279401a0b23fa6f9"
+   },
+   "session": 37,
+   "seq": 347,
+   "step": 840,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_rez_a97_774138_0x09dc:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x09dc29b82b716cec20e4c4a77678af181a3cff33c822e67fe531ca0535fba1d4",
+     "url": "https://etherscan.io/tx/0x09dc29b82b716cec20e4c4a77678af181a3cff33c822e67fe531ca0535fba1d4#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_open_a97_47de_0x147e",
+   "type": "transfer",
+   "claim": "transfer: 7895462 OPEN 0xa97b\u20268d10 to 0x47de\u20267226",
+   "via": {
+    "contract": "0xa227cc36938f0c9e09ce0e64dfab226cad739447",
+    "name": "Open",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0xa227cc36938f0c9e09ce0e64dfab226cad739447"
+   },
+   "session": 37,
+   "seq": 348,
+   "step": 840,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_open_a97_47de_0x147e:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x147e72b5ed753a6ae8038494f86eefff3b4dceb19eab732a5f8c1ef23ceff725",
+     "url": "https://etherscan.io/tx/0x147e72b5ed753a6ae8038494f86eefff3b4dceb19eab732a5f8c1ef23ceff725#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_zbt_a97_ac49_0x6c9b",
+   "type": "transfer",
+   "claim": "transfer: 9084893 ZBT 0xa97b\u20268d10 to 0xac49\u202629f9",
+   "via": {
+    "contract": "0xfab99fcf605fd8f4593edb70a43ba56542777777",
+    "name": "ZEROBASE",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0xfab99fcf605fd8f4593edb70a43ba56542777777"
+   },
+   "session": 37,
+   "seq": 349,
+   "step": 840,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_zbt_a97_ac49_0x6c9b:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x6c9b91d40e241ae3f0f75793c300ed9e30c031f0116e62f9163d7acd343b66bd",
+     "url": "https://etherscan.io/tx/0x6c9b91d40e241ae3f0f75793c300ed9e30c031f0116e62f9163d7acd343b66bd#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_sahara_a97_209178_0x0b8c",
+   "type": "transfer",
+   "claim": "transfer: 69818796 SAHARA 0xa97b\u20268d10 to 0x2091\u2026562a",
+   "via": {
+    "contract": "0xfdffb411c4a70aa7c95d5c981a6fb4da867e1111",
+    "name": "SaharaToken",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0xfdffb411c4a70aa7c95d5c981a6fb4da867e1111"
+   },
+   "session": 37,
+   "seq": 350,
+   "step": 840,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_sahara_a97_209178_0x0b8c:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x0b8c624709119f4fe449dd33cea8e410d75e56b692a548321937f1f18580c928",
+     "url": "https://etherscan.io/tx/0x0b8c624709119f4fe449dd33cea8e410d75e56b692a548321937f1f18580c928#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_cyber_a97_1439_0xa1a5",
+   "type": "transfer",
+   "claim": "transfer: 1756591 CYBER 0xa97b\u20268d10 to 0x1439\u2026ae1a",
+   "via": {
+    "contract": "0x14778860e937f509e651192a90589de711fb88a9",
+    "name": "CyberToken",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0x14778860e937f509e651192a90589de711fb88a9"
+   },
+   "session": 37,
+   "seq": 351,
+   "step": 847,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_cyber_a97_1439_0xa1a5:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xa1a5aad6f129db7130455e7f281ba8ec82859380fe372222782fe24f7d1ac5fe",
+     "url": "https://etherscan.io/tx/0xa1a5aad6f129db7130455e7f281ba8ec82859380fe372222782fe24f7d1ac5fe#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_axl_a97_e1b9_0x2da5",
+   "type": "transfer",
+   "claim": "transfer: 10698949 AXL 0xa97b\u20268d10 to 0xe1b9\u202652aa",
+   "via": {
+    "contract": "0x467719ad09025fcc6cf6f8311755809d45a5e5f3",
+    "name": "BurnableMintableCappedERC20",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0x467719ad09025fcc6cf6f8311755809d45a5e5f3"
+   },
+   "session": 37,
+   "seq": 352,
+   "step": 847,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_axl_a97_e1b9_0x2da5:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x2da5a530be0e190fea5fc671c7e6b1de0c2be1db7c6a8819458078638869c9d6",
+     "url": "https://etherscan.io/tx/0x2da5a530be0e190fea5fc671c7e6b1de0c2be1db7c6a8819458078638869c9d6#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_ocean_to_eth_a97_0x6a77",
+   "type": "exchange",
+   "claim": "exchange: 107.275267 ETH 0xa97b\u20268d10 to 0xa97b\u20268d10",
+   "via": {
+    "contract": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+    "name": "UniswapV2Router02",
+    "function": "swapExactTokensForETHSupportingFeeOnTransferTokens",
+    "explorer": "https://etherscan.io/address/0x7a250d5630b4cf539739df2c5dacb4c659f2488d"
+   },
+   "session": 37,
+   "seq": 353,
+   "step": 847,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_ocean_to_eth_a97_0x6a77:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x6a7782c8a66780bae34205f9ecb83cae13961124daaafc9922ace131dda8dc01",
+     "url": "https://etherscan.io/tx/0x6a7782c8a66780bae34205f9ecb83cae13961124daaafc9922ace131dda8dc01#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x6a7782c8a66780bae34205f9ecb83cae13961124daaafc9922ace131dda8dc01",
+     "url": "https://etherscan.io/tx/0x6a7782c8a66780bae34205f9ecb83cae13961124daaafc9922ace131dda8dc01#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_newt_a97_token_0xbbf6",
+   "type": "transfer",
+   "claim": "transfer: 8002418 NEWT 0xa97b\u20268d10 to 0xd0ec\u2026285d",
+   "via": {
+    "contract": "0xd0ec028a3d21533fdd200838f39c85b03679285d",
+    "name": "CustomTokenFinal",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0xd0ec028a3d21533fdd200838f39c85b03679285d"
+   },
+   "session": 37,
+   "seq": 354,
+   "step": 847,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_newt_a97_token_0xbbf6:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xbbf6808c495a4a076893cc0c73c4e2709cea86fd59f1bd55f9cf52e1e743af3d",
+     "url": "https://etherscan.io/tx/0xbbf6808c495a4a076893cc0c73c4e2709cea86fd59f1bd55f9cf52e1e743af3d#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_bard_a97_d0ec_0xe7e8",
+   "type": "transfer",
+   "claim": "transfer: 3102719 BARD 0xa97b\u20268d10 to 0xd0ec\u2026285d",
+   "via": {
+    "contract": "0xf0db65d17e30a966c2ae6a21f6bba71cea6e9754",
+    "name": "BARD",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0xf0db65d17e30a966c2ae6a21f6bba71cea6e9754"
+   },
+   "session": 37,
+   "seq": 355,
+   "step": 847,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_bard_a97_d0ec_0xe7e8:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xe7e81facd19288c7ed019386ef36d2c70d12f9899b75b51ebe3d7a9008919451",
+     "url": "https://etherscan.io/tx/0xe7e81facd19288c7ed019386ef36d2c70d12f9899b75b51ebe3d7a9008919451#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_brev_a97_1439_0xbf56",
+   "type": "transfer",
+   "claim": "transfer: 3920273 BREV 0xa97b\u20268d10 to 0x1439\u2026ae1a",
+   "via": {
+    "contract": "0x086f405146ce90135750bbec9a063a8b20a8bffb",
+    "name": "BrevisToken",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0x086f405146ce90135750bbec9a063a8b20a8bffb"
+   },
+   "session": 37,
+   "seq": 356,
+   "step": 847,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_brev_a97_1439_0xbf56:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xbf56c20306a3d805ed491a27f3eef07da6166b5b358ff32f20f1de742ff464d8",
+     "url": "https://etherscan.io/tx/0xbf56c20306a3d805ed491a27f3eef07da6166b5b358ff32f20f1de742ff464d8#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_woo_a97_d0ec_0x6cbb",
+   "type": "transfer",
+   "claim": "transfer: 31654227 WOO 0xa97b\u20268d10 to 0xd0ec\u2026285d",
+   "via": {
+    "contract": "0x4691937a7508860f876c9c0a2a617e7d9e945d4b",
+    "name": "WootradeNetwork",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0x4691937a7508860f876c9c0a2a617e7d9e945d4b"
+   },
+   "session": 37,
+   "seq": 357,
+   "step": 853,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_woo_a97_d0ec_0x6cbb:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x6cbb9d622b3a17b37bf56855965e1e6d2b9f33d39758ebcc710f6f592d806c1e",
+     "url": "https://etherscan.io/tx/0x6cbb9d622b3a17b37bf56855965e1e6d2b9f33d39758ebcc710f6f592d806c1e#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_anime_a97_d0ec_0x6f86",
+   "type": "transfer",
+   "claim": "transfer: 111178556 ANIME 0xa97b\u20268d10 to 0xd0ec\u2026285d",
+   "via": {
+    "contract": "0x4dc26fc5854e7648a064a4abd590bbe71724c277",
+    "name": "Animecoin",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0x4dc26fc5854e7648a064a4abd590bbe71724c277"
+   },
+   "session": 37,
+   "seq": 358,
+   "step": 853,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_anime_a97_d0ec_0x6f86:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x6f86678b7d549d2adf2db41086b335268a00ab6ae0d55357e65029223535203a",
+     "url": "https://etherscan.io/tx/0x6f86678b7d549d2adf2db41086b335268a00ab6ae0d55357e65029223535203a#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_rare_a97_d0ec_0xb3ed",
+   "type": "transfer",
+   "claim": "transfer: 25997401 RARE 0xa97b\u20268d10 to 0xd0ec\u2026285d",
+   "via": {
+    "contract": "0xba5bde662c17e2adff1075610382b9b691296350",
+    "name": "SuperRareToken",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0xba5bde662c17e2adff1075610382b9b691296350"
+   },
+   "session": 37,
+   "seq": 359,
+   "step": 853,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_rare_a97_d0ec_0xb3ed:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xb3edf8264533d0798784886eef66b846daaca18222837586190222ab37b2384f",
+     "url": "https://etherscan.io/tx/0xb3edf8264533d0798784886eef66b846daaca18222837586190222ab37b2384f#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_glm_a97_d0ec_0x7a5c",
+   "type": "transfer",
+   "claim": "transfer: 2852017 GLM 0xa97b\u20268d10 to 0xd0ec\u2026285d",
+   "via": {
+    "contract": "0x7dd9c5cba05e151c895fde1cf355c9a1d5da6429",
+    "name": "NewGolemNetworkToken",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0x7dd9c5cba05e151c895fde1cf355c9a1d5da6429"
+   },
+   "session": 37,
+   "seq": 360,
+   "step": 853,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_glm_a97_d0ec_0x7a5c:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x7a5cafefb84e56a1b2507b8eb03722bbb2cda95e40893682e2ad31e1b34d8dd8",
+     "url": "https://etherscan.io/tx/0x7a5cafefb84e56a1b2507b8eb03722bbb2cda95e40893682e2ad31e1b34d8dd8#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_f_a97_a147_0x36ca",
+   "type": "transfer",
+   "claim": "transfer: 103201398 F 0xa97b\u20268d10 to 0xa147\u20263fc7",
+   "via": {
+    "contract": "0x6e15a54b5ecac17e58dadeddbe8506a7560252f9",
+    "name": "SynFuturesToken",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0x6e15a54b5ecac17e58dadeddbe8506a7560252f9"
+   },
+   "session": 37,
+   "seq": 361,
+   "step": 853,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_f_a97_a147_0x36ca:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x36ca28f52efc5f83d6c901b7961085133f29d07675b1b8765f91e1e1910c43bc",
+     "url": "https://etherscan.io/tx/0x36ca28f52efc5f83d6c901b7961085133f29d07675b1b8765f91e1e1910c43bc#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_arpa_a97_d0ec_0x41bd",
+   "type": "transfer",
+   "claim": "transfer: 31465116 ARPA 0xa97b\u20268d10 to 0xd0ec\u2026285d",
+   "via": {
+    "contract": "0xba50933c268f567bdc86e1ac131be072c6b0b71a",
+    "name": "ARPAToken",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0xba50933c268f567bdc86e1ac131be072c6b0b71a"
+   },
+   "session": 37,
+   "seq": 362,
+   "step": 853,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_arpa_a97_d0ec_0x41bd:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x41bd6ffa0b2a1a5ad6a0a86df9e2c9514c4df8e6ce5be072dd8eaa40bc78f624",
+     "url": "https://etherscan.io/tx/0x41bd6ffa0b2a1a5ad6a0a86df9e2c9514c4df8e6ce5be072dd8eaa40bc78f624#eventlog"
+    }
+   ]
+  },
+  {
    "id": "op_eth_00fc_091d_0x6529",
    "type": "transfer",
    "claim": "transfer: 9.998 ETH 0x00fc\u2026223e to 0x091d\u202628ce",
@@ -24056,10 +24981,10 @@
   "valued_at": "USD at prices at 2026-10-29T20:05:00Z, DefiLlama historical",
   "stolen_usd": 6415394289.12,
   "frozen_usd": 2378351784.07,
-  "dormant_usd": 2700695521.28,
+  "dormant_usd": 2705063488.89,
   "stop_usd": 0.0,
   "bridged_usd": 0.0,
-  "unaccounted_usd": 183746667.44,
+  "unaccounted_usd": 179378699.84,
   "unpriced_assets": [
    "0x998ffe1e43facffb941dc337dd0468d52ba5b48a"
   ],
@@ -25484,6 +26409,6 @@
    "New session over ethereum blocks 26300770-26313843 and bitcoin 973732-973994. Continuing from authoritative STATE; will prioritize largest outflow-check gaps and fetch fresh evidence before recording operations.",
    "Served events.search for 20 a97bf7 single/low-count token outflow gaps (run_python result 23). Positive direct ERC-20 transfers include FF to 0x84614d..., REZ to 0x774138..., OPEN to 0x47de69..., ZBT to 0xac49b4..., SAHARA to 0x209178..., CYBER to 0x1439e9..., AXL to 0xe1b92d..., OCEAN to 0x9b7dad..., NEWT to its token contract, BARD/WOO/ANIME/RARE/GLM/ARPA to 0xd0ec028..., BREV to 0x1439e9..., F to 0xa1477b..., plus already recorded PUNDIX/SUSHI/HYPER and zero-value poison-looking events ignored."
   ],
-  "total_steps": 840
+  "total_steps": 853
  }
 }
