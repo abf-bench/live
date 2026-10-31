@@ -39,15 +39,43 @@
     victim:   { name: 'Victim',          color: '#7ea6d8' },
     attacker: { name: 'Attacker',        color: '#ff4d2e' },
     pocket:   { name: 'Intermediate',    color: '#d98a5f' },
-    stop:     { name: 'Tracing stopped', color: '#a3a19a' },
+    stop:     { name: 'Stop',            color: '#a3a19a' },
     frozen:   { name: 'Frozen',          color: '#79d0e3' },
     resting:  { name: 'Dormant',         color: '#e8c25a' },
     open:     { name: 'Open lead',       color: '#ece6da' },
     unknown:  { name: 'Unclassified',    color: '#8b877e' }
   };
-  var LEGEND_TEXT = { open: 'Open lead: I\'m still tracing here', resting: 'Dormant: nothing has left since the funds arrived' };
+  var LEGEND_TEXT = { open: 'Open lead: I\'m still tracing here', resting: 'Dormant: nothing has left since the funds arrived',
+    stop: 'Stop: a listed exchange, mixer or bridge' };
   var ROLE_ORDER = ['victim', 'attacker', 'pocket', 'stop', 'frozen', 'resting', 'open', 'unknown'];
-  var TAG_FOR_ROLE = { frozen: 'Frozen', resting: 'Dormant', open: 'Open lead', stop: 'Tracing stopped' };
+  var TAG_FOR_ROLE = { frozen: 'Frozen', resting: 'Dormant', open: 'Open lead', stop: 'Stop' };
+
+  // Chains: one hue each (kept apart from the role colours, which fill the nodes), and a short code.
+  var CHAINS = {
+    ethereum:  { code: 'ETH', name: 'Ethereum',   color: '#9d8cff' },
+    bitcoin:   { code: 'BTC', name: 'Bitcoin',    color: '#f7931a' },
+    tron:      { code: 'TRX', name: 'Tron',       color: '#ff6f91' },
+    xrpl:      { code: 'XRP', name: 'XRP Ledger', color: '#3fa7d6' },
+    solana:    { code: 'SOL', name: 'Solana',     color: '#14c38e' },
+    near:      { code: 'NEAR', name: 'NEAR',      color: '#b8b8b8' },
+    arbitrum:  { code: 'ARB', name: 'Arbitrum',   color: '#4ba3e3' },
+    optimism:  { code: 'OP', name: 'Optimism',    color: '#ff5a5a' },
+    base:      { code: 'BASE', name: 'Base',      color: '#4d7cff' },
+    avalanche: { code: 'AVAX', name: 'Avalanche', color: '#e8605f' },
+    polygon:   { code: 'POL', name: 'Polygon',    color: '#a07cf0' }
+  };
+  function chainInfo(c) { c = lc(c || 'ethereum'); return CHAINS[c] || { code: c.slice(0, 4).toUpperCase(), name: cap(c), color: '#8b877e' }; }
+  function chainBadge(c) {
+    var ch = chainInfo(c), w = 10 + ch.code.length * 6;
+    var svg = "<svg xmlns='http://www.w3.org/2000/svg' width='" + w + "' height='13'><rect x='0.5' y='0.5' width='" + (w - 1) +
+      "' height='12' rx='3' fill='#0d0e10' stroke='" + ch.color + "'/><text x='" + (w / 2) + "' y='9.6' font-family='monospace' " +
+      "font-size='8.5' text-anchor='middle' fill='" + ch.color + "'>" + ch.code + '</text></svg>';
+    return { url: 'data:image/svg+xml;utf8,' + encodeURIComponent(svg), w: w };
+  }
+
+  //: listed custody that is a bridge (coverage.py BRIDGE_CLASSES), and its colour in the coverage bar
+  var BRIDGE_CLASSES = ['bridge_router', 'cross_chain_deposit_contract'];
+  var BRIDGED_COLOR = '#8fb3a6';
 
   var EXPLORERS = {
     ethereum:  { name: 'Etherscan',          base: 'https://etherscan.io' },
@@ -78,6 +106,8 @@
     leadsByAddr: new Map(),
     comingSoon: [],
     pinned: new Set(),     // legend entries pinned by a click: their graph elements stay lit
+    // the graph grouped into a band per chain (default) or drawn as one graph with a chain badge per node
+    groupChains: (function () { try { return localStorage.getItem('abf.groupChains') !== '0'; } catch (e) { return true; } })(),
     step: 0,
     view: null,
     cy: null,
@@ -255,7 +285,7 @@
         return { asset: str(d && d.asset), amount: isFinite(x) ? x : 0 };
       }).filter(function (d) { return d.asset && d.amount > 0; });
       S.nodes.set(id, { id: id, chain: lc(n.chain) || defaultChain, label: str(n.label), role: ROLES[n.role] ? n.role : 'unknown', note: str(n.note),
-        frozen: issuerList(n.frozen), freezable: issuerList(n.freezable), dormant: dormant });
+        frozen: issuerList(n.frozen), freezable: issuerList(n.freezable), dormant: dormant, stopClass: str(n.stop_class) });
     });
     S.coverage = data.coverage && typeof data.coverage === 'object' && Number(data.coverage.stolen_usd) > 0 ? data.coverage : null;
 
@@ -495,6 +525,13 @@
     }
     return lines;
   }
+  function nodeClasses(n) { return 'r-' + n.role + ' ch-' + lc(n.chain || 'ethereum') + (S.groupChains ? '' : ' badge'); }
+  function edgeClasses(b) {
+    var a = S.nodes.get(b.from), z = S.nodes.get(b.to);
+    var cross = a && z && lc(a.chain || 'ethereum') !== lc(z.chain || 'ethereum');
+    return (b.tier === 'unverified' ? 'dashed' : '') + (cross ? ' cross' : '');
+  }
+
   function nodeLines(n, view, role) {
     var lines = [];
     var leads = openLeadCount(n.id, view);
@@ -630,9 +667,24 @@
     { selector: 'node.fresh', style: { 'underlay-color': C.amber, 'underlay-opacity': 0.45, 'underlay-padding': 8 } },
     { selector: '.dim', style: { 'opacity': 0.16 } },
     { selector: '.ldim', style: { 'opacity': 0.08 } },
+    { selector: 'edge.cross', style: { 'line-color': '#d7c8ff', 'target-arrow-color': '#d7c8ff', 'width': 2.4, 'z-index': 6 } },
+    { selector: 'node.lane', style: { 'shape': 'rectangle', 'width': 'data(w)', 'height': 'data(h)', 'label': '',
+        'background-color': 'data(color)', 'background-opacity': 0.045, 'border-width': 1, 'border-color': 'data(color)',
+        'border-opacity': 0.35, 'events': 'no', 'z-index-compare': 'manual', 'z-index': -20 } },
+    { selector: 'node.lane.empty', style: { 'border-style': 'dashed', 'background-opacity': 0.015 } },
+    { selector: 'node.lanelbl', style: { 'shape': 'rectangle', 'width': 1, 'height': 1, 'background-opacity': 0, 'border-width': 0,
+        'label': 'data(label)', 'text-halign': 'right', 'text-valign': 'center', 'color': 'data(color)', 'font-family': MONO,
+        'font-size': 11, 'text-wrap': 'none', 'events': 'no', 'z-index-compare': 'manual', 'z-index': -19 } },
     { selector: '.entering', style: { 'opacity': 0 } },
     { selector: '.gone', style: { 'display': 'none' } }
   ];
+  // a chain badge above each node's top-right corner, shown when the graph is not grouped by chain
+  Object.keys(CHAINS).forEach(function (c) {
+    var b = chainBadge(c);
+    cyStyle.push({ selector: 'node.badge.ch-' + c, style: { 'background-image': b.url, 'background-width': b.w + 'px',
+      'background-height': '13px', 'background-position-x': '100%', 'background-position-y': '0%', 'background-offset-y': -15,
+      'background-clip': 'none', 'bounds-expansion': 16, 'background-image-containment': 'over' } });
+  });
 
   function buildGraph() {
     var latest = viewAt(S.total);
@@ -645,7 +697,7 @@
     var els = [];
     S.nodes.forEach(function (n) {
       if (!latest.nodes.has(n.id)) return;
-      els.push({ group: 'nodes', data: Object.assign({ id: n.id }, nodeData(n, latest)), classes: 'r-' + n.role });
+      els.push({ group: 'nodes', data: Object.assign({ id: n.id }, nodeData(n, latest)), classes: nodeClasses(n) });
     });
     latest.bundles.forEach(function (bv) {
       var b = bv.bundle;
@@ -653,22 +705,15 @@
       var self = false;
       var loop = self ? Math.round(nodeData(S.nodes.get(b.from), latest).h / 2 + 46) : 40;
       els.push({ group: 'edges', data: Object.assign({ id: b.id, source: b.from, target: b.to, off: 90, loop: loop }, bundleData(bv)),
-        classes: (b.tier === 'unverified' ? 'dashed' : '') + (self ? ' loop' : '') });
+        classes: edgeClasses(b) + (self ? ' loop' : '') });
     });
 
     if (S.cy) S.cy.destroy();
     S.cy = cytoscape({
       container: $('cy'), elements: els, style: cyStyle,
-      minZoom: 0.12, maxZoom: 2.5, boxSelectionEnabled: false, autounselectify: true
+      minZoom: 0.05, maxZoom: 2.5, boxSelectionEnabled: false, autounselectify: true
     });
-    if (els.length) {
-      S.cy.layout({
-        name: typeof dagre !== 'undefined' ? 'dagre' : 'breadthfirst',
-        rankDir: NARROW ? 'TB' : 'LR', nodeSep: NARROW ? 30 : 24, rankSep: NARROW ? 90 : 150, edgeSep: 14, ranker: 'network-simplex',
-        directed: true, fit: false, animate: false
-      }).run();
-      placeEdgeLabels();
-    }
+    if (els.length) layoutGraph(false);
     bindGraphEvents();
   }
 
@@ -703,7 +748,7 @@
   // Point a same-address loop at the free side of its node: up, down, or right when nothing leaves it.
   function aimLoop(e, n, out) {
     var p = n.position(), hw = n.width() / 2, up = Infinity, down = Infinity;
-    S.cy.nodes().forEach(function (o) {
+    S.cy.nodes().not('.lane, .lanelbl').forEach(function (o) {
       if (o.same(n)) return;
       var q = o.position();
       if (Math.abs(q.x - p.x) > hw + o.width() / 2) return;
@@ -723,6 +768,7 @@
     cy.on('tap', 'node', function (evt) { stopPlay(); select({ kind: 'node', id: evt.target.id() }); });
     cy.on('tap', 'edge', function (evt) { stopPlay(); select({ kind: 'bundle', id: evt.target.id() }); });
     cy.on('tap', function (evt) { if (evt.target === cy) select(null); });
+    cy.on('viewport resize', function () { positionBandLabels(); });
     cy.on('mouseover', 'node', function (evt) { $('cy').style.cursor = 'pointer'; markLeads(evt.target.id(), true); });
     cy.on('mouseout', 'node', function (evt) { $('cy').style.cursor = ''; markLeads(evt.target.id(), false); });
     cy.on('mouseover', 'edge', function () { $('cy').style.cursor = 'pointer'; });
@@ -796,7 +842,7 @@
       if (opts.animate && !REDUCED_MOTION) { ele.addClass('entering'); entering.push(ele); }
     }
     cy.batch(function () {
-      cy.nodes().forEach(function (ele) {
+      cy.nodes().not('.lane, .lanelbl').forEach(function (ele) {
         var n = S.nodes.get(ele.id());
         if (view.nodes.has(n.id)) {
           var d = nodeData(n, view);
@@ -856,7 +902,7 @@
         keep = ele.union(edges).union(edges.connectedNodes());
       } else keep = ele.union(ele.connectedNodes());
       ele.addClass('sel');
-      cy.elements().not('.gone').difference(keep).addClass('dim');
+      cy.elements().not('.gone, .lane, .lanelbl').difference(keep).addClass('dim');
     });
   }
 
@@ -995,6 +1041,16 @@
     }
     function assetLine(map, max, key) { return amounts(key, totals(map), max, 'cov-detail'); }
     function pct(v) { var x = 100 * v / total; return (x > 0 && x < 0.1 ? '<0.1' : x.toFixed(1)) + '%'; }
+    // what entered listed custody, split by whether it is a bridge (the money continues on another chain)
+    function stopSum(bridge) {
+      var m = new Map();
+      view.inflow.forEach(function (assets, id) {
+        var n = S.nodes.get(id);
+        if (!n || n.role !== 'stop' || !view.nodes.has(id) || BRIDGE_CLASSES.indexOf(n.stopClass) !== -1 !== bridge) return;
+        assets.forEach(function (v, a) { m.set(a, (m.get(a) || 0) + v); });
+      });
+      return m;
+    }
     var still = totals(freezableTotals(view));
     var parts = [
       { key: 'frozen', label: 'Frozen by issuers', v: Number(c.frozen_usd) || 0, color: ROLES.frozen.color,
@@ -1005,13 +1061,17 @@
       { key: 'dormant', label: 'Dormant', v: Number(c.dormant_usd) || 0, color: ROLES.resting.color,
         desc: 'Still at addresses I traced; nothing has left',
         detail: [assetLine(dormantTotals(view), 2, 'dormant')] },
-      { key: 'stop', label: 'Into exchanges, bridges, mixers', v: Number(c.stop_usd) || 0, color: ROLES.stop.color,
-        desc: 'Handed to a service on the case\'s list; on-chain tracing ends there',
-        detail: [assetLine(roleSum('stop', view.inflow), 2, 'stop')] },
-      { key: 'open', label: 'Not yet accounted for', v: Number(c.unaccounted_usd) || 0, color: null,
-        desc: 'Left an address I traced with no recorded flow yet, or lost in swaps', detail: [] },
-      { key: 'untraced', label: 'Stolen on chains I don\'t read yet', v: Number(c.untraced_usd) || 0, color: null,
-        desc: 'Taken on other chains; I trace Ethereum and Bitcoin only so far',
+      { key: 'bridged', label: 'Bridged out', v: Number(c.bridged_usd) || 0, color: BRIDGED_COLOR,
+        desc: 'Sent through a bridge to another chain; I don\'t follow the other side yet',
+        detail: [assetLine(stopSum(true), 2, 'bridged')] },
+      { key: 'stop', label: 'Into a stop', v: Number(c.stop_usd) || 0, color: ROLES.stop.color,
+        desc: 'An exchange, mixer or other service on the case\'s list, where on-chain tracing ends',
+        detail: [assetLine(stopSum(false), 2, 'stop')] },
+      { key: 'open', group: 'Not yet traced', label: 'Open leads', v: Number(c.unaccounted_usd) || 0, color: null,
+        desc: 'Left an address I traced; the next hop is not recorded yet (what swaps lost or gained counts here too)',
+        detail: [] },
+      { key: 'untraced', group: 'Not yet traced', label: 'Untraced chains', v: Number(c.untraced_usd) || 0, color: null,
+        desc: 'Theft on chains I don\'t read yet',
         detail: [el('div', { class: 'cov-detail' }, (c.untraced_chains || []).map(function (r) {
           return el('span', { class: 'amt' }, str(r.name) || cap(str(r.chain) || ''), el('span', { class: 'asset' }, usd(Number(r.usd) || 0)));
         }))] }
@@ -1035,7 +1095,8 @@
           return seg;
         })),
       el('div', { class: 'cov-cards' }, parts.map(function (p) {
-        return el('div', { class: 'cov-card', 'data-key': p.key, tabindex: '0' },
+        return el('div', { class: 'cov-card' + (p.group ? ' grouped' : ''), 'data-key': p.key, tabindex: '0' },
+          p.group ? el('div', { class: 'cov-group' }, p.group) : null,
           el('div', { class: 'cov-head' }, fill(p, 'cov-sw'), el('span', { class: 'cov-label' }, p.label)),
           el('div', { class: 'cov-num' }, el('b', null, usd(p.v)), el('span', { class: 'cov-pct' }, pct(p.v))),
           p.desc ? el('div', { class: 'cov-desc' }, p.desc) : null,
@@ -1144,7 +1205,8 @@
     if (anyFreezable) box.appendChild(el('span', { class: 'item', 'data-pick': 'freezable' }, el('span', { class: 'node-swatch', style: '--c:' + C.signal + ';border-color:' + C.signal }), 'Red border: stablecoins here its issuer could still freeze'));
     box.appendChild(el('span', { class: 'lines' },
       el('span', { class: 'item', 'data-pick': 'solid' }, el('span', { class: 'line-swatch' }), 'Checked by the verifier'),
-      el('span', { class: 'item', 'data-pick': 'dashed' }, el('span', { class: 'line-swatch dashed' }), 'Agent claim the checker could not evaluate yet')));
+      el('span', { class: 'item', 'data-pick': 'dashed' }, el('span', { class: 'line-swatch dashed' }), 'Agent claim the checker could not evaluate yet'),
+      S.cy && S.cy.edges('.cross').length ? el('span', { class: 'item', 'data-pick': 'cross' }, el('span', { class: 'line-swatch cross' }), 'Crosses from one chain to another') : null));
     Array.prototype.forEach.call(box.querySelectorAll('[data-pick]'), function (item) {
       var pick = item.getAttribute('data-pick');
       item.setAttribute('role', 'button');
@@ -1171,7 +1233,7 @@
     return pick.indexOf('role:') === 0 ? cy.nodes('.r-' + pick.slice(5))
       : pick === 'frozen' ? cy.nodes().filter(function (n) { return (info(n).frozen || []).length > 0; })
       : pick === 'freezable' ? cy.nodes().filter(function (n) { return (info(n).freezable || []).length > 0; })
-      : pick === 'solid' ? cy.edges().not('.dashed') : cy.edges('.dashed');
+      : pick === 'solid' ? cy.edges().not('.dashed') : pick === 'cross' ? cy.edges('.cross') : cy.edges('.dashed');
   }
   function legendPick(hover) {
     var cy = S.cy;
@@ -1185,7 +1247,7 @@
     if (!picks.length) return;
     var keep = cy.collection();
     picks.forEach(function (p) { keep = keep.union(legendElements(p)); });
-    cy.elements().not('.gone').difference(keep).addClass('ldim');
+    cy.elements().not('.gone, .lane, .lanelbl').difference(keep).addClass('ldim');
   }
 
   // ---------- replay ----------
@@ -2556,16 +2618,111 @@
       .then(function (changed) { LIVE.busy = false; renderLiveStatus(); return changed; });
   }
 
-  function runLayout(animate, done) {
-    if (!S.cy || !S.cy.nodes().length) { if (done) done(); return; }
-    var l = S.cy.layout({
+  function runLayout(animate, done) { layoutGraph(animate, done); }
+
+  var BAND = { pad: 26, title: 22, sep: 18, gap: 26, empty: 34 };
+  function grouping() { return S.groupChains && !NARROW; }
+  function layoutGraph(animate, done) {
+    var cy = S.cy;
+    var real = cy ? cy.nodes().not('.lane, .lanelbl') : null;
+    if (!real || !real.length) { if (cy) cy.remove('.lane, .lanelbl'); if (done) done(); return; }
+    var before = {};
+    real.forEach(function (n) { var p = n.position(); before[n.id()] = { x: p.x, y: p.y }; });
+    cy.elements().not('.lane, .lanelbl').layout({
       name: typeof dagre !== 'undefined' ? 'dagre' : 'breadthfirst',
       rankDir: NARROW ? 'TB' : 'LR', nodeSep: NARROW ? 30 : 24, rankSep: NARROW ? 90 : 150, edgeSep: 14, ranker: 'network-simplex',
-      directed: true, fit: false, animate: !!animate && !REDUCED_MOTION, animationDuration: 700, animationEasing: 'ease-in-out-cubic'
+      directed: true, fit: false, animate: false
+    }).run();
+    var target = {};
+    real.forEach(function (n) { var p = n.position(); target[n.id()] = { x: p.x, y: p.y }; });
+    var bands = grouping() ? packBands(real, target) : [];
+    cy.batch(function () {
+      cy.remove('.lane, .lanelbl');
+      bands.forEach(function (b) {
+        cy.add({ group: 'nodes', classes: 'lane' + (b.empty ? ' empty' : ''), position: { x: (b.x1 + b.x2) / 2, y: (b.y1 + b.y2) / 2 },
+          data: { id: 'lane:' + b.chain, w: b.x2 - b.x1, h: b.y2 - b.y1, color: b.color } });
+      });
+      real.forEach(function (n) {
+        n.toggleClass('badge', !grouping());
+      });
     });
-    l.one('layoutstop', function () { placeEdgeLabels(); if (done) done(); });
-    l.run();
+    S.bands = bands;
+    var moved = animate && !REDUCED_MOTION;
+    if (moved) {
+      real.forEach(function (n) { var b = before[n.id()]; if (b && isFinite(b.x) && isFinite(b.y)) n.position(b); });
+      real.forEach(function (n) { n.animate({ position: target[n.id()] }, { duration: 700, easing: 'ease-in-out-cubic' }); });
+      setTimeout(function () { placeEdgeLabels(); positionBandLabels(); if (done) done(); }, 720);
+    } else {
+      real.forEach(function (n) { n.position(target[n.id()]); });
+      placeEdgeLabels();
+      positionBandLabels();
+      if (done) done();
+    }
   }
+  // The chain names sit over the graph in HTML, so they stay readable at any zoom
+  function positionBandLabels() {
+    var box = $('lane-labels');
+    if (!box) return;
+    clear(box);
+    if (!S.cy || !S.bands || !S.bands.length) return;
+    var h = S.cy.height();
+    S.bands.forEach(function (b) {
+      var n = S.cy.getElementById('lane:' + b.chain);
+      if (n.empty()) return;
+      var r = n.renderedBoundingBox();
+      if (r.h < 13 || r.y2 < 0 || r.y1 > h) return;
+      box.appendChild(el('div', { class: 'lane-label' + (b.empty ? ' empty' : ''),
+        style: 'left:' + Math.max(6, r.x1 + 8) + 'px;top:' + Math.max(2, r.y1 + 3) + 'px;color:' + b.color }, b.label));
+    });
+  }
+  // Each chain's addresses in a band of their own, in the columns dagre gave them; then an empty band
+  // per chain the trace does not read yet. Positions are written into target; the bands are returned.
+  function packBands(real, target) {
+    var by = new Map();
+    real.forEach(function (n) {
+      var c = lc((S.nodes.get(n.id()) || {}).chain || 'ethereum');
+      if (!by.has(c)) by.set(c, []);
+      by.get(c).push(n);
+    });
+    var untraced = (S.coverage && S.coverage.untraced_chains) || [];
+    var chains = Array.from(by.keys()).sort(function (a, b) {
+      return (a === 'ethereum' ? -1 : 0) - (b === 'ethereum' ? -1 : 0) || by.get(b).length - by.get(a).length;
+    });
+    if (chains.length < 2 && !untraced.length) return [];
+    var x1 = Infinity, x2 = -Infinity;
+    real.forEach(function (n) { var t = target[n.id()]; x1 = Math.min(x1, t.x - n.width() / 2); x2 = Math.max(x2, t.x + n.width() / 2); });
+    x1 -= BAND.pad; x2 += BAND.pad;
+    var bands = [], y = 0;
+    chains.forEach(function (c) {
+      var cols = new Map();
+      by.get(c).forEach(function (n) {
+        var k = Math.round(target[n.id()].x / 8);
+        if (!cols.has(k)) cols.set(k, []);
+        cols.get(k).push(n);
+      });
+      var top = y + BAND.title + BAND.pad / 2, deepest = top;
+      cols.forEach(function (ns) {
+        ns.sort(function (a, b) { return target[a.id()].y - target[b.id()].y; });
+        var at = top;
+        ns.forEach(function (n) { target[n.id()].y = at + n.height() / 2; at += n.height() + BAND.sep; });
+        deepest = Math.max(deepest, at - BAND.sep);
+      });
+      var ch = chainInfo(c);
+      bands.push({ chain: c, color: ch.color, label: ch.name.toUpperCase() + ' · ' + plural(by.get(c).length, 'address', 'addresses'),
+        x1: x1, x2: x2, y1: y, y2: deepest + BAND.pad });
+      y = deepest + BAND.pad + BAND.gap;
+    });
+    // an empty band keeps a readable height when the whole graph is in view
+    var emptyH = Math.max(BAND.empty, y * 0.022);
+    untraced.forEach(function (r) {
+      var ch = chainInfo(r.chain);
+      bands.push({ chain: r.chain, color: ch.color, empty: true, x1: x1, x2: x2, y1: y, y2: y + emptyH,
+        label: (str(r.name) || ch.name).toUpperCase() + ' · ' + usd(Number(r.usd) || 0) + ' taken · not traced yet' });
+      y += emptyH + Math.max(BAND.gap / 2, emptyH * 0.25);
+    });
+    return bands;
+  }
+
 
   // Bring the drawn graph in line with the new data without rebuilding it.
   function updateGraph() {
@@ -2579,17 +2736,17 @@
     latest.bundles.forEach(function (bv) { if (bv.bundle.from !== bv.bundle.to) wantB.set(bv.bundle.id, bv); });
     cy.batch(function () {
       cy.edges().forEach(function (e) { if (!wantB.has(e.id())) e.remove(); });
-      cy.nodes().forEach(function (n) { if (!latest.nodes.has(n.id())) n.remove(); });
+      cy.nodes().not('.lane, .lanelbl').forEach(function (n) { if (!latest.nodes.has(n.id())) n.remove(); });
       latest.nodes.forEach(function (id) {
         var n = S.nodes.get(id), d = nodeData(n, latest), ele = cy.getElementById(id);
-        if (ele.empty()) { added.push(cy.add({ group: 'nodes', data: Object.assign({ id: id }, d), classes: 'r-' + n.role })); return; }
+        if (ele.empty()) { added.push(cy.add({ group: 'nodes', data: Object.assign({ id: id }, d), classes: nodeClasses(n) })); return; }
         ele.data(d);
         ROLE_ORDER.forEach(function (r) { if (r !== n.role) ele.removeClass('r-' + r); });
         ele.addClass('r-' + n.role);
       });
       wantB.forEach(function (bv, id) {
         var ele = cy.getElementById(id), d = bundleData(bv);
-        if (ele.empty()) added.push(cy.add({ group: 'edges', data: Object.assign({ id: id, source: bv.bundle.from, target: bv.bundle.to, off: 90, loop: 40 }, d), classes: bv.bundle.tier === 'unverified' ? 'dashed' : '' }));
+        if (ele.empty()) added.push(cy.add({ group: 'edges', data: Object.assign({ id: id, source: bv.bundle.from, target: bv.bundle.to, off: 90, loop: 40 }, d), classes: edgeClasses(bv.bundle) }));
         else ele.data(d);
       });
     });
@@ -2829,6 +2986,21 @@
     }, { passive: true });
     $('btn-play').addEventListener('click', function () { if (S.playing) stopPlay(); else startPlay(); });
     $('btn-fit').addEventListener('click', function () { fitView(true); });
+    function groupButton() {
+      var b = $('btn-group'), on = S.groupChains;
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      b.setAttribute('title', on ? 'Show as one graph' : 'Group by chain');
+      b.setAttribute('aria-label', on ? 'Show as one graph' : 'Group by chain');
+      b.classList.toggle('on', on);
+      b.hidden = NARROW;
+    }
+    groupButton();
+    $('btn-group').addEventListener('click', function () {
+      S.groupChains = !S.groupChains;
+      try { localStorage.setItem('abf.groupChains', S.groupChains ? '1' : '0'); } catch (e) { /* private mode */ }
+      groupButton();
+      layoutGraph(true, function () { fitView(true); });
+    });
     // Full screen: the graph and its legend fill the screen (browser Fullscreen API), refitted; Esc leaves
     var col = document.querySelector('.graph-col');
     var full = $('btn-full');
