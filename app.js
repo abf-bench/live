@@ -21,6 +21,7 @@
   var PARAMS = new URLSearchParams(window.location.search);
   var EMBED = PARAMS.get('embed') === '1';
   var SPLIT_ASSETS = PARAMS.get('split') === 'asset';
+  if (PARAMS.get('layout') === 'stack') document.body.classList.add('stack-head'); // layout preview
   var DATA_URL = safeDataPath(PARAMS.get('data')) || 'data/graph.json';
   var POLL_MS = 2 * 60 * 1000; // live updates: check for a new export every two minutes,
   var POLL_TRACING_MS = 60 * 1000; // and every minute while the agent is tracing

@@ -1460,3 +1460,10 @@ body.embed .news { display: none; }
 .to-latest:hover { background: #fff; }
 .to-latest[hidden] { display: none; }
 
+
+/* section head: the title on its own row, then what was taken by chain and where it is now, both full width
+   on the same scale (2026-10-31: the chain overview beside the title left an empty band above it);
+   preview with ?layout=stack */
+body.stack-head .zone-head { grid-template-columns: minmax(0, 1fr); row-gap: 16px; align-items: start; }
+body.stack-head .chain-overview { padding-left: 0; border-left: 0; }
+body.stack-head .co-chips { gap: 4px 16px; }
