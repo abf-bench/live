@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum and Bitcoin: live trace",
   "incident_utc": "2026-10-29T20:20:00Z",
-  "updated_utc": "2026-10-31T10:40:40Z",
+  "updated_utc": "2026-10-31T10:43:42Z",
   "head_block": 26312188,
   "chain": "ethereum",
   "notes": [
@@ -278,7 +278,7 @@
    "id": 34,
    "started_utc": "2026-10-31T10:37:35Z",
    "ended_utc": null,
-   "actions": 9,
+   "actions": 91,
    "model": "gpt-5.5",
    "summary": ""
   }
@@ -896,6 +896,13 @@
      "held": "0",
      "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 33005.117139 USDC, of which up to 0 USDC arrived through traced flows, as of block 26312188."
     }
+   ],
+   "dormant": [
+    {
+     "asset": "ETH",
+     "token": "ETH",
+     "amount": "0.000515"
+    }
    ]
   },
   {
@@ -974,7 +981,14 @@
    "chain": "ethereum",
    "label": null,
    "role": "pocket",
-   "note": null
+   "note": null,
+   "dormant": [
+    {
+     "asset": "ETH",
+     "token": "ETH",
+     "amount": "0.006471"
+    }
+   ]
   },
   {
    "id": "0x79e70d139fc05aa75f75611fdf2680e9952b544a",
@@ -1333,42 +1347,89 @@
    "chain": "ethereum",
    "label": null,
    "role": "open",
-   "note": null
+   "note": null,
+   "dormant": [
+    {
+     "asset": "ETH",
+     "token": "ETH",
+     "amount": "0.00085"
+    },
+    {
+     "asset": "FUN",
+     "token": "0x419d0d8bdd9af5e606ae2232ed285aff190e711b",
+     "amount": "0.000179"
+    }
+   ]
   },
   {
    "id": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
    "chain": "ethereum",
    "label": null,
    "role": "open",
-   "note": null
+   "note": null,
+   "dormant": [
+    {
+     "asset": "ETH",
+     "token": "ETH",
+     "amount": "0.000065"
+    }
+   ]
   },
   {
    "id": "0xb58bf76d209fa71f60013ce1933ca331177a4f08",
    "chain": "ethereum",
    "label": null,
    "role": "open",
-   "note": null
+   "note": null,
+   "dormant": [
+    {
+     "asset": "ETH",
+     "token": "ETH",
+     "amount": "0.00009"
+    }
+   ]
   },
   {
    "id": "0xf1eadb247ffc7d7d6600e84daaf9ee85737e73c4",
    "chain": "ethereum",
    "label": null,
    "role": "open",
-   "note": null
+   "note": null,
+   "dormant": [
+    {
+     "asset": "ETH",
+     "token": "ETH",
+     "amount": "0.000107"
+    }
+   ]
   },
   {
    "id": "0xdd6dbbe67262ccc9b1824de1257999efc6c52296",
    "chain": "ethereum",
    "label": null,
    "role": "open",
-   "note": null
+   "note": null,
+   "dormant": [
+    {
+     "asset": "ETH",
+     "token": "ETH",
+     "amount": "0.000187"
+    }
+   ]
   },
   {
    "id": "0x1291be4c90239d14527ba880ad2b6e5cb82116b1",
    "chain": "ethereum",
    "label": null,
    "role": "open",
-   "note": null
+   "note": null,
+   "dormant": [
+    {
+     "asset": "ETH",
+     "token": "ETH",
+     "amount": "0.005111"
+    }
+   ]
   },
   {
    "id": "0xe3478b0bb1a5084567c319096437924948be1964",
@@ -1394,7 +1455,7 @@
     {
      "asset": "ETH",
      "token": "ETH",
-     "amount": "0.779205"
+     "amount": "0.715169"
     }
    ]
   },
@@ -2733,6 +2794,48 @@
    ]
   },
   {
+   "id": "0x73ee90554fd0954490b072ca11e6422642ab4593",
+   "chain": "ethereum",
+   "label": null,
+   "role": "pocket",
+   "note": null
+  },
+  {
+   "id": "0xfb34f34a0a395afb3d5094816aa235483f0c2095",
+   "chain": "ethereum",
+   "label": null,
+   "role": "pocket",
+   "note": null,
+   "dormant": [
+    {
+     "asset": "FUN",
+     "token": "0x419d0d8bdd9af5e606ae2232ed285aff190e711b",
+     "amount": "548897809.268345"
+    }
+   ]
+  },
+  {
+   "id": "0x84a917f50b16d1564d53ac85c63d7c48b645d87d",
+   "chain": "ethereum",
+   "label": null,
+   "role": "pocket",
+   "note": null,
+   "dormant": [
+    {
+     "asset": "SAND",
+     "token": "0x3845badade8e6dff049820680d1f14bd3903a5d0",
+     "amount": "58397344.209174"
+    }
+   ]
+  },
+  {
+   "id": "0x57af956d3e2cca3b86f3d8c6772c03ddca3eaacb",
+   "chain": "ethereum",
+   "label": null,
+   "role": "open",
+   "note": null
+  },
+  {
    "id": "0x75220b7600c300005038432a0000f308e0000068",
    "chain": "ethereum",
    "label": null,
@@ -2741,6 +2844,13 @@
   },
   {
    "id": "0xa2e3356610840701bdf5611a53974510ae27e2e1",
+   "chain": "ethereum",
+   "label": null,
+   "role": "open",
+   "note": null
+  },
+  {
+   "id": "0xa12cc123ba206d4031d1c7f6223d1c2ec249f4f3",
    "chain": "ethereum",
    "label": null,
    "role": "open",
@@ -12887,6 +12997,510 @@
    "target_position": "output 1",
    "tx_url": "https://mempool.space/tx/7954d0b88c08fd1d1b69f571c12b4ed57a269ae131c8902c9c585e3b09b86d70",
    "tier": "verified"
+  },
+  {
+   "id": "op_usde_5227_b3ddec_0xfc5e:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0xb3ddec0ccc5c3ba733fcdf5a15f98c95ec5a5fdb",
+   "asset": "USDe",
+   "token": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
+   "amount": "9707546.77",
+   "tx": "0xfc5eefa601d35a9d004ed166c704ccfb65d92ebc45912ace23493ba8e4c4cc4f",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26301530,
+   "time_utc": "2026-10-29T22:56:47Z",
+   "operation_id": "op_usde_5227_b3ddec_0xfc5e",
+   "session": 34,
+   "seq": 300,
+   "step": 812,
+   "source_position": "Transfer event #139",
+   "target_position": "Transfer event #139",
+   "tx_url": "https://etherscan.io/tx/0xfc5eefa601d35a9d004ed166c704ccfb65d92ebc45912ace23493ba8e4c4cc4f",
+   "tier": "verified"
+  },
+  {
+   "id": "op_ondo_5227_42cdf_0x6bf0:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x42cdf00c85005630cc8605731b9364f712077810",
+   "asset": "ONDO",
+   "token": "0xfaba6f8e4a5e8ab82f62fe7c39859fa577269be3",
+   "amount": "21851870.65",
+   "tx": "0x6bf04dd89cd7fb70b2eb02762c8515f67dbdff0d9101507fa3cc01a7120ea023",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26301515,
+   "time_utc": "2026-10-29T22:53:47Z",
+   "operation_id": "op_ondo_5227_42cdf_0x6bf0",
+   "session": 34,
+   "seq": 301,
+   "step": 812,
+   "source_position": "Transfer event #234",
+   "target_position": "Transfer event #234",
+   "tx_url": "https://etherscan.io/tx/0x6bf04dd89cd7fb70b2eb02762c8515f67dbdff0d9101507fa3cc01a7120ea023",
+   "tier": "verified"
+  },
+  {
+   "id": "op_wld_5227_8c711_0xa4e9:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x8c7111e9a3270457b76f0bd137209089047a6aa4",
+   "asset": "WLD",
+   "token": "0x163f8c2467924be0ae7b5347228cabf260318753",
+   "amount": "17317869.01",
+   "tx": "0xa4e909e76911170281927808ac29d0c4447ba92390190b62367006c8db7dc619",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26301653,
+   "time_utc": "2026-10-29T23:21:23Z",
+   "operation_id": "op_wld_5227_8c711_0xa4e9",
+   "session": 34,
+   "seq": 302,
+   "step": 812,
+   "source_position": "Transfer event #564",
+   "target_position": "Transfer event #564",
+   "tx_url": "https://etherscan.io/tx/0xa4e909e76911170281927808ac29d0c4447ba92390190b62367006c8db7dc619",
+   "tier": "verified"
+  },
+  {
+   "id": "op_zro_5227_f1ea_0x18f0:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0xf1eadb247ffc7d7d6600e84daaf9ee85737e73c4",
+   "asset": "ZRO",
+   "token": "0x6985884c4392d348587b19cb9eaaf157f13271cd",
+   "amount": "3601631.16",
+   "tx": "0x18f0a1e3e5b188b63ab1e459e6985789341df88099ef6bc3febea34c07f5e92d",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26301993,
+   "time_utc": "2026-10-30T00:30:23Z",
+   "operation_id": "op_zro_5227_f1ea_0x18f0",
+   "session": 34,
+   "seq": 303,
+   "step": 812,
+   "source_position": "Transfer event #424",
+   "target_position": "Transfer event #424",
+   "tx_url": "https://etherscan.io/tx/0x18f0a1e3e5b188b63ab1e459e6985789341df88099ef6bc3febea34c07f5e92d",
+   "tier": "verified"
+  },
+  {
+   "id": "op_rsr_5227_b58b_0x7a71:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0xb58bf76d209fa71f60013ce1933ca331177a4f08",
+   "asset": "RSR",
+   "token": "0x320623b8e4ff03373931769a31fc52a4e78b5d70",
+   "amount": "3382160847.12",
+   "tx": "0x7a711247d83e02102077aaf05cbfba840f86ecf0402d1b74c8cfa575ed564c6d",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302003,
+   "time_utc": "2026-10-30T00:32:23Z",
+   "operation_id": "op_rsr_5227_b58b_0x7a71",
+   "session": 34,
+   "seq": 304,
+   "step": 812,
+   "source_position": "Transfer event #1328",
+   "target_position": "Transfer event #1328",
+   "tx_url": "https://etherscan.io/tx/0x7a711247d83e02102077aaf05cbfba840f86ecf0402d1b74c8cfa575ed564c6d",
+   "tier": "verified"
+  },
+  {
+   "id": "op_zama_5227_0084_0xdd73:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "asset": "ZAMA",
+   "token": "0xa12cc123ba206d4031d1c7f6223d1c2ec249f4f3",
+   "amount": "87853170.57",
+   "tx": "0xdd738cae58e604dccbe4ed7b35ec9df12f3858b0c350221c87f35baca0be126d",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26301888,
+   "time_utc": "2026-10-30T00:08:59Z",
+   "operation_id": "op_zama_5227_0084_0xdd73",
+   "session": 34,
+   "seq": 305,
+   "step": 816,
+   "source_position": "Transfer event #269",
+   "target_position": "Transfer event #269",
+   "tx_url": "https://etherscan.io/tx/0xdd738cae58e604dccbe4ed7b35ec9df12f3858b0c350221c87f35baca0be126d",
+   "tier": "verified"
+  },
+  {
+   "id": "op_zama_5227_73ee_0x47ec:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x73ee90554fd0954490b072ca11e6422642ab4593",
+   "asset": "ZAMA",
+   "token": "0xa12cc123ba206d4031d1c7f6223d1c2ec249f4f3",
+   "amount": "53329985",
+   "tx": "0x47ec3b081de772d5eaa6f2e29caa7c6c5b5a69d1508d89a2ecfb4c5ae24b2b96",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26310408,
+   "time_utc": "2026-10-31T04:39:11Z",
+   "operation_id": "op_zama_5227_73ee_0x47ec",
+   "session": 34,
+   "seq": 306,
+   "step": 816,
+   "source_position": "Transfer event #377",
+   "target_position": "Transfer event #377",
+   "tx_url": "https://etherscan.io/tx/0x47ec3b081de772d5eaa6f2e29caa7c6c5b5a69d1508d89a2ecfb4c5ae24b2b96",
+   "tier": "verified"
+  },
+  {
+   "id": "op_fun_5227_06ea_0x5ea2:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x06ea1ab3ecf570029eb1f94dbb9eac06bc79685f",
+   "asset": "FUN",
+   "token": "0x419d0d8bdd9af5e606ae2232ed285aff190e711b",
+   "amount": "714911344",
+   "tx": "0x5ea2d646695ce9f2633355e2750995f91a13c8e505ea34fabcb70c77a7eef82f",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26301689,
+   "time_utc": "2026-10-29T23:28:47Z",
+   "operation_id": "op_fun_5227_06ea_0x5ea2",
+   "session": 34,
+   "seq": 307,
+   "step": 816,
+   "source_position": "Transfer event #238",
+   "target_position": "Transfer event #238",
+   "tx_url": "https://etherscan.io/tx/0x5ea2d646695ce9f2633355e2750995f91a13c8e505ea34fabcb70c77a7eef82f",
+   "tier": "verified"
+  },
+  {
+   "id": "op_fun_5227_fb34_0x4f24:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0xfb34f34a0a395afb3d5094816aa235483f0c2095",
+   "asset": "FUN",
+   "token": "0x419d0d8bdd9af5e606ae2232ed285aff190e711b",
+   "amount": "580766087",
+   "tx": "0x4f24dffc7eb7af72bb2c920165b3eccdeba4aebb8d1ade6955d69f04d6ff1897",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26311200,
+   "time_utc": "2026-10-31T07:17:59Z",
+   "operation_id": "op_fun_5227_fb34_0x4f24",
+   "session": 34,
+   "seq": 308,
+   "step": 816,
+   "source_position": "Transfer event #1047",
+   "target_position": "Transfer event #1047",
+   "tx_url": "https://etherscan.io/tx/0x4f24dffc7eb7af72bb2c920165b3eccdeba4aebb8d1ade6955d69f04d6ff1897",
+   "tier": "verified"
+  },
+  {
+   "id": "op_prom_5227_dd6d_0x69f3:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0xdd6dbbe67262ccc9b1824de1257999efc6c52296",
+   "asset": "PROM",
+   "token": "0xfc82bb4ba86045af6f327323a46e80412b91b27d",
+   "amount": "911984.82",
+   "tx": "0x69f30f08f2daa54ac04c30ea42306150ec9cf6d7f7709d00a4c31e9396863d3f",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302045,
+   "time_utc": "2026-10-30T00:40:47Z",
+   "operation_id": "op_prom_5227_dd6d_0x69f3",
+   "session": 34,
+   "seq": 309,
+   "step": 816,
+   "source_position": "Transfer event #54",
+   "target_position": "Transfer event #54",
+   "tx_url": "https://etherscan.io/tx/0x69f30f08f2daa54ac04c30ea42306150ec9cf6d7f7709d00a4c31e9396863d3f",
+   "tier": "verified"
+  },
+  {
+   "id": "op_morpho_5227_1291_0x2fc2:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x1291be4c90239d14527ba880ad2b6e5cb82116b1",
+   "asset": "MORPHO",
+   "token": "0x58d97b57bb95320f9a05dc918aef65434969c2b2",
+   "amount": "1763059.91",
+   "tx": "0x2fc217af91c458aee96d10236bdc4758b522d2401e3288cc3f9b45bacdb07b18",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302058,
+   "time_utc": "2026-10-30T00:43:23Z",
+   "operation_id": "op_morpho_5227_1291_0x2fc2",
+   "session": 34,
+   "seq": 310,
+   "step": 816,
+   "source_position": "Transfer event #206",
+   "target_position": "Transfer event #206",
+   "tx_url": "https://etherscan.io/tx/0x2fc217af91c458aee96d10236bdc4758b522d2401e3288cc3f9b45bacdb07b18",
+   "tier": "verified"
+  },
+  {
+   "id": "op_sand_5227_84a9_0x0a68:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x84a917f50b16d1564d53ac85c63d7c48b645d87d",
+   "asset": "SAND",
+   "token": "0x3845badade8e6dff049820680d1f14bd3903a5d0",
+   "amount": "58397344.209174",
+   "tx": "0x0a68d2f422c51c5a9261a098f92d8c551445ffe8b20fbb86770704be2cab06a8",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26301681,
+   "time_utc": "2026-10-29T23:27:11Z",
+   "operation_id": "op_sand_5227_84a9_0x0a68",
+   "session": 34,
+   "seq": 311,
+   "step": 816,
+   "source_position": "Transfer event #635",
+   "target_position": "Transfer event #635",
+   "tx_url": "https://etherscan.io/tx/0x0a68d2f422c51c5a9261a098f92d8c551445ffe8b20fbb86770704be2cab06a8",
+   "tier": "verified"
+  },
+  {
+   "id": "op_prom_to_eth_5227_0x3854:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "0.03156",
+   "tx": "0x38546f9087ba0eb8444965711eb64a89fe9f53e80cd6d416317c847308219164",
+   "from_asset": "PROM",
+   "kind": "exchange",
+   "block": 26310356,
+   "time_utc": "2026-10-31T04:28:47Z",
+   "operation_id": "op_prom_to_eth_5227_0x3854",
+   "session": 34,
+   "seq": 312,
+   "step": 816,
+   "source_position": "Transfer event #0",
+   "target_position": "internal call 6",
+   "tx_url": "https://etherscan.io/tx/0x38546f9087ba0eb8444965711eb64a89fe9f53e80cd6d416317c847308219164",
+   "tier": "verified"
+  },
+  {
+   "id": "op_pendle_5227_57af_0xef72:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x57af956d3e2cca3b86f3d8c6772c03ddca3eaacb",
+   "asset": "PENDLE",
+   "token": "0x808507121b80c02388fad14726482e061b8da827",
+   "amount": "45218.085567",
+   "tx": "0xef723f76f260668273296761f72f99fc1c36c1b8dbe3528e8fb4f65d338f7ffd",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302234,
+   "time_utc": "2026-10-30T01:18:35Z",
+   "operation_id": "op_pendle_5227_57af_0xef72",
+   "session": 34,
+   "seq": 313,
+   "step": 816,
+   "source_position": "Transfer event #47",
+   "target_position": "Transfer event #47",
+   "tx_url": "https://etherscan.io/tx/0xef723f76f260668273296761f72f99fc1c36c1b8dbe3528e8fb4f65d338f7ffd",
+   "tier": "rejected"
+  },
+  {
+   "id": "op_pendle_5227_57af_0xf6bb:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x57af956d3e2cca3b86f3d8c6772c03ddca3eaacb",
+   "asset": "PENDLE",
+   "token": "0x808507121b80c02388fad14726482e061b8da827",
+   "amount": "7531.650522",
+   "tx": "0xf6bbb535853b2c8dc9954079940b8559738d05484ba3558c15de27d55548934b",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302238,
+   "time_utc": "2026-10-30T01:19:23Z",
+   "operation_id": "op_pendle_5227_57af_0xf6bb",
+   "session": 34,
+   "seq": 314,
+   "step": 816,
+   "source_position": "Transfer event #10",
+   "target_position": "Transfer event #10",
+   "tx_url": "https://etherscan.io/tx/0xf6bbb535853b2c8dc9954079940b8559738d05484ba3558c15de27d55548934b",
+   "tier": "rejected"
+  },
+  {
+   "id": "op_pendle_5227_57af_0x86c3:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x57af956d3e2cca3b86f3d8c6772c03ddca3eaacb",
+   "asset": "PENDLE",
+   "token": "0x808507121b80c02388fad14726482e061b8da827",
+   "amount": "14668.053123",
+   "tx": "0x86c315f81a9ad898a227d0c7ad3b589567f51b67a504bb6c9d1207e64cbcff56",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302242,
+   "time_utc": "2026-10-30T01:20:11Z",
+   "operation_id": "op_pendle_5227_57af_0x86c3",
+   "session": 34,
+   "seq": 315,
+   "step": 816,
+   "source_position": "Transfer event #41",
+   "target_position": "Transfer event #41",
+   "tx_url": "https://etherscan.io/tx/0x86c315f81a9ad898a227d0c7ad3b589567f51b67a504bb6c9d1207e64cbcff56",
+   "tier": "rejected"
+  },
+  {
+   "id": "op_pendle_5227_57af_0x01bd:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x57af956d3e2cca3b86f3d8c6772c03ddca3eaacb",
+   "asset": "PENDLE",
+   "token": "0x808507121b80c02388fad14726482e061b8da827",
+   "amount": "18210.428697",
+   "tx": "0x01bd39c6386f31bb3cb5d9e7a48b094dcf7423469565bcbf7e06e6e342b53aac",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302246,
+   "time_utc": "2026-10-30T01:20:59Z",
+   "operation_id": "op_pendle_5227_57af_0x01bd",
+   "session": 34,
+   "seq": 316,
+   "step": 816,
+   "source_position": "Transfer event #33",
+   "target_position": "Transfer event #33",
+   "tx_url": "https://etherscan.io/tx/0x01bd39c6386f31bb3cb5d9e7a48b094dcf7423469565bcbf7e06e6e342b53aac",
+   "tier": "rejected"
+  },
+  {
+   "id": "op_pendle_5227_57af_0xfdd4:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x57af956d3e2cca3b86f3d8c6772c03ddca3eaacb",
+   "asset": "PENDLE",
+   "token": "0x808507121b80c02388fad14726482e061b8da827",
+   "amount": "24997.215224",
+   "tx": "0xfdd47e596d3066c0936b008f6e30331a20c59f592b9b729a02348d1e788c6d8e",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302250,
+   "time_utc": "2026-10-30T01:21:47Z",
+   "operation_id": "op_pendle_5227_57af_0xfdd4",
+   "session": 34,
+   "seq": 317,
+   "step": 816,
+   "source_position": "Transfer event #161",
+   "target_position": "Transfer event #161",
+   "tx_url": "https://etherscan.io/tx/0xfdd47e596d3066c0936b008f6e30331a20c59f592b9b729a02348d1e788c6d8e",
+   "tier": "rejected"
+  },
+  {
+   "id": "op_pendle_5227_57af_0xe94d:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x57af956d3e2cca3b86f3d8c6772c03ddca3eaacb",
+   "asset": "PENDLE",
+   "token": "0x808507121b80c02388fad14726482e061b8da827",
+   "amount": "25143.655956",
+   "tx": "0xe94d978ef173fad97b5b5a8f10bedf234006a660df5289941b5709804cb6ad57",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302254,
+   "time_utc": "2026-10-30T01:22:35Z",
+   "operation_id": "op_pendle_5227_57af_0xe94d",
+   "session": 34,
+   "seq": 318,
+   "step": 816,
+   "source_position": "Transfer event #54",
+   "target_position": "Transfer event #54",
+   "tx_url": "https://etherscan.io/tx/0xe94d978ef173fad97b5b5a8f10bedf234006a660df5289941b5709804cb6ad57",
+   "tier": "rejected"
+  },
+  {
+   "id": "op_pendle_5227_57af_0x7238:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x57af956d3e2cca3b86f3d8c6772c03ddca3eaacb",
+   "asset": "PENDLE",
+   "token": "0x808507121b80c02388fad14726482e061b8da827",
+   "amount": "26801.360939",
+   "tx": "0x7238d90819d4493567fc74996830526b5c4128d8112492daa55cb7004b969f2d",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302258,
+   "time_utc": "2026-10-30T01:23:23Z",
+   "operation_id": "op_pendle_5227_57af_0x7238",
+   "session": 34,
+   "seq": 319,
+   "step": 816,
+   "source_position": "Transfer event #25",
+   "target_position": "Transfer event #25",
+   "tx_url": "https://etherscan.io/tx/0x7238d90819d4493567fc74996830526b5c4128d8112492daa55cb7004b969f2d",
+   "tier": "rejected"
+  },
+  {
+   "id": "op_pendle_5227_57af_0xf89a:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x57af956d3e2cca3b86f3d8c6772c03ddca3eaacb",
+   "asset": "PENDLE",
+   "token": "0x808507121b80c02388fad14726482e061b8da827",
+   "amount": "23900.92812",
+   "tx": "0xf89a875a08e5ca7941bdc4eee70483c7756363ebabcfdda7a31099a29497f453",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302261,
+   "time_utc": "2026-10-30T01:23:59Z",
+   "operation_id": "op_pendle_5227_57af_0xf89a",
+   "session": 34,
+   "seq": 320,
+   "step": 816,
+   "source_position": "Transfer event #109",
+   "target_position": "Transfer event #109",
+   "tx_url": "https://etherscan.io/tx/0xf89a875a08e5ca7941bdc4eee70483c7756363ebabcfdda7a31099a29497f453",
+   "tier": "rejected"
+  },
+  {
+   "id": "op_pendle_5227_57af_0xcf54:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x57af956d3e2cca3b86f3d8c6772c03ddca3eaacb",
+   "asset": "PENDLE",
+   "token": "0x808507121b80c02388fad14726482e061b8da827",
+   "amount": "748031.019144",
+   "tx": "0xcf54656e2c73210af93d41477faf1b0c91b17de6c56dd696917cd21928c68c75",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302267,
+   "time_utc": "2026-10-30T01:25:11Z",
+   "operation_id": "op_pendle_5227_57af_0xcf54",
+   "session": 34,
+   "seq": 321,
+   "step": 816,
+   "source_position": "Transfer event #1",
+   "target_position": "Transfer event #1",
+   "tx_url": "https://etherscan.io/tx/0xcf54656e2c73210af93d41477faf1b0c91b17de6c56dd696917cd21928c68c75",
+   "tier": "rejected"
+  },
+  {
+   "id": "op_pendle_5227_57af_0x7753:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x57af956d3e2cca3b86f3d8c6772c03ddca3eaacb",
+   "asset": "PENDLE",
+   "token": "0x808507121b80c02388fad14726482e061b8da827",
+   "amount": "654527.141751",
+   "tx": "0x7753d14a7e074b45a22f1ec37457eacaebe9e0466796262aaff7bba5c409b04a",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302271,
+   "time_utc": "2026-10-30T01:25:59Z",
+   "operation_id": "op_pendle_5227_57af_0x7753",
+   "session": 34,
+   "seq": 322,
+   "step": 816,
+   "source_position": "Transfer event #1",
+   "target_position": "Transfer event #1",
+   "tx_url": "https://etherscan.io/tx/0x7753d14a7e074b45a22f1ec37457eacaebe9e0466796262aaff7bba5c409b04a",
+   "tier": "rejected"
+  },
+  {
+   "id": "op_pendle_5227_57af_0x80c4:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x57af956d3e2cca3b86f3d8c6772c03ddca3eaacb",
+   "asset": "PENDLE",
+   "token": "0x808507121b80c02388fad14726482e061b8da827",
+   "amount": "93503.877393",
+   "tx": "0x80c4bbcb2661f71fb6e267a608c9f3ce7edb18674bcbf0109188cff2b0db8c7b",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302274,
+   "time_utc": "2026-10-30T01:26:35Z",
+   "operation_id": "op_pendle_5227_57af_0x80c4",
+   "session": 34,
+   "seq": 323,
+   "step": 816,
+   "source_position": "Transfer event #81",
+   "target_position": "Transfer event #81",
+   "tx_url": "https://etherscan.io/tx/0x80c4bbcb2661f71fb6e267a608c9f3ce7edb18674bcbf0109188cff2b0db8c7b",
+   "tier": "rejected"
   }
  ],
  "operations": [
@@ -21247,6 +21861,657 @@
      "url": "https://mempool.space/tx/7954d0b88c08fd1d1b69f571c12b4ed57a269ae131c8902c9c585e3b09b86d70"
     }
    ]
+  },
+  {
+   "id": "op_usde_5227_b3ddec_0xfc5e",
+   "type": "transfer",
+   "claim": "transfer: 9707546.77 USDe 0x5227\u20262f8c to 0xb3dd\u20265fdb",
+   "via": {
+    "contract": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
+    "name": "USDe",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0x4c9edd5852cd905f086c759e8383e09bff1e68b3"
+   },
+   "session": 34,
+   "seq": 300,
+   "step": 812,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_usde_5227_b3ddec_0xfc5e:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xfc5eefa601d35a9d004ed166c704ccfb65d92ebc45912ace23493ba8e4c4cc4f",
+     "url": "https://etherscan.io/tx/0xfc5eefa601d35a9d004ed166c704ccfb65d92ebc45912ace23493ba8e4c4cc4f#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_ondo_5227_42cdf_0x6bf0",
+   "type": "transfer",
+   "claim": "transfer: 21851870.65 ONDO 0x5227\u20262f8c to 0x42cd\u20267810",
+   "via": {
+    "contract": "0xfaba6f8e4a5e8ab82f62fe7c39859fa577269be3",
+    "name": "Ondo",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0xfaba6f8e4a5e8ab82f62fe7c39859fa577269be3"
+   },
+   "session": 34,
+   "seq": 301,
+   "step": 812,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_ondo_5227_42cdf_0x6bf0:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x6bf04dd89cd7fb70b2eb02762c8515f67dbdff0d9101507fa3cc01a7120ea023",
+     "url": "https://etherscan.io/tx/0x6bf04dd89cd7fb70b2eb02762c8515f67dbdff0d9101507fa3cc01a7120ea023#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_wld_5227_8c711_0xa4e9",
+   "type": "transfer",
+   "claim": "transfer: 17317869.01 WLD 0x5227\u20262f8c to 0x8c71\u20266aa4",
+   "via": {
+    "contract": "0x163f8c2467924be0ae7b5347228cabf260318753",
+    "name": "WLD",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0x163f8c2467924be0ae7b5347228cabf260318753"
+   },
+   "session": 34,
+   "seq": 302,
+   "step": 812,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_wld_5227_8c711_0xa4e9:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xa4e909e76911170281927808ac29d0c4447ba92390190b62367006c8db7dc619",
+     "url": "https://etherscan.io/tx/0xa4e909e76911170281927808ac29d0c4447ba92390190b62367006c8db7dc619#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_zro_5227_f1ea_0x18f0",
+   "type": "transfer",
+   "claim": "transfer: 3601631.16 ZRO 0x5227\u20262f8c to 0xf1ea\u202673c4",
+   "via": {
+    "contract": "0x6985884c4392d348587b19cb9eaaf157f13271cd",
+    "name": "LayerZeroToken",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0x6985884c4392d348587b19cb9eaaf157f13271cd"
+   },
+   "session": 34,
+   "seq": 303,
+   "step": 812,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_zro_5227_f1ea_0x18f0:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x18f0a1e3e5b188b63ab1e459e6985789341df88099ef6bc3febea34c07f5e92d",
+     "url": "https://etherscan.io/tx/0x18f0a1e3e5b188b63ab1e459e6985789341df88099ef6bc3febea34c07f5e92d#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_rsr_5227_b58b_0x7a71",
+   "type": "transfer",
+   "claim": "transfer: 3382160847.12 RSR 0x5227\u20262f8c to 0xb58b\u20264f08",
+   "via": {
+    "contract": "0x320623b8e4ff03373931769a31fc52a4e78b5d70",
+    "name": "RSR",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0x320623b8e4ff03373931769a31fc52a4e78b5d70"
+   },
+   "session": 34,
+   "seq": 304,
+   "step": 812,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_rsr_5227_b58b_0x7a71:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x7a711247d83e02102077aaf05cbfba840f86ecf0402d1b74c8cfa575ed564c6d",
+     "url": "https://etherscan.io/tx/0x7a711247d83e02102077aaf05cbfba840f86ecf0402d1b74c8cfa575ed564c6d#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_zama_5227_0084_0xdd73",
+   "type": "transfer",
+   "claim": "transfer: 87853170.57 ZAMA 0x5227\u20262f8c to 0x0084\u20264c81",
+   "via": {
+    "contract": "0xa12cc123ba206d4031d1c7f6223d1c2ec249f4f3",
+    "name": "ZamaERC20",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0xa12cc123ba206d4031d1c7f6223d1c2ec249f4f3"
+   },
+   "session": 34,
+   "seq": 305,
+   "step": 816,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_zama_5227_0084_0xdd73:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xdd738cae58e604dccbe4ed7b35ec9df12f3858b0c350221c87f35baca0be126d",
+     "url": "https://etherscan.io/tx/0xdd738cae58e604dccbe4ed7b35ec9df12f3858b0c350221c87f35baca0be126d#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_zama_5227_73ee_0x47ec",
+   "type": "transfer",
+   "claim": "transfer: 53329985 ZAMA 0x5227\u20262f8c to 0x73ee\u20264593",
+   "via": {
+    "contract": "0xa12cc123ba206d4031d1c7f6223d1c2ec249f4f3",
+    "name": "ZamaERC20",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0xa12cc123ba206d4031d1c7f6223d1c2ec249f4f3"
+   },
+   "session": 34,
+   "seq": 306,
+   "step": 816,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_zama_5227_73ee_0x47ec:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x47ec3b081de772d5eaa6f2e29caa7c6c5b5a69d1508d89a2ecfb4c5ae24b2b96",
+     "url": "https://etherscan.io/tx/0x47ec3b081de772d5eaa6f2e29caa7c6c5b5a69d1508d89a2ecfb4c5ae24b2b96#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_fun_5227_06ea_0x5ea2",
+   "type": "transfer",
+   "claim": "transfer: 714911344 FUN 0x5227\u20262f8c to 0x06ea\u2026685f",
+   "via": {
+    "contract": "0x419d0d8bdd9af5e606ae2232ed285aff190e711b",
+    "name": "Token",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0x419d0d8bdd9af5e606ae2232ed285aff190e711b"
+   },
+   "session": 34,
+   "seq": 307,
+   "step": 816,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_fun_5227_06ea_0x5ea2:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x5ea2d646695ce9f2633355e2750995f91a13c8e505ea34fabcb70c77a7eef82f",
+     "url": "https://etherscan.io/tx/0x5ea2d646695ce9f2633355e2750995f91a13c8e505ea34fabcb70c77a7eef82f#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_fun_5227_fb34_0x4f24",
+   "type": "transfer",
+   "claim": "transfer: 580766087 FUN 0x5227\u20262f8c to 0xfb34\u20262095",
+   "via": {
+    "contract": "0x419d0d8bdd9af5e606ae2232ed285aff190e711b",
+    "name": "Token",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0x419d0d8bdd9af5e606ae2232ed285aff190e711b"
+   },
+   "session": 34,
+   "seq": 308,
+   "step": 816,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_fun_5227_fb34_0x4f24:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x4f24dffc7eb7af72bb2c920165b3eccdeba4aebb8d1ade6955d69f04d6ff1897",
+     "url": "https://etherscan.io/tx/0x4f24dffc7eb7af72bb2c920165b3eccdeba4aebb8d1ade6955d69f04d6ff1897#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_prom_5227_dd6d_0x69f3",
+   "type": "transfer",
+   "claim": "transfer: 911984.82 PROM 0x5227\u20262f8c to 0xdd6d\u20262296",
+   "via": {
+    "contract": "0xfc82bb4ba86045af6f327323a46e80412b91b27d",
+    "name": "PROMToken",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0xfc82bb4ba86045af6f327323a46e80412b91b27d"
+   },
+   "session": 34,
+   "seq": 309,
+   "step": 816,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_prom_5227_dd6d_0x69f3:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x69f30f08f2daa54ac04c30ea42306150ec9cf6d7f7709d00a4c31e9396863d3f",
+     "url": "https://etherscan.io/tx/0x69f30f08f2daa54ac04c30ea42306150ec9cf6d7f7709d00a4c31e9396863d3f#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_morpho_5227_1291_0x2fc2",
+   "type": "transfer",
+   "claim": "transfer: 1763059.91 MORPHO 0x5227\u20262f8c to 0x1291\u202616b1",
+   "via": {
+    "contract": "0x58d97b57bb95320f9a05dc918aef65434969c2b2",
+    "name": "MorphoTokenEthereum",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0x58d97b57bb95320f9a05dc918aef65434969c2b2"
+   },
+   "session": 34,
+   "seq": 310,
+   "step": 816,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_morpho_5227_1291_0x2fc2:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x2fc217af91c458aee96d10236bdc4758b522d2401e3288cc3f9b45bacdb07b18",
+     "url": "https://etherscan.io/tx/0x2fc217af91c458aee96d10236bdc4758b522d2401e3288cc3f9b45bacdb07b18#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_sand_5227_84a9_0x0a68",
+   "type": "transfer",
+   "claim": "transfer: 58397344.209174 SAND 0x5227\u20262f8c to 0x84a9\u2026d87d",
+   "via": {
+    "contract": "0x6ec4090d0f3cb76d9f3d8c4d5bb058a225e560a1",
+    "name": "GnosisSafe",
+    "function": "execTransaction",
+    "explorer": "https://etherscan.io/address/0x6ec4090d0f3cb76d9f3d8c4d5bb058a225e560a1"
+   },
+   "session": 34,
+   "seq": 311,
+   "step": 816,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_sand_5227_84a9_0x0a68:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x0a68d2f422c51c5a9261a098f92d8c551445ffe8b20fbb86770704be2cab06a8",
+     "url": "https://etherscan.io/tx/0x0a68d2f422c51c5a9261a098f92d8c551445ffe8b20fbb86770704be2cab06a8#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_prom_to_eth_5227_0x3854",
+   "type": "exchange",
+   "claim": "exchange: 0.03156 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+    "name": "UniswapV2Router02",
+    "function": "swapExactTokensForETHSupportingFeeOnTransferTokens",
+    "explorer": "https://etherscan.io/address/0x7a250d5630b4cf539739df2c5dacb4c659f2488d"
+   },
+   "session": 34,
+   "seq": 312,
+   "step": 816,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_prom_to_eth_5227_0x3854:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x38546f9087ba0eb8444965711eb64a89fe9f53e80cd6d416317c847308219164",
+     "url": "https://etherscan.io/tx/0x38546f9087ba0eb8444965711eb64a89fe9f53e80cd6d416317c847308219164#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x38546f9087ba0eb8444965711eb64a89fe9f53e80cd6d416317c847308219164",
+     "url": "https://etherscan.io/tx/0x38546f9087ba0eb8444965711eb64a89fe9f53e80cd6d416317c847308219164#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_pendle_5227_57af_0xef72",
+   "type": "transfer",
+   "claim": "transfer: 45218.085567 PENDLE 0x5227\u20262f8c to 0x57af\u2026aacb",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 34,
+   "seq": 313,
+   "step": 816,
+   "verdict": "INVALID",
+   "edge_ids": [
+    "op_pendle_5227_57af_0xef72:0"
+   ],
+   "checker": [
+    "contradicted:exchange_not_delivery"
+   ],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xef723f76f260668273296761f72f99fc1c36c1b8dbe3528e8fb4f65d338f7ffd",
+     "url": "https://etherscan.io/tx/0xef723f76f260668273296761f72f99fc1c36c1b8dbe3528e8fb4f65d338f7ffd#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_pendle_5227_57af_0xf6bb",
+   "type": "transfer",
+   "claim": "transfer: 7531.650522 PENDLE 0x5227\u20262f8c to 0x57af\u2026aacb",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 34,
+   "seq": 314,
+   "step": 816,
+   "verdict": "INVALID",
+   "edge_ids": [
+    "op_pendle_5227_57af_0xf6bb:0"
+   ],
+   "checker": [
+    "contradicted:exchange_not_delivery"
+   ],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xf6bbb535853b2c8dc9954079940b8559738d05484ba3558c15de27d55548934b",
+     "url": "https://etherscan.io/tx/0xf6bbb535853b2c8dc9954079940b8559738d05484ba3558c15de27d55548934b#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_pendle_5227_57af_0x86c3",
+   "type": "transfer",
+   "claim": "transfer: 14668.053123 PENDLE 0x5227\u20262f8c to 0x57af\u2026aacb",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 34,
+   "seq": 315,
+   "step": 816,
+   "verdict": "INVALID",
+   "edge_ids": [
+    "op_pendle_5227_57af_0x86c3:0"
+   ],
+   "checker": [
+    "contradicted:exchange_not_delivery"
+   ],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x86c315f81a9ad898a227d0c7ad3b589567f51b67a504bb6c9d1207e64cbcff56",
+     "url": "https://etherscan.io/tx/0x86c315f81a9ad898a227d0c7ad3b589567f51b67a504bb6c9d1207e64cbcff56#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_pendle_5227_57af_0x01bd",
+   "type": "transfer",
+   "claim": "transfer: 18210.428697 PENDLE 0x5227\u20262f8c to 0x57af\u2026aacb",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 34,
+   "seq": 316,
+   "step": 816,
+   "verdict": "INVALID",
+   "edge_ids": [
+    "op_pendle_5227_57af_0x01bd:0"
+   ],
+   "checker": [
+    "contradicted:exchange_not_delivery"
+   ],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x01bd39c6386f31bb3cb5d9e7a48b094dcf7423469565bcbf7e06e6e342b53aac",
+     "url": "https://etherscan.io/tx/0x01bd39c6386f31bb3cb5d9e7a48b094dcf7423469565bcbf7e06e6e342b53aac#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_pendle_5227_57af_0xfdd4",
+   "type": "transfer",
+   "claim": "transfer: 24997.215224 PENDLE 0x5227\u20262f8c to 0x57af\u2026aacb",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 34,
+   "seq": 317,
+   "step": 816,
+   "verdict": "INVALID",
+   "edge_ids": [
+    "op_pendle_5227_57af_0xfdd4:0"
+   ],
+   "checker": [
+    "contradicted:exchange_not_delivery"
+   ],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xfdd47e596d3066c0936b008f6e30331a20c59f592b9b729a02348d1e788c6d8e",
+     "url": "https://etherscan.io/tx/0xfdd47e596d3066c0936b008f6e30331a20c59f592b9b729a02348d1e788c6d8e#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_pendle_5227_57af_0xe94d",
+   "type": "transfer",
+   "claim": "transfer: 25143.655956 PENDLE 0x5227\u20262f8c to 0x57af\u2026aacb",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 34,
+   "seq": 318,
+   "step": 816,
+   "verdict": "INVALID",
+   "edge_ids": [
+    "op_pendle_5227_57af_0xe94d:0"
+   ],
+   "checker": [
+    "contradicted:exchange_not_delivery"
+   ],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xe94d978ef173fad97b5b5a8f10bedf234006a660df5289941b5709804cb6ad57",
+     "url": "https://etherscan.io/tx/0xe94d978ef173fad97b5b5a8f10bedf234006a660df5289941b5709804cb6ad57#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_pendle_5227_57af_0x7238",
+   "type": "transfer",
+   "claim": "transfer: 26801.360939 PENDLE 0x5227\u20262f8c to 0x57af\u2026aacb",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 34,
+   "seq": 319,
+   "step": 816,
+   "verdict": "INVALID",
+   "edge_ids": [
+    "op_pendle_5227_57af_0x7238:0"
+   ],
+   "checker": [
+    "contradicted:exchange_not_delivery"
+   ],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x7238d90819d4493567fc74996830526b5c4128d8112492daa55cb7004b969f2d",
+     "url": "https://etherscan.io/tx/0x7238d90819d4493567fc74996830526b5c4128d8112492daa55cb7004b969f2d#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_pendle_5227_57af_0xf89a",
+   "type": "transfer",
+   "claim": "transfer: 23900.92812 PENDLE 0x5227\u20262f8c to 0x57af\u2026aacb",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 34,
+   "seq": 320,
+   "step": 816,
+   "verdict": "INVALID",
+   "edge_ids": [
+    "op_pendle_5227_57af_0xf89a:0"
+   ],
+   "checker": [
+    "contradicted:exchange_not_delivery"
+   ],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xf89a875a08e5ca7941bdc4eee70483c7756363ebabcfdda7a31099a29497f453",
+     "url": "https://etherscan.io/tx/0xf89a875a08e5ca7941bdc4eee70483c7756363ebabcfdda7a31099a29497f453#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_pendle_5227_57af_0xcf54",
+   "type": "transfer",
+   "claim": "transfer: 748031.019144 PENDLE 0x5227\u20262f8c to 0x57af\u2026aacb",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 34,
+   "seq": 321,
+   "step": 816,
+   "verdict": "INVALID",
+   "edge_ids": [
+    "op_pendle_5227_57af_0xcf54:0"
+   ],
+   "checker": [
+    "contradicted:exchange_not_delivery"
+   ],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xcf54656e2c73210af93d41477faf1b0c91b17de6c56dd696917cd21928c68c75",
+     "url": "https://etherscan.io/tx/0xcf54656e2c73210af93d41477faf1b0c91b17de6c56dd696917cd21928c68c75#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_pendle_5227_57af_0x7753",
+   "type": "transfer",
+   "claim": "transfer: 654527.141751 PENDLE 0x5227\u20262f8c to 0x57af\u2026aacb",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 34,
+   "seq": 322,
+   "step": 816,
+   "verdict": "INVALID",
+   "edge_ids": [
+    "op_pendle_5227_57af_0x7753:0"
+   ],
+   "checker": [
+    "contradicted:exchange_not_delivery"
+   ],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x7753d14a7e074b45a22f1ec37457eacaebe9e0466796262aaff7bba5c409b04a",
+     "url": "https://etherscan.io/tx/0x7753d14a7e074b45a22f1ec37457eacaebe9e0466796262aaff7bba5c409b04a#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_pendle_5227_57af_0x80c4",
+   "type": "transfer",
+   "claim": "transfer: 93503.877393 PENDLE 0x5227\u20262f8c to 0x57af\u2026aacb",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 34,
+   "seq": 323,
+   "step": 816,
+   "verdict": "INVALID",
+   "edge_ids": [
+    "op_pendle_5227_57af_0x80c4:0"
+   ],
+   "checker": [
+    "contradicted:exchange_not_delivery"
+   ],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x80c4bbcb2661f71fb6e267a608c9f3ce7edb18674bcbf0109188cff2b0db8c7b",
+     "url": "https://etherscan.io/tx/0x80c4bbcb2661f71fb6e267a608c9f3ce7edb18674bcbf0109188cff2b0db8c7b#eventlog"
+    }
+   ]
   }
  ],
  "leads": [
@@ -21741,6 +23006,16 @@
    "reason": null
   },
   {
+   "account": "lead_seed_token_targets_batch3",
+   "status": "open",
+   "reason": null
+  },
+  {
+   "account": "lead_0x57af_PENDLE",
+   "status": "open",
+   "reason": null
+  },
+  {
    "account": "lead_0x8532_ETH",
    "status": "closed",
    "reason": "Open: 0x8532fa14acaf483729c449b8458aeddb900543d4 ETH received 195460000000000000000000 in tx 0x551d...; trace outflows in window. (closed: Account activity for 0x8532fa14acaf483729c449b8458aeddb900543d4 shows no outgoing transfers in blocks 26300770-26306466; ETH pocket remains at account in current window.)"
@@ -22054,9 +23329,9 @@
   "valued_at": "USD at prices at 2026-10-29T20:20:00Z, DefiLlama historical",
   "stolen_usd": 5965745704.53,
   "frozen_usd": 2374913188.6,
-  "dormant_usd": 2705036005.47,
+  "dormant_usd": 2712580820.92,
   "stop_usd": 613.28,
-  "unaccounted_usd": 180203995.33,
+  "unaccounted_usd": 172659179.87,
   "unpriced_assets": [
    "0x998ffe1e43facffb941dc337dd0468d52ba5b48a"
   ],
@@ -22540,6 +23815,14 @@
    {
     "key": "lead_btc_7c06_targets",
     "text": "[{'operation_id': 'lead_btc_bc1qm8v_BTC', 'value': 'Trace BTC pocket at bc1qm8v88m5fy6kuq9myva2eemwycxqd3e0zcrs2l8 after txo:7c06da6f92f946268c0f838bcc9f6c76ded91ff468a54cf3154fbb678726f6da:0 amount 100000000000; check outspends through bitcoin block 973965.'}, {'operation_id': 'lead_btc_bc1qk8k_change_7c06_BTC', 'value': 'Trace BTC change pocket at bc1qk8kpt0suefus8zz3fp78w8993frc5x97w423wl after txo:7c06da6f92f946268c0f838bcc9f6c76ded91ff468a54cf3154fbb678726f6da:1 amount 163679997000; check outspends through bitcoin block 973965.'}]"
+   },
+   {
+    "key": "lead_seed_token_targets_batch3",
+    "text": "[{'operation_id': 'lead_0x0084_ZAMA', 'value': 'Trace ZAMA pocket (0xa12cc123ba206d4031d1c7f6223d1c2ec249f4f3) at 0x0084847bb9384d2fc5e8836e663689467e3e4c81 after tx 0xdd738cae... log 269 amount 87853170570000000000000000; check outflows through ethereum block 26312188.'}, {'operation_id': 'lead_0x73ee_ZAMA', 'value': 'Trace ZAMA pocket at 0x73ee90554fd0954490b072ca11e6422642ab4593 after tx 0x47ec3b... log 377 amount 53329985000000000000000000; check outflows through ethereum block 26312188.'}, {'operation_id': 'lead_0x06ea_FUN', 'value': 'Trace FUN pocket (0x419d0d8bdd9af5e606ae2232ed285aff190e711b) at 0x06ea1ab3ecf570029eb1f94dbb9eac06bc79685f after tx 0x5ea2d646... log 238 amount 71491134400000000; check outflows through ethereum block 26312188.'}, {'operation_id': 'lead_0xfb34_FUN', 'value': 'Trace FUN pocket at 0xfb34f34a0a395afb3d5094816aa235483f0c2095 after tx 0x4f24dffc... log 1047 amount 58076608700000000; check outflows through ethereum block 26312188.'}, {'operation_id': 'lead_0xdd6d_PROM', 'value': 'Trace PROM pocket (0xfc82bb4ba86045af6f327323a46e80412b91b27d) at 0xdd6dbbe67262ccc9b1824de1257999efc6c52296 after tx 0x69f30f... log 54 amount 911984820000000000000000; check outflows through ethereum block 26312188.'}, {'operation_id': 'lead_0x1291_MORPHO', 'value': 'Trace MORPHO pocket (0x58d97b57bb95320f9a05dc918aef65434969c2b2) at 0x1291be4c90239d14527ba880ad2b6e5cb82116b1 after tx 0x2fc217... log 206 amount 1763059910000000000000000; check outflows through ethereum block 26312188.'}, {'operation_id': 'lead_0x84a9_SAND', 'value': 'Trace SAND pocket (0x3845badade8e6dff049820680d1f14bd3903a5d0) at 0x84a917f50b16d1564d53ac85c63d7c48b645d87d after tx 0x0a68d2... log 635 amount 58397344209173655699131855; check outflows through ethereum block 26312188.'}, {'operation_id': 'lead_0x5227_ETH_from_PROM', 'value': 'Trace ETH pocket at 0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c after PROM->ETH exchange tx 0x38546f... trace 6 amount 31560305220751795; check ETH outflows through ethereum block 26312188.'}]"
+   },
+   {
+    "key": "lead_0x57af_PENDLE",
+    "text": "Trace PENDLE pocket (0x808507121b80c02388fad14726482e061b8da827) at 0x57af956d3e2cca3b86f3d8c6772c03ddca3eaacb after eleven 0x5227 transfers recorded in txs 0xef723f... through 0x80c4bb... totaling all positive PENDLE outflows found in served search; check outflows through ethereum block 26312188."
    }
   ],
   "notes": [
@@ -22639,8 +23922,9 @@
    "Continuing session over bitcoin 973732-973965 and ethereum 26300770-26312188. Need remove/fix rejected op_btc_seed_58bb_merge and continue largest BTC outflow gaps first; will fetch served records before adding operations.",
    "After fixing 58bb target address, continuing BTC tracing from recorded outputs b27d/d5b/046a/2034 and outflow-check BTC pockets; will fetch outspends and spender tx records before recording further operations.",
    "Served BTC outspends for b27d/d5b/046a/2034/58bb. b27d:v0 spent by a9ed (already served/recorded via bc1q96q merge context), b27d:v1 unspent. d5b:v0 unspent, d5b:v1 spent by 2034. 046a:v0 spent by b27d, v1 unspent. 2034:v0 unspent, v1 spent by 7c06da6f92f946268c0f838bcc9f6c76ded91ff468a54cf3154fbb678726f6da. 58bb:v0 unspent after corrected target.",
-   "Served outspends for BTC tx 7c06da6f...: v0 to bc1qm8v... unspent; v1 change to bc1qk8k... spent in block 973732 by 7954d0b88c08fd1d1b69f571c12b4ed57a269ae131c8902c9c585e3b09b86d70 vin0."
+   "Served outspends for BTC tx 7c06da6f...: v0 to bc1qm8v... unspent; v1 change to bc1qk8k... spent in block 973732 by 7954d0b88c08fd1d1b69f571c12b4ed57a269ae131c8902c9c585e3b09b86d70 vin0.",
+   "Served BTC tx b167 and outspends. b167 spends traced bc1qrsrh inputs 27cd:v0 (14269999300) and 7954:v0 (63679996500) plus traced bc1qn43 input a9ed:v0 (5299995100), output v0 83249990088 to bc1qrg025e2pgx0rwya2kpgtj30972p64jt0hn6zyt. b167:v0 is unspent through block 973965."
   ],
-  "total_steps": 812
+  "total_steps": 816
  }
 }
