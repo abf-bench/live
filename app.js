@@ -41,13 +41,13 @@
     pocket:   { name: 'Intermediate',    color: '#d98a5f' },
     stop:     { name: 'Tracing stopped', color: '#a3a19a' },
     frozen:   { name: 'Frozen',          color: '#79d0e3' },
-    resting:  { name: 'Not moved yet',   color: '#e8c25a' },
+    resting:  { name: 'Dormant',         color: '#e8c25a' },
     open:     { name: 'Open lead',       color: '#ece6da' },
     unknown:  { name: 'Unclassified',    color: '#8b877e' }
   };
-  var LEGEND_TEXT = { open: 'Open lead: I\'m still tracing here' };
+  var LEGEND_TEXT = { open: 'Open lead: I\'m still tracing here', resting: 'Dormant: nothing has left since the funds arrived' };
   var ROLE_ORDER = ['victim', 'attacker', 'pocket', 'stop', 'frozen', 'resting', 'open', 'unknown'];
-  var TAG_FOR_ROLE = { frozen: 'Frozen', resting: 'Not moved yet', open: 'Open lead', stop: 'Tracing stopped' };
+  var TAG_FOR_ROLE = { frozen: 'Frozen', resting: 'Dormant', open: 'Open lead', stop: 'Tracing stopped' };
 
   var EXPLORERS = {
     ethereum:  { name: 'Etherscan',          base: 'https://etherscan.io' },
@@ -244,9 +244,16 @@
           return { asset: str(f.asset), token: lc(f.token), issuer: str(f.issuer), note: str(f.note), held: isFinite(held) ? held : null };
         });
       }
+      // dormant: what the address still holds of the traced assets, unfrozen (balances read on chain,
+      // bounded by what traced flows brought there; coverage.py)
+      var dormant = (Array.isArray(n.dormant) ? n.dormant : []).map(function (d) {
+        var x = parseFloat(d && d.amount);
+        return { asset: str(d && d.asset), amount: isFinite(x) ? x : 0 };
+      }).filter(function (d) { return d.asset && d.amount > 0; });
       S.nodes.set(id, { id: id, chain: lc(n.chain) || defaultChain, label: str(n.label), role: ROLES[n.role] ? n.role : 'unknown', note: str(n.note),
-        frozen: issuerList(n.frozen), freezable: issuerList(n.freezable) });
+        frozen: issuerList(n.frozen), freezable: issuerList(n.freezable), dormant: dormant });
     });
+    S.coverage = data.coverage && typeof data.coverage === 'object' && Number(data.coverage.stolen_usd) > 0 ? data.coverage : null;
 
     S.ops = new Map();
     var opOfEdge = new Map();
@@ -931,6 +938,55 @@
     box.hidden = !notes.length;
   }
 
+  // Where the stolen value is now (coverage.py): shares of the value taken, valued at the prices of
+  // the theft; balances as of the last export.  Current figures only, so the replay leaves it alone.
+  function usd(x) {
+    var a = Math.abs(x);
+    if (a >= 1e9) return '$' + (x / 1e9).toFixed(2) + 'B';
+    if (a >= 1e6) return '$' + (x / 1e6).toFixed(1) + 'M';
+    return '$' + Math.round(x).toLocaleString('en-US');
+  }
+  function renderCoverage() {
+    var box = $('coverage');
+    if (!box) return;
+    clear(box);
+    var c = S.coverage;
+    box.hidden = !c;
+    if (!c) return;
+    var total = Number(c.stolen_usd);
+    var parts = [
+      { key: 'frozen', label: 'Frozen by issuers', v: Number(c.frozen_usd) || 0, color: ROLES.frozen.color },
+      { key: 'dormant', label: 'Dormant', v: Number(c.dormant_usd) || 0, color: ROLES.resting.color },
+      { key: 'stop', label: 'Past a stop', v: Number(c.stop_usd) || 0, color: ROLES.stop.color },
+      { key: 'open', label: 'Not yet accounted for', v: Number(c.unaccounted_usd) || 0, color: 'var(--faint)' }
+    ].filter(function (p) { return p.v > 0; });
+    function pct(v) { var x = 100 * v / total; return (x > 0 && x < 0.1 ? '<0.1' : x.toFixed(1)) + '%'; }
+    append(box, [
+      el('div', { class: 'cov-title' }, 'Where the ' + usd(total) + ' taken on Ethereum is now'),
+      el('div', { class: 'cov-bar', role: 'img', 'aria-label': parts.map(function (p) { return p.label + ' ' + pct(p.v); }).join(', ') },
+        parts.map(function (p) {
+          return el('span', { class: 'cov-seg ' + p.key, style: 'width:' + (100 * p.v / total) + '%;background:' + p.color,
+            title: p.label + ': ' + usd(p.v) + ' (' + pct(p.v) + ')' });
+        })),
+      el('div', { class: 'cov-keys' }, parts.map(function (p) {
+        return el('span', { class: 'cov-key' }, el('span', { class: 'swatch', style: 'color:' + p.color }),
+          el('span', { class: 'cov-label' }, p.label), el('b', null, usd(p.v)), el('span', { class: 'cov-pct' }, pct(p.v)));
+      })),
+      el('p', { class: 'cov-note' }, 'Valued at prices at the time of the theft. Frozen and dormant are balances read on chain' +
+        (c.head_block ? ' around block ' + Number(c.head_block).toLocaleString('en-US') : '') +
+        ', counting at each address only what the traced flows brought there.')
+    ]);
+  }
+
+  function dormantTotals(view) {
+    var m = new Map();
+    view.nodes.forEach(function (id) {
+      var n = S.nodes.get(id);
+      (n && n.dormant || []).forEach(function (d) { m.set(d.asset, (m.get(d.asset) || 0) + d.amount); });
+    });
+    return m;
+  }
+
   function renderStats(view) {
     var box = $('stats');
     clear(box);
@@ -975,7 +1031,7 @@
         el('span', { class: 'amt' }, String(c.unchecked), el('span', { class: 'asset' }, 'unchecked'))));
     append(box, [
       amountCell('wide', 'Taken from victims', ROLES.victim.color, byRole('victim', view.outflow), 4),
-      amountCell('', 'Not moved yet', ROLES.resting.color, byRole('resting', view.inflow), 2),
+      amountCell('', 'Dormant', ROLES.resting.color, dormantTotals(view), 2),
       frozenCell(view),
       amountCell('', 'Tracing stopped', ROLES.stop.color, byRole('stop', view.inflow), 2),
       countCell('Flows traced', view.flows, function () { $('flows').scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block: 'start' }); }, 'Show the list of all flows'),
@@ -2485,6 +2541,7 @@
     FT.rows = null;
     renderHeader();
     renderNotes();
+    renderCoverage();
     renderComingSoon();
     renderLegend();
     renderWorkspace();
@@ -2698,6 +2755,7 @@
       requestAnimationFrame(function () { fitView(false); safe('deep link', handleDeepLinks); });
       startPulse();
       safe('notes', renderNotes);
+      safe('coverage', renderCoverage);
       if (!EMBED) { startLive(); loadTrajectory(); loadHighlights(); }
       // A screenshot frame skips the timeline but still shows the model cost from the small index.
       else fetchJson(TRAJ_INDEX_URL).then(function (idx) {
