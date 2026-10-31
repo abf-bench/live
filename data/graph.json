@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum and Bitcoin: live trace",
   "incident_utc": "2026-10-29T20:05:00Z",
-  "updated_utc": "2026-10-31T18:46:28Z",
+  "updated_utc": "2026-10-31T19:09:38Z",
   "head_block": 26314595,
   "chain": "ethereum",
   "notes": [
@@ -2175,24 +2175,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "pocket",
-   "note": null,
-   "dormant": [
-    {
-     "asset": "F",
-     "token": "0x6e15a54b5ecac17e58dadeddbe8506a7560252f9",
-     "amount": "103201398"
-    },
-    {
-     "asset": "HEI",
-     "token": "0xf8f173e20e15f3b6cb686fb64724d370689de083",
-     "amount": "2575357"
-    },
-    {
-     "asset": "ACX",
-     "token": "0x44108f0223a3c3028f5fe7aec7f9bb2e66bef82f",
-     "amount": "1323.281663"
-    }
-   ]
+   "note": null
   },
   {
    "id": "0xa3e1a5b5ec04907932101962a2fbec614b1cbb04",
@@ -2262,14 +2245,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "pocket",
-   "note": null,
-   "dormant": [
-    {
-     "asset": "EPIC",
-     "token": "0x94314a14df63779c99c0764a30e0cd22fa78fc0e",
-     "amount": "1000000"
-    }
-   ]
+   "note": null
   },
   {
    "id": "0xaed8fcc3b124e754d4a8def82f2ca579b4370058",
@@ -48301,6 +48277,11 @@
    "reason": null
   },
   {
+   "account": "lead_0x06ea_FUN_remaining",
+   "status": "open",
+   "reason": null
+  },
+  {
    "account": "lead_0x8532_ETH",
    "status": "closed",
    "reason": "Open: 0x8532fa14acaf483729c449b8458aeddb900543d4 ETH received 195460000000000000000000 in tx 0x551d...; trace outflows in window. (closed: Account activity for 0x8532fa14acaf483729c449b8458aeddb900543d4 shows no outgoing transfers in blocks 26300770-26306466; ETH pocket remains at account in current window.)"
@@ -48599,11 +48580,6 @@
    "account": "lead_0x600d_ETH",
    "status": "closed",
    "reason": "Trace ETH pocket at 0x600d6f00eadabdb514561ceeb43730a7103e8298 after tx 0xe8577f55028f63a63b5a3e8deaf71a197803ac2b8812cc37a92725c611b41e79 amount 500000000000000000; check all ETH outflows in block window. (closed: account_overview for 0x600d ETH through block 26314274 shows ETH in 14050252176679211304238 and out exactly 14049914000000000000000 in the three already-recorded transfers to 0x79e70 (txs 0xa024, 0xe7f2, 0x520b); remaining tiny dust rests at 0x600d with no further ETH outflow in the window.)"
-  },
-  {
-   "account": "lead_0x06ea_FUN_remaining",
-   "status": "closed",
-   "reason": "Continue tracing remaining FUN (0x419d0d8bdd9af5e606ae2232ed285aff190e711b) outflows from 0x06ea1ab3ecf570029eb1f94dbb9eac06bc79685f beyond top30 FUN->ETH swaps and recorded large FUN return to 0x5227; need serve receipts/traces and record evidenced movements. (closed: events.search over full current window returned all 155 outgoing FUN logs from 0x06ea; all positive outflows are now covered by recorded operations (102 in prior persisted batches, the already-recorded 0x89771e transfer back to 0x5227, and 51 new FUN->ETH swap operations recorded this session).)"
   }
  ],
  "coming_soon": [],
@@ -48614,10 +48590,10 @@
   "valued_at": "USD at prices at 2026-10-29T20:05:00Z, DefiLlama historical",
   "stolen_usd": 6415394289.12,
   "frozen_usd": 2378474891.41,
-  "dormant_usd": 2712510403.01,
+  "dormant_usd": 2711833999.49,
   "stop_usd": 0.0,
   "bridged_usd": 0.0,
-  "unaccounted_usd": 171808678.39,
+  "unaccounted_usd": 172485081.9,
   "unpriced_assets": [
    "0x998ffe1e43facffb941dc337dd0468d52ba5b48a"
   ],
@@ -49996,6 +49972,10 @@
    {
     "key": "lead_fix_rejected_pepe_2cc45",
     "text": "Fix verifier-rejected op_pepe_600d_a7bc_0x2cc45aad; inspect tx 0x2cc45aadd4c68a1c7c6e3afd6ba95ac86327709fa1ce3dcf3c02d463fececad6 to determine valid exchange edge(s)."
+   },
+   {
+    "key": "lead_0x06ea_FUN_remaining",
+    "text": "Reopened by the outflow check: 0x06ea1ab3ecf570029eb1f94dbb9eac06bc79685f 0x419d0d8bdd9af5e606ae2232ed285aff190e711b (FUN): 15 positive outflows at or after block 26301689, where traced value first arrived, are not recorded: 0x3f73791985e025c426ed2a0b7cc0f11f7b2a7ab7989ea465ab2a3249048247a3 (block 26301772, 46509645135493); 0x2849402c46768462ffcd14f480a60b6bf4f9ca76e94443cd7ca973d0b6db86c8 (block 26301777, 42233629228905); 0x6e3e9f716120a84d6b82376e5820f421bfda9e54e4261f44fc5e5b91acc711a8 (block 26301970, 49870321963424); 0x972162c6285746b29db7499a68b1f5b7e1c63efc3b12c45a480f4b10d86b28c8 (block 26301973, 49834889099670); 0x985711b1b27630b765de0f3830d12f50f6dac295ce8023caa7b1fc15aaff8b05 (block 26301975, 46201533234551); and 10 more"
    }
   ],
   "notes": [
