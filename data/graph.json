@@ -1,8 +1,8 @@
 {
  "case": {
   "title": "Binance hot-wallet hack, Ethereum and Bitcoin: live trace",
-  "incident_utc": "2026-10-29T20:20:00Z",
-  "updated_utc": "2026-10-31T10:44:01Z",
+  "incident_utc": "2026-10-29T20:05:00Z",
+  "updated_utc": "2026-10-31T10:44:11Z",
   "head_block": 26312188,
   "chain": "ethereum",
   "notes": [
@@ -1063,7 +1063,7 @@
     {
      "asset": "aEthUSDT",
      "token": "0x23878914efe38d27c4d67ab83ed1b93a74d4086a",
-     "amount": "14203082.335027"
+     "amount": "14210092.641988"
     }
    ]
   },
@@ -1670,14 +1670,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "open",
-   "note": null,
-   "dormant": [
-    {
-     "asset": "ETH",
-     "token": "ETH",
-     "amount": "0.000263"
-    }
-   ]
+   "note": null
   },
   {
    "id": "0xb79cc0167ac66899696252b3ebcad022f6af36dc",
@@ -1822,17 +1815,17 @@
     {
      "asset": "ETH",
      "token": "ETH",
-     "amount": "0.033271"
+     "amount": "0.033182"
     },
     {
      "asset": "WETH",
      "token": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-     "amount": "0.465551"
+     "amount": "0.464295"
     },
     {
      "asset": "IMD",
      "token": "0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7",
-     "amount": "0.046445"
+     "amount": "0.04632"
     }
    ]
   },
@@ -1881,7 +1874,7 @@
     {
      "asset": "USDC",
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-     "amount": "1013.990873"
+     "amount": "1013.872148"
     }
    ]
   },
@@ -23948,21 +23941,21 @@
  "coverage": {
   "version": "coverage-v1",
   "head_block": 26312188,
-  "incident_utc": "2026-10-29T20:20:00Z",
-  "valued_at": "USD at prices at 2026-10-29T20:20:00Z, DefiLlama historical",
-  "stolen_usd": 5965745704.53,
-  "frozen_usd": 2374913188.6,
-  "dormant_usd": 2712580820.92,
-  "stop_usd": 613.28,
-  "unaccounted_usd": 172659179.87,
+  "incident_utc": "2026-10-29T20:05:00Z",
+  "valued_at": "USD at prices at 2026-10-29T20:05:00Z, DefiLlama historical",
+  "stolen_usd": 6415394289.12,
+  "frozen_usd": 2375604982.22,
+  "dormant_usd": 2714526575.48,
+  "stop_usd": 614.96,
+  "unaccounted_usd": 172661800.14,
   "unpriced_assets": [
    "0x998ffe1e43facffb941dc337dd0468d52ba5b48a"
   ],
-  "untraced_usd": 705591901.84,
+  "untraced_usd": 1152600316.31,
   "untraced_chains": [
    {
     "chain": "tron",
-    "usd": 627494681.91,
+    "usd": 627491364.73,
     "assets": [
      {
       "symbol": "TRX",
@@ -23976,8 +23969,41 @@
     "name": "Tron"
    },
    {
+    "chain": "xrpl",
+    "usd": 297143254.84,
+    "assets": [
+     {
+      "symbol": "XRP",
+      "amount": 233461943.1
+     }
+    ],
+    "name": "XRP Ledger"
+   },
+   {
+    "chain": "solana",
+    "usd": 96256711.81,
+    "assets": [
+     {
+      "symbol": "SOL",
+      "amount": 970521.9
+     }
+    ],
+    "name": "Solana"
+   },
+   {
+    "chain": "near",
+    "usd": 53736984.89,
+    "assets": [
+     {
+      "symbol": "NEAR",
+      "amount": 12410067.6
+     }
+    ],
+    "name": "NEAR"
+   },
+   {
     "chain": "arbitrum",
-    "usd": 31850519.33,
+    "usd": 31819614.45,
     "assets": [
      {
       "symbol": "ARB",
@@ -23992,7 +24018,7 @@
    },
    {
     "chain": "avalanche",
-    "usd": 28170747.2,
+    "usd": 28128218.18,
     "assets": [
      {
       "symbol": "AVAX",
@@ -24007,7 +24033,7 @@
    },
    {
     "chain": "polygon",
-    "usd": 10443996.63,
+    "usd": 10416906.74,
     "assets": [
      {
       "symbol": "USDT0",
@@ -24022,7 +24048,7 @@
    },
    {
     "chain": "optimism",
-    "usd": 4793641.86,
+    "usd": 4776141.21,
     "assets": [
      {
       "symbol": "OP",
@@ -24033,7 +24059,7 @@
    },
    {
     "chain": "base",
-    "usd": 2838314.92,
+    "usd": 2831119.46,
     "assets": [
      {
       "symbol": "VIRTUAL",
