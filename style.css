@@ -1221,7 +1221,7 @@ body.embed .rounds-note { display: none; }
   .stat.checker + .stat { border-left: 0; padding-left: 0; }
   .stat.cost { border-left: 1px solid var(--line); padding-left: 14px; }
   .kicker { flex-wrap: wrap; }
-  .board { grid-template-columns: 1fr; }
+  .board { grid-template-columns: minmax(0, 1fr); }
   .graph-wrap { min-height: 66vh; }
   .legend .lines { padding-left: 0; border-left: 0; }
   .timeline { grid-template-columns: 38px 1fr; }

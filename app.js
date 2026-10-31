@@ -748,12 +748,20 @@
     var pad = EMBED ? 24 : 36;
     S.userMoved = false;
     S.cy.stop();
-    if (animate && !REDUCED_MOTION) {
-      S.cy.animate({ fit: { eles: eles, padding: pad } }, { duration: 600, easing: 'ease-in-out-cubic' });
-    } else {
-      S.cy.fit(eles, pad);
-      if (S.cy.zoom() > 1.35) { S.cy.zoom(1.35); S.cy.center(eles); }
-    }
+    var vp = fitViewport(eles, pad);
+    if (animate && !REDUCED_MOTION) S.cy.animate(vp, { duration: 600, easing: 'ease-in-out-cubic' });
+    else S.cy.viewport(vp);
+  }
+
+  // The viewport fit() would give, except that a graph larger than the view at the minimum zoom
+  // starts at its top-left (where the theft begins) instead of being cut on every side.
+  function fitViewport(eles, pad) {
+    var bb = eles.boundingBox(), w = S.cy.width(), h = S.cy.height();
+    var z = Math.min((w - 2 * pad) / Math.max(bb.w, 1), (h - 2 * pad) / Math.max(bb.h, 1));
+    z = Math.max(S.cy.minZoom(), Math.min(z, 1.35, S.cy.maxZoom()));
+    var x = bb.w * z + 2 * pad > w ? pad - bb.x1 * z : (w - bb.w * z) / 2 - bb.x1 * z;
+    var y = bb.h * z + 2 * pad > h ? pad - bb.y1 * z : (h - bb.h * z) / 2 - bb.y1 * z;
+    return { zoom: z, pan: { x: x, y: y } };
   }
 
   // ---------- apply a step ----------
