@@ -276,7 +276,7 @@
       function issuerList(list) {
         return (Array.isArray(list) ? list : []).filter(function (f) { return f && str(f.asset); }).map(function (f) {
           var held = parseFloat(f.held);
-          return { asset: str(f.asset), token: lc(f.token), issuer: str(f.issuer), note: str(f.note), held: isFinite(held) ? held : null };
+          return { asset: str(f.asset), token: lc(f.token), issuer: str(f.issuer), note: str(f.note), held: isFinite(held) ? held : null, takenBack: !!f.taken_back };
         });
       }
       // dormant: what the address still holds of the traced assets, unfrozen (balances read on chain,
@@ -308,7 +308,8 @@
         edge_ids: Array.isArray(o.edge_ids) ? o.edge_ids.map(String) : [],
         evidence: evidence,
         via: viaOf(o.via),
-        reasons: reasonsOf(o.checker)
+        reasons: reasonsOf(o.checker),
+        withdrawn: num(o.withdrawn)   // a human review withdrew it after this step (export: withdrawn.json)
       };
       op.seedOp = op.id === 'theft' || (op.seq === null && op.step === null && op.session === 0);
       S.ops.set(op.id, op);
@@ -345,6 +346,7 @@
         kind: str(e.kind), fromAsset: str(e.from_asset), toAsset: str(e.asset) || '?',
         swap: e.kind === 'exchange' && from === to,
         tier: e.tier === 'verified' ? 'verified' : 'unverified', // solid only when the export says so
+        withdrawn: num(e.withdrawn) !== null ? num(e.withdrawn) : (op ? op.withdrawn : null),
         rejected: e.tier === 'rejected' || !!((op && op.verdict === 'INVALID') || (listed && listed.verdict === 'INVALID'))
       });
       S.touched.add(from);
@@ -465,10 +467,13 @@
 
   // ---------- view as of an agent step ----------
 
+  // A flow or operation a human review withdrew is gone from the step of the review on.
+  function gone(x, N) { return x.withdrawn !== null && x.withdrawn !== undefined && N >= x.withdrawn; }
+
   function viewAt(N) {
     var groups = new Map(), bundles = new Map(), flows = 0, flowsNow = 0;
     S.groups.forEach(function (g) {
-      var vis = g.edges.filter(function (e) { return e.step <= N; });
+      var vis = g.edges.filter(function (e) { return e.step <= N && !gone(e, N); });
       if (!vis.length) return;
       vis.forEach(function (e) { if (!e.seed) { flows++; if (e.step === N) flowsNow++; } });
       var sum = vis.reduce(function (a, e) { return a + (Number.isFinite(e.amount) ? e.amount : 0); }, 0);
@@ -551,7 +556,7 @@
       lines.push(swapLine(sw[0]));
       if (sw.length > 1) lines.push('+' + plural(sw.length - 1, 'more swap'));
     }
-    if (n.frozen && n.frozen.length) lines.push(n.frozen.map(function (f) { return f.asset; }).join(', ') + ' frozen');
+    if (n.frozen && n.frozen.length) lines.push(n.frozen.map(function (f) { return f.asset + (f.takenBack ? ' taken back' : ' frozen'); }).join(', '));
     if (n.freezable && n.freezable.length) lines.push(n.freezable.map(function (f) { return f.asset; }).join(', ') + ' still freezable');
     // Labelled or non-open nodes say how many open leads the agent still holds on them.
     if (leads && (role !== 'open' || n.label)) lines.push(plural(leads, 'open lead'));
@@ -1057,8 +1062,8 @@
     }
     var still = totals(freezableTotals(view));
     var parts = [
-      { key: 'frozen', label: 'Frozen by issuers', v: Number(c.frozen_usd) || 0, color: ROLES.frozen.color,
-        desc: 'Held at addresses the token\'s issuer has frozen',
+      { key: 'frozen', label: 'Frozen or taken back by issuers', v: Number(c.frozen_usd) || 0, color: ROLES.frozen.color,
+        desc: 'Held at addresses the token\'s issuer has frozen, or taken back by the issuer',
         detail: [assetLine(frozenTotals(view), 2, 'frozen'),
           el('div', { class: 'cov-detail' + (still.length ? ' alert' : '') }, 'Still freezable: ',
             still.length ? still.map(function (p) { return el('b', null, fmt(p[1], 2) + ' ' + p[0] + ' '); }) : 'none')] },
@@ -1247,7 +1252,7 @@
     });
     var anyFrozen = false;
     viewAt(S.total).nodes.forEach(function (id) { var n = S.nodes.get(id); if (n.frozen && n.frozen.length) anyFrozen = true; });
-    if (anyFrozen && !present.has('frozen')) box.appendChild(el('span', { class: 'item', 'data-pick': 'frozen' }, el('span', { class: 'node-swatch frozen', style: '--c:' + C.ink2 }), 'Double border: an asset here is frozen by its issuer'));
+    if (anyFrozen && !present.has('frozen')) box.appendChild(el('span', { class: 'item', 'data-pick': 'frozen' }, el('span', { class: 'node-swatch frozen', style: '--c:' + C.ink2 }), 'Double border: an asset here is frozen or taken back by its issuer'));
     var anyFreezable = false;
     viewAt(S.total).nodes.forEach(function (id) { var n = S.nodes.get(id); if (n.freezable && n.freezable.length) anyFreezable = true; });
     if (anyFreezable) box.appendChild(el('span', { class: 'item', 'data-pick': 'freezable' }, el('span', { class: 'node-swatch', style: '--c:' + C.signal + ';border-color:' + C.signal }), 'Red border: stablecoins here its issuer could still freeze'));
@@ -1382,7 +1387,7 @@
 
   function agentOps(N) {
     var ops = [];
-    S.ops.forEach(function (o) { if (!o.seedOp && (o.step === null || o.step <= N)) ops.push(o); });
+    S.ops.forEach(function (o) { if (!o.seedOp && (o.step === null || o.step <= N) && !gone(o, N)) ops.push(o); });
     return ops;
   }
   function checkerCounts(N) {
@@ -1536,7 +1541,7 @@
       }),
       (n.frozen || []).map(function (f) {
         return el('div', { class: 'frozen-box' },
-          el('span', { class: 'badge frz' }, f.asset + ' frozen'),
+          el('span', { class: 'badge frz' }, f.asset + (f.takenBack ? ' taken back' : ' frozen')),
           f.note ? el('p', null, f.note) : null,
           isAddr(f.token) ? el('div', null, addrLink(f.token, n.chain, (f.issuer ? f.issuer + ' ' : '') + f.asset + ' contract')) : null);
       })
@@ -2066,6 +2071,7 @@
     if (e.kind === 'thinking' || e.kind === 'message') li = thoughtItem(e);
     else if (e.kind === 'reset') li = el('li', { class: 'ev ev-reset' }, el('span', { title: str(e.text) || null }, str(e.text) || 'The agent restarted and continued from its working memory.'));
     else if (e.kind === 'system' || e.kind === 'task') li = promptItem(e);
+    else if (e.kind === 'review') li = el('li', { class: 'ev ev-review' }, el('span', { class: 'review-name' }, 'Human review'), el('span', null, str(e.text)));
     else if (e.kind === 'deferred') li = deferredItem(e);
     else if (e.kind === 'recall') li = recallItem(e);
     else li = actionItem(e);
@@ -2297,20 +2303,20 @@
     if (FT.rows) return FT.rows;
     var rows = [];
     S.edges.forEach(function (e) {
-      if (e.rejected) return;
+      if (e.rejected || gone(e, S.total)) return;
       rows.push({ step: e.step, seed: e.seed, type: e.op ? prettyType(e.op.type) : (e.kind || 'transfer'), from: e.from, to: e.to,
         swap: e.swap, amount: e.amount, asset: e.swap ? e.toAsset : e.asset, fromAsset: e.fromAsset, verdict: verdictOf(e), edge: e, block: e.block || 0 });
     });
     // Rejected claims stay in the list, with their transfers when the export carries them.
     var withEdges = new Set();
     S.edges.forEach(function (e) {
-      if (!e.rejected) return;
+      if (!e.rejected || gone(e, S.total)) return;
       if (e.op) withEdges.add(e.op);
       rows.push({ step: e.step, type: e.op ? prettyType(e.op.type) : (e.kind || 'transfer'), from: e.from, to: e.to, swap: e.swap,
         amount: e.amount, asset: e.swap ? e.toAsset : e.asset, fromAsset: e.fromAsset, verdict: 'rejected', edge: e, op: e.op, block: e.block || 0 });
     });
     S.ops.forEach(function (o) {
-      if (o.verdict !== 'INVALID' || o.seedOp || withEdges.has(o)) return;
+      if (o.verdict !== 'INVALID' || o.seedOp || withEdges.has(o) || gone(o, S.total)) return;
       rows.push({ step: o.step === null ? S.total : o.step, type: prettyType(o.type), verdict: 'rejected', op: o, block: 0 });
     });
     FT.rows = rows;
@@ -2446,7 +2452,7 @@
     };
   }
 
-  var EVENT_NAMES = { thinking: 'reasoning summary', memory: 'working memory', action: 'evidence action', message: 'message', report: 'report', system: 'system prompt', task: 'task', deferred: 'call not run', recall: 're-read result' };
+  var EVENT_NAMES = { thinking: 'reasoning summary', memory: 'working memory', action: 'evidence action', message: 'message', report: 'report', system: 'system prompt', task: 'task', deferred: 'call not run', recall: 're-read result', review: 'human review' };
   function eventTarget(e, count) {
     var kind = EVENT_NAMES[e.kind] || prettyType(e.kind);
     var tool = str(e.tool);
