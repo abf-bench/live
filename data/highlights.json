@@ -1,9 +1,71 @@
 {
- "checked_utc": "2026-10-31T05:00Z",
- "note": "Not found in the public reports checked on 31 Oct 2026. Built from verified flows and chain reads; not reviewed by a human expert.",
+ "checked_utc": "2026-10-31T17:20Z",
+ "note": "Hand-picked from verified flows and chain reads; not reviewed by a human expert.",
  "items": [
   {
-   "text": "About three quarters of the 34,280 ETH at 0x79e7…544a came from two wallets selling stolen tokens on Uniswap: 0x600d…8298 sold 7.68T PEPE and sent it about 14,050 ETH; 0xcf4c…23e0 sold 2.57M LINK and sent it about 11,561 ETH. The attacker's main wallet 0x5227…2f8c gave both wallets the tokens and their gas. The 19,740 ETH a 30 Oct report lists matches the balance before 05:27 UTC that day, before the LINK proceeds arrived.",
+   "text": "About 498,000 ETH, 98% of the ETH still at traced addresses, sits in six wallets first used during the hack (29 Oct 20:38 to 30 Oct 05:14 UTC). None of them had sent a transaction as of 31 Oct 17:15 UTC (block 26,314,124).",
+   "note": "The reports checked on 31 Oct give the attacker's ETH as a total only (Elliptic: 519,104 ETH across dozens of addresses; TRM: more than 420,000 ETH in a few wallets).",
+   "evidence": [
+    {
+     "label": "0x8532…43d4 (197,460 ETH)",
+     "url": "https://etherscan.io/address/0x8532fa14acaf483729c449b8458aeddb900543d4"
+    },
+    {
+     "label": "0xc887…286a (137,602 ETH)",
+     "url": "https://etherscan.io/address/0xc887af690e0301cd4edbbce8f8d31b4ec65b286a"
+    },
+    {
+     "label": "0x897c…8df3 (78,415 ETH)",
+     "url": "https://etherscan.io/address/0x897c80d1a9729e94460e2bd93178bd5215158df3"
+    },
+    {
+     "label": "0x79e7…544a (34,280 ETH)",
+     "url": "https://etherscan.io/address/0x79e70d139fc05aa75f75611fdf2680e9952b544a"
+    },
+    {
+     "label": "0x5440…c942 (32,954 ETH)",
+     "url": "https://etherscan.io/address/0x54401f80da97893a15d43566184635b6674bc942"
+    },
+    {
+     "label": "0x03b0…20ea (17,260 ETH)",
+     "url": "https://etherscan.io/address/0x03b0ee5d82990cff1bda48651ac3e436d1a020ea"
+    }
+   ]
+  },
+  {
+   "text": "All 18,270.2 BTC taken on Bitcoin (about $1.47B) sits in 19 wallets: 17 hold 1,000 BTC each, the other two 832.5 and 437.7. The attacker split it there within 30 minutes of the theft. None of it had moved as of 31 Oct 17:15 UTC (Bitcoin block 973,999).",
+   "evidence": [
+    {
+     "label": "theft",
+     "url": "https://mempool.space/tx/48ba4e60cc695218ec35ee572f10d8f0bcb8bd4addb36b2d5f30b29e7ad1e6a1"
+    },
+    {
+     "label": "the split, from bc1q0mtc…2mnm",
+     "url": "https://mempool.space/address/bc1q0mtc2f5agpkvlq6hhahmfr3hlr55kyfjhl2mnm"
+    }
+   ]
+  },
+  {
+   "text": "SAND's admin took back 58,397,344 SAND (about $2.75M) from the attacker's main wallet 0x5227…2f8c on 29 Oct at 23:27 UTC. Its Safe 0x6ec4…60a1, which the SAND contract names as admin, made itself a super-operator, moved the tokens to 0x84a9…d87d and gave the right up again, all in one transaction.",
+   "note": "Not in the reports checked on 31 Oct (TRM, Elliptic, Chainalysis).",
+   "evidence": [
+    {
+     "label": "the transaction",
+     "url": "https://etherscan.io/tx/0x0a68d2f422c51c5a9261a098f92d8c551445ffe8b20fbb86770704be2cab06a8"
+    },
+    {
+     "label": "SAND getAdmin()",
+     "url": "https://etherscan.io/address/0x3845badade8e6dff049820680d1f14bd3903a5d0#readContract"
+    },
+    {
+     "label": "admin Safe 0x6ec4…60a1",
+     "url": "https://etherscan.io/address/0x6ec4090d0f3cb76d9f3d8c4d5bb058a225e560a1"
+    }
+   ]
+  },
+  {
+   "text": "About three quarters of the 34,280 ETH at 0x79e7…544a, one of the six wallets, came from two wallets selling stolen tokens on Uniswap: 0x600d…8298 sold 7.68T PEPE and sent it about 14,050 ETH; 0xcf4c…23e0 sold 2.57M LINK and sent it about 11,561 ETH. The attacker's main wallet 0x5227…2f8c gave both wallets the tokens and their gas. The 19,740 ETH a 30 Oct report lists matches the balance before 05:27 UTC that day, before the LINK proceeds arrived.",
+   "note": "Not in the reports checked on 31 Oct.",
    "evidence": [
     {
      "label": "0x79e7…544a",
@@ -44,7 +106,8 @@
    ]
   },
   {
-   "text": "On Ethereum, two wallets that 0x5227…2f8c funded sent 0.48, 0.50 and 0.20 ETH into MetaBridge and LI.FI on 29 Oct between 21:31 and 22:22 UTC, about an hour after the theft. Where those went is not traced yet.",
+   "text": "On 29 Oct between 21:31 and 22:22 UTC, about an hour after the theft, two wallets funded by 0x5227…2f8c sent 0.48 and 0.50 ETH into MetaBridge and 0.1998 ETH into LI.FI's intent escrow. Where they went on the other side is not traced yet.",
+   "note": "Not in the reports checked on 31 Oct.",
    "evidence": [
     {
      "label": "MetaBridge 0.48",
@@ -55,7 +118,7 @@
      "url": "https://etherscan.io/tx/0xa5b80a23f712bdec620197e20c92808720665298f6afaf27b3aa7264aedbd6f9"
     },
     {
-     "label": "LI.FI 0.20",
+     "label": "LI.FI 0.1998",
      "url": "https://etherscan.io/tx/0xb1b8951383433a49dda9f9f9ff37d5ec61fa9aea369924ee18f553d60dd35354"
     },
     {
