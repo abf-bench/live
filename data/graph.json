@@ -2,8 +2,8 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum and Bitcoin: live trace",
   "incident_utc": "2026-10-29T20:05:00Z",
-  "updated_utc": "2026-10-31T11:35:32Z",
-  "head_block": 26312338,
+  "updated_utc": "2026-10-31T11:36:35Z",
+  "head_block": 26312474,
   "chain": "ethereum",
   "notes": [
    "The graph follows the poison rule: once stolen funds enter an address, every later outflow from it is drawn as traced. The figures above count at each address only what traced flows brought there."
@@ -289,6 +289,14 @@
    "actions": 27,
    "model": "gpt-5.5",
    "summary": "ok"
+  },
+  {
+   "id": 36,
+   "started_utc": "2026-10-31T11:35:42Z",
+   "ended_utc": "2026-10-31T11:36:29Z",
+   "actions": 2,
+   "model": "gpt-5.5",
+   "summary": "ok"
   }
  ],
  "nodes": [
@@ -332,63 +340,63 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "1175464712.876362",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 1175464712.876362 USDT, of which up to 1175464712.876362 USDT arrived through traced flows, as of block 26312338."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 1175464712.876362 USDT, of which up to 1175464712.876362 USDT arrived through traced flows, as of block 26312474."
     },
     {
      "asset": "USDC",
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
      "issuer": "Circle",
      "held": "823000000",
-     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 823000000 USDC, of which up to 823000000 USDC arrived through traced flows, as of block 26312338."
+     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 823000000 USDC, of which up to 823000000 USDC arrived through traced flows, as of block 26312474."
     },
     {
      "asset": "XAUt",
      "token": "0x68749665ff8d2d112fa859aa293f07a622782f38",
      "issuer": "Tether",
      "held": "12574.046797",
-     "note": "Tether has frozen this address for XAUt: XAUT isBlocked returns true on chain; balanceOf returns 12574.046797 XAUt, of which up to 12574.046797 XAUt arrived through traced flows, as of block 26312338."
+     "note": "Tether has frozen this address for XAUt: XAUT isBlocked returns true on chain; balanceOf returns 12574.046797 XAUt, of which up to 12574.046797 XAUt arrived through traced flows, as of block 26312474."
     },
     {
      "asset": "USD1",
      "token": "0x8d0d000ee44948fc98c9b98a4fa4921476f08b0d",
      "issuer": "World Liberty Financial",
      "held": "27824039.936896",
-     "note": "World Liberty Financial has frozen this address for USD1: USD1 frozen returns true on chain; balanceOf returns 27824039.936896 USD1, of which up to 27824039.936896 USD1 arrived through traced flows, as of block 26312338."
+     "note": "World Liberty Financial has frozen this address for USD1: USD1 frozen returns true on chain; balanceOf returns 27824039.936896 USD1, of which up to 27824039.936896 USD1 arrived through traced flows, as of block 26312474."
     },
     {
      "asset": "PAXG",
      "token": "0x45804880de22913dafe09f4980848ece6ecbaf78",
      "issuer": "Paxos",
      "held": "1906.667729",
-     "note": "Paxos has frozen this address for PAXG: PAXG isFrozen returns true on chain; balanceOf returns 1906.667729 PAXG, of which up to 1906.667729 PAXG arrived through traced flows, as of block 26312338."
+     "note": "Paxos has frozen this address for PAXG: PAXG isFrozen returns true on chain; balanceOf returns 1906.667729 PAXG, of which up to 1906.667729 PAXG arrived through traced flows, as of block 26312474."
     },
     {
      "asset": "FDUSD",
      "token": "0xc5f0f7b66764f6ec8c8dff7ba683102295e16409",
      "issuer": "First Digital",
      "held": "3454894.92308",
-     "note": "First Digital has frozen this address for FDUSD: FDUSD frozen returns true on chain; balanceOf returns 3454894.92308 FDUSD, of which up to 3454894.92308 FDUSD arrived through traced flows, as of block 26312338."
+     "note": "First Digital has frozen this address for FDUSD: FDUSD frozen returns true on chain; balanceOf returns 3454894.92308 FDUSD, of which up to 3454894.92308 FDUSD arrived through traced flows, as of block 26312474."
     },
     {
      "asset": "ERA",
      "token": "0xe2ad0bf751834f2fbdc62a41014f84d67ca1de2a",
      "issuer": "ERA's issuer",
      "held": "38603848.935214",
-     "note": "ERA's issuer has frozen this address for ERA: ERA isFrozen returns true on chain; balanceOf returns 38603848.935214 ERA, of which up to 38603848.935214 ERA arrived through traced flows, as of block 26312338."
+     "note": "ERA's issuer has frozen this address for ERA: ERA isFrozen returns true on chain; balanceOf returns 38603848.935214 ERA, of which up to 38603848.935214 ERA arrived through traced flows, as of block 26312474."
     },
     {
      "asset": "WLFI",
      "token": "0xda5e1988097297dcdc1f90d4dfe7909e847cbef6",
      "issuer": "World Liberty Financial",
      "held": "48525612.00768",
-     "note": "World Liberty Financial has frozen this address for WLFI: WLFI isBlacklisted returns true on chain; balanceOf returns 48525612.00768 WLFI, of which up to 48525612.00768 WLFI arrived through traced flows, as of block 26312338."
+     "note": "World Liberty Financial has frozen this address for WLFI: WLFI isBlacklisted returns true on chain; balanceOf returns 48525612.00768 WLFI, of which up to 48525612.00768 WLFI arrived through traced flows, as of block 26312474."
     },
     {
      "asset": "LA",
      "token": "0x0fc2a55d5bd13033f1ee0cdd11f60f7efe66f467",
      "issuer": "LA's issuer",
      "held": "27959136.70225",
-     "note": "LA's issuer has frozen this address for LA: LA isBlocked returns true on chain; balanceOf returns 27959136.70225 LA, of which up to 27959136.70225 LA arrived through traced flows, as of block 26312338."
+     "note": "LA's issuer has frozen this address for LA: LA isBlocked returns true on chain; balanceOf returns 27959136.70225 LA, of which up to 27959136.70225 LA arrived through traced flows, as of block 26312474."
     }
    ],
    "dormant": [
@@ -476,7 +484,7 @@
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
      "issuer": "Circle",
      "held": "0",
-     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 123175.527942 USDC, of which up to 0 USDC arrived through traced flows, as of block 26312338."
+     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 123175.527942 USDC, of which up to 0 USDC arrived through traced flows, as of block 26312474."
     }
    ],
    "dormant": [
@@ -828,7 +836,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "0.0006",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0006 USDT, of which up to 0.0006 USDT arrived through traced flows, as of block 26312338."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0006 USDT, of which up to 0.0006 USDT arrived through traced flows, as of block 26312474."
     }
    ],
    "dormant": [
@@ -851,7 +859,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "0.0001",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26312338."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26312474."
     }
    ],
    "dormant": [
@@ -867,7 +875,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -902,7 +910,7 @@
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
      "issuer": "Circle",
      "held": "0",
-     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 33005.117139 USDC, of which up to 0 USDC arrived through traced flows, as of block 26312338."
+     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 33005.117139 USDC, of which up to 0 USDC arrived through traced flows, as of block 26312474."
     }
    ],
    "dormant": [
@@ -961,7 +969,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -975,7 +983,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -1003,7 +1011,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -1017,7 +1025,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -1038,7 +1046,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -1059,7 +1067,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "0.0001",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26312338."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26312474."
     }
    ],
    "dormant": [
@@ -1106,7 +1114,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "0.0001",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26312338."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26312474."
     }
    ],
    "dormant": [
@@ -1129,7 +1137,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "0.0001",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26312338."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26312474."
     }
    ],
    "dormant": [
@@ -1152,7 +1160,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "30000000",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 30000000 USDT, of which up to 30000000 USDT arrived through traced flows, as of block 26312338."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 30000000 USDT, of which up to 30000000 USDT arrived through traced flows, as of block 26312474."
     }
    ],
    "dormant": [
@@ -1168,7 +1176,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -1201,7 +1209,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -1236,7 +1244,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "174999872.32762",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 174999872.32762 USDT, of which up to 174999872.32762 USDT arrived through traced flows, as of block 26312338."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 174999872.32762 USDT, of which up to 174999872.32762 USDT arrived through traced flows, as of block 26312474."
     }
    ],
    "dormant": [
@@ -1273,7 +1281,7 @@
      "token": "0xa2e3356610840701bdf5611a53974510ae27e2e1",
      "issuer": "Binance",
      "held": "29934.013163",
-     "note": "Binance has frozen this address for wBETH: WBETH isBlacklisted returns true on chain; balanceOf returns 29934.013163 wBETH, of which up to 29934.013163 wBETH arrived through traced flows, as of block 26312338."
+     "note": "Binance has frozen this address for wBETH: WBETH isBlacklisted returns true on chain; balanceOf returns 29934.013163 wBETH, of which up to 29934.013163 wBETH arrived through traced flows, as of block 26312474."
     }
    ],
    "dormant": [
@@ -1444,7 +1452,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced USDT since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced USDT since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "USDT",
@@ -1514,7 +1522,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -1547,7 +1555,7 @@
     {
      "asset": "ETH",
      "token": "ETH",
-     "amount": "3.575671"
+     "amount": "3.712586"
     },
     {
      "asset": "USDC",
@@ -1575,7 +1583,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -1685,7 +1693,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -1804,7 +1812,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -1870,7 +1878,7 @@
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
      "issuer": "Circle",
      "held": "1060.915141",
-     "note": "Circle has not frozen this address for USDC: USDC isBlacklisted returns false on chain; balanceOf returns 1060.915141 USDC, of which up to 1060.915141 USDC arrived through traced flows, as of block 26312338."
+     "note": "Circle has not frozen this address for USDC: USDC isBlacklisted returns false on chain; balanceOf returns 1060.915141 USDC, of which up to 1060.915141 USDC arrived through traced flows, as of block 26312474."
     }
    ],
    "dormant": [
@@ -1968,7 +1976,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced WETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced WETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "WETH",
@@ -1982,7 +1990,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced WETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced WETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "WETH",
@@ -2003,7 +2011,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -2031,7 +2039,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -2059,7 +2067,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -2118,7 +2126,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced IMD since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced IMD since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "IMD",
@@ -2132,14 +2140,14 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced USDC since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced USDC since it arrived, as of block 26312474.",
    "freezable": [
     {
      "asset": "USDC",
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
      "issuer": "Circle",
      "held": "1118",
-     "note": "Circle has not frozen this address for USDC: USDC isBlacklisted returns false on chain; balanceOf returns 1118 USDC, of which up to 1118 USDC arrived through traced flows, as of block 26312338."
+     "note": "Circle has not frozen this address for USDC: USDC isBlacklisted returns false on chain; balanceOf returns 1118 USDC, of which up to 1118 USDC arrived through traced flows, as of block 26312474."
     }
    ],
    "dormant": [
@@ -2169,7 +2177,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -2197,7 +2205,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced WETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced WETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "WETH",
@@ -2260,7 +2268,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -2295,7 +2303,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced WETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced WETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "WETH",
@@ -2309,7 +2317,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced WETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced WETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "WETH",
@@ -2351,7 +2359,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -2365,7 +2373,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -2379,7 +2387,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -2393,7 +2401,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -2407,7 +2415,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -2421,7 +2429,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -2435,7 +2443,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -2449,7 +2457,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "ETH",
@@ -2470,7 +2478,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973966.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973967.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2491,7 +2499,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973966.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973967.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2505,7 +2513,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973966.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973967.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2526,7 +2534,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973966.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973967.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2547,7 +2555,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973966.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973967.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2568,7 +2576,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973966.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973967.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2582,7 +2590,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973966.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973967.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2596,7 +2604,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973966.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973967.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2617,7 +2625,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973966.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973967.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2638,7 +2646,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973966.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973967.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2652,7 +2660,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973966.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973967.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2666,7 +2674,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973966.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973967.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2687,7 +2695,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973966.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973967.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2708,7 +2716,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973966.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973967.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2722,7 +2730,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973966.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973967.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2743,7 +2751,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973966.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973967.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2757,7 +2765,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973966.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973967.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2771,7 +2779,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973966.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973967.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2785,7 +2793,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973966.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 973967.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2820,7 +2828,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced SAND since it arrived, as of block 26312338.",
+   "note": "No outflow of the traced SAND since it arrived, as of block 26312474.",
    "dormant": [
     {
      "asset": "SAND",
@@ -24145,14 +24153,14 @@
  "coming_soon": [],
  "coverage": {
   "version": "coverage-v1",
-  "head_block": 26312338,
+  "head_block": 26312474,
   "incident_utc": "2026-10-29T20:05:00Z",
   "valued_at": "USD at prices at 2026-10-29T20:05:00Z, DefiLlama historical",
   "stolen_usd": 6415394289.12,
   "frozen_usd": 2375604982.22,
-  "dormant_usd": 2714526932.05,
+  "dormant_usd": 2714527248.98,
   "stop_usd": 614.96,
-  "unaccounted_usd": 172661443.57,
+  "unaccounted_usd": 172661126.65,
   "unpriced_assets": [
    "0x998ffe1e43facffb941dc337dd0468d52ba5b48a"
   ],
@@ -24778,7 +24786,8 @@
    "Served receipt+account trace for rejected PENDLE tx 0xef723f76f260668273296761f72f99fc1c36c1b8dbe3528e8fb4f65d338f7ffd. Receipt status 1 shows 0x5227 PENDLE debit at log47 to pool; trace (account-filtered) shows ETH paid to 0x5227 at trace [1,2] amount 28035779100658295966. This should be an exchange edge to 0x5227 ETH, not a transfer to 0x57af.",
    "Served BTC transaction b27d181645ef592dbc145f63b62cdeab68afd8e725f539e43ad66a273d24dbdd in this run. It spends traced input 046a4f5a...:0 from bc1q66l8z9htj4cd7pf8nnlc6mrxyssudm6hyg7a2a value 69659998000 and traced input 38d64c...:0 from bc1qk8k... value 94689999000, and outputs v0 64349996300 to bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e and v1 100000000000 to bc1qg3nrzpuvq2pxqx74tcrywr09dc208ze96n3t53.",
    "Served BTC transaction a9ed8a851a83912bd0ee16d66155f5225805f086e152da73204859f6ed4bc676 in this run. It spends traced 07f4a693...:0 from bc1q96qkjsye5qruf9yksqdqg09lzdmur7wau2ga6u value 40949999500 and traced b27d1816...:0 from bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e value 64349996300; outputs v0 5299995100 to bc1qn43ejagzgxgle394ynmv5sv3f9ydc48qme7t02 and v1 100000000000 to bc1qepc70u3u476vgvg3hfcwjgu4mecxe2uchs4lag.",
-   "Served BTC outspends for a9ed8a851a83912bd0ee16d66155f5225805f086e152da73204859f6ed4bc676: v0 to bc1qn43... spent by b167dcb05d54f545587d690bb8990e1ccef68910fb20fc7fdb2036eddaa38922 vin2 in block 973732; v1 to bc1qepc70u3u476vgvg3hfcwjgu4mecxe2uchs4lag is unspent/resting through the block window."
+   "Served BTC outspends for a9ed8a851a83912bd0ee16d66155f5225805f086e152da73204859f6ed4bc676: v0 to bc1qn43... spent by b167dcb05d54f545587d690bb8990e1ccef68910fb20fc7fdb2036eddaa38922 vin2 in block 973732; v1 to bc1qepc70u3u476vgvg3hfcwjgu4mecxe2uchs4lag is unspent/resting through the block window.",
+   "Started session over ethereum blocks 26300770-26312474 and bitcoin 973732-973967. Preview has no format errors but prior note says verifier rejected 23 token outflow operations as transfers; need correct rejected token outflows where receipts/traces show swaps vs true transfers."
   ],
   "total_steps": 821
  }
