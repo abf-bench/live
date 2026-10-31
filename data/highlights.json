@@ -1,28 +1,67 @@
 {
  "checked_utc": "2026-10-31T05:00Z",
- "note": "Not found in public reports as of 31 Oct 2026, 05:00 UTC. Built from verified flows and chain reads; not reviewed by a human expert.",
+ "note": "Not found in the public reports checked on 31 Oct 2026. Built from verified flows and chain reads; not reviewed by a human expert.",
  "items": [
   {
-   "text": "0x79e7…544a holds 34,280 ETH, about 14,500 more than public reports list (19,740). Most of the difference is 11,561 ETH from 0xcf4c…23e0, which sold 2.57M stolen LINK on Uniswap after the attacker's main wallet 0x5227…2f8c sent it the LINK and 0.51 ETH for gas. The 14,040 ETH already counted came from 0x600d…8298, which sold 7.77T stolen PEPE the same way.",
+   "text": "Most of the 34,280 ETH at 0x79e7…544a traces to sales of stolen tokens: 0x600d…8298 sold 7.77T PEPE and sent it 14,040 ETH; 0xcf4c…23e0 sold 2.57M LINK and sent it 11,561 ETH. The attacker's main wallet 0x5227…2f8c gave both wallets the tokens and their gas. The 19,740 ETH a 30 Oct report lists is the balance before the LINK proceeds arrived (05:31 UTC).",
    "evidence": [
-    {"label": "0x79e7…544a", "url": "https://etherscan.io/address/0x79e70d139fc05aa75f75611fdf2680e9952b544a"},
-    {"label": "11,561 ETH in", "url": "https://etherscan.io/tx/0x9ec6a30efbc2f6e97cb2e6a4cfd8654a5d03970aa7dd431752090cc724636454"},
-    {"label": "LINK from 0x5227", "url": "https://etherscan.io/tx/0x317328369dfc29bf0c2236b2f7d8003f2b2f711c5174a919f2c7f0c139941b6f"},
-    {"label": "gas from 0x5227", "url": "https://etherscan.io/tx/0x3c29b71a9f2e66094ca76d6055f03331e378f0483840848522ed6c3eba1daaee"},
-    {"label": "LINK sales", "url": "https://etherscan.io/address/0xcf4ca2bdf21bc3a467a00b6afe72b833982723e0#tokentxns"},
-    {"label": "PEPE from 0x5227", "url": "https://etherscan.io/tx/0x7408734f52b076bb57c3e96d044e01827f6639deddf55d877f57589dc25072a5"},
-    {"label": "14,040 ETH in", "url": "https://etherscan.io/tx/0xa024c760b7fcabe748798b52c4806f4581389f770acff43ebac2938c4961d2e4"},
-    {"label": "report listing 19,740", "url": "https://www.techflowpost.com/en-US/article/35012"}
+    {
+     "label": "0x79e7…544a",
+     "url": "https://etherscan.io/address/0x79e70d139fc05aa75f75611fdf2680e9952b544a"
+    },
+    {
+     "label": "11,561 ETH in",
+     "url": "https://etherscan.io/tx/0x9ec6a30efbc2f6e97cb2e6a4cfd8654a5d03970aa7dd431752090cc724636454"
+    },
+    {
+     "label": "LINK from 0x5227",
+     "url": "https://etherscan.io/tx/0x317328369dfc29bf0c2236b2f7d8003f2b2f711c5174a919f2c7f0c139941b6f"
+    },
+    {
+     "label": "gas from 0x5227",
+     "url": "https://etherscan.io/tx/0x3c29b71a9f2e66094ca76d6055f03331e378f0483840848522ed6c3eba1daaee"
+    },
+    {
+     "label": "LINK sales",
+     "url": "https://etherscan.io/address/0xcf4ca2bdf21bc3a467a00b6afe72b833982723e0#tokentxns"
+    },
+    {
+     "label": "PEPE from 0x5227",
+     "url": "https://etherscan.io/tx/0x7408734f52b076bb57c3e96d044e01827f6639deddf55d877f57589dc25072a5"
+    },
+    {
+     "label": "14,040 ETH in",
+     "url": "https://etherscan.io/tx/0xa024c760b7fcabe748798b52c4806f4581389f770acff43ebac2938c4961d2e4"
+    },
+    {
+     "label": "report listing 19,740",
+     "url": "https://www.techflowpost.com/en-US/article/35012"
+    }
    ]
   },
   {
-   "text": "Cross-chain moves began about an hour after the theft: two wallets the main wallet 0x5227…2f8c funded sent 0.48, 0.50 and 0.20 ETH through MetaBridge and LI.FI on 29 Oct, 21:31 to 22:22 UTC. The destination chains are not traced yet.",
+   "text": "On Ethereum, two wallets that 0x5227…2f8c funded sent 0.48, 0.50 and 0.20 ETH into MetaBridge and LI.FI on 29 Oct between 21:31 and 22:22 UTC, about an hour after the theft. Where those went is not traced yet.",
    "evidence": [
-    {"label": "MetaBridge 0.48", "url": "https://etherscan.io/tx/0xc5892899fa23a64ab99339b8a3bd9e1ef00c81319b33bbd77467f4b55df1ec2c"},
-    {"label": "MetaBridge 0.50", "url": "https://etherscan.io/tx/0xa5b80a23f712bdec620197e20c92808720665298f6afaf27b3aa7264aedbd6f9"},
-    {"label": "LI.FI 0.20", "url": "https://etherscan.io/tx/0xb1b8951383433a49dda9f9f9ff37d5ec61fa9aea369924ee18f553d60dd35354"},
-    {"label": "funding 0x3e2b", "url": "https://etherscan.io/tx/0x345d58dac54ad579a7d61274c4ff64465b6dab1b5d1153191e530b6d4fa55e6a"},
-    {"label": "funding 0x0e77", "url": "https://etherscan.io/tx/0x19fb8ac1507861db07b3aadeb3b41b74bb2c0959ef7602eb706019de463d10ca"}
+    {
+     "label": "MetaBridge 0.48",
+     "url": "https://etherscan.io/tx/0xc5892899fa23a64ab99339b8a3bd9e1ef00c81319b33bbd77467f4b55df1ec2c"
+    },
+    {
+     "label": "MetaBridge 0.50",
+     "url": "https://etherscan.io/tx/0xa5b80a23f712bdec620197e20c92808720665298f6afaf27b3aa7264aedbd6f9"
+    },
+    {
+     "label": "LI.FI 0.20",
+     "url": "https://etherscan.io/tx/0xb1b8951383433a49dda9f9f9ff37d5ec61fa9aea369924ee18f553d60dd35354"
+    },
+    {
+     "label": "funding 0x3e2b",
+     "url": "https://etherscan.io/tx/0x345d58dac54ad579a7d61274c4ff64465b6dab1b5d1153191e530b6d4fa55e6a"
+    },
+    {
+     "label": "funding 0x0e77",
+     "url": "https://etherscan.io/tx/0x19fb8ac1507861db07b3aadeb3b41b74bb2c0959ef7602eb706019de463d10ca"
+    }
    ]
   }
  ]
