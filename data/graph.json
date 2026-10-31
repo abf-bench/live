@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum and Bitcoin: live trace",
   "incident_utc": "2026-10-29T20:05:00Z",
-  "updated_utc": "2026-10-31T17:24:01Z",
+  "updated_utc": "2026-10-31T17:25:09Z",
   "head_block": 26314193,
   "chain": "ethereum",
   "notes": [
@@ -357,10 +357,10 @@
   {
    "id": 44,
    "started_utc": "2026-10-31T17:21:08Z",
-   "ended_utc": null,
-   "actions": 49,
+   "ended_utc": "2026-10-31T17:24:54Z",
+   "actions": 234,
    "model": "gpt-5.5",
-   "summary": ""
+   "summary": "ok"
   }
  ],
  "nodes": [
@@ -38071,7 +38071,10 @@
    "New session over ethereum blocks 26300770-26314193 and bitcoin 973732-973999. Continuing from authoritative STATE; will fetch fresh evidence before adding operations and prioritize outflow-check gaps/value not yet accounted.",
    "Observed account_overview for high-value gaps: 0x7f9d ENA in 217497348010793666524433584/out same in 20 transfers to 0xc3db44... (7) and 0x08b8ce... (13) blocks 26301506-26302048; 0x600d PEPE in 7772977017415968168766645550511 from 0x5227 plus tiny later, out 7772977017415968168766645550511 in 94 transfers to 0xa43fe..., 0x11950..., 0xa7bc... blocks 26301254-26301689; 0x06ea FUN in 71491134400000000/out 71491134399982056 across 154 transfers including large 58076608775100008 back to 0x5227 at block 26303787; 0xdd6d PROM in 911984820000000000000000/out all in 3 transfers, two small to 0x544bd38 and large 908792873130000000000000 back to 0x5227 at block 26303889.",
    "Served events.search for all 20 ENA outflows from 0x7f9dc988b46336ad536828fad50fa8fa1e5415e3 in blocks 26301506-26302048, plus receipts and account-filtered traces for each tx. Each receipt status 1 shows ENA Transfer from 0x7f9d at logs 13/65/175/30/2/14/31/2/20/22/26/44/12/12/12/2/133/8/168/78, and each account trace shows ETH returned to 0x7f9d at trace [1,2]. ETH amounts respectively: 270793837249067492033, 66859082241344806820, 74653730751397828888, 258454437197795848243, 111254689699507846040, 251467239009475394415, 435847492505910378466, 454516293953083325214, 434906424826450220265, 700609472298348379385, 825435741145394220095, 948228309905151904877, 1089973018037583535020, 1417444595515383816099, 2001253641518574836950, 2010649105700462949953, 3072049766725745338570, 752913532187861400213, 21953525515738703302, 88719883891936924070.",
-   "Observed account_overview for 0x7f9dc988b46336ad536828fad50fa8fa1e5415e3 ETH through block 26314193: ETH in 15292764820383613106013 (including ENA swap ETH from router total 15287983819876215148918 in 20 transfers, blocks 26301506-26302048) and only two ETH outflows, both already recorded: tx 0x45b3... to 0xc887 amount 15292000000000000000000 at block 26302138 and tx 0x2d54... to 0x5227 amount 620000000000000000 at block 26303945. Remaining tiny ETH/dust rests at 0x7f9d through 26314193."
+   "Observed account_overview for 0x7f9dc988b46336ad536828fad50fa8fa1e5415e3 ETH through block 26314193: ETH in 15292764820383613106013 (including ENA swap ETH from router total 15287983819876215148918 in 20 transfers, blocks 26301506-26302048) and only two ETH outflows, both already recorded: tx 0x45b3... to 0xc887 amount 15292000000000000000000 at block 26302138 and tx 0x2d54... to 0x5227 amount 620000000000000000 at block 26303945. Remaining tiny ETH/dust rests at 0x7f9d through 26314193.",
+   "Observed account_overview for 0xdd6dbbe67262ccc9b1824de1257999efc6c52296 ETH through block 26314193: ETH in 543296562268663590 (including 500000000000000000 from 0x5227 and 43286162368663590 from PROM swaps), out exactly 543000000000000000 to 0x5227 in already recorded tx 0xa3df03... at block 26303912; remaining tiny dust rests at 0xdd6d.",
+   "Served events.search for PEPE outflows from 0x600d6f00eadabdb514561ceeb43730a7103e8298 blocks 26301250-26301700, plus receipts and account-filtered traces for 92 unique txs/logs (run_python saved /work/pepe600d_summary.json). 91 txs show PEPE->ETH exchange returning ETH to 0x600d, usually trace [6] via Uniswap V2 router, with one at trace [1,2]; one tx 0x2cc45a... log23 sends 563349166385685323847857124 PEPE to 0xa7bc6c... with no ETH returned (likely transfer/other, needs inspect if recording). Did not yet record these PEPE operations; next session/action headroom should generate/store them from /work/pepe600d_summary.json.",
+   "handoff: This session recorded 23 new operations: all 20 ENA->ETH swaps from 0x7f9dc988b46336ad536828fad50fa8fa1e5415e3 and the 3 PROM movements from 0xdd6dbbe67262ccc9b1824de1257999efc6c52296 (two PROM->ETH swaps and the large PROM transfer back to 0x5227). I also checked 0x7f9d ETH and 0xdd6d ETH overview: only already-recorded ETH sweeps, tiny dust rests. I served but did not record the 0x600d PEPE outflow set: /work/pepe600d_summary.json contains 92 PEPE outflow txs/logs; 91 are PEPE->ETH swaps back to 0x600d (mostly ETH trace [6], one [1,2]) and tx 0x2cc45a... is a PEPE transfer/no ETH return needing inspection. Next session should convert that file into findings in batches, then trace the resulting 0x600d ETH and other high-value gaps."
   ],
   "total_steps": 916
  }
