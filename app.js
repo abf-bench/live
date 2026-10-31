@@ -628,6 +628,7 @@
     { selector: 'edge.fresh', style: { 'line-color': C.amber, 'target-arrow-color': C.amber, 'z-index': 8 } },
     { selector: 'node.fresh', style: { 'underlay-color': C.amber, 'underlay-opacity': 0.45, 'underlay-padding': 8 } },
     { selector: '.dim', style: { 'opacity': 0.16 } },
+    { selector: '.ldim', style: { 'opacity': 0.08 } },
     { selector: '.entering', style: { 'opacity': 0 } },
     { selector: '.gone', style: { 'display': 'none' } }
   ];
@@ -965,31 +966,87 @@
     box.hidden = !c;
     if (!c) return;
     var total = Number(c.stolen_usd);
-    var parts = [
-      { key: 'frozen', label: 'Frozen by issuers', v: Number(c.frozen_usd) || 0, color: ROLES.frozen.color },
-      { key: 'dormant', label: 'Dormant', v: Number(c.dormant_usd) || 0, color: ROLES.resting.color },
-      { key: 'stop', label: 'Past a stop', v: Number(c.stop_usd) || 0, color: ROLES.stop.color },
-      { key: 'open', label: 'Not yet accounted for', v: Number(c.unaccounted_usd) || 0, color: 'var(--faint)' },
-      { key: 'untraced', label: 'On chains I don\'t read yet', v: Number(c.untraced_usd) || 0, color: 'var(--line)' }
-    ].filter(function (p) { return p.v > 0; });
+    var view = viewAt(S.total);  // money figures are current; the replay moves the graph and the work line
+    function roleSum(role, map) {
+      var m = new Map();
+      map.forEach(function (assets, id) {
+        var n = S.nodes.get(id);
+        if (!n || n.role !== role || !view.nodes.has(id)) return;
+        assets.forEach(function (v, a) { m.set(a, (m.get(a) || 0) + v); });
+      });
+      return m;
+    }
+    function assetLine(map, max) {
+      var pairs = totals(map);
+      if (!pairs.length) return null;
+      var shown = pairs.slice(0, max), rest = pairs.length - shown.length;
+      return el('div', { class: 'cov-detail', title: pairs.map(function (p) { return fmt(p[1], 2) + ' ' + p[0]; }).join('\n') },
+        shown.map(function (p) { return el('span', { class: 'amt' }, fmt(p[1], 2), el('span', { class: 'asset' }, p[0])); }),
+        rest > 0 ? el('span', { class: 'more' }, '+' + rest + ' more') : null);
+    }
     function pct(v) { var x = 100 * v / total; return (x > 0 && x < 0.1 ? '<0.1' : x.toFixed(1)) + '%'; }
+    var still = totals(freezableTotals(view));
+    var parts = [
+      { key: 'frozen', label: 'Frozen by issuers', v: Number(c.frozen_usd) || 0, color: ROLES.frozen.color,
+        detail: [assetLine(frozenTotals(view), 2),
+          el('div', { class: 'cov-detail' + (still.length ? ' alert' : '') }, 'Still freezable: ',
+            still.length ? still.map(function (p) { return el('b', null, fmt(p[1], 2) + ' ' + p[0] + ' '); }) : 'none')] },
+      { key: 'dormant', label: 'Dormant', v: Number(c.dormant_usd) || 0, color: ROLES.resting.color,
+        detail: [assetLine(dormantTotals(view), 2)] },
+      { key: 'stop', label: 'Past a stop', v: Number(c.stop_usd) || 0, color: ROLES.stop.color,
+        detail: [assetLine(roleSum('stop', view.inflow), 2)] },
+      { key: 'open', label: 'Not yet accounted for', v: Number(c.unaccounted_usd) || 0, color: null,
+        detail: [el('div', { class: 'cov-detail' }, 'Left an address I traced with no recorded flow yet, or lost in swaps')] },
+      { key: 'untraced', label: 'On chains I don\'t read yet', v: Number(c.untraced_usd) || 0, color: null,
+        detail: [el('div', { class: 'cov-detail' }, (c.untraced_chains || []).map(function (r) {
+          return el('span', { class: 'amt' }, str(r.name) || cap(str(r.chain) || ''), el('span', { class: 'asset' }, usd(Number(r.usd) || 0)));
+        }))] }
+    ].filter(function (p) { return p.v > 0; });
+    function fill(p, cls) {
+      return el('span', { class: cls + ' cov-fill ' + p.key, 'data-key': p.key, style: p.color ? 'background:' + p.color : null });
+    }
+    var taken = totals(roleSum('victim', view.outflow));
+    var shownTaken = taken.slice(0, 4);
     append(box, [
-      el('div', { class: 'cov-title' }, 'Where the ' + usd(total) + ' taken is now' +
-        (Number(c.untraced_usd) > 0 ? '' : ' (' + chainsText() + ')')),
+      el('div', { class: 'cov-title' }, 'Where the ' + usd(total) + ' taken is now'),
+      taken.length ? el('div', { class: 'cov-taken', title: taken.map(function (p) { return fmt(p[1], 2) + ' ' + p[0]; }).join('\n') },
+        'Taken on ' + chainsText() + ': ',
+        shownTaken.map(function (p) { return el('span', { class: 'amt' }, fmt(p[1], 2), el('span', { class: 'asset' }, p[0])); }),
+        taken.length > shownTaken.length ? el('span', { class: 'more' }, '+' + (taken.length - shownTaken.length) + ' more') : null) : null,
       el('div', { class: 'cov-bar', role: 'img', 'aria-label': parts.map(function (p) { return p.label + ' ' + pct(p.v); }).join(', ') },
         parts.map(function (p) {
-          return el('span', { class: 'cov-seg ' + p.key, style: 'width:' + (100 * p.v / total) + '%;background:' + p.color,
-            title: p.label + ': ' + usd(p.v) + ' (' + pct(p.v) + ')' });
+          var seg = fill(p, 'cov-seg');
+          seg.style.width = (100 * p.v / total) + '%';
+          seg.title = p.label + ': ' + usd(p.v) + ' (' + pct(p.v) + ')';
+          return seg;
         })),
-      el('div', { class: 'cov-keys' }, parts.map(function (p) {
-        return el('span', { class: 'cov-key' }, el('span', { class: 'swatch', style: 'color:' + p.color }),
-          el('span', { class: 'cov-label' }, p.label), el('b', null, usd(p.v)), el('span', { class: 'cov-pct' }, pct(p.v)));
+      el('div', { class: 'cov-cards' }, parts.map(function (p) {
+        return el('div', { class: 'cov-card', 'data-key': p.key, tabindex: '0' },
+          el('div', { class: 'cov-head' }, fill(p, 'cov-sw'), el('span', { class: 'cov-label' }, p.label)),
+          el('div', { class: 'cov-num' }, el('b', null, usd(p.v)), el('span', { class: 'cov-pct' }, pct(p.v))),
+          p.detail);
       })),
-      el('p', { class: 'cov-note' }, 'Valued at prices at the time of the theft. Frozen and dormant are balances read on chain' +
-        (c.head_block ? ' around block ' + Number(c.head_block).toLocaleString('en-US') : '') +
-        ', counting at each address only what the traced flows brought there.')
+      el('p', { class: 'cov-note' }, 'Valued at prices at the time of the theft; balances read on chain' +
+        (c.head_block ? ' around block ' + Number(c.head_block).toLocaleString('en-US') : '') + '.')
     ]);
+    // hover (or tap) a card or a segment: that part lights up, the rest dims
+    var pinned = null;
+    function focus(key) {
+      box.classList.toggle('focusing', !!key);
+      Array.prototype.forEach.call(box.querySelectorAll('[data-key]'), function (e) {
+        e.classList.toggle('on', !!key && e.getAttribute('data-key') === key);
+      });
+    }
+    Array.prototype.forEach.call(box.querySelectorAll('.cov-seg, .cov-card'), function (e) {
+      var key = e.getAttribute('data-key');
+      e.addEventListener('mouseenter', function () { focus(key); });
+      e.addEventListener('mouseleave', function () { focus(pinned); });
+      e.addEventListener('focus', function () { focus(key); });
+      e.addEventListener('blur', function () { focus(pinned); });
+      e.addEventListener('click', function () { pinned = pinned === key ? null : key; focus(pinned); });
+    });
   }
+
 
   function dormantTotals(view) {
     var m = new Map();
@@ -1043,10 +1100,6 @@
           onclick: function () { stopPlay(); select({ kind: 'rejected' }); } }, String(c.rejected), el('span', { class: 'asset' }, 'rejected')),
         el('span', { class: 'amt' }, String(c.unchecked), el('span', { class: 'asset' }, 'unchecked'))));
     append(box, [
-      amountCell('wide', 'Taken from victims', ROLES.victim.color, byRole('victim', view.outflow), 5),
-      amountCell('', 'Dormant', ROLES.resting.color, dormantTotals(view), 2),
-      frozenCell(view),
-      amountCell('', 'Tracing stopped', ROLES.stop.color, byRole('stop', view.inflow), 2),
       countCell('Flows traced', view.flows, function () { $('flows').scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block: 'start' }); }, 'Show the list of all flows'),
       checkerCell,
       countCell('Addresses', view.nodes.size),
@@ -1066,17 +1119,37 @@
     viewAt(S.total).nodes.forEach(function (id) { present.add(S.nodes.get(id).role); });
     if (S.eventSteps.length) present.add('open'); // the replay draws earlier frontiers as open leads
     ROLE_ORDER.forEach(function (r) {
-      if (present.has(r)) box.appendChild(el('span', { class: 'item' }, el('span', { class: 'node-swatch ' + r, style: '--c:' + ROLES[r].color }), LEGEND_TEXT[r] || ROLES[r].name));
+      if (present.has(r)) box.appendChild(el('span', { class: 'item', 'data-pick': 'role:' + r }, el('span', { class: 'node-swatch ' + r, style: '--c:' + ROLES[r].color }), LEGEND_TEXT[r] || ROLES[r].name));
     });
     var anyFrozen = false;
     viewAt(S.total).nodes.forEach(function (id) { var n = S.nodes.get(id); if (n.frozen && n.frozen.length) anyFrozen = true; });
-    if (anyFrozen && !present.has('frozen')) box.appendChild(el('span', { class: 'item' }, el('span', { class: 'node-swatch frozen', style: '--c:' + C.ink2 }), 'Double border: an asset here is frozen by its issuer'));
+    if (anyFrozen && !present.has('frozen')) box.appendChild(el('span', { class: 'item', 'data-pick': 'frozen' }, el('span', { class: 'node-swatch frozen', style: '--c:' + C.ink2 }), 'Double border: an asset here is frozen by its issuer'));
     var anyFreezable = false;
     viewAt(S.total).nodes.forEach(function (id) { var n = S.nodes.get(id); if (n.freezable && n.freezable.length) anyFreezable = true; });
-    if (anyFreezable) box.appendChild(el('span', { class: 'item' }, el('span', { class: 'node-swatch', style: '--c:' + C.signal + ';border-color:' + C.signal }), 'Red border: stablecoins here its issuer could still freeze'));
+    if (anyFreezable) box.appendChild(el('span', { class: 'item', 'data-pick': 'freezable' }, el('span', { class: 'node-swatch', style: '--c:' + C.signal + ';border-color:' + C.signal }), 'Red border: stablecoins here its issuer could still freeze'));
     box.appendChild(el('span', { class: 'lines' },
-      el('span', { class: 'item' }, el('span', { class: 'line-swatch' }), 'Checked by the verifier'),
-      el('span', { class: 'item' }, el('span', { class: 'line-swatch dashed' }), 'Agent claim the checker could not evaluate yet')));
+      el('span', { class: 'item', 'data-pick': 'solid' }, el('span', { class: 'line-swatch' }), 'Checked by the verifier'),
+      el('span', { class: 'item', 'data-pick': 'dashed' }, el('span', { class: 'line-swatch dashed' }), 'Agent claim the checker could not evaluate yet')));
+    Array.prototype.forEach.call(box.querySelectorAll('[data-pick]'), function (item) {
+      item.addEventListener('mouseenter', function () { legendPick(item.getAttribute('data-pick'), item); });
+      item.addEventListener('mouseleave', function () { legendPick(null, item); });
+    });
+  }
+
+  // The graph elements a legend entry stands for, lit while the pointer is on the entry
+  function legendPick(pick, item) {
+    var cy = S.cy;
+    if (!cy) return;
+    cy.elements().removeClass('ldim');
+    Array.prototype.forEach.call($('legend').querySelectorAll('.item'), function (e) { e.classList.remove('on'); });
+    if (!pick) return;
+    var info = function (n) { return S.nodes.get(n.id()) || {}; };
+    var keep = pick.indexOf('role:') === 0 ? cy.nodes('.r-' + pick.slice(5))
+      : pick === 'frozen' ? cy.nodes().filter(function (n) { return (info(n).frozen || []).length > 0; })
+      : pick === 'freezable' ? cy.nodes().filter(function (n) { return (info(n).freezable || []).length > 0; })
+      : pick === 'solid' ? cy.edges().not('.dashed') : cy.edges('.dashed');
+    item.classList.add('on');
+    cy.elements().not('.gone').difference(keep).addClass('ldim');
   }
 
   // ---------- replay ----------

@@ -2,11 +2,11 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum and Bitcoin: live trace",
   "incident_utc": "2026-10-29T20:20:00Z",
-  "updated_utc": "2026-10-31T10:20:02Z",
+  "updated_utc": "2026-10-31T10:28:06Z",
   "head_block": 26312046,
   "chain": "ethereum",
   "notes": [
-   "Amounts follow the poison rule: once stolen funds enter an address, everything that later leaves it is counted. ETH figures therefore include ETH bought with stolen tokens."
+   "The graph follows the poison rule: once stolen funds enter an address, every later outflow from it is drawn as traced. The figures above count at each address only what traced flows brought there."
   ]
  },
  "sessions": [
@@ -1470,7 +1470,7 @@
     {
      "asset": "ETH",
      "token": "ETH",
-     "amount": "2.707104"
+     "amount": "3.712586"
     },
     {
      "asset": "USDC",
@@ -21872,32 +21872,7 @@
    "reason": "Opened by the outflow check: 0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c 0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9 (AAVE): 1 positive outflows at or after block 26300770, where traced value first arrived, are not recorded: 0xf94c9c8fa3468d316da727da4a150a1e3db20e54333e7d46e72a124875bee33e (block 26302882, 81572130556282284061) (closed: Recorded the only outflow listed by the outflow check for 0x5227 AAVE: tx 0xf94c9c8fa3468d316da727da4a150a1e3db20e54333e7d46e72a124875bee33e AAVE->ETH exchange to 0x5227; no additional 0x5227 AAVE outflows for this lead were listed in the window.)"
   }
  ],
- "coming_soon": [
-  {
-   "chain": "Tron",
-   "note": "$627.5M taken; not traced here yet"
-  },
-  {
-   "chain": "Arbitrum",
-   "note": "$31.9M taken; not traced here yet"
-  },
-  {
-   "chain": "Avalanche",
-   "note": "$28.2M taken; not traced here yet"
-  },
-  {
-   "chain": "Polygon",
-   "note": "$10.4M taken; not traced here yet"
-  },
-  {
-   "chain": "Optimism",
-   "note": "$4.8M taken; not traced here yet"
-  },
-  {
-   "chain": "Base",
-   "note": "$2.8M taken; not traced here yet"
-  }
- ],
+ "coming_soon": [],
  "coverage": {
   "version": "coverage-v1",
   "head_block": 26312046,
@@ -21905,9 +21880,9 @@
   "valued_at": "USD at prices at 2026-10-29T20:20:00Z, DefiLlama historical",
   "stolen_usd": 5965745704.53,
   "frozen_usd": 2374913188.6,
-  "dormant_usd": 2509280769.8,
+  "dormant_usd": 2509283097.61,
   "stop_usd": 613.28,
-  "unaccounted_usd": 375959231.0,
+  "unaccounted_usd": 375956903.19,
   "unpriced_assets": [
    "0x998ffe1e43facffb941dc337dd0468d52ba5b48a"
   ],
@@ -21925,7 +21900,8 @@
       "symbol": "USDT",
       "amount": 612729468.0
      }
-    ]
+    ],
+    "name": "Tron"
    },
    {
     "chain": "arbitrum",
@@ -21939,7 +21915,8 @@
       "symbol": "ETH",
       "amount": 8426.2
      }
-    ]
+    ],
+    "name": "Arbitrum"
    },
    {
     "chain": "avalanche",
@@ -21953,7 +21930,8 @@
       "symbol": "USDT",
       "amount": 8409928.4
      }
-    ]
+    ],
+    "name": "Avalanche"
    },
    {
     "chain": "polygon",
@@ -21967,7 +21945,8 @@
       "symbol": "POL",
       "amount": 46626589.6
      }
-    ]
+    ],
+    "name": "Polygon"
    },
    {
     "chain": "optimism",
@@ -21977,7 +21956,8 @@
       "symbol": "OP",
       "amount": 44231858.2
      }
-    ]
+    ],
+    "name": "Optimism"
    },
    {
     "chain": "base",
@@ -21987,7 +21967,8 @@
       "symbol": "VIRTUAL",
       "amount": 4735627.3
      }
-    ]
+    ],
+    "name": "Base"
    }
   ]
  },
