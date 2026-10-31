@@ -77,6 +77,7 @@
     workspace: { note: null, leads: [], notes: [] },
     leadsByAddr: new Map(),
     comingSoon: [],
+    pinned: new Set(),     // legend entries pinned by a click: their graph elements stay lit
     step: 0,
     view: null,
     cy: null,
@@ -817,6 +818,7 @@
       if (!still) S.selected = null;
     }
     safe('selection', applySelection);
+    safe('legend pins', function () { legendPick(null); });
     safe('stats', function () { renderStats(view); });
     safe('replay label', function () { renderTimeline(view); });
     safe('detail panel', renderDetail);
@@ -976,28 +978,40 @@
       });
       return m;
     }
-    function assetLine(map, max) {
-      var pairs = totals(map);
+    // amounts by asset; "+N more" opens the whole list and "fewer" closes it (kept across live refreshes)
+    S.covOpen = S.covOpen || new Set();
+    function amounts(key, pairs, max, cls) {
       if (!pairs.length) return null;
-      var shown = pairs.slice(0, max), rest = pairs.length - shown.length;
-      return el('div', { class: 'cov-detail', title: pairs.map(function (p) { return fmt(p[1], 2) + ' ' + p[0]; }).join('\n') },
+      var open = S.covOpen.has(key);
+      var shown = open ? pairs : pairs.slice(0, max), rest = pairs.length - shown.length;
+      var line = el('div', { class: cls },
         shown.map(function (p) { return el('span', { class: 'amt' }, fmt(p[1], 2), el('span', { class: 'asset' }, p[0])); }),
-        rest > 0 ? el('span', { class: 'more' }, '+' + rest + ' more') : null);
+        rest > 0 || open && pairs.length > max ? el('button', { type: 'button', class: 'cov-more', onclick: function (ev) {
+          ev.stopPropagation();
+          if (S.covOpen.has(key)) S.covOpen.delete(key); else S.covOpen.add(key);
+          renderCoverage();
+        } }, open ? 'fewer' : '+' + rest + ' more') : null);
+      return line;
     }
+    function assetLine(map, max, key) { return amounts(key, totals(map), max, 'cov-detail'); }
     function pct(v) { var x = 100 * v / total; return (x > 0 && x < 0.1 ? '<0.1' : x.toFixed(1)) + '%'; }
     var still = totals(freezableTotals(view));
     var parts = [
       { key: 'frozen', label: 'Frozen by issuers', v: Number(c.frozen_usd) || 0, color: ROLES.frozen.color,
-        detail: [assetLine(frozenTotals(view), 2),
+        desc: 'Held at addresses the token\'s issuer has frozen',
+        detail: [assetLine(frozenTotals(view), 2, 'frozen'),
           el('div', { class: 'cov-detail' + (still.length ? ' alert' : '') }, 'Still freezable: ',
             still.length ? still.map(function (p) { return el('b', null, fmt(p[1], 2) + ' ' + p[0] + ' '); }) : 'none')] },
       { key: 'dormant', label: 'Dormant', v: Number(c.dormant_usd) || 0, color: ROLES.resting.color,
-        detail: [assetLine(dormantTotals(view), 2)] },
-      { key: 'stop', label: 'Past a stop', v: Number(c.stop_usd) || 0, color: ROLES.stop.color,
-        detail: [assetLine(roleSum('stop', view.inflow), 2)] },
+        desc: 'Still at addresses I traced; nothing has left',
+        detail: [assetLine(dormantTotals(view), 2, 'dormant')] },
+      { key: 'stop', label: 'Into exchanges, bridges, mixers', v: Number(c.stop_usd) || 0, color: ROLES.stop.color,
+        desc: 'Handed to a service on the case\'s list; on-chain tracing ends there',
+        detail: [assetLine(roleSum('stop', view.inflow), 2, 'stop')] },
       { key: 'open', label: 'Not yet accounted for', v: Number(c.unaccounted_usd) || 0, color: null,
-        detail: [el('div', { class: 'cov-detail' }, 'Left an address I traced with no recorded flow yet, or lost in swaps')] },
-      { key: 'untraced', label: 'On chains I don\'t read yet', v: Number(c.untraced_usd) || 0, color: null,
+        desc: 'Left an address I traced with no recorded flow yet, or lost in swaps', detail: [] },
+      { key: 'untraced', label: 'Stolen on chains I don\'t read yet', v: Number(c.untraced_usd) || 0, color: null,
+        desc: 'Taken on other chains; I trace Ethereum and Bitcoin only so far',
         detail: [el('div', { class: 'cov-detail' }, (c.untraced_chains || []).map(function (r) {
           return el('span', { class: 'amt' }, str(r.name) || cap(str(r.chain) || ''), el('span', { class: 'asset' }, usd(Number(r.usd) || 0)));
         }))] }
@@ -1006,13 +1020,13 @@
       return el('span', { class: cls + ' cov-fill ' + p.key, 'data-key': p.key, style: p.color ? 'background:' + p.color : null });
     }
     var taken = totals(roleSum('victim', view.outflow));
-    var shownTaken = taken.slice(0, 4);
     append(box, [
       el('div', { class: 'cov-title' }, 'Where the ' + usd(total) + ' taken is now'),
-      taken.length ? el('div', { class: 'cov-taken', title: taken.map(function (p) { return fmt(p[1], 2) + ' ' + p[0]; }).join('\n') },
-        'Taken on ' + chainsText() + ': ',
-        shownTaken.map(function (p) { return el('span', { class: 'amt' }, fmt(p[1], 2), el('span', { class: 'asset' }, p[0])); }),
-        taken.length > shownTaken.length ? el('span', { class: 'more' }, '+' + (taken.length - shownTaken.length) + ' more') : null) : null,
+      taken.length ? (function () {
+        var line = amounts('taken', taken, 4, 'cov-taken');
+        line.insertBefore(document.createTextNode('Taken on ' + chainsText() + ': '), line.firstChild);
+        return line;
+      })() : null,
       el('div', { class: 'cov-bar', role: 'img', 'aria-label': parts.map(function (p) { return p.label + ' ' + pct(p.v); }).join(', ') },
         parts.map(function (p) {
           var seg = fill(p, 'cov-seg');
@@ -1024,6 +1038,7 @@
         return el('div', { class: 'cov-card', 'data-key': p.key, tabindex: '0' },
           el('div', { class: 'cov-head' }, fill(p, 'cov-sw'), el('span', { class: 'cov-label' }, p.label)),
           el('div', { class: 'cov-num' }, el('b', null, usd(p.v)), el('span', { class: 'cov-pct' }, pct(p.v))),
+          p.desc ? el('div', { class: 'cov-desc' }, p.desc) : null,
           p.detail);
       })),
       el('p', { class: 'cov-note' }, 'Valued at prices at the time of the theft; balances read on chain' +
@@ -1131,24 +1146,45 @@
       el('span', { class: 'item', 'data-pick': 'solid' }, el('span', { class: 'line-swatch' }), 'Checked by the verifier'),
       el('span', { class: 'item', 'data-pick': 'dashed' }, el('span', { class: 'line-swatch dashed' }), 'Agent claim the checker could not evaluate yet')));
     Array.prototype.forEach.call(box.querySelectorAll('[data-pick]'), function (item) {
-      item.addEventListener('mouseenter', function () { legendPick(item.getAttribute('data-pick'), item); });
-      item.addEventListener('mouseleave', function () { legendPick(null, item); });
+      var pick = item.getAttribute('data-pick');
+      item.setAttribute('role', 'button');
+      item.setAttribute('tabindex', '0');
+      item.classList.toggle('pinned', S.pinned.has(pick));
+      item.addEventListener('mouseenter', function () { legendPick(pick); });
+      item.addEventListener('mouseleave', function () { legendPick(null); });
+      function toggle() {
+        if (S.pinned.has(pick)) S.pinned.delete(pick); else S.pinned.add(pick);
+        item.classList.toggle('pinned', S.pinned.has(pick));
+        legendPick(null);
+      }
+      item.addEventListener('click', toggle);
+      item.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); toggle(); } });
     });
+    legendPick(null);
   }
 
-  // The graph elements a legend entry stands for, lit while the pointer is on the entry
-  function legendPick(pick, item) {
+  // The graph elements legend entries stand for: the pinned ones (click) plus the one under the
+  // pointer stay lit, the rest of the graph dims; nothing pinned or hovered, nothing dims
+  function legendElements(pick) {
     var cy = S.cy;
-    if (!cy) return;
-    cy.elements().removeClass('ldim');
-    Array.prototype.forEach.call($('legend').querySelectorAll('.item'), function (e) { e.classList.remove('on'); });
-    if (!pick) return;
     var info = function (n) { return S.nodes.get(n.id()) || {}; };
-    var keep = pick.indexOf('role:') === 0 ? cy.nodes('.r-' + pick.slice(5))
+    return pick.indexOf('role:') === 0 ? cy.nodes('.r-' + pick.slice(5))
       : pick === 'frozen' ? cy.nodes().filter(function (n) { return (info(n).frozen || []).length > 0; })
       : pick === 'freezable' ? cy.nodes().filter(function (n) { return (info(n).freezable || []).length > 0; })
       : pick === 'solid' ? cy.edges().not('.dashed') : cy.edges('.dashed');
-    item.classList.add('on');
+  }
+  function legendPick(hover) {
+    var cy = S.cy;
+    if (!cy) return;
+    var picks = Array.from(S.pinned);
+    if (hover && picks.indexOf(hover) === -1) picks.push(hover);
+    Array.prototype.forEach.call($('legend').querySelectorAll('[data-pick]'), function (e) {
+      e.classList.toggle('on', picks.indexOf(e.getAttribute('data-pick')) !== -1);
+    });
+    cy.elements().removeClass('ldim');
+    if (!picks.length) return;
+    var keep = cy.collection();
+    picks.forEach(function (p) { keep = keep.union(legendElements(p)); });
     cy.elements().not('.gone').difference(keep).addClass('ldim');
   }
 
@@ -2139,7 +2175,7 @@
 
   // ---------- all flows: one table of every recorded flow ----------
 
-  var FT = { sort: 'asc', filter: 'all', rows: null };
+  var FT = { sort: 'desc', filter: 'all', rows: null };  // newest flows first
 
   function verdictOf(e) {
     if (e.rejected) return 'rejected';

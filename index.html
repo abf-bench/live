@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="style.683148de66.css">
+  <link rel="stylesheet" href="style.a1d47b2213.css">
 </head>
 <body>
   <div class="page">
@@ -42,17 +42,6 @@
       </div>
     </header>
 
-    <section class="highlights" id="highlights" aria-labelledby="highlights-h" hidden>
-      <div class="hl-bar">
-        <h2 id="highlights-h" class="hl-label">What I found</h2>
-        <span class="hl-count" id="highlights-count"></span>
-        <button type="button" class="hl-nav" id="hl-prev" aria-label="Previous finding">&#8249;</button>
-        <button type="button" class="hl-nav" id="hl-next" aria-label="Next finding">&#8250;</button>
-        <div class="hl-item" id="highlights-item" aria-live="polite"></div>
-      </div>
-      <p class="hl-note" id="highlights-note" hidden></p>
-    </section>
-
     <section class="zone findings" aria-labelledby="findings-h">
       <div class="zone-head">
         <h2 id="findings-h">Everything I traced</h2>
@@ -60,7 +49,19 @@
       </div>
 
       <div class="coverage" id="coverage" hidden></div>
-      <div class="stats" id="stats" aria-label="Totals"></div>
+      <div class="work-row">
+        <div class="stats" id="stats" aria-label="Totals"></div>
+        <section class="highlights" id="highlights" aria-labelledby="highlights-h" hidden>
+        <div class="hl-bar">
+          <h2 id="highlights-h" class="hl-label">What I found</h2>
+          <span class="hl-count" id="highlights-count"></span>
+          <button type="button" class="hl-nav" id="hl-prev" aria-label="Previous finding">&#8249;</button>
+          <button type="button" class="hl-nav" id="hl-next" aria-label="Next finding">&#8250;</button>
+          <div class="hl-item" id="highlights-item" aria-live="polite"></div>
+        </div>
+        <p class="hl-note" id="highlights-note" hidden></p>
+      </section>
+      </div>
       <div class="stat-notes" id="stat-notes" hidden></div>
 
       <div class="board" id="graph-anchor">
@@ -157,7 +158,7 @@
           <table class="ft">
             <thead>
               <tr>
-                <th scope="col"><button type="button" class="ft-sort" id="ft-sort" aria-sort="ascending">Step <span class="dir" aria-hidden="true"></span></button></th>
+                <th scope="col"><button type="button" class="ft-sort" id="ft-sort" aria-sort="descending">Step <span class="dir" aria-hidden="true"></span></button></th>
                 <th scope="col">Type</th>
                 <th scope="col">From</th>
                 <th scope="col">To</th>
@@ -213,6 +214,6 @@
   <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.30.2/dist/cytoscape.min.js" integrity="sha384-IWROdLKRsN1UuJywMlWl7/blXQ8GEooN2n7dzTxfEPd7ybYIKCUJ2Ol/1Gpf3YV4" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/dagre@0.8.5/dist/dagre.min.js" integrity="sha384-2IH3T69EIKYC4c+RXZifZRvaH5SRUdacJW7j6HtE5rQbvLhKKdawxq6vpIzJ7j9M" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/cytoscape-dagre@2.5.0/cytoscape-dagre.js" integrity="sha384-u69h9ebXeSjlg6q/rb1zKTRAGu/h8deCl0409xpS/QJctMKnc4M9Fzkm01VOQdeF" crossorigin="anonymous"></script>
-  <script src="app.f08ea1280c.js"></script>
+  <script src="app.8ccdebefa7.js"></script>
 </body>
 </html>
