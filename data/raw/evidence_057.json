@@ -1359,5 +1359,65 @@
       "status": "ok",
       "total_cost_units": 23.0
     }
+  },
+  {
+    "request": {
+      "action": "account.activity",
+      "params": {
+        "account": "0x7b12ea0960d92349a8fd2d07757c354df166837a",
+        "block_window": [
+          26311630,
+          26311636
+        ],
+        "chain": "ethereum",
+        "direction": "out",
+        "limit": 10
+      }
+    },
+    "response": {
+      "action": "account.activity",
+      "action_count": 24,
+      "cost_units": 1.0,
+      "observation": {
+        "account": "0x7b12ea0960d92349a8fd2d07757c354df166837a",
+        "block_window": [
+          26311630,
+          26311636
+        ],
+        "chain": "ethereum",
+        "direction": "out",
+        "items": [
+          {
+            "activity_kind": "transaction",
+            "amount": "470364413748465434801",
+            "asset": "ETH",
+            "block_number": 26311634,
+            "failed": false,
+            "from": "0x7b12ea0960d92349a8fd2d07757c354df166837a",
+            "nonce": 12,
+            "to": "0xc2096a12ebe0944f4d39e59979f485afd92d850a",
+            "transaction_index": 140,
+            "tx_hash": "0xa05b5b26544e0f2a1d166989e5caf2e89a14beb5d2016d945b1be3ef691ddf87"
+          },
+          {
+            "activity_kind": "erc20_transfer",
+            "amount": "100000000000000000",
+            "asset": "0x9beebdd6876a09aaa86773cddb1e1919805e938b",
+            "block_number": 26311635,
+            "failed": false,
+            "from": "0x7b12ea0960d92349a8fd2d07757c354df166837a",
+            "to": "0xc2096a5b4aa6bd4d12261a4e19a6437364fb850a",
+            "transaction_index": 81,
+            "tx_hash": "0x7e5b5fdd4f8e3e44d40cf120d7328c33a09219d467b5cd7327ccacb34e2da67b"
+          }
+        ],
+        "next_cursor": null,
+        "total": 2,
+        "truncated": false
+      },
+      "response_hash": "a9a3a78fe3a51f751ba4f69c520dd97787f1d3b1c6764014ba1f16fac4166c47",
+      "status": "ok",
+      "total_cost_units": 24.0
+    }
   }
 ]
