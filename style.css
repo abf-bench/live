@@ -1299,3 +1299,18 @@ body.embed .stats { grid-template-columns: minmax(0, 1.8fr) repeat(3, minmax(0, 
 .stat-sub.alert b { font-weight: 600; }
 .frozen-box.freezable { border-left-color: var(--signal); }
 .badge.frzable { --c: var(--signal); }
+
+/* ---------- possibly new (hand-picked) ---------- */
+.highlights { margin-top: 18px; }
+.highlights .zone-head h2 { font-size: clamp(20px, 1.8vw, 26px); }
+.hl-list { margin: 10px 0 0; padding: 0 0 0 20px; display: grid; gap: 10px; max-width: 980px; }
+.hl-list li { font-size: 14px; line-height: 1.5; color: var(--ink); }
+.hl-list li::marker { color: var(--amber); font-family: var(--mono); font-size: 12px; }
+.hl-list p { margin: 0; }
+.hl-list .hl-ev { margin-top: 3px; font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+.hl-list .hl-ev a { color: var(--ink-2); }
+body.embed .highlights { display: none; }
+
+/* the kicker wraps between items, never inside one (a long paused message squeezed "Live trace") */
+.kicker { flex-wrap: wrap; row-gap: 4px; }
+.kicker > span:not(.agent-status):not(.rounds-note) { white-space: nowrap; }

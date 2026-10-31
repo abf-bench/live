@@ -2551,6 +2551,26 @@
     if (dot) dot.className = 'live-dot st-' + state;
   }
 
+  // "Possibly new": a short hand-picked list (data/highlights.json); the panel stays hidden without it.
+  function loadHighlights() {
+    fetchJson(DATA_DIR + 'highlights.json').then(function (d) {
+      var items = d && Array.isArray(d.items) ? d.items : [];
+      var box = $('highlights'), list = $('highlights-list');
+      if (!box || !list || !items.length) return;
+      clear(list);
+      items.forEach(function (it) {
+        var links = (Array.isArray(it.evidence) ? it.evidence : []).filter(function (e) { return e && /^https:\/\//.test(String(e.url)); });
+        list.appendChild(el('li', null,
+          el('p', null, str(it.text)),
+          links.length ? el('p', { class: 'hl-ev' }, links.map(function (e, i) {
+            return [i ? ' · ' : null, el('a', { href: String(e.url), target: '_blank', rel: 'noopener' }, str(e.label) || 'record')];
+          })) : null));
+      });
+      if ($('highlights-note')) $('highlights-note').textContent = str(d.note) || '';
+      box.hidden = false;
+    }, function () { /* no list: nothing shown */ });
+  }
+
   function startLive() {
     if (EMBED) return;
     renderLiveStatus();
@@ -2648,7 +2668,7 @@
       requestAnimationFrame(function () { fitView(false); safe('deep link', handleDeepLinks); });
       startPulse();
       safe('notes', renderNotes);
-      if (!EMBED) { startLive(); loadTrajectory(); }
+      if (!EMBED) { startLive(); loadTrajectory(); loadHighlights(); }
       // A screenshot frame skips the timeline but still shows the model cost from the small index.
       else fetchJson(TRAJ_INDEX_URL).then(function (idx) {
         T.cost = num(idx && idx.cost_usd);
