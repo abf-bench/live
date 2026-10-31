@@ -969,11 +969,13 @@
       { key: 'frozen', label: 'Frozen by issuers', v: Number(c.frozen_usd) || 0, color: ROLES.frozen.color },
       { key: 'dormant', label: 'Dormant', v: Number(c.dormant_usd) || 0, color: ROLES.resting.color },
       { key: 'stop', label: 'Past a stop', v: Number(c.stop_usd) || 0, color: ROLES.stop.color },
-      { key: 'open', label: 'Not yet accounted for', v: Number(c.unaccounted_usd) || 0, color: 'var(--faint)' }
+      { key: 'open', label: 'Not yet accounted for', v: Number(c.unaccounted_usd) || 0, color: 'var(--faint)' },
+      { key: 'untraced', label: 'On chains I don\'t read yet', v: Number(c.untraced_usd) || 0, color: 'var(--line)' }
     ].filter(function (p) { return p.v > 0; });
     function pct(v) { var x = 100 * v / total; return (x > 0 && x < 0.1 ? '<0.1' : x.toFixed(1)) + '%'; }
     append(box, [
-      el('div', { class: 'cov-title' }, 'Where the ' + usd(total) + ' taken on ' + chainsText() + ' is now'),
+      el('div', { class: 'cov-title' }, 'Where the ' + usd(total) + ' taken is now' +
+        (Number(c.untraced_usd) > 0 ? '' : ' (' + chainsText() + ')')),
       el('div', { class: 'cov-bar', role: 'img', 'aria-label': parts.map(function (p) { return p.label + ' ' + pct(p.v); }).join(', ') },
         parts.map(function (p) {
           return el('span', { class: 'cov-seg ' + p.key, style: 'width:' + (100 * p.v / total) + '%;background:' + p.color,

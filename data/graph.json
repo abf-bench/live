@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum and Bitcoin: live trace",
   "incident_utc": "2026-10-29T20:20:00Z",
-  "updated_utc": "2026-10-31T10:13:45Z",
+  "updated_utc": "2026-10-31T10:20:02Z",
   "head_block": 26312046,
   "chain": "ethereum",
   "notes": [
@@ -1470,7 +1470,7 @@
     {
      "asset": "ETH",
      "token": "ETH",
-     "amount": "1.01784"
+     "amount": "2.707104"
     },
     {
      "asset": "USDC",
@@ -21875,19 +21875,27 @@
  "coming_soon": [
   {
    "chain": "Tron",
-   "note": "not traced here yet"
+   "note": "$627.5M taken; not traced here yet"
   },
   {
-   "chain": "XRP Ledger",
-   "note": "not traced here yet"
+   "chain": "Arbitrum",
+   "note": "$31.9M taken; not traced here yet"
   },
   {
-   "chain": "Solana",
-   "note": "not traced here yet"
+   "chain": "Avalanche",
+   "note": "$28.2M taken; not traced here yet"
   },
   {
-   "chain": "Other EVM chains",
-   "note": "Arbitrum, Avalanche, Base, Optimism, Polygon: not traced here yet"
+   "chain": "Polygon",
+   "note": "$10.4M taken; not traced here yet"
+  },
+  {
+   "chain": "Optimism",
+   "note": "$4.8M taken; not traced here yet"
+  },
+  {
+   "chain": "Base",
+   "note": "$2.8M taken; not traced here yet"
   }
  ],
  "coverage": {
@@ -21895,13 +21903,92 @@
   "head_block": 26312046,
   "incident_utc": "2026-10-29T20:20:00Z",
   "valued_at": "USD at prices at 2026-10-29T20:20:00Z, DefiLlama historical",
-  "stolen_usd": 5260153802.69,
+  "stolen_usd": 5965745704.53,
   "frozen_usd": 2374913188.6,
-  "dormant_usd": 2509276858.94,
+  "dormant_usd": 2509280769.8,
   "stop_usd": 613.28,
-  "unaccounted_usd": 375963141.86,
+  "unaccounted_usd": 375959231.0,
   "unpriced_assets": [
    "0x998ffe1e43facffb941dc337dd0468d52ba5b48a"
+  ],
+  "untraced_usd": 705591901.84,
+  "untraced_chains": [
+   {
+    "chain": "tron",
+    "usd": 627494681.91,
+    "assets": [
+     {
+      "symbol": "TRX",
+      "amount": 46394098.0
+     },
+     {
+      "symbol": "USDT",
+      "amount": 612729468.0
+     }
+    ]
+   },
+   {
+    "chain": "arbitrum",
+    "usd": 31850519.33,
+    "assets": [
+     {
+      "symbol": "ARB",
+      "amount": 74559805.2
+     },
+     {
+      "symbol": "ETH",
+      "amount": 8426.2
+     }
+    ]
+   },
+   {
+    "chain": "avalanche",
+    "usd": 28170747.2,
+    "assets": [
+     {
+      "symbol": "AVAX",
+      "amount": 2258635.9
+     },
+     {
+      "symbol": "USDT",
+      "amount": 8409928.4
+     }
+    ]
+   },
+   {
+    "chain": "polygon",
+    "usd": 10443996.63,
+    "assets": [
+     {
+      "symbol": "USDT0",
+      "amount": 6185900.1
+     },
+     {
+      "symbol": "POL",
+      "amount": 46626589.6
+     }
+    ]
+   },
+   {
+    "chain": "optimism",
+    "usd": 4793641.86,
+    "assets": [
+     {
+      "symbol": "OP",
+      "amount": 44231858.2
+     }
+    ]
+   },
+   {
+    "chain": "base",
+    "usd": 2838314.92,
+    "assets": [
+     {
+      "symbol": "VIRTUAL",
+      "amount": 4735627.3
+     }
+    ]
+   }
   ]
  },
  "workspace": {
