@@ -1302,7 +1302,11 @@ body.embed .stats { grid-template-columns: minmax(0, 1.8fr) repeat(3, minmax(0, 
 
 /* ---------- possibly new (hand-picked) ---------- */
 .highlights { margin-top: 18px; }
-.highlights .zone-head h2 { font-size: clamp(20px, 1.8vw, 26px); }
+.highlights .zone-head h2 {
+  font-family: var(--serif);
+  font-size: 30px;
+  line-height: 1;
+}
 .hl-list { margin: 10px 0 0; padding: 0 0 0 20px; display: grid; gap: 10px; max-width: 980px; }
 .hl-list li { font-size: 14px; line-height: 1.5; color: var(--ink); }
 .hl-list li::marker { color: var(--amber); font-family: var(--mono); font-size: 12px; }
