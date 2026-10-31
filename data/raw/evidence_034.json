@@ -1,0 +1,650 @@
+[
+  {
+    "request": {
+      "action": "transaction.get",
+      "params": {
+        "chain": "bitcoin",
+        "detail": "inputs_outputs",
+        "include_prevouts": true,
+        "tx_hash": "58bb6e421996c85f717704447b63516cbf6fc3e34e78804c5893ae567520d625"
+      }
+    },
+    "response": {
+      "action": "transaction.get",
+      "action_count": 1,
+      "cost_units": 1.0,
+      "observation": {
+        "chain": "bitcoin",
+        "fee": 1261,
+        "kind": "transaction",
+        "locktime": 973737,
+        "size": 783,
+        "status": {
+          "block_hash": "000000000000000000014df29db2646c10c276f8a5a8e5371c1154d815cebd94",
+          "block_height": 973738,
+          "block_time": 1793306894,
+          "confirmed": true
+        },
+        "tx_hash": "58bb6e421996c85f717704447b63516cbf6fc3e34e78804c5893ae567520d625",
+        "txid": "58bb6e421996c85f717704447b63516cbf6fc3e34e78804c5893ae567520d625",
+        "version": 2,
+        "vin": [
+          {
+            "is_coinbase": false,
+            "prevout": {
+              "scriptpubkey": "00147ed785269d406ccf8357bf6fb48e37f8e94b1132",
+              "scriptpubkey_address": "bc1q0mtc2f5agpkvlq6hhahmfr3hlr55kyfjhl2mnm",
+              "scriptpubkey_type": "v0_p2wpkh",
+              "value": 11210000000
+            },
+            "scriptsig": "",
+            "sequence": 4294967293,
+            "txid": "48ba4e60cc695218ec35ee572f10d8f0bcb8bd4addb36b2d5f30b29e7ad1e6a1",
+            "vout": 0,
+            "witness": [
+              "304402202dcb1579b92b9691263d86ad7e76ad51ad607823675a767f1b3210c0dff1e2e302206f1910f31ce3a824499b495ae184d021056ee8d483b90d746a05d92b8883fcdc01",
+              "03e50af3f98c89e8bc5cbfaacfad5d3bd788bd08ff5d68975f2e968deec56cf722"
+            ]
+          },
+          {
+            "is_coinbase": false,
+            "prevout": {
+              "scriptpubkey": "00147ed785269d406ccf8357bf6fb48e37f8e94b1132",
+              "scriptpubkey_address": "bc1q0mtc2f5agpkvlq6hhahmfr3hlr55kyfjhl2mnm",
+              "scriptpubkey_type": "v0_p2wpkh",
+              "value": 6720000000
+            },
+            "scriptsig": "",
+            "sequence": 4294967293,
+            "txid": "6722aa3e38f19bf704912238bcfd75b777cdeeb46adfdb2f6a593a96f9cccec0",
+            "vout": 0,
+            "witness": [
+              "304402204ae09ccdbfec19eb83b704cf63c353d2a30f81a78e669b395bb241b1d703039e022072bc6b12477da9c880c17ab2468804af26f7b23637d405a97e2696013d4c9f2e01",
+              "03e50af3f98c89e8bc5cbfaacfad5d3bd788bd08ff5d68975f2e968deec56cf722"
+            ]
+          },
+          {
+            "is_coinbase": false,
+            "prevout": {
+              "scriptpubkey": "00147ed785269d406ccf8357bf6fb48e37f8e94b1132",
+              "scriptpubkey_address": "bc1q0mtc2f5agpkvlq6hhahmfr3hlr55kyfjhl2mnm",
+              "scriptpubkey_type": "v0_p2wpkh",
+              "value": 19430000000
+            },
+            "scriptsig": "",
+            "sequence": 4294967293,
+            "txid": "6736fc29140c0d761778cd8741012cfb76bfdbc5cde8cb2edd6b09e47e77ca84",
+            "vout": 0,
+            "witness": [
+              "304402206451196bbcbbd281a1b2d09cf55c3988df43f33d21800d83cacae1227cf61d1e02204bb3d8467dbc26be503008dc68459e598c100d641c0e2de32d6db3661a214db101",
+              "03e50af3f98c89e8bc5cbfaacfad5d3bd788bd08ff5d68975f2e968deec56cf722"
+            ]
+          },
+          {
+            "is_coinbase": false,
+            "prevout": {
+              "scriptpubkey": "00147ed785269d406ccf8357bf6fb48e37f8e94b1132",
+              "scriptpubkey_address": "bc1q0mtc2f5agpkvlq6hhahmfr3hlr55kyfjhl2mnm",
+              "scriptpubkey_type": "v0_p2wpkh",
+              "value": 4420000000
+            },
+            "scriptsig": "",
+            "sequence": 4294967293,
+            "txid": "8b02cfb945664a014750dd69b92467db2cf9b3c5e20e04628f63ff54605a5cbf",
+            "vout": 0,
+            "witness": [
+              "304402205e7a138af70fb98fd73aaa34cddf64cc1bed3d58a8c2f1d830877edd482c112602203aa0b279ab5e0b419ef65a1f8a8e1c4b02363366bc32bc5d2ba5cf9500177c9d01",
+              "03e50af3f98c89e8bc5cbfaacfad5d3bd788bd08ff5d68975f2e968deec56cf722"
+            ]
+          },
+          {
+            "is_coinbase": false,
+            "prevout": {
+              "scriptpubkey": "00147ed785269d406ccf8357bf6fb48e37f8e94b1132",
+              "scriptpubkey_address": "bc1q0mtc2f5agpkvlq6hhahmfr3hlr55kyfjhl2mnm",
+              "scriptpubkey_type": "v0_p2wpkh",
+              "value": 1990000000
+            },
+            "scriptsig": "",
+            "sequence": 4294967293,
+            "txid": "f9dcbbc63e75c2b75c6647d3a0e104ee9144ed823d677704693b784a52110313",
+            "vout": 0,
+            "witness": [
+              "3044022065642c7bc7327bf95881bfacee48b7d6f8aab170264c0ffcb337ecef34b26a2b022070548e935997a9cfd89006a587b16c48563ad12aa643337fb26f7a328c9653bc01",
+              "03e50af3f98c89e8bc5cbfaacfad5d3bd788bd08ff5d68975f2e968deec56cf722"
+            ]
+          }
+        ],
+        "vout": [
+          {
+            "scriptpubkey": "0014321ffa8746c51e2e30b8fd12ffbddbe9a4141dd8",
+            "scriptpubkey_address": "bc1qxg0l4p6xc50zuv9cl5f0l0wmaxjpg8wcy7s9ra",
+            "scriptpubkey_type": "v0_p2wpkh",
+            "value": 43769998739
+          }
+        ],
+        "weight": 1521
+      },
+      "response_hash": "08435fac65e1547e7300565c509efb03a88d13930fe2970342b3bcc85db6c58f",
+      "status": "ok",
+      "total_cost_units": 1.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.outspends",
+      "params": {
+        "chain": "bitcoin",
+        "tx_hash": "b27d181645ef592dbc145f63b62cdeab68afd8e725f539e43ad66a273d24dbdd"
+      }
+    },
+    "response": {
+      "action": "transaction.outspends",
+      "action_count": 2,
+      "cost_units": 1.0,
+      "observation": {
+        "chain": "bitcoin",
+        "outspends": [
+          {
+            "block_height": 973732,
+            "spent": true,
+            "txid": "a9ed8a851a83912bd0ee16d66155f5225805f086e152da73204859f6ed4bc676",
+            "vin": 1,
+            "vout": 0
+          },
+          {
+            "block_height": null,
+            "spent": false,
+            "txid": null,
+            "vin": null,
+            "vout": 1
+          }
+        ],
+        "tx_hash": "b27d181645ef592dbc145f63b62cdeab68afd8e725f539e43ad66a273d24dbdd"
+      },
+      "response_hash": "f503d26eb12f41c83328b9dd93b0922e78b7a82a9fd989ac52e76f0b30f2b7d4",
+      "status": "ok",
+      "total_cost_units": 2.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.outspends",
+      "params": {
+        "chain": "bitcoin",
+        "tx_hash": "d5b12696e51d70b4d5caa634f08f9afdfa17ee924c282868a0773cbcab831f13"
+      }
+    },
+    "response": {
+      "action": "transaction.outspends",
+      "action_count": 3,
+      "cost_units": 1.0,
+      "observation": {
+        "chain": "bitcoin",
+        "outspends": [
+          {
+            "block_height": null,
+            "spent": false,
+            "txid": null,
+            "vin": null,
+            "vout": 0
+          },
+          {
+            "block_height": 973732,
+            "spent": true,
+            "txid": "20347f020d04608bf6aba4a814090aeab72092d0dcc4ded84c206b7d7dd2b0f5",
+            "vin": 0,
+            "vout": 1
+          }
+        ],
+        "tx_hash": "d5b12696e51d70b4d5caa634f08f9afdfa17ee924c282868a0773cbcab831f13"
+      },
+      "response_hash": "46ce7264f6cddc6f2ae86eca00ca708f610b337fc49bb21fabb1e2a753b1c24a",
+      "status": "ok",
+      "total_cost_units": 3.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.outspends",
+      "params": {
+        "chain": "bitcoin",
+        "tx_hash": "046a4f5a187ce946d0ec783e1d1557a5ea655974a2259ac01e9b55e1284b2687"
+      }
+    },
+    "response": {
+      "action": "transaction.outspends",
+      "action_count": 4,
+      "cost_units": 1.0,
+      "observation": {
+        "chain": "bitcoin",
+        "outspends": [
+          {
+            "block_height": 973732,
+            "spent": true,
+            "txid": "b27d181645ef592dbc145f63b62cdeab68afd8e725f539e43ad66a273d24dbdd",
+            "vin": 0,
+            "vout": 0
+          },
+          {
+            "block_height": null,
+            "spent": false,
+            "txid": null,
+            "vin": null,
+            "vout": 1
+          }
+        ],
+        "tx_hash": "046a4f5a187ce946d0ec783e1d1557a5ea655974a2259ac01e9b55e1284b2687"
+      },
+      "response_hash": "0d0ae1ed8653df4b5787911400e5099dabe91d194995d69e923e305e95fd3327",
+      "status": "ok",
+      "total_cost_units": 4.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.outspends",
+      "params": {
+        "chain": "bitcoin",
+        "tx_hash": "20347f020d04608bf6aba4a814090aeab72092d0dcc4ded84c206b7d7dd2b0f5"
+      }
+    },
+    "response": {
+      "action": "transaction.outspends",
+      "action_count": 5,
+      "cost_units": 1.0,
+      "observation": {
+        "chain": "bitcoin",
+        "outspends": [
+          {
+            "block_height": null,
+            "spent": false,
+            "txid": null,
+            "vin": null,
+            "vout": 0
+          },
+          {
+            "block_height": 973732,
+            "spent": true,
+            "txid": "7c06da6f92f946268c0f838bcc9f6c76ded91ff468a54cf3154fbb678726f6da",
+            "vin": 0,
+            "vout": 1
+          }
+        ],
+        "tx_hash": "20347f020d04608bf6aba4a814090aeab72092d0dcc4ded84c206b7d7dd2b0f5"
+      },
+      "response_hash": "30847e8f7b8328522a4869a12ce425dd351d4473e4b9a47c036b462ce332abf3",
+      "status": "ok",
+      "total_cost_units": 5.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.outspends",
+      "params": {
+        "chain": "bitcoin",
+        "tx_hash": "58bb6e421996c85f717704447b63516cbf6fc3e34e78804c5893ae567520d625"
+      }
+    },
+    "response": {
+      "action": "transaction.outspends",
+      "action_count": 6,
+      "cost_units": 1.0,
+      "observation": {
+        "chain": "bitcoin",
+        "outspends": [
+          {
+            "block_height": null,
+            "spent": false,
+            "txid": null,
+            "vin": null,
+            "vout": 0
+          }
+        ],
+        "tx_hash": "58bb6e421996c85f717704447b63516cbf6fc3e34e78804c5893ae567520d625"
+      },
+      "response_hash": "3314b2d72b97540f8f9fbc9b2dbb24de4b2c28c41158b2cdb010fe5bd87efdee",
+      "status": "ok",
+      "total_cost_units": 6.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.get",
+      "params": {
+        "chain": "bitcoin",
+        "detail": "inputs_outputs",
+        "include_prevouts": true,
+        "tx_hash": "7c06da6f92f946268c0f838bcc9f6c76ded91ff468a54cf3154fbb678726f6da"
+      }
+    },
+    "response": {
+      "action": "transaction.get",
+      "action_count": 7,
+      "cost_units": 1.0,
+      "observation": {
+        "chain": "bitcoin",
+        "fee": 500,
+        "kind": "transaction",
+        "locktime": 973731,
+        "size": 222,
+        "status": {
+          "block_hash": "00000000000000000001332dd90244852b5f3c0178c0acf76390001496b70f23",
+          "block_height": 973732,
+          "block_time": 1793305206,
+          "confirmed": true
+        },
+        "tx_hash": "7c06da6f92f946268c0f838bcc9f6c76ded91ff468a54cf3154fbb678726f6da",
+        "txid": "7c06da6f92f946268c0f838bcc9f6c76ded91ff468a54cf3154fbb678726f6da",
+        "version": 2,
+        "vin": [
+          {
+            "is_coinbase": false,
+            "prevout": {
+              "scriptpubkey": "0014b1ec15be1cca79038851487c771ca58a478a18be",
+              "scriptpubkey_address": "bc1qk8kpt0suefus8zz3fp78w8993frc5x97w423wl",
+              "scriptpubkey_type": "v0_p2wpkh",
+              "value": 263679997500
+            },
+            "scriptsig": "",
+            "sequence": 4294967293,
+            "txid": "20347f020d04608bf6aba4a814090aeab72092d0dcc4ded84c206b7d7dd2b0f5",
+            "vout": 1,
+            "witness": [
+              "30440220092e7b67fd346e9b26856065959f34fe9be445af1c3a1562019965974b1ece8302200d4d466b5fa7dffabe10d75fa32d1bfac8ef8ff5ce5abb52a0e6592f7821eef001",
+              "03f33824853ac52564c9c26aa6ad2cd67d56587e862d7b38a1aaa43ae80a1941b4"
+            ]
+          }
+        ],
+        "vout": [
+          {
+            "scriptpubkey": "0014d9d873ee8926adc0176467559cedc4c180d8e5e2",
+            "scriptpubkey_address": "bc1qm8v88m5fy6kuq9myva2eemwycxqd3e0zcrs2l8",
+            "scriptpubkey_type": "v0_p2wpkh",
+            "value": 100000000000
+          },
+          {
+            "scriptpubkey": "0014b1ec15be1cca79038851487c771ca58a478a18be",
+            "scriptpubkey_address": "bc1qk8kpt0suefus8zz3fp78w8993frc5x97w423wl",
+            "scriptpubkey_type": "v0_p2wpkh",
+            "value": 163679997000
+          }
+        ],
+        "weight": 561
+      },
+      "response_hash": "1340c976d26307af4381bd1c28329906f82ec78195b447f4b62963cbd15b852c",
+      "status": "ok",
+      "total_cost_units": 7.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.outspends",
+      "params": {
+        "chain": "bitcoin",
+        "tx_hash": "7c06da6f92f946268c0f838bcc9f6c76ded91ff468a54cf3154fbb678726f6da"
+      }
+    },
+    "response": {
+      "action": "transaction.outspends",
+      "action_count": 8,
+      "cost_units": 1.0,
+      "observation": {
+        "chain": "bitcoin",
+        "outspends": [
+          {
+            "block_height": null,
+            "spent": false,
+            "txid": null,
+            "vin": null,
+            "vout": 0
+          },
+          {
+            "block_height": 973732,
+            "spent": true,
+            "txid": "7954d0b88c08fd1d1b69f571c12b4ed57a269ae131c8902c9c585e3b09b86d70",
+            "vin": 0,
+            "vout": 1
+          }
+        ],
+        "tx_hash": "7c06da6f92f946268c0f838bcc9f6c76ded91ff468a54cf3154fbb678726f6da"
+      },
+      "response_hash": "1cb9e26f97b5006f1b84b744cba057b755d110627cd4aa4becbbca3c8bce42fc",
+      "status": "ok",
+      "total_cost_units": 8.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.get",
+      "params": {
+        "chain": "bitcoin",
+        "detail": "inputs_outputs",
+        "include_prevouts": true,
+        "tx_hash": "7954d0b88c08fd1d1b69f571c12b4ed57a269ae131c8902c9c585e3b09b86d70"
+      }
+    },
+    "response": {
+      "action": "transaction.get",
+      "action_count": 9,
+      "cost_units": 1.0,
+      "observation": {
+        "chain": "bitcoin",
+        "fee": 500,
+        "kind": "transaction",
+        "locktime": 973731,
+        "size": 222,
+        "status": {
+          "block_hash": "00000000000000000001332dd90244852b5f3c0178c0acf76390001496b70f23",
+          "block_height": 973732,
+          "block_time": 1793305206,
+          "confirmed": true
+        },
+        "tx_hash": "7954d0b88c08fd1d1b69f571c12b4ed57a269ae131c8902c9c585e3b09b86d70",
+        "txid": "7954d0b88c08fd1d1b69f571c12b4ed57a269ae131c8902c9c585e3b09b86d70",
+        "version": 2,
+        "vin": [
+          {
+            "is_coinbase": false,
+            "prevout": {
+              "scriptpubkey": "0014b1ec15be1cca79038851487c771ca58a478a18be",
+              "scriptpubkey_address": "bc1qk8kpt0suefus8zz3fp78w8993frc5x97w423wl",
+              "scriptpubkey_type": "v0_p2wpkh",
+              "value": 163679997000
+            },
+            "scriptsig": "",
+            "sequence": 4294967293,
+            "txid": "7c06da6f92f946268c0f838bcc9f6c76ded91ff468a54cf3154fbb678726f6da",
+            "vout": 1,
+            "witness": [
+              "30440220089dc4f6cc649866aed7831750597b42a9389f551150d14fce62dfa46115fa29022044577a6ebba265549912b85326826f8a98b2e70a6091191fcd3b7d4fd4e3227a01",
+              "03f33824853ac52564c9c26aa6ad2cd67d56587e862d7b38a1aaa43ae80a1941b4"
+            ]
+          }
+        ],
+        "vout": [
+          {
+            "scriptpubkey": "00141c077a6ad5187bf39dcf3065ce7dfbf1f8dd2bb6",
+            "scriptpubkey_address": "bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e",
+            "scriptpubkey_type": "v0_p2wpkh",
+            "value": 63679996500
+          },
+          {
+            "scriptpubkey": "0014aa93fbf48311222b9ff62658e383126f383597b1",
+            "scriptpubkey_address": "bc1q42flhayrzy3zh8lkyevw8qcjduurt9a35wlsyx",
+            "scriptpubkey_type": "v0_p2wpkh",
+            "value": 100000000000
+          }
+        ],
+        "weight": 561
+      },
+      "response_hash": "7ebef8609f2a87d9f2f11cbdd2215d53bfeb03b90bbdcdf770c9294a750d7eb3",
+      "status": "ok",
+      "total_cost_units": 9.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.outspends",
+      "params": {
+        "chain": "bitcoin",
+        "tx_hash": "7954d0b88c08fd1d1b69f571c12b4ed57a269ae131c8902c9c585e3b09b86d70"
+      }
+    },
+    "response": {
+      "action": "transaction.outspends",
+      "action_count": 10,
+      "cost_units": 1.0,
+      "observation": {
+        "chain": "bitcoin",
+        "outspends": [
+          {
+            "block_height": 973732,
+            "spent": true,
+            "txid": "b167dcb05d54f545587d690bb8990e1ccef68910fb20fc7fdb2036eddaa38922",
+            "vin": 1,
+            "vout": 0
+          },
+          {
+            "block_height": null,
+            "spent": false,
+            "txid": null,
+            "vin": null,
+            "vout": 1
+          }
+        ],
+        "tx_hash": "7954d0b88c08fd1d1b69f571c12b4ed57a269ae131c8902c9c585e3b09b86d70"
+      },
+      "response_hash": "7c0231163b7685a53fa4492ee06b0b00ddf8f8f67eec83b4d690438cfc0a3fcd",
+      "status": "ok",
+      "total_cost_units": 10.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.get",
+      "params": {
+        "chain": "bitcoin",
+        "detail": "inputs_outputs",
+        "include_prevouts": true,
+        "tx_hash": "b167dcb05d54f545587d690bb8990e1ccef68910fb20fc7fdb2036eddaa38922"
+      }
+    },
+    "response": {
+      "action": "transaction.get",
+      "action_count": 11,
+      "cost_units": 1.0,
+      "observation": {
+        "chain": "bitcoin",
+        "fee": 812,
+        "kind": "transaction",
+        "locktime": 973710,
+        "size": 487,
+        "status": {
+          "block_hash": "00000000000000000001332dd90244852b5f3c0178c0acf76390001496b70f23",
+          "block_height": 973732,
+          "block_time": 1793305206,
+          "confirmed": true
+        },
+        "tx_hash": "b167dcb05d54f545587d690bb8990e1ccef68910fb20fc7fdb2036eddaa38922",
+        "txid": "b167dcb05d54f545587d690bb8990e1ccef68910fb20fc7fdb2036eddaa38922",
+        "version": 2,
+        "vin": [
+          {
+            "is_coinbase": false,
+            "prevout": {
+              "scriptpubkey": "00141c077a6ad5187bf39dcf3065ce7dfbf1f8dd2bb6",
+              "scriptpubkey_address": "bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e",
+              "scriptpubkey_type": "v0_p2wpkh",
+              "value": 14269999300
+            },
+            "scriptsig": "",
+            "sequence": 4294967293,
+            "txid": "27cdbffbe3356688467100ae11c1df5096fc025a7fd244fa4f234aa190cdf68b",
+            "vout": 0,
+            "witness": [
+              "304402202d8b40e4dbd093bf9131de02c803158da150c96189417fcc0bdbf55665478ba402203beb90dcc87847d7bf4808fbe78d5197737c8354d49785c73c187785a13b8b6f01",
+              "0271f08509f29eeefaae382d05f692da54f33db3f2525930d09a962b84818964b7"
+            ]
+          },
+          {
+            "is_coinbase": false,
+            "prevout": {
+              "scriptpubkey": "00141c077a6ad5187bf39dcf3065ce7dfbf1f8dd2bb6",
+              "scriptpubkey_address": "bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e",
+              "scriptpubkey_type": "v0_p2wpkh",
+              "value": 63679996500
+            },
+            "scriptsig": "",
+            "sequence": 4294967293,
+            "txid": "7954d0b88c08fd1d1b69f571c12b4ed57a269ae131c8902c9c585e3b09b86d70",
+            "vout": 0,
+            "witness": [
+              "304402200cc8eadb8b7d1ee58822b8cc79869e2faa449a6c23b39e4f9ca0b79f16b2651d022019ef43343bc824f45d7c04f390de80374d2034b008fe9e7d82b2b9b1dd89296401",
+              "0271f08509f29eeefaae382d05f692da54f33db3f2525930d09a962b84818964b7"
+            ]
+          },
+          {
+            "is_coinbase": false,
+            "prevout": {
+              "scriptpubkey": "00149d639975024191fcc4b524f6ca41914948dc54e0",
+              "scriptpubkey_address": "bc1qn43ejagzgxgle394ynmv5sv3f9ydc48qme7t02",
+              "scriptpubkey_type": "v0_p2wpkh",
+              "value": 5299995100
+            },
+            "scriptsig": "",
+            "sequence": 4294967293,
+            "txid": "a9ed8a851a83912bd0ee16d66155f5225805f086e152da73204859f6ed4bc676",
+            "vout": 0,
+            "witness": [
+              "3044022026c0bb2910137c80513ccceb6ad947c56e1c8a78a80945e2ca83a906521afc4102201dfd29158d8c4b3cb6fecb789c39fe9248e10f8feaa681764adb6cb9ceee65d401",
+              "02d3281458b3d31ab1734cb5bb75107e58af0b22f456410f9569e1fa34ee79b86b"
+            ]
+          }
+        ],
+        "vout": [
+          {
+            "scriptpubkey": "00141a1eaa6541419e3713aab050b945e5f283aac96f",
+            "scriptpubkey_address": "bc1qrg025e2pgx0rwya2kpgtj30972p64jt0hn6zyt",
+            "scriptpubkey_type": "v0_p2wpkh",
+            "value": 83249990088
+          }
+        ],
+        "weight": 979
+      },
+      "response_hash": "0b2cf4c554011783036eabb7e59d71e6e3b6d5f34943c620273ab9d5d5e8bd13",
+      "status": "ok",
+      "total_cost_units": 11.0
+    }
+  },
+  {
+    "request": {
+      "action": "transaction.outspends",
+      "params": {
+        "chain": "bitcoin",
+        "tx_hash": "b167dcb05d54f545587d690bb8990e1ccef68910fb20fc7fdb2036eddaa38922"
+      }
+    },
+    "response": {
+      "action": "transaction.outspends",
+      "action_count": 12,
+      "cost_units": 1.0,
+      "observation": {
+        "chain": "bitcoin",
+        "outspends": [
+          {
+            "block_height": null,
+            "spent": false,
+            "txid": null,
+            "vin": null,
+            "vout": 0
+          }
+        ],
+        "tx_hash": "b167dcb05d54f545587d690bb8990e1ccef68910fb20fc7fdb2036eddaa38922"
+      },
+      "response_hash": "ecc4ebf7eb2ea0eb73d06b1acb52acf3c0048c3560daa868058a3b88b7b9819c",
+      "status": "ok",
+      "total_cost_units": 12.0
+    }
+  }
+]
