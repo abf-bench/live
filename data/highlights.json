@@ -3,7 +3,7 @@
  "note": "Not found in the public reports checked on 31 Oct 2026. Built from verified flows and chain reads; not reviewed by a human expert.",
  "items": [
   {
-   "text": "Most of the 34,280 ETH at 0x79e7…544a traces to sales of stolen tokens: 0x600d…8298 sold 7.77T PEPE and sent it 14,040 ETH; 0xcf4c…23e0 sold 2.57M LINK and sent it 11,561 ETH. The attacker's main wallet 0x5227…2f8c gave both wallets the tokens and their gas. The 19,740 ETH a 30 Oct report lists is the balance before the LINK proceeds arrived (05:31 UTC).",
+   "text": "About three quarters of the 34,280 ETH at 0x79e7…544a came from two wallets selling stolen tokens on Uniswap: 0x600d…8298 sold 7.68T PEPE and sent it about 14,050 ETH; 0xcf4c…23e0 sold 2.57M LINK and sent it about 11,561 ETH. The attacker's main wallet 0x5227…2f8c gave both wallets the tokens and their gas. The 19,740 ETH a 30 Oct report lists matches the balance before 05:27 UTC that day, before the LINK proceeds arrived.",
    "evidence": [
     {
      "label": "0x79e7…544a",
@@ -24,6 +24,10 @@
     {
      "label": "LINK sales",
      "url": "https://etherscan.io/address/0xcf4ca2bdf21bc3a467a00b6afe72b833982723e0#tokentxns"
+    },
+    {
+     "label": "PEPE sales",
+     "url": "https://etherscan.io/address/0x600d6f00eadabdb514561ceeb43730a7103e8298#tokentxns"
     },
     {
      "label": "PEPE from 0x5227",
