@@ -3039,6 +3039,50 @@
     }, { passive: true });
     $('btn-play').addEventListener('click', function () { if (S.playing) stopPlay(); else startPlay(); });
     $('btn-fit').addEventListener('click', function () { fitView(true); });
+    // Find an address: any part of it, a label, or the short form "0x1b23…2362"; Enter goes to the node
+    var find = $('find-node'), findList = $('find-list');
+    function findMatches(text) {
+      var q = text.trim().toLowerCase().replace(/\s+/g, ''), out = [];
+      if (!q) return out;
+      var parts = q.split(/…|\.\.\./);
+      viewAt(S.total).nodes.forEach(function (id) {
+        var n = S.nodes.get(id), s = id.toLowerCase(), label = (n && n.label || '').toLowerCase();
+        var hit = parts.length === 2 ? s.indexOf(parts[0]) === 0 && (!parts[1] || s.slice(-parts[1].length) === parts[1])
+          : s.indexOf(q) >= 0 || (label && label.indexOf(q) >= 0);
+        if (hit) out.push(id);
+      });
+      out.sort(function (a, b) { return (b.toLowerCase() === q) - (a.toLowerCase() === q); });
+      return out;
+    }
+    function findGo() {
+      var m = findMatches(find.value);
+      if (!m.length) { toast('No address in the graph matches "' + find.value.trim() + '".', 4000); return; }
+      focusNode(m[0], true);
+      // zoom in on it when the whole graph is fitted and the node is a dot
+      var ele = S.cy.getElementById(m[0]), z = Math.max(S.cy.zoom(), 1);
+      if (ele.nonempty()) {
+        var p = ele.position();
+        S.cy.stop();
+        S.cy.animate({ zoom: z, pan: { x: S.cy.width() / 2 - p.x * z, y: S.cy.height() / 2 - p.y * z } },
+          { duration: REDUCED_MOTION ? 0 : 400 });
+      }
+      if (m.length > 1) toast(m.length + ' addresses match; showing ' + short(m[0]) + '. Type more of it to pick another.', 5000);
+    }
+    find.addEventListener('focus', function () {
+      var ids = Array.from(viewAt(S.total).nodes);
+      if (findList.childElementCount === ids.length) return;
+      findList.textContent = '';
+      ids.forEach(function (id) {
+        var n = S.nodes.get(id), o = el('option', { value: id });
+        if (n && n.label) o.textContent = n.label;
+        findList.appendChild(o);
+      });
+    });
+    find.addEventListener('keydown', function (ev) { if (ev.key === 'Enter') { ev.preventDefault(); findGo(); } });
+    find.addEventListener('input', function (ev) {
+      // picking from the suggestions list
+      if ((!ev.inputType || ev.inputType === 'insertReplacementText') && S.nodes.has(lc(find.value))) findGo();
+    });
     function groupButton() {
       var b = $('btn-group'), on = S.groupChains;
       b.setAttribute('aria-pressed', on ? 'true' : 'false');
