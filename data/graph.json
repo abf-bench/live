@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum and Bitcoin: live trace",
   "incident_utc": "2026-10-29T20:05:00Z",
-  "updated_utc": "2026-10-31T19:12:35Z",
+  "updated_utc": "2026-10-31T19:14:29Z",
   "head_block": 26314736,
   "chain": "ethereum",
   "notes": [
@@ -405,10 +405,10 @@
   {
    "id": 50,
    "started_utc": "2026-10-31T19:09:48Z",
-   "ended_utc": null,
-   "actions": 72,
+   "ended_utc": "2026-10-31T19:14:01Z",
+   "actions": 106,
    "model": "gpt-5.5",
-   "summary": ""
+   "summary": "ok"
   }
  ],
  "nodes": [
@@ -21494,6 +21494,405 @@
    "source_position": "Transfer event #46",
    "target_position": "internal call 6",
    "tx_url": "https://etherscan.io/tx/0xf39e0af845ce7431641e8c4007fce42171c2e16637521a369739da4a6588b45a",
+   "tier": "verified"
+  },
+  {
+   "id": "op_zama_to_eth_0084_0x9f826154:0",
+   "from": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "to": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "65.338261",
+   "tx": "0x9f826154a943f3b91ee43b7ef3fe7843c931f9244f28255a3f52d72636323dcb",
+   "from_asset": "ZAMA",
+   "kind": "exchange",
+   "block": 26301901,
+   "time_utc": "2026-10-30T00:11:35Z",
+   "operation_id": "op_zama_to_eth_0084_0x9f826154",
+   "session": 50,
+   "seq": 831,
+   "step": 925,
+   "source_position": "Transfer event #151",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0x9f826154a943f3b91ee43b7ef3fe7843c931f9244f28255a3f52d72636323dcb",
+   "tier": "verified"
+  },
+  {
+   "id": "op_zama_to_eth_0084_0x447bad7a:0",
+   "from": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "to": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "30.497522",
+   "tx": "0x447bad7ae76bcdec301ef7a52ab6d9759b42808cf7a1b9b9bcc9e25b85eb6561",
+   "from_asset": "ZAMA",
+   "kind": "exchange",
+   "block": 26301907,
+   "time_utc": "2026-10-30T00:12:47Z",
+   "operation_id": "op_zama_to_eth_0084_0x447bad7a",
+   "session": 50,
+   "seq": 832,
+   "step": 925,
+   "source_position": "Transfer event #6",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0x447bad7ae76bcdec301ef7a52ab6d9759b42808cf7a1b9b9bcc9e25b85eb6561",
+   "tier": "verified"
+  },
+  {
+   "id": "op_zama_to_eth_0084_0x0ab9cf10:0",
+   "from": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "to": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "32.686099",
+   "tx": "0x0ab9cf108a4ba3185b2dafd6093961c1c959bc5fc55ca0ebe93a14eb9c345906",
+   "from_asset": "ZAMA",
+   "kind": "exchange",
+   "block": 26301910,
+   "time_utc": "2026-10-30T00:13:23Z",
+   "operation_id": "op_zama_to_eth_0084_0x0ab9cf10",
+   "session": 50,
+   "seq": 833,
+   "step": 925,
+   "source_position": "Transfer event #31",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0x0ab9cf108a4ba3185b2dafd6093961c1c959bc5fc55ca0ebe93a14eb9c345906",
+   "tier": "verified"
+  },
+  {
+   "id": "op_zama_to_eth_0084_0x4e2724fa:0",
+   "from": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "to": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "37.330225",
+   "tx": "0x4e2724faa651cc7860f9195190da304d3a23a3621025506880fd91ddaca2429d",
+   "from_asset": "ZAMA",
+   "kind": "exchange",
+   "block": 26301912,
+   "time_utc": "2026-10-30T00:13:47Z",
+   "operation_id": "op_zama_to_eth_0084_0x4e2724fa",
+   "session": 50,
+   "seq": 834,
+   "step": 925,
+   "source_position": "Transfer event #28",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0x4e2724faa651cc7860f9195190da304d3a23a3621025506880fd91ddaca2429d",
+   "tier": "verified"
+  },
+  {
+   "id": "op_zama_to_eth_0084_0xb8039738:0",
+   "from": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "to": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "46.814401",
+   "tx": "0xb80397381a1051879e9feb92daaf09df7b498ac821deedd98d6b5ba5f54cd8a2",
+   "from_asset": "ZAMA",
+   "kind": "exchange",
+   "block": 26301915,
+   "time_utc": "2026-10-30T00:14:23Z",
+   "operation_id": "op_zama_to_eth_0084_0xb8039738",
+   "session": 50,
+   "seq": 835,
+   "step": 925,
+   "source_position": "Transfer event #223",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xb80397381a1051879e9feb92daaf09df7b498ac821deedd98d6b5ba5f54cd8a2",
+   "tier": "verified"
+  },
+  {
+   "id": "op_zama_to_eth_0084_0xcb968ffb:0",
+   "from": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "to": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "77.615984",
+   "tx": "0xcb968ffbf2115110df56b138a058eb9a2444b4bf519234eaea588016171473f1",
+   "from_asset": "ZAMA",
+   "kind": "exchange",
+   "block": 26301923,
+   "time_utc": "2026-10-30T00:15:59Z",
+   "operation_id": "op_zama_to_eth_0084_0xcb968ffb",
+   "session": 50,
+   "seq": 836,
+   "step": 925,
+   "source_position": "Transfer event #326",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xcb968ffbf2115110df56b138a058eb9a2444b4bf519234eaea588016171473f1",
+   "tier": "verified"
+  },
+  {
+   "id": "op_zama_to_eth_0084_0xe7b91cf9:0",
+   "from": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "to": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "69.354115",
+   "tx": "0xe7b91cf98ce3b94b16077ea01c6805699ad2c69f2e8c1cba24f7f55bc8fc5833",
+   "from_asset": "ZAMA",
+   "kind": "exchange",
+   "block": 26301925,
+   "time_utc": "2026-10-30T00:16:23Z",
+   "operation_id": "op_zama_to_eth_0084_0xe7b91cf9",
+   "session": 50,
+   "seq": 837,
+   "step": 925,
+   "source_position": "Transfer event #1",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xe7b91cf98ce3b94b16077ea01c6805699ad2c69f2e8c1cba24f7f55bc8fc5833",
+   "tier": "verified"
+  },
+  {
+   "id": "op_zama_to_eth_0084_0xf5d3ddf8:0",
+   "from": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "to": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "76.882215",
+   "tx": "0xf5d3ddf83c8e8732c134c5bd465849ab7c62cc4ffdcd68c0f0d0fda2e547d47c",
+   "from_asset": "ZAMA",
+   "kind": "exchange",
+   "block": 26301938,
+   "time_utc": "2026-10-30T00:18:59Z",
+   "operation_id": "op_zama_to_eth_0084_0xf5d3ddf8",
+   "session": 50,
+   "seq": 838,
+   "step": 925,
+   "source_position": "Transfer event #1",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xf5d3ddf83c8e8732c134c5bd465849ab7c62cc4ffdcd68c0f0d0fda2e547d47c",
+   "tier": "verified"
+  },
+  {
+   "id": "op_zama_0084_5227_0x518c:0",
+   "from": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ZAMA",
+   "token": "0xa12cc123ba206d4031d1c7f6223d1c2ec249f4f3",
+   "amount": "53329985.141033",
+   "tx": "0x518c4245afc5d55987a242f062c5b91f15b68a37686b47a756bd572c7520d3c1",
+   "from_asset": null,
+   "kind": "transfer",
+   "block": 26302223,
+   "time_utc": "2026-10-30T01:16:23Z",
+   "operation_id": "op_zama_0084_5227_0x518c",
+   "session": 50,
+   "seq": 839,
+   "step": 925,
+   "source_position": "Transfer event #697",
+   "target_position": "Transfer event #697",
+   "tx_url": "https://etherscan.io/tx/0x518c4245afc5d55987a242f062c5b91f15b68a37686b47a756bd572c7520d3c1",
+   "tier": "verified"
+  },
+  {
+   "id": "op_zama_to_eth_0084_0x696149c4:0",
+   "from": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "to": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "15.706398",
+   "tx": "0x696149c4d4e0c9561988d3c31ab3c7025180eecf92a4cfd3f219e548abac9dfc",
+   "from_asset": "ZAMA",
+   "kind": "exchange",
+   "block": 26301917,
+   "time_utc": "2026-10-30T00:14:47Z",
+   "operation_id": "op_zama_to_eth_0084_0x696149c4",
+   "session": 50,
+   "seq": 840,
+   "step": 925,
+   "source_position": "Transfer event #1",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0x696149c4d4e0c9561988d3c31ab3c7025180eecf92a4cfd3f219e548abac9dfc",
+   "tier": "verified"
+  },
+  {
+   "id": "op_zama_to_eth_0084_0xb8c7a6db:0",
+   "from": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "to": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "40.639716",
+   "tx": "0xb8c7a6db761729a2da32d60be2ef439b57aff03d47de376f62aaa7031785166c",
+   "from_asset": "ZAMA",
+   "kind": "exchange",
+   "block": 26301920,
+   "time_utc": "2026-10-30T00:15:23Z",
+   "operation_id": "op_zama_to_eth_0084_0xb8c7a6db",
+   "session": 50,
+   "seq": 841,
+   "step": 925,
+   "source_position": "Transfer event #1",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xb8c7a6db761729a2da32d60be2ef439b57aff03d47de376f62aaa7031785166c",
+   "tier": "verified"
+  },
+  {
+   "id": "op_zama_to_eth_0084_0xef07e2d2:0",
+   "from": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "to": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "47.769514",
+   "tx": "0xef07e2d2140f9227e4ef0aaf88a74ea993944c5cb9e89bb745776998d4f02039",
+   "from_asset": "ZAMA",
+   "kind": "exchange",
+   "block": 26301928,
+   "time_utc": "2026-10-30T00:16:59Z",
+   "operation_id": "op_zama_to_eth_0084_0xef07e2d2",
+   "session": 50,
+   "seq": 842,
+   "step": 925,
+   "source_position": "Transfer event #36",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xef07e2d2140f9227e4ef0aaf88a74ea993944c5cb9e89bb745776998d4f02039",
+   "tier": "verified"
+  },
+  {
+   "id": "op_zama_to_eth_0084_0x60b040ad:0",
+   "from": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "to": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "39.749452",
+   "tx": "0x60b040ad3f00ac4c70bf171d507866b3e292b8a06bd274836d0a1a76e6f3fb81",
+   "from_asset": "ZAMA",
+   "kind": "exchange",
+   "block": 26301930,
+   "time_utc": "2026-10-30T00:17:23Z",
+   "operation_id": "op_zama_to_eth_0084_0x60b040ad",
+   "session": 50,
+   "seq": 843,
+   "step": 925,
+   "source_position": "Transfer event #1",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0x60b040ad3f00ac4c70bf171d507866b3e292b8a06bd274836d0a1a76e6f3fb81",
+   "tier": "verified"
+  },
+  {
+   "id": "op_zama_to_eth_0084_0xa8154d68:0",
+   "from": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "to": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "39.151271",
+   "tx": "0xa8154d6806cb681a8e1f72e9e62a561e944b4ec44989043af210cdda53b33d6e",
+   "from_asset": "ZAMA",
+   "kind": "exchange",
+   "block": 26301933,
+   "time_utc": "2026-10-30T00:17:59Z",
+   "operation_id": "op_zama_to_eth_0084_0xa8154d68",
+   "session": 50,
+   "seq": 844,
+   "step": 925,
+   "source_position": "Transfer event #49",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xa8154d6806cb681a8e1f72e9e62a561e944b4ec44989043af210cdda53b33d6e",
+   "tier": "verified"
+  },
+  {
+   "id": "op_zama_to_eth_0084_0x9a2865e1:0",
+   "from": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "to": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "7.486193",
+   "tx": "0x9a2865e1e971484be734c63c2e154149c707e61751ffedf2430fc9c86149f5e5",
+   "from_asset": "ZAMA",
+   "kind": "exchange",
+   "block": 26301936,
+   "time_utc": "2026-10-30T00:18:35Z",
+   "operation_id": "op_zama_to_eth_0084_0x9a2865e1",
+   "session": 50,
+   "seq": 845,
+   "step": 925,
+   "source_position": "Transfer event #408",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0x9a2865e1e971484be734c63c2e154149c707e61751ffedf2430fc9c86149f5e5",
+   "tier": "verified"
+  },
+  {
+   "id": "op_zama_to_eth_0084_0x953285ee:0",
+   "from": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "to": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "35.304249",
+   "tx": "0x953285ee792da18634ccd9d6e4520fa620e8791740588c5a23a9601b036ddc8d",
+   "from_asset": "ZAMA",
+   "kind": "exchange",
+   "block": 26301941,
+   "time_utc": "2026-10-30T00:19:35Z",
+   "operation_id": "op_zama_to_eth_0084_0x953285ee",
+   "session": 50,
+   "seq": 846,
+   "step": 925,
+   "source_position": "Transfer event #11",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0x953285ee792da18634ccd9d6e4520fa620e8791740588c5a23a9601b036ddc8d",
+   "tier": "verified"
+  },
+  {
+   "id": "op_zama_to_eth_0084_0xcf7371b1:0",
+   "from": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "to": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "43.789656",
+   "tx": "0xcf7371b15cb7273c02806778fafd4d953e7d16a8a49a41c46c29bf1eb87bc08b",
+   "from_asset": "ZAMA",
+   "kind": "exchange",
+   "block": 26301944,
+   "time_utc": "2026-10-30T00:20:11Z",
+   "operation_id": "op_zama_to_eth_0084_0xcf7371b1",
+   "session": 50,
+   "seq": 847,
+   "step": 925,
+   "source_position": "Transfer event #1",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xcf7371b15cb7273c02806778fafd4d953e7d16a8a49a41c46c29bf1eb87bc08b",
+   "tier": "verified"
+  },
+  {
+   "id": "op_zama_to_eth_0084_0xca4679fd:0",
+   "from": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "to": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "44.020153",
+   "tx": "0xca4679fda71539a96cb708059422cdfcbec7ec7a2c7f7f23cf0506748ef994f9",
+   "from_asset": "ZAMA",
+   "kind": "exchange",
+   "block": 26301947,
+   "time_utc": "2026-10-30T00:20:47Z",
+   "operation_id": "op_zama_to_eth_0084_0xca4679fd",
+   "session": 50,
+   "seq": 848,
+   "step": 925,
+   "source_position": "Transfer event #25",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xca4679fda71539a96cb708059422cdfcbec7ec7a2c7f7f23cf0506748ef994f9",
+   "tier": "verified"
+  },
+  {
+   "id": "op_zama_to_eth_0084_0x49cd945a:0",
+   "from": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "to": "0x0084847bb9384d2fc5e8836e663689467e3e4c81",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "40.768668",
+   "tx": "0x49cd945aee735c3c6177ae899077da7cc31278fbf9483bdaee49c88a83051bb2",
+   "from_asset": "ZAMA",
+   "kind": "exchange",
+   "block": 26301949,
+   "time_utc": "2026-10-30T00:21:11Z",
+   "operation_id": "op_zama_to_eth_0084_0x49cd945a",
+   "session": 50,
+   "seq": 849,
+   "step": 925,
+   "source_position": "Transfer event #1",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0x49cd945aee735c3c6177ae899077da7cc31278fbf9483bdaee49c88a83051bb2",
    "tier": "verified"
   },
   {
@@ -44904,6 +45303,590 @@
    ]
   },
   {
+   "id": "op_zama_to_eth_0084_0x9f826154",
+   "type": "exchange",
+   "claim": "exchange: 65.338261 ETH 0x0084\u20264c81 to 0x0084\u20264c81",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 50,
+   "seq": 831,
+   "step": 925,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_zama_to_eth_0084_0x9f826154:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x9f826154a943f3b91ee43b7ef3fe7843c931f9244f28255a3f52d72636323dcb",
+     "url": "https://etherscan.io/tx/0x9f826154a943f3b91ee43b7ef3fe7843c931f9244f28255a3f52d72636323dcb#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x9f826154a943f3b91ee43b7ef3fe7843c931f9244f28255a3f52d72636323dcb",
+     "url": "https://etherscan.io/tx/0x9f826154a943f3b91ee43b7ef3fe7843c931f9244f28255a3f52d72636323dcb#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_zama_to_eth_0084_0x447bad7a",
+   "type": "exchange",
+   "claim": "exchange: 30.497522 ETH 0x0084\u20264c81 to 0x0084\u20264c81",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 50,
+   "seq": 832,
+   "step": 925,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_zama_to_eth_0084_0x447bad7a:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x447bad7ae76bcdec301ef7a52ab6d9759b42808cf7a1b9b9bcc9e25b85eb6561",
+     "url": "https://etherscan.io/tx/0x447bad7ae76bcdec301ef7a52ab6d9759b42808cf7a1b9b9bcc9e25b85eb6561#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x447bad7ae76bcdec301ef7a52ab6d9759b42808cf7a1b9b9bcc9e25b85eb6561",
+     "url": "https://etherscan.io/tx/0x447bad7ae76bcdec301ef7a52ab6d9759b42808cf7a1b9b9bcc9e25b85eb6561#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_zama_to_eth_0084_0x0ab9cf10",
+   "type": "exchange",
+   "claim": "exchange: 32.686099 ETH 0x0084\u20264c81 to 0x0084\u20264c81",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 50,
+   "seq": 833,
+   "step": 925,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_zama_to_eth_0084_0x0ab9cf10:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x0ab9cf108a4ba3185b2dafd6093961c1c959bc5fc55ca0ebe93a14eb9c345906",
+     "url": "https://etherscan.io/tx/0x0ab9cf108a4ba3185b2dafd6093961c1c959bc5fc55ca0ebe93a14eb9c345906#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x0ab9cf108a4ba3185b2dafd6093961c1c959bc5fc55ca0ebe93a14eb9c345906",
+     "url": "https://etherscan.io/tx/0x0ab9cf108a4ba3185b2dafd6093961c1c959bc5fc55ca0ebe93a14eb9c345906#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_zama_to_eth_0084_0x4e2724fa",
+   "type": "exchange",
+   "claim": "exchange: 37.330225 ETH 0x0084\u20264c81 to 0x0084\u20264c81",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 50,
+   "seq": 834,
+   "step": 925,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_zama_to_eth_0084_0x4e2724fa:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x4e2724faa651cc7860f9195190da304d3a23a3621025506880fd91ddaca2429d",
+     "url": "https://etherscan.io/tx/0x4e2724faa651cc7860f9195190da304d3a23a3621025506880fd91ddaca2429d#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x4e2724faa651cc7860f9195190da304d3a23a3621025506880fd91ddaca2429d",
+     "url": "https://etherscan.io/tx/0x4e2724faa651cc7860f9195190da304d3a23a3621025506880fd91ddaca2429d#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_zama_to_eth_0084_0xb8039738",
+   "type": "exchange",
+   "claim": "exchange: 46.814401 ETH 0x0084\u20264c81 to 0x0084\u20264c81",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 50,
+   "seq": 835,
+   "step": 925,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_zama_to_eth_0084_0xb8039738:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xb80397381a1051879e9feb92daaf09df7b498ac821deedd98d6b5ba5f54cd8a2",
+     "url": "https://etherscan.io/tx/0xb80397381a1051879e9feb92daaf09df7b498ac821deedd98d6b5ba5f54cd8a2#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xb80397381a1051879e9feb92daaf09df7b498ac821deedd98d6b5ba5f54cd8a2",
+     "url": "https://etherscan.io/tx/0xb80397381a1051879e9feb92daaf09df7b498ac821deedd98d6b5ba5f54cd8a2#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_zama_to_eth_0084_0xcb968ffb",
+   "type": "exchange",
+   "claim": "exchange: 77.615984 ETH 0x0084\u20264c81 to 0x0084\u20264c81",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 50,
+   "seq": 836,
+   "step": 925,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_zama_to_eth_0084_0xcb968ffb:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xcb968ffbf2115110df56b138a058eb9a2444b4bf519234eaea588016171473f1",
+     "url": "https://etherscan.io/tx/0xcb968ffbf2115110df56b138a058eb9a2444b4bf519234eaea588016171473f1#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xcb968ffbf2115110df56b138a058eb9a2444b4bf519234eaea588016171473f1",
+     "url": "https://etherscan.io/tx/0xcb968ffbf2115110df56b138a058eb9a2444b4bf519234eaea588016171473f1#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_zama_to_eth_0084_0xe7b91cf9",
+   "type": "exchange",
+   "claim": "exchange: 69.354115 ETH 0x0084\u20264c81 to 0x0084\u20264c81",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 50,
+   "seq": 837,
+   "step": 925,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_zama_to_eth_0084_0xe7b91cf9:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xe7b91cf98ce3b94b16077ea01c6805699ad2c69f2e8c1cba24f7f55bc8fc5833",
+     "url": "https://etherscan.io/tx/0xe7b91cf98ce3b94b16077ea01c6805699ad2c69f2e8c1cba24f7f55bc8fc5833#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xe7b91cf98ce3b94b16077ea01c6805699ad2c69f2e8c1cba24f7f55bc8fc5833",
+     "url": "https://etherscan.io/tx/0xe7b91cf98ce3b94b16077ea01c6805699ad2c69f2e8c1cba24f7f55bc8fc5833#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_zama_to_eth_0084_0xf5d3ddf8",
+   "type": "exchange",
+   "claim": "exchange: 76.882215 ETH 0x0084\u20264c81 to 0x0084\u20264c81",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 50,
+   "seq": 838,
+   "step": 925,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_zama_to_eth_0084_0xf5d3ddf8:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xf5d3ddf83c8e8732c134c5bd465849ab7c62cc4ffdcd68c0f0d0fda2e547d47c",
+     "url": "https://etherscan.io/tx/0xf5d3ddf83c8e8732c134c5bd465849ab7c62cc4ffdcd68c0f0d0fda2e547d47c#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xf5d3ddf83c8e8732c134c5bd465849ab7c62cc4ffdcd68c0f0d0fda2e547d47c",
+     "url": "https://etherscan.io/tx/0xf5d3ddf83c8e8732c134c5bd465849ab7c62cc4ffdcd68c0f0d0fda2e547d47c#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_zama_0084_5227_0x518c",
+   "type": "transfer",
+   "claim": "transfer: 53329985.141033 ZAMA 0x0084\u20264c81 to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0xa12cc123ba206d4031d1c7f6223d1c2ec249f4f3",
+    "name": "ZamaERC20",
+    "function": "transfer",
+    "explorer": "https://etherscan.io/address/0xa12cc123ba206d4031d1c7f6223d1c2ec249f4f3"
+   },
+   "session": 50,
+   "seq": 839,
+   "step": 925,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_zama_0084_5227_0x518c:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x518c4245afc5d55987a242f062c5b91f15b68a37686b47a756bd572c7520d3c1",
+     "url": "https://etherscan.io/tx/0x518c4245afc5d55987a242f062c5b91f15b68a37686b47a756bd572c7520d3c1#eventlog"
+    }
+   ]
+  },
+  {
+   "id": "op_zama_to_eth_0084_0x696149c4",
+   "type": "exchange",
+   "claim": "exchange: 15.706398 ETH 0x0084\u20264c81 to 0x0084\u20264c81",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 50,
+   "seq": 840,
+   "step": 925,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_zama_to_eth_0084_0x696149c4:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x696149c4d4e0c9561988d3c31ab3c7025180eecf92a4cfd3f219e548abac9dfc",
+     "url": "https://etherscan.io/tx/0x696149c4d4e0c9561988d3c31ab3c7025180eecf92a4cfd3f219e548abac9dfc#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x696149c4d4e0c9561988d3c31ab3c7025180eecf92a4cfd3f219e548abac9dfc",
+     "url": "https://etherscan.io/tx/0x696149c4d4e0c9561988d3c31ab3c7025180eecf92a4cfd3f219e548abac9dfc#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_zama_to_eth_0084_0xb8c7a6db",
+   "type": "exchange",
+   "claim": "exchange: 40.639716 ETH 0x0084\u20264c81 to 0x0084\u20264c81",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 50,
+   "seq": 841,
+   "step": 925,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_zama_to_eth_0084_0xb8c7a6db:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xb8c7a6db761729a2da32d60be2ef439b57aff03d47de376f62aaa7031785166c",
+     "url": "https://etherscan.io/tx/0xb8c7a6db761729a2da32d60be2ef439b57aff03d47de376f62aaa7031785166c#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xb8c7a6db761729a2da32d60be2ef439b57aff03d47de376f62aaa7031785166c",
+     "url": "https://etherscan.io/tx/0xb8c7a6db761729a2da32d60be2ef439b57aff03d47de376f62aaa7031785166c#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_zama_to_eth_0084_0xef07e2d2",
+   "type": "exchange",
+   "claim": "exchange: 47.769514 ETH 0x0084\u20264c81 to 0x0084\u20264c81",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 50,
+   "seq": 842,
+   "step": 925,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_zama_to_eth_0084_0xef07e2d2:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xef07e2d2140f9227e4ef0aaf88a74ea993944c5cb9e89bb745776998d4f02039",
+     "url": "https://etherscan.io/tx/0xef07e2d2140f9227e4ef0aaf88a74ea993944c5cb9e89bb745776998d4f02039#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xef07e2d2140f9227e4ef0aaf88a74ea993944c5cb9e89bb745776998d4f02039",
+     "url": "https://etherscan.io/tx/0xef07e2d2140f9227e4ef0aaf88a74ea993944c5cb9e89bb745776998d4f02039#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_zama_to_eth_0084_0x60b040ad",
+   "type": "exchange",
+   "claim": "exchange: 39.749452 ETH 0x0084\u20264c81 to 0x0084\u20264c81",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 50,
+   "seq": 843,
+   "step": 925,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_zama_to_eth_0084_0x60b040ad:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x60b040ad3f00ac4c70bf171d507866b3e292b8a06bd274836d0a1a76e6f3fb81",
+     "url": "https://etherscan.io/tx/0x60b040ad3f00ac4c70bf171d507866b3e292b8a06bd274836d0a1a76e6f3fb81#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x60b040ad3f00ac4c70bf171d507866b3e292b8a06bd274836d0a1a76e6f3fb81",
+     "url": "https://etherscan.io/tx/0x60b040ad3f00ac4c70bf171d507866b3e292b8a06bd274836d0a1a76e6f3fb81#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_zama_to_eth_0084_0xa8154d68",
+   "type": "exchange",
+   "claim": "exchange: 39.151271 ETH 0x0084\u20264c81 to 0x0084\u20264c81",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 50,
+   "seq": 844,
+   "step": 925,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_zama_to_eth_0084_0xa8154d68:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xa8154d6806cb681a8e1f72e9e62a561e944b4ec44989043af210cdda53b33d6e",
+     "url": "https://etherscan.io/tx/0xa8154d6806cb681a8e1f72e9e62a561e944b4ec44989043af210cdda53b33d6e#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xa8154d6806cb681a8e1f72e9e62a561e944b4ec44989043af210cdda53b33d6e",
+     "url": "https://etherscan.io/tx/0xa8154d6806cb681a8e1f72e9e62a561e944b4ec44989043af210cdda53b33d6e#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_zama_to_eth_0084_0x9a2865e1",
+   "type": "exchange",
+   "claim": "exchange: 7.486193 ETH 0x0084\u20264c81 to 0x0084\u20264c81",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 50,
+   "seq": 845,
+   "step": 925,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_zama_to_eth_0084_0x9a2865e1:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x9a2865e1e971484be734c63c2e154149c707e61751ffedf2430fc9c86149f5e5",
+     "url": "https://etherscan.io/tx/0x9a2865e1e971484be734c63c2e154149c707e61751ffedf2430fc9c86149f5e5#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x9a2865e1e971484be734c63c2e154149c707e61751ffedf2430fc9c86149f5e5",
+     "url": "https://etherscan.io/tx/0x9a2865e1e971484be734c63c2e154149c707e61751ffedf2430fc9c86149f5e5#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_zama_to_eth_0084_0x953285ee",
+   "type": "exchange",
+   "claim": "exchange: 35.304249 ETH 0x0084\u20264c81 to 0x0084\u20264c81",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 50,
+   "seq": 846,
+   "step": 925,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_zama_to_eth_0084_0x953285ee:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x953285ee792da18634ccd9d6e4520fa620e8791740588c5a23a9601b036ddc8d",
+     "url": "https://etherscan.io/tx/0x953285ee792da18634ccd9d6e4520fa620e8791740588c5a23a9601b036ddc8d#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x953285ee792da18634ccd9d6e4520fa620e8791740588c5a23a9601b036ddc8d",
+     "url": "https://etherscan.io/tx/0x953285ee792da18634ccd9d6e4520fa620e8791740588c5a23a9601b036ddc8d#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_zama_to_eth_0084_0xcf7371b1",
+   "type": "exchange",
+   "claim": "exchange: 43.789656 ETH 0x0084\u20264c81 to 0x0084\u20264c81",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 50,
+   "seq": 847,
+   "step": 925,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_zama_to_eth_0084_0xcf7371b1:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xcf7371b15cb7273c02806778fafd4d953e7d16a8a49a41c46c29bf1eb87bc08b",
+     "url": "https://etherscan.io/tx/0xcf7371b15cb7273c02806778fafd4d953e7d16a8a49a41c46c29bf1eb87bc08b#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xcf7371b15cb7273c02806778fafd4d953e7d16a8a49a41c46c29bf1eb87bc08b",
+     "url": "https://etherscan.io/tx/0xcf7371b15cb7273c02806778fafd4d953e7d16a8a49a41c46c29bf1eb87bc08b#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_zama_to_eth_0084_0xca4679fd",
+   "type": "exchange",
+   "claim": "exchange: 44.020153 ETH 0x0084\u20264c81 to 0x0084\u20264c81",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 50,
+   "seq": 848,
+   "step": 925,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_zama_to_eth_0084_0xca4679fd:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xca4679fda71539a96cb708059422cdfcbec7ec7a2c7f7f23cf0506748ef994f9",
+     "url": "https://etherscan.io/tx/0xca4679fda71539a96cb708059422cdfcbec7ec7a2c7f7f23cf0506748ef994f9#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xca4679fda71539a96cb708059422cdfcbec7ec7a2c7f7f23cf0506748ef994f9",
+     "url": "https://etherscan.io/tx/0xca4679fda71539a96cb708059422cdfcbec7ec7a2c7f7f23cf0506748ef994f9#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_zama_to_eth_0084_0x49cd945a",
+   "type": "exchange",
+   "claim": "exchange: 40.768668 ETH 0x0084\u20264c81 to 0x0084\u20264c81",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 50,
+   "seq": 849,
+   "step": 925,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_zama_to_eth_0084_0x49cd945a:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x49cd945aee735c3c6177ae899077da7cc31278fbf9483bdaee49c88a83051bb2",
+     "url": "https://etherscan.io/tx/0x49cd945aee735c3c6177ae899077da7cc31278fbf9483bdaee49c88a83051bb2#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x49cd945aee735c3c6177ae899077da7cc31278fbf9483bdaee49c88a83051bb2",
+     "url": "https://etherscan.io/tx/0x49cd945aee735c3c6177ae899077da7cc31278fbf9483bdaee49c88a83051bb2#internal"
+    }
+   ]
+  },
+  {
    "id": "op_eth_00fc_091d_0x6529",
    "type": "transfer",
    "claim": "transfer: 9.998 ETH 0x00fc\u2026223e to 0x091d\u202628ce",
@@ -50899,8 +51882,10 @@
    "Served full FUN outflow coverage for 0x06ea this session: events.search returned 155 outgoing FUN logs in full window, 102 were in persisted top/remain batch files, and 52 positives were not in those files. Of the 52, one large transfer back to 0x5227 (tx 0x89771e... log548) was already recorded; I served receipts/traces for the other 51 and recorded them as FUN->ETH swaps back to 0x06ea (ops chunks 0-2, tx 0xfadb687d... through 0xab2b4c5b...). Thus all positive 0x06ea FUN outflows in the current window are now recorded.",
    "New session over ethereum blocks 26300770-26314736 and bitcoin 973732-974006. Continuing from authoritative STATE; will prioritize open lead_0x06ea_FUN_remaining and largest outflow-check gaps, fetching fresh evidence before recording new operations.",
    "Observed account_overview for 0x06ea1ab3ecf570029eb1f94dbb9eac06bc79685f ETH through block 26314736: ETH in 111976898178837364609, out 111851000000000000000 in exactly 2 transfers, both to 0x79e70d139fc05aa75f75611fdf2680e9952b544a at blocks 26303512/26303516. These correspond to already recorded txs 0x784de5... (0.1 ETH) and 0x7877fe... (111.751 ETH); residual dust rests at 0x06ea.",
-   "Served receipts+account traces for the 15 0x06ea FUN outflows that outflow check still reported (txs 0x3f7379, 0x284940, 0x6e3e9f, 0x972162, 0x985711, 0x3df22c, 0x649ae8, 0xb629e9, 0x126ca4, 0x538247, 0xdb3b59, 0x08bcb3, 0xa6208e, 0x788720, 0xf39e0a). Each receipt status 1 shows FUN Transfer from 0x06ea to 0x05b0c1d8839ef3a989b33b6b63d3aa96cb7ec142, and each account trace shows ETH returned to 0x06ea at trace [6]."
+   "Served receipts+account traces for the 15 0x06ea FUN outflows that outflow check still reported (txs 0x3f7379, 0x284940, 0x6e3e9f, 0x972162, 0x985711, 0x3df22c, 0x649ae8, 0xb629e9, 0x126ca4, 0x538247, 0xdb3b59, 0x08bcb3, 0xa6208e, 0x788720, 0xf39e0a). Each receipt status 1 shows FUN Transfer from 0x06ea to 0x05b0c1d8839ef3a989b33b6b63d3aa96cb7ec142, and each account trace shows ETH returned to 0x06ea at trace [6].",
+   "Served account.activity for 0x0084847bb9384d2fc5e8836e663689467e3e4c81 and receipts+account traces for 20 ZAMA outflow txs. 18 txs are ZAMA->ETH swaps returning ETH to 0x0084 at trace [1,2]; one tx 0xa6fd4c is ZAMA->USDT returning USDT log307 amount 31583536767; final tx 0x518c42 sends remaining ZAMA 53329985141033078226334547 back to 0x5227 at log697. Recorded first subset; remaining ZAMA ops need recording from /work/zama0084_ops.json/run output.",
+   "Observed account_overview for 0x0084847bb9384d2fc5e8836e663689467e3e4c81 ETH through block 26314736: ETH in 806402465616546596850 (including 804902464615146596850 from 19 router swap returns at blocks 26301901-26301971), out 806346308088895848193 in exactly three transfers: two to 0x8d4b8ee... at blocks 26302105/26302255 already recorded and one 48900000000000000 wei back to 0x5227 at block 26307334 already recorded. Residual dust rests at 0x0084."
   ],
-  "total_steps": 925
+  "total_steps": 926
  }
 }
