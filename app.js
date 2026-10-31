@@ -634,6 +634,7 @@
     { selector: 'node[frozenMark > 0]', style: { 'border-style': 'double', 'border-width': 5 } },
     { selector: 'node[freezableMark > 0]', style: { 'border-style': 'solid', 'border-width': 3, 'border-color': C.signal, 'underlay-color': C.signal, 'underlay-opacity': 0.18, 'underlay-padding': 6 } },
     { selector: 'node.pulse', style: { 'underlay-opacity': 0.13 } },
+    { selector: 'node.dim, node.ldim', style: { 'underlay-opacity': 0 } },
     { selector: 'node.sel', style: { 'underlay-color': C.ink, 'underlay-opacity': 0.22, 'underlay-padding': 5 } },
     { selector: 'node.hover', style: { 'underlay-color': C.amber, 'underlay-opacity': 0.4, 'underlay-padding': 7, 'transition-duration': 0.15 } },
 
@@ -1079,14 +1080,8 @@
     function fill(p, cls) {
       return el('span', { class: cls + ' cov-fill ' + p.key, 'data-key': p.key, style: p.color ? 'background:' + p.color : null });
     }
-    var taken = totals(roleSum('victim', view.outflow));
     append(box, [
       el('div', { class: 'cov-title' }, 'Where the ' + usd(total) + ' taken is now'),
-      taken.length ? (function () {
-        var line = amounts('taken', taken, 4, 'cov-taken');
-        line.insertBefore(document.createTextNode('Taken on ' + chainsText() + ': '), line.firstChild);
-        return line;
-      })() : null,
       el('div', { class: 'cov-bar', role: 'img', 'aria-label': parts.map(function (p) { return p.label + ' ' + pct(p.v); }).join(', ') },
         parts.map(function (p) {
           var seg = fill(p, 'cov-seg');
@@ -1123,6 +1118,56 @@
     });
   }
 
+
+  // What was taken, by chain: a bar in the chains' hues and a chip per chain; click a chip for its assets.
+  // Chains the trace does not read yet are drawn faded with a dashed outline, as in the coverage bar.
+  function renderChainOverview() {
+    var box = $('chain-overview');
+    if (!box) return;
+    clear(box);
+    var rows = (S.coverage && S.coverage.by_chain) || [];
+    box.hidden = !rows.length;
+    if (!rows.length) return;
+    var total = rows.reduce(function (t, r) { return t + (Number(r.usd) || 0); }, 0);
+    function pct(v) { var x = 100 * v / total; return (x > 0 && x < 0.1 ? '<0.1' : x.toFixed(x < 10 ? 1 : 0)) + '%'; }
+    function assetsText(r) { return (r.assets || []).slice(0, 4).map(function (a) { return fmt(a.amount, 2) + ' ' + a.symbol; }).join(', '); }
+    var open = rows.filter(function (r) { return r.chain === S.coChain; })[0];
+    append(box, [
+      el('div', { class: 'co-title' }, 'Taken on ' + rows.length + ' chains', el('b', null, usd(total))),
+      el('div', { class: 'co-bar' }, rows.map(function (r) {
+        var ch = chainInfo(r.chain);
+        return el('span', { class: 'co-seg' + (r.traced ? '' : ' untraced'), 'data-chain': r.chain,
+          style: 'width:' + (100 * r.usd / total) + '%;background:' + ch.color,
+          title: (str(r.name) || ch.name) + ': ' + usd(r.usd) + ' (' + pct(r.usd) + ')' + (r.traced ? '' : ', not traced yet') + '\n' + assetsText(r) });
+      })),
+      el('div', { class: 'co-chips' }, rows.map(function (r) {
+        var ch = chainInfo(r.chain);
+        return el('button', { type: 'button', class: 'co-chip' + (r.traced ? '' : ' untraced') + (r.chain === S.coChain ? ' on' : ''),
+          'data-chain': r.chain, title: (str(r.name) || ch.name) + (r.traced ? '' : ' (not traced yet)'), style: 'color:' + ch.color,
+          onclick: function () { S.coChain = S.coChain === r.chain ? null : r.chain; renderChainOverview(); } },
+          ch.code, el('b', null, usd(r.usd)));
+      })),
+      open ? (function () {
+        var key = 'chain:' + open.chain, all = S.covOpen && S.covOpen.has(key), list = open.assets || [];
+        var shown = all ? list : list.slice(0, 5);
+        return el('div', { class: 'co-detail' }, el('span', null, (str(open.name) || chainInfo(open.chain).name) + (open.traced ? ':' : ' (not traced yet):')),
+          shown.map(function (a) { return el('span', { class: 'amt' }, fmt(a.amount, 2), el('span', { class: 'asset' }, a.symbol)); }),
+          list.length > 5 ? el('button', { type: 'button', class: 'cov-more', onclick: function () {
+            S.covOpen = S.covOpen || new Set();
+            if (S.covOpen.has(key)) S.covOpen.delete(key); else S.covOpen.add(key);
+            renderChainOverview();
+          } }, all ? 'fewer' : '+' + (list.length - 5) + ' more') : null);
+      })() : null
+    ]);
+    Array.prototype.forEach.call(box.querySelectorAll('[data-chain]'), function (e) {
+      var c = e.getAttribute('data-chain');
+      e.addEventListener('mouseenter', function () {
+        box.classList.add('focusing');
+        Array.prototype.forEach.call(box.querySelectorAll('.co-seg'), function (x) { x.classList.toggle('on', x.getAttribute('data-chain') === c); });
+      });
+      e.addEventListener('mouseleave', function () { box.classList.remove('focusing'); });
+    });
+  }
 
   function dormantTotals(view) {
     var m = new Map();
@@ -1325,7 +1370,7 @@
     S.pulseTimer = setInterval(function () {
       if (!S.cy) return;
       on = !on;
-      if (on) S.cy.nodes('.r-open, .frontier').not('.gone').addClass('pulse');
+      if (on) S.cy.nodes('.r-open, .frontier').not('.gone, .dim, .ldim').addClass('pulse');
       else S.cy.nodes('.pulse').removeClass('pulse');
     }, 1200);
   }
@@ -2621,6 +2666,7 @@
   function runLayout(animate, done) { layoutGraph(animate, done); }
 
   var BAND = { pad: 26, title: 22, sep: 18, gap: 26, empty: 34 };
+  function isBridge(id) { var n = S.nodes.get(id); return !!n && n.role === 'stop' && BRIDGE_CLASSES.indexOf(n.stopClass) !== -1; }
   function grouping() { return S.groupChains && !NARROW; }
   function layoutGraph(animate, done) {
     var cy = S.cy;
@@ -2700,17 +2746,28 @@
         if (!cols.has(k)) cols.set(k, []);
         cols.get(k).push(n);
       });
-      var top = y + BAND.title + BAND.pad / 2, deepest = top;
+      var top = y + BAND.title + BAND.pad / 2, deepest = top, bridges = [];
       cols.forEach(function (ns) {
         ns.sort(function (a, b) { return target[a.id()].y - target[b.id()].y; });
         var at = top;
-        ns.forEach(function (n) { target[n.id()].y = at + n.height() / 2; at += n.height() + BAND.sep; });
+        ns.forEach(function (n) {
+          if (isBridge(n.id())) { bridges.push(n); return; }
+          target[n.id()].y = at + n.height() / 2; at += n.height() + BAND.sep;
+        });
         deepest = Math.max(deepest, at - BAND.sep);
       });
-      var ch = chainInfo(c);
+      var ch = chainInfo(c), y1 = y, y2 = deepest + BAND.pad;
+      // a bridge sits on the band's edge (its column kept), the upper edge when it leads to a chain above
+      bridges.forEach(function (n) {
+        var up = n.outgoers('node').some(function (m) {
+          var mc = lc((S.nodes.get(m.id()) || {}).chain || 'ethereum');
+          return chains.indexOf(mc) !== -1 && chains.indexOf(mc) < chains.indexOf(c);
+        });
+        target[n.id()].y = up ? y1 : y2;
+      });
       bands.push({ chain: c, color: ch.color, label: ch.name.toUpperCase() + ' · ' + plural(by.get(c).length, 'address', 'addresses'),
-        x1: x1, x2: x2, y1: y, y2: deepest + BAND.pad });
-      y = deepest + BAND.pad + BAND.gap;
+        x1: x1, x2: x2, y1: y1, y2: y2 });
+      y = y2 + BAND.gap + (bridges.length ? 24 : 0);
     });
     // an empty band keeps a readable height when the whole graph is in view
     var emptyH = Math.max(BAND.empty, y * 0.022);
@@ -2821,6 +2878,7 @@
     renderHeader();
     renderNotes();
     renderCoverage();
+    renderChainOverview();
     renderComingSoon();
     renderLegend();
     renderWorkspace();
@@ -3074,6 +3132,7 @@
       startPulse();
       safe('notes', renderNotes);
       safe('coverage', renderCoverage);
+      safe('chains', renderChainOverview);
       if (!EMBED) { startLive(); loadTrajectory(); loadHighlights(); }
       // A screenshot frame skips the timeline but still shows the model cost from the small index.
       else fetchJson(TRAJ_INDEX_URL).then(function (idx) {
