@@ -22,7 +22,9 @@
   var EMBED = PARAMS.get('embed') === '1';
   var SPLIT_ASSETS = PARAMS.get('split') === 'asset';
   var DATA_URL = safeDataPath(PARAMS.get('data')) || 'data/graph.json';
-  var POLL_MS = 2 * 60 * 1000; // live updates: check for a new export every two minutes
+  var POLL_MS = 2 * 60 * 1000; // live updates: check for a new export every two minutes,
+  var POLL_TRACING_MS = 60 * 1000; // and every minute while the agent is tracing
+  function pollMs() { return LIVE.status && LIVE.status.state === 'tracing' ? POLL_TRACING_MS : POLL_MS; }
   var PLAY_EVENT_MS = 1200;   // pause on a step that adds flows
   var PLAY_IDLE_MS = 140;     // pass quickly over steps that add nothing
   var MAX_LABEL_LINES = 4;
@@ -2646,7 +2648,7 @@
     var box = $('live-status');
     if (!box || EMBED) return;
     var ago = agoText(S.caseInfo.updated_utc);
-    box.textContent = (ago ? 'Updated ' + ago + ' · ' : '') + (LIVE.failed ? 'could not check for updates, trying again' : 'checks every ' + Math.round(POLL_MS / 60000) + ' min');
+    box.textContent = (ago ? 'Updated ' + ago + ' · ' : '') + (LIVE.failed ? 'could not check for updates, trying again' : pollMs() < POLL_MS ? 'checks every minute' : 'checks every ' + Math.round(POLL_MS / 60000) + ' min');
     box.hidden = false;
   }
 
@@ -2868,6 +2870,54 @@
     return p.then(done, function (err) { if (window.console) console.warn('Live tracker: timeline refresh failed', err); });
   }
 
+  // New flows from a live update: one card each (newest first, up to NEWS_MAX), a click opens the flow;
+  // the rest as one "+N more" card that goes to the flows table. Cards leave after NEWS_MS unless hovered.
+  var NEWS_MAX = 3, NEWS_MS = 20000;
+  function showNews(ids) {
+    var box = $('news');
+    if (!box || EMBED) return;
+    var want = new Set(ids);
+    var list = S.edges.filter(function (e) { return want.has(e.id); }).sort(function (a, b) { return b.step - a.step; });
+    clear(box);
+    function card(main, sub, kicker, open, label) {
+      var c = el('div', { class: 'news-card' });
+      var b = el('button', { type: 'button', class: 'news-open', 'aria-label': label },
+        kicker ? el('span', { class: 'news-kicker' }, kicker) : null,
+        el('span', { class: 'news-main' }, main),
+        sub ? el('span', { class: 'news-sub' }, sub) : null);
+      b.addEventListener('click', function () { open(); c.remove(); });
+      var x = el('button', { type: 'button', class: 'news-x', 'aria-label': 'Dismiss' }, '\u00d7');
+      x.addEventListener('click', function () { c.remove(); });
+      append(c, [b, x]);
+      var timer = null;
+      function later() { timer = setTimeout(function () { c.remove(); }, NEWS_MS); }
+      c.addEventListener('mouseenter', function () { clearTimeout(timer); });
+      c.addEventListener('mouseleave', later);
+      later();
+      box.appendChild(c);
+    }
+    // flows between the same two addresses in the same asset make one card, with their total
+    var groups = [], byKey = new Map();
+    list.forEach(function (e) {
+      var k = e.from + '|' + e.to + '|' + e.asset, g = byKey.get(k);
+      if (!g) { g = { edges: [], sum: 0 }; byKey.set(k, g); groups.push(g); }
+      g.edges.push(e);
+      if (Number.isFinite(e.amount)) g.sum += e.amount;
+    });
+    groups.slice(0, NEWS_MAX).forEach(function (g) {
+      var e = g.edges[0], n = g.edges.length;
+      var main = fmt(g.sum) + ' ' + (e.swap ? e.toAsset : e.asset);
+      var sub = e.swap ? (n > 1 ? plural(n, 'swap') + ' from ' : 'Swapped from ') + e.fromAsset + ' at ' + nameOf(e.from)
+        : nameOf(e.from) + ' to ' + nameOf(e.to);
+      var kicker = (n > 1 ? plural(n, 'new flow') : 'New flow') + ' · step ' + e.step;
+      card(main, sub, kicker, function () { openFlowRow({ edge: e, swap: e.swap, verdict: verdictOf(e) }); }, kicker + ': ' + main + ', ' + sub);
+    });
+    var rest = groups.slice(NEWS_MAX).reduce(function (a, g) { return a + g.edges.length; }, 0);
+    if (rest > 0) card('+' + plural(rest, 'more new flow'), null, null, function () {
+      $('flows').scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block: 'start' });
+    }, '+' + plural(rest, 'more new flow') + ', in the flows table');
+  }
+
   function applyUpdate(raw) {
     var prev = {
       follow: S.step >= S.total, step: S.step, selected: S.selected, tab: activeTab(),
@@ -2902,7 +2952,7 @@
     markFresh(fresh, added);
     renderFlowTable();
     $('ft-scroll').scrollTop = prev.ft;
-    if (fresh.length) toast('+' + plural(fresh.length, 'new flow'), 5000);
+    if (fresh.length) showNews(fresh);
     return prev;
   }
 
@@ -2912,7 +2962,7 @@
   function loadStatus() {
     if (!STATUS_URL || EMBED && !PARAMS.get('status')) return Promise.resolve();
     return fetchJson(STATUS_URL).then(function (st) { LIVE.status = st && typeof st === 'object' ? st : null; }, function () { LIVE.status = null; })
-      .then(renderStatusBadge);
+      .then(function () { renderStatusBadge(); renderLiveStatus(); });
   }
   function hhmm(iso) { var d = parseTime(iso); return d ? pad(d.getUTCHours()) + ':' + pad(d.getUTCMinutes()) + ' UTC' : null; }
   // Model cost against the night's cap, from the scheduler's status file.
@@ -2936,7 +2986,10 @@
     var state = !hb || Date.now() - hb.getTime() > STALE_MS ? 'stopped' : String(st.state || 'stopped');
     var text;
     if (state === 'tracing') text = 'I\'m tracing now';
-    else if (state === 'waiting') text = hhmm(st.next_wave_utc) ? 'Next round around ' + hhmm(st.next_wave_utc) : 'Waiting for the next round';
+    else if (state === 'waiting') {
+      var next = parseTime(st.next_wave_utc);
+      text = !next ? 'Waiting for the next round' : next.getTime() <= Date.now() ? 'Starting the next round' : 'Next round around ' + hhmm(st.next_wave_utc);
+    }
     else if (state === 'paused_budget') text = 'Paused: I\'ve hit my token cap for now. Waiting for a human to wake up and top it up.';
     else { state = 'stopped'; text = 'Not running right now'; }
     badge.textContent = text;
@@ -3000,11 +3053,11 @@
     if (EMBED) return;
     renderLiveStatus();
     loadStatus();
-    setInterval(function () { poll(false); }, POLL_MS);
+    (function next() { setTimeout(function () { poll(false).then(next, next); }, pollMs()); })();
     setInterval(function () { renderLiveStatus(); renderStatusBadge(); }, 30000);
     // A tab that comes back after a while checks right away.
     document.addEventListener('visibilitychange', function () {
-      if (!document.hidden && Date.now() - LIVE.lastCheck > POLL_MS) poll(true);
+      if (!document.hidden && Date.now() - LIVE.lastCheck > pollMs()) poll(true);
     });
   }
 
@@ -3185,7 +3238,7 @@
         T.costNote = str(idx && idx.cost_note);
         safe('stats', function () { renderStats(S.view); });
       }, function () { /* no index: the stat stays "Not yet" */ });
-      if (PARAMS.get('debug') === '1') window.__abf = { state: S, select: select, apply: apply, focusNode: focusNode, viewAt: viewAt, markNode: markNode, markLeads: markLeads, traj: T, setTab: setTab, showInTimeline: showInTimeline, poll: poll, live: LIVE, report: R, openReport: openReport, flowTarget: flowTarget, buildIssueUrl: buildIssueUrl };
+      if (PARAMS.get('debug') === '1') window.__abf = { state: S, select: select, apply: apply, focusNode: focusNode, viewAt: viewAt, markNode: markNode, markLeads: markLeads, traj: T, setTab: setTab, showInTimeline: showInTimeline, poll: poll, live: LIVE, report: R, openReport: openReport, flowTarget: flowTarget, buildIssueUrl: buildIssueUrl, showNews: showNews };
       document.body.setAttribute('data-ready', '1');
     }).catch(function (err) {
       fail('Could not load ' + DATA_URL + ' (' + (err && err.message ? err.message : 'unknown error') + ').');

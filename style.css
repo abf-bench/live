@@ -1434,3 +1434,18 @@ body.embed .highlights { display: none; }
 .ev-review { display: flex; gap: 8px; align-items: baseline; margin: 12px 0; font-size: 11.5px; color: var(--ink-2); }
 .ev-review::before { display: none; }
 .ev-review .review-name { flex: none; font-size: 10.5px; letter-spacing: 0.04em; color: var(--signal, #e5533d); }
+
+/* new flows from a live update: cards in the corner, a click opens the flow */
+.news { position: fixed; right: 18px; bottom: 18px; z-index: 55; display: flex; flex-direction: column; gap: 8px; width: 320px; max-width: calc(100vw - 36px); pointer-events: none; }
+.news-card { pointer-events: auto; display: flex; align-items: stretch; background: rgba(21, 22, 26, 0.96); border: 1px solid var(--line-2); border-left: 3px solid var(--amber); border-radius: 3px; box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45); animation: news-in 0.25s ease-out; }
+.news-open { flex: 1; min-width: 0; display: grid; gap: 3px; padding: 9px 12px; text-align: left; background: none; border: 0; color: var(--ink); cursor: pointer; font: inherit; }
+.news-open:hover .news-main, .news-open:focus-visible .news-main { text-decoration: underline; text-decoration-color: var(--amber); }
+.news-kicker { font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--amber); }
+.news-main { font-family: var(--mono); font-size: 13px; }
+.news-sub { font-family: var(--mono); font-size: 11px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.news-x { flex: none; width: 30px; background: none; border: 0; color: var(--muted); cursor: pointer; font-size: 16px; }
+.news-x:hover { color: var(--ink); }
+@keyframes news-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .news-card { animation: none; } }
+@media (max-width: 700px) { .news { left: 10px; right: 10px; bottom: 10px; width: auto; } }
+body.embed .news { display: none; }
