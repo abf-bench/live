@@ -1,0 +1,192 @@
+[
+  {
+    "request": {
+      "action": "address.transactions",
+      "params": {
+        "address": "bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e",
+        "chain": "bitcoin",
+        "limit": 100
+      }
+    },
+    "response": {
+      "action": "address.transactions",
+      "action_count": 1,
+      "cost_units": 1.0,
+      "observation": {
+        "address": "bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e",
+        "chain": "bitcoin",
+        "items": [
+          {
+            "activity_kind": "utxo_transaction",
+            "asset": "BTC",
+            "block_number": 973732,
+            "block_time": 1793305206,
+            "from": [
+              "bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e"
+            ],
+            "op_return": null,
+            "received": [],
+            "spent": [
+              {
+                "txid": "d5b12696e51d70b4d5caa634f08f9afdfa17ee924c282868a0773cbcab831f13",
+                "value": 363679998000,
+                "vout": 1
+              }
+            ],
+            "to": [
+              "bc1qs6xnmhar38z44g2za93pv8ygdcwurrh8l87w3v",
+              "bc1qk8kpt0suefus8zz3fp78w8993frc5x97w423wl"
+            ],
+            "tx_hash": "20347f020d04608bf6aba4a814090aeab72092d0dcc4ded84c206b7d7dd2b0f5"
+          },
+          {
+            "activity_kind": "utxo_transaction",
+            "asset": "BTC",
+            "block_number": 973732,
+            "block_time": 1793305206,
+            "from": [
+              "bc1q0mtc2f5agpkvlq6hhahmfr3hlr55kyfjhl2mnm"
+            ],
+            "op_return": null,
+            "received": [
+              {
+                "value": 14269999300,
+                "vout": 0
+              }
+            ],
+            "spent": [],
+            "to": [
+              "bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e",
+              "bc1qnq6jj9jmlf3945m3l8s0kxnqehrsga300k8t3s"
+            ],
+            "tx_hash": "27cdbffbe3356688467100ae11c1df5096fc025a7fd244fa4f234aa190cdf68b"
+          },
+          {
+            "activity_kind": "utxo_transaction",
+            "asset": "BTC",
+            "block_number": 973732,
+            "block_time": 1793305206,
+            "from": [
+              "bc1qk8kpt0suefus8zz3fp78w8993frc5x97w423wl"
+            ],
+            "op_return": null,
+            "received": [
+              {
+                "value": 63679996500,
+                "vout": 0
+              }
+            ],
+            "spent": [],
+            "to": [
+              "bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e",
+              "bc1q42flhayrzy3zh8lkyevw8qcjduurt9a35wlsyx"
+            ],
+            "tx_hash": "7954d0b88c08fd1d1b69f571c12b4ed57a269ae131c8902c9c585e3b09b86d70"
+          },
+          {
+            "activity_kind": "utxo_transaction",
+            "asset": "BTC",
+            "block_number": 973732,
+            "block_time": 1793305206,
+            "from": [
+              "bc1q96qkjsye5qruf9yksqdqg09lzdmur7wau2ga6u",
+              "bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e"
+            ],
+            "op_return": null,
+            "received": [],
+            "spent": [
+              {
+                "txid": "b27d181645ef592dbc145f63b62cdeab68afd8e725f539e43ad66a273d24dbdd",
+                "value": 64349996300,
+                "vout": 0
+              }
+            ],
+            "to": [
+              "bc1qn43ejagzgxgle394ynmv5sv3f9ydc48qme7t02",
+              "bc1qepc70u3u476vgvg3hfcwjgu4mecxe2uchs4lag"
+            ],
+            "tx_hash": "a9ed8a851a83912bd0ee16d66155f5225805f086e152da73204859f6ed4bc676"
+          },
+          {
+            "activity_kind": "utxo_transaction",
+            "asset": "BTC",
+            "block_number": 973732,
+            "block_time": 1793305206,
+            "from": [
+              "bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e",
+              "bc1qn43ejagzgxgle394ynmv5sv3f9ydc48qme7t02"
+            ],
+            "op_return": null,
+            "received": [],
+            "spent": [
+              {
+                "txid": "27cdbffbe3356688467100ae11c1df5096fc025a7fd244fa4f234aa190cdf68b",
+                "value": 14269999300,
+                "vout": 0
+              },
+              {
+                "txid": "7954d0b88c08fd1d1b69f571c12b4ed57a269ae131c8902c9c585e3b09b86d70",
+                "value": 63679996500,
+                "vout": 0
+              }
+            ],
+            "to": [
+              "bc1qrg025e2pgx0rwya2kpgtj30972p64jt0hn6zyt"
+            ],
+            "tx_hash": "b167dcb05d54f545587d690bb8990e1ccef68910fb20fc7fdb2036eddaa38922"
+          },
+          {
+            "activity_kind": "utxo_transaction",
+            "asset": "BTC",
+            "block_number": 973732,
+            "block_time": 1793305206,
+            "from": [
+              "bc1q66l8z9htj4cd7pf8nnlc6mrxyssudm6hyg7a2a",
+              "bc1qk8kpt0suefus8zz3fp78w8993frc5x97w423wl"
+            ],
+            "op_return": null,
+            "received": [
+              {
+                "value": 64349996300,
+                "vout": 0
+              }
+            ],
+            "spent": [],
+            "to": [
+              "bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e",
+              "bc1qg3nrzpuvq2pxqx74tcrywr09dc208ze96n3t53"
+            ],
+            "tx_hash": "b27d181645ef592dbc145f63b62cdeab68afd8e725f539e43ad66a273d24dbdd"
+          },
+          {
+            "activity_kind": "utxo_transaction",
+            "asset": "BTC",
+            "block_number": 973732,
+            "block_time": 1793305206,
+            "from": [
+              "bc1qvws6kh5vjf7apg7f82wd5av8w2gmfj2zxkm8jc"
+            ],
+            "op_return": null,
+            "received": [
+              {
+                "value": 363679998000,
+                "vout": 1
+              }
+            ],
+            "spent": [],
+            "to": [
+              "bc1q63qrfrpsg5hh0zzn3kp2xx9vljl7dq7tatsjxp",
+              "bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e"
+            ],
+            "tx_hash": "d5b12696e51d70b4d5caa634f08f9afdfa17ee924c282868a0773cbcab831f13"
+          }
+        ],
+        "next_cursor": null,
+        "total": 7
+      },
+      "response_hash": "cce4751aebc2d5bd0f807a6cdec3d5ba8a597b1996fad3f8ce7c6611e548d7f6",
+      "status": "ok",
+      "total_cost_units": 1.0
+    }
+  }
+]
