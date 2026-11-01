@@ -2,8 +2,8 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum and Bitcoin: live trace",
   "incident_utc": "2026-10-29T20:05:00Z",
-  "updated_utc": "2026-11-01T03:08:08Z",
-  "head_block": 26316980,
+  "updated_utc": "2026-11-01T03:11:30Z",
+  "head_block": 26317122,
   "chain": "ethereum",
   "notes": [
    "The graph follows the poison rule: once stolen funds enter an address, every later outflow from it is drawn as traced. The figures above count at each address only what traced flows brought there."
@@ -537,6 +537,14 @@
    "actions": 227,
    "model": "gpt-5.5",
    "summary": "ok"
+  },
+  {
+   "id": 67,
+   "started_utc": "2026-11-01T03:08:19Z",
+   "ended_utc": null,
+   "actions": null,
+   "model": "gpt-5.5",
+   "summary": ""
   }
  ],
  "nodes": [
@@ -580,63 +588,63 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "1175464712.876362",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 1175464712.876362 USDT, of which up to 1175464712.876362 USDT arrived through traced flows, as of block 26316980."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 1175464712.876362 USDT, of which up to 1175464712.876362 USDT arrived through traced flows, as of block 26317122."
     },
     {
      "asset": "USDC",
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
      "issuer": "Circle",
      "held": "823000000",
-     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 823000000 USDC, of which up to 823000000 USDC arrived through traced flows, as of block 26316980."
+     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 823000000 USDC, of which up to 823000000 USDC arrived through traced flows, as of block 26317122."
     },
     {
      "asset": "XAUt",
      "token": "0x68749665ff8d2d112fa859aa293f07a622782f38",
      "issuer": "Tether",
      "held": "12574.046797",
-     "note": "Tether has frozen this address for XAUt: XAUT isBlocked returns true on chain; balanceOf returns 12574.046797 XAUt, of which up to 12574.046797 XAUt arrived through traced flows, as of block 26316980."
+     "note": "Tether has frozen this address for XAUt: XAUT isBlocked returns true on chain; balanceOf returns 12574.046797 XAUt, of which up to 12574.046797 XAUt arrived through traced flows, as of block 26317122."
     },
     {
      "asset": "USD1",
      "token": "0x8d0d000ee44948fc98c9b98a4fa4921476f08b0d",
      "issuer": "World Liberty Financial",
      "held": "27824039.936896",
-     "note": "World Liberty Financial has frozen this address for USD1: USD1 frozen returns true on chain; balanceOf returns 27824039.936896 USD1, of which up to 27824039.936896 USD1 arrived through traced flows, as of block 26316980."
+     "note": "World Liberty Financial has frozen this address for USD1: USD1 frozen returns true on chain; balanceOf returns 27824039.936896 USD1, of which up to 27824039.936896 USD1 arrived through traced flows, as of block 26317122."
     },
     {
      "asset": "PAXG",
      "token": "0x45804880de22913dafe09f4980848ece6ecbaf78",
      "issuer": "Paxos",
      "held": "1906.667729",
-     "note": "Paxos has frozen this address for PAXG: PAXG isFrozen returns true on chain; balanceOf returns 1906.667729 PAXG, of which up to 1906.667729 PAXG arrived through traced flows, as of block 26316980."
+     "note": "Paxos has frozen this address for PAXG: PAXG isFrozen returns true on chain; balanceOf returns 1906.667729 PAXG, of which up to 1906.667729 PAXG arrived through traced flows, as of block 26317122."
     },
     {
      "asset": "FDUSD",
      "token": "0xc5f0f7b66764f6ec8c8dff7ba683102295e16409",
      "issuer": "First Digital",
      "held": "3454894.92308",
-     "note": "First Digital has frozen this address for FDUSD: FDUSD frozen returns true on chain; balanceOf returns 3454894.92308 FDUSD, of which up to 3454894.92308 FDUSD arrived through traced flows, as of block 26316980."
+     "note": "First Digital has frozen this address for FDUSD: FDUSD frozen returns true on chain; balanceOf returns 3454894.92308 FDUSD, of which up to 3454894.92308 FDUSD arrived through traced flows, as of block 26317122."
     },
     {
      "asset": "ERA",
      "token": "0xe2ad0bf751834f2fbdc62a41014f84d67ca1de2a",
      "issuer": "ERA's issuer",
      "held": "38603848.935214",
-     "note": "ERA's issuer has frozen this address for ERA: ERA isFrozen returns true on chain; balanceOf returns 38603848.935214 ERA, of which up to 38603848.935214 ERA arrived through traced flows, as of block 26316980."
+     "note": "ERA's issuer has frozen this address for ERA: ERA isFrozen returns true on chain; balanceOf returns 38603848.935214 ERA, of which up to 38603848.935214 ERA arrived through traced flows, as of block 26317122."
     },
     {
      "asset": "WLFI",
      "token": "0xda5e1988097297dcdc1f90d4dfe7909e847cbef6",
      "issuer": "World Liberty Financial",
      "held": "48525612.00768",
-     "note": "World Liberty Financial has frozen this address for WLFI: WLFI isBlacklisted returns true on chain; balanceOf returns 48525612.00768 WLFI, of which up to 48525612.00768 WLFI arrived through traced flows, as of block 26316980."
+     "note": "World Liberty Financial has frozen this address for WLFI: WLFI isBlacklisted returns true on chain; balanceOf returns 48525612.00768 WLFI, of which up to 48525612.00768 WLFI arrived through traced flows, as of block 26317122."
     },
     {
      "asset": "LA",
      "token": "0x0fc2a55d5bd13033f1ee0cdd11f60f7efe66f467",
      "issuer": "LA's issuer",
      "held": "27959136.70225",
-     "note": "LA's issuer has frozen this address for LA: LA isBlocked returns true on chain; balanceOf returns 27959136.70225 LA, of which up to 27959136.70225 LA arrived through traced flows, as of block 26316980."
+     "note": "LA's issuer has frozen this address for LA: LA isBlocked returns true on chain; balanceOf returns 27959136.70225 LA, of which up to 27959136.70225 LA arrived through traced flows, as of block 26317122."
     }
    ],
    "dormant": [
@@ -724,7 +732,7 @@
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
      "issuer": "Circle",
      "held": "123175.527942",
-     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 123175.527942 USDC, of which up to 123175.527942 USDC arrived through traced flows, as of block 26316980."
+     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 123175.527942 USDC, of which up to 123175.527942 USDC arrived through traced flows, as of block 26317122."
     }
    ],
    "dormant": [
@@ -1071,7 +1079,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "0.0006",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0006 USDT, of which up to 0.0006 USDT arrived through traced flows, as of block 26316980."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0006 USDT, of which up to 0.0006 USDT arrived through traced flows, as of block 26317122."
     }
    ],
    "dormant": [
@@ -1094,7 +1102,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "0.0001",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26316980."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26317122."
     }
    ],
    "dormant": [
@@ -1110,7 +1118,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26316980.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26317122.",
    "dormant": [
     {
      "asset": "ETH",
@@ -1153,7 +1161,7 @@
      "token": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
      "issuer": "Circle",
      "held": "0",
-     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 33005.117139 USDC, of which up to 0 USDC arrived through traced flows, as of block 26316980."
+     "note": "Circle has frozen this address for USDC: USDC isBlacklisted returns true on chain; balanceOf returns 33005.117139 USDC, of which up to 0 USDC arrived through traced flows, as of block 26317122."
     }
    ],
    "dormant": [
@@ -1212,7 +1220,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26316980.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26317122.",
    "dormant": [
     {
      "asset": "ETH",
@@ -1234,7 +1242,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26316980.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26317122.",
    "dormant": [
     {
      "asset": "ETH",
@@ -1270,7 +1278,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26316980.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26317122.",
    "dormant": [
     {
      "asset": "ETH",
@@ -1292,7 +1300,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26316980.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26317122.",
    "dormant": [
     {
      "asset": "ETH",
@@ -1325,7 +1333,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26316980.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26317122.",
    "dormant": [
     {
      "asset": "ETH",
@@ -1346,7 +1354,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "0.0001",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26316980."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26317122."
     }
    ],
    "dormant": [
@@ -1393,7 +1401,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "0.0001",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26316980."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26317122."
     }
    ],
    "dormant": [
@@ -1416,7 +1424,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "0.0001",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26316980."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 0.0001 USDT, of which up to 0.0001 USDT arrived through traced flows, as of block 26317122."
     }
    ],
    "dormant": [
@@ -1439,7 +1447,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "30000000",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 30000000 USDT, of which up to 30000000 USDT arrived through traced flows, as of block 26316980."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 30000000 USDT, of which up to 30000000 USDT arrived through traced flows, as of block 26317122."
     }
    ],
    "dormant": [
@@ -1455,7 +1463,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26316980.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26317122.",
    "dormant": [
     {
      "asset": "ETH",
@@ -1496,7 +1504,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26316980.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26317122.",
    "dormant": [
     {
      "asset": "ETH",
@@ -1539,7 +1547,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "174999872.32762",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 174999872.32762 USDT, of which up to 174999872.32762 USDT arrived through traced flows, as of block 26316980."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 174999872.32762 USDT, of which up to 174999872.32762 USDT arrived through traced flows, as of block 26317122."
     }
    ],
    "dormant": [
@@ -1576,7 +1584,7 @@
      "token": "0xa2e3356610840701bdf5611a53974510ae27e2e1",
      "issuer": "Binance",
      "held": "29934.013163",
-     "note": "Binance has frozen this address for wBETH: WBETH isBlacklisted returns true on chain; balanceOf returns 29934.013163 wBETH, of which up to 29934.013163 wBETH arrived through traced flows, as of block 26316980."
+     "note": "Binance has frozen this address for wBETH: WBETH isBlacklisted returns true on chain; balanceOf returns 29934.013163 wBETH, of which up to 29934.013163 wBETH arrived through traced flows, as of block 26317122."
     }
    ],
    "dormant": [
@@ -1747,7 +1755,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced USDT since it arrived, as of block 26316980.",
+   "note": "No outflow of the traced USDT since it arrived, as of block 26317122.",
    "dormant": [
     {
      "asset": "USDT",
@@ -1803,7 +1811,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced ETH since it arrived, as of block 26316980.",
+   "note": "No outflow of the traced ETH since it arrived, as of block 26317122.",
    "dormant": [
     {
      "asset": "ETH",
@@ -1832,7 +1840,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974063.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974067.",
    "dormant": [
     {
      "asset": "BTC",
@@ -1861,7 +1869,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974063.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974067.",
    "dormant": [
     {
      "asset": "BTC",
@@ -1883,7 +1891,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974063.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974067.",
    "dormant": [
     {
      "asset": "BTC",
@@ -1912,7 +1920,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974063.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974067.",
    "dormant": [
     {
      "asset": "BTC",
@@ -1941,7 +1949,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974063.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974067.",
    "dormant": [
     {
      "asset": "BTC",
@@ -1970,7 +1978,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974063.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974067.",
    "dormant": [
     {
      "asset": "BTC",
@@ -1992,7 +2000,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974063.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974067.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2014,7 +2022,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974063.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974067.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2043,7 +2051,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974063.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974067.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2072,7 +2080,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974063.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974067.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2094,7 +2102,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974063.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974067.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2116,7 +2124,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974063.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974067.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2145,7 +2153,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974063.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974067.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2174,7 +2182,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974063.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974067.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2196,7 +2204,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974063.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974067.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2225,7 +2233,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974063.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974067.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2247,7 +2255,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974063.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974067.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2269,7 +2277,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974063.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974067.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2291,7 +2299,7 @@
    "chain": "bitcoin",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974063.",
+   "note": "No outflow of the traced BTC since it arrived, as of Bitcoin block 974067.",
    "dormant": [
     {
      "asset": "BTC",
@@ -2341,7 +2349,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced SAND since it arrived, as of block 26316980.",
+   "note": "No outflow of the traced SAND since it arrived, as of block 26317122.",
    "frozen": [
     {
      "asset": "SAND",
@@ -2349,7 +2357,7 @@
      "issuer": "SAND's admin",
      "held": "58397344.209174",
      "taken_back": true,
-     "note": "SAND's admin took these tokens back from the attacker's 0x5227 in tx 0x0a68d2f4\u2026: its Safe 0x6ec4090d (getAdmin() on the SAND contract) made itself a super-operator, moved 58,397,344 SAND to this address and revoked the power, in one transaction. balanceOf returns 66049870.299024 SAND, of which up to 58397344.209174 SAND arrived through traced flows, as of block 26316980."
+     "note": "SAND's admin took these tokens back from the attacker's 0x5227 in tx 0x0a68d2f4\u2026: its Safe 0x6ec4090d (getAdmin() on the SAND contract) made itself a super-operator, moved 58,397,344 SAND to this address and revoked the power, in one transaction. balanceOf returns 66049870.299024 SAND, of which up to 58397344.209174 SAND arrived through traced flows, as of block 26317122."
     }
    ]
   },
@@ -2365,7 +2373,7 @@
      "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
      "issuer": "Tether",
      "held": "0",
-     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 46529.048392 USDT, of which up to 0 USDT arrived through traced flows, as of block 26316980."
+     "note": "Tether has frozen this address for USDT: USDT isBlackListed returns true on chain; balanceOf returns 46529.048392 USDT, of which up to 0 USDT arrived through traced flows, as of block 26317122."
     }
    ]
   },
@@ -2437,7 +2445,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced NEWT, BARD, WOO, ANIME, RARE, GLM, ARPA, KNC, HOT, LQTY, RESOLV, FTX Token, SIGN, CELR, HIGH, DOLO since it arrived, as of block 26316980.",
+   "note": "No outflow of the traced NEWT, BARD, WOO, ANIME, RARE, GLM, ARPA, KNC, HOT, LQTY, RESOLV, FTX Token, SIGN, CELR, HIGH, DOLO since it arrived, as of block 26317122.",
    "dormant": [
     {
      "asset": "NEWT",
@@ -2561,7 +2569,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced SNX since it arrived, as of block 26316980.",
+   "note": "No outflow of the traced SNX since it arrived, as of block 26317122.",
    "dormant": [
     {
      "asset": "SNX",
@@ -2617,7 +2625,7 @@
    "chain": "ethereum",
    "label": null,
    "role": "resting",
-   "note": "No outflow of the traced TURTLE since it arrived, as of block 26316980.",
+   "note": "No outflow of the traced TURTLE since it arrived, as of block 26317122.",
    "dormant": [
     {
      "asset": "TURTLE",
@@ -35396,6 +35404,804 @@
    "source_position": "Transfer event #802",
    "target_position": "internal call 1.2",
    "tx_url": "https://etherscan.io/tx/0x5165d608c5cfa03c90844c54e9ef4781d70d979ffabb618c76efec3e64ddc2e3",
+   "tier": "verified"
+  },
+  {
+   "id": "op_super_to_eth_5227_0x5f389f65:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "58.360653",
+   "tx": "0x5f389f65a46a425b776272a55e3c8199a4debcaea18a5a9286047ecdb8437fe5",
+   "from_asset": "SUPER",
+   "kind": "exchange",
+   "block": 26302626,
+   "time_utc": "2026-10-30T02:37:35Z",
+   "operation_id": "op_super_to_eth_5227_0x5f389f65",
+   "session": 67,
+   "seq": 1476,
+   "step": 937,
+   "source_position": "Transfer event #83",
+   "target_position": "internal call 6",
+   "tx_url": "https://etherscan.io/tx/0x5f389f65a46a425b776272a55e3c8199a4debcaea18a5a9286047ecdb8437fe5",
+   "tier": "verified"
+  },
+  {
+   "id": "op_super_to_eth_5227_0x1b83b8ab:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "16.591331",
+   "tx": "0x1b83b8ab78eb32f8f954f633564fc799683b21c568369e475df80f4a39d26807",
+   "from_asset": "SUPER",
+   "kind": "exchange",
+   "block": 26302631,
+   "time_utc": "2026-10-30T02:38:35Z",
+   "operation_id": "op_super_to_eth_5227_0x1b83b8ab",
+   "session": 67,
+   "seq": 1477,
+   "step": 937,
+   "source_position": "Transfer event #27",
+   "target_position": "internal call 6",
+   "tx_url": "https://etherscan.io/tx/0x1b83b8ab78eb32f8f954f633564fc799683b21c568369e475df80f4a39d26807",
+   "tier": "verified"
+  },
+  {
+   "id": "op_super_to_eth_5227_0xc694b5be:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "35.006192",
+   "tx": "0xc694b5beb3bf1c98ae1f8e04e141e291cb298f9c6a5d0c5afab2c7eda540a8aa",
+   "from_asset": "SUPER",
+   "kind": "exchange",
+   "block": 26302634,
+   "time_utc": "2026-10-30T02:39:11Z",
+   "operation_id": "op_super_to_eth_5227_0xc694b5be",
+   "session": 67,
+   "seq": 1478,
+   "step": 937,
+   "source_position": "Transfer event #10",
+   "target_position": "internal call 6",
+   "tx_url": "https://etherscan.io/tx/0xc694b5beb3bf1c98ae1f8e04e141e291cb298f9c6a5d0c5afab2c7eda540a8aa",
+   "tier": "verified"
+  },
+  {
+   "id": "op_super_to_eth_5227_0x57845928:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "78.76448",
+   "tx": "0x57845928e45fa942b15d7a85eca090fd6a1f5733baa5da0876d2a420ec5043b4",
+   "from_asset": "SUPER",
+   "kind": "exchange",
+   "block": 26302638,
+   "time_utc": "2026-10-30T02:39:59Z",
+   "operation_id": "op_super_to_eth_5227_0x57845928",
+   "session": 67,
+   "seq": 1479,
+   "step": 937,
+   "source_position": "Transfer event #65",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0x57845928e45fa942b15d7a85eca090fd6a1f5733baa5da0876d2a420ec5043b4",
+   "tier": "verified"
+  },
+  {
+   "id": "op_super_to_eth_5227_0xa0844205:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "11.884481",
+   "tx": "0xa08442057e5ce3a1b5fba1a3dc250ca92307e0b9226aae0cea148d3a9243904e",
+   "from_asset": "SUPER",
+   "kind": "exchange",
+   "block": 26302641,
+   "time_utc": "2026-10-30T02:40:35Z",
+   "operation_id": "op_super_to_eth_5227_0xa0844205",
+   "session": 67,
+   "seq": 1480,
+   "step": 937,
+   "source_position": "Transfer event #188",
+   "target_position": "internal call 6",
+   "tx_url": "https://etherscan.io/tx/0xa08442057e5ce3a1b5fba1a3dc250ca92307e0b9226aae0cea148d3a9243904e",
+   "tier": "verified"
+  },
+  {
+   "id": "op_super_to_eth_5227_0x66d036d8:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "50.19849",
+   "tx": "0x66d036d857e5c9e8c2d9b750a9768b93daff4fbc67514d5865ada03fb0a6373d",
+   "from_asset": "SUPER",
+   "kind": "exchange",
+   "block": 26302645,
+   "time_utc": "2026-10-30T02:41:23Z",
+   "operation_id": "op_super_to_eth_5227_0x66d036d8",
+   "session": 67,
+   "seq": 1481,
+   "step": 937,
+   "source_position": "Transfer event #112",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0x66d036d857e5c9e8c2d9b750a9768b93daff4fbc67514d5865ada03fb0a6373d",
+   "tier": "verified"
+  },
+  {
+   "id": "op_super_to_eth_5227_0x23a446a8:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "2.335611",
+   "tx": "0x23a446a88b25e62284f18f835f5107a436b2f81efecd607aeff4e4a4d643ca31",
+   "from_asset": "SUPER",
+   "kind": "exchange",
+   "block": 26302648,
+   "time_utc": "2026-10-30T02:41:59Z",
+   "operation_id": "op_super_to_eth_5227_0x23a446a8",
+   "session": 67,
+   "seq": 1482,
+   "step": 937,
+   "source_position": "Transfer event #75",
+   "target_position": "internal call 6",
+   "tx_url": "https://etherscan.io/tx/0x23a446a88b25e62284f18f835f5107a436b2f81efecd607aeff4e4a4d643ca31",
+   "tier": "verified"
+  },
+  {
+   "id": "op_super_to_eth_5227_0x5a7f6376:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "3.254707",
+   "tx": "0x5a7f6376cb2c511d4c8da354745b04c651c5327fcb89ba566c28d0c85e36298c",
+   "from_asset": "SUPER",
+   "kind": "exchange",
+   "block": 26302653,
+   "time_utc": "2026-10-30T02:42:59Z",
+   "operation_id": "op_super_to_eth_5227_0x5a7f6376",
+   "session": 67,
+   "seq": 1483,
+   "step": 937,
+   "source_position": "Transfer event #22",
+   "target_position": "internal call 6",
+   "tx_url": "https://etherscan.io/tx/0x5a7f6376cb2c511d4c8da354745b04c651c5327fcb89ba566c28d0c85e36298c",
+   "tier": "verified"
+  },
+  {
+   "id": "op_super_to_eth_5227_0xe96a2c5c:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "1.209697",
+   "tx": "0xe96a2c5c34ed09ec24f084ff74814b0745a8bf8bbfd8bb4a6ef7f551e6b67b18",
+   "from_asset": "SUPER",
+   "kind": "exchange",
+   "block": 26302657,
+   "time_utc": "2026-10-30T02:43:47Z",
+   "operation_id": "op_super_to_eth_5227_0xe96a2c5c",
+   "session": 67,
+   "seq": 1484,
+   "step": 937,
+   "source_position": "Transfer event #13",
+   "target_position": "internal call 6",
+   "tx_url": "https://etherscan.io/tx/0xe96a2c5c34ed09ec24f084ff74814b0745a8bf8bbfd8bb4a6ef7f551e6b67b18",
+   "tier": "verified"
+  },
+  {
+   "id": "op_super_to_eth_5227_0x8dee789a:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "0.392444",
+   "tx": "0x8dee789a47854fbf00458763ddeac0c9554b631850a6dff81cbb98502506ef3a",
+   "from_asset": "SUPER",
+   "kind": "exchange",
+   "block": 26302683,
+   "time_utc": "2026-10-30T02:48:59Z",
+   "operation_id": "op_super_to_eth_5227_0x8dee789a",
+   "session": 67,
+   "seq": 1485,
+   "step": 937,
+   "source_position": "Transfer event #672",
+   "target_position": "internal call 6",
+   "tx_url": "https://etherscan.io/tx/0x8dee789a47854fbf00458763ddeac0c9554b631850a6dff81cbb98502506ef3a",
+   "tier": "verified"
+  },
+  {
+   "id": "op_super_to_eth_5227_0x97ba5ffb:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "0.158955",
+   "tx": "0x97ba5ffb49cc9290f171c7dd928bec9d49c7629697db10da5c7a93ee1fc933ff",
+   "from_asset": "SUPER",
+   "kind": "exchange",
+   "block": 26302696,
+   "time_utc": "2026-10-30T02:51:35Z",
+   "operation_id": "op_super_to_eth_5227_0x97ba5ffb",
+   "session": 67,
+   "seq": 1486,
+   "step": 937,
+   "source_position": "Transfer event #0",
+   "target_position": "internal call 6",
+   "tx_url": "https://etherscan.io/tx/0x97ba5ffb49cc9290f171c7dd928bec9d49c7629697db10da5c7a93ee1fc933ff",
+   "tier": "verified"
+  },
+  {
+   "id": "op_super_to_eth_5227_0x0377279c:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "49.852187",
+   "tx": "0x0377279c8cc67acee7f13ed4a010531883384a591a29f2c2c6a306031decfaba",
+   "from_asset": "SUPER",
+   "kind": "exchange",
+   "block": 26302716,
+   "time_utc": "2026-10-30T02:55:35Z",
+   "operation_id": "op_super_to_eth_5227_0x0377279c",
+   "session": 67,
+   "seq": 1487,
+   "step": 937,
+   "source_position": "Transfer event #0",
+   "target_position": "internal call 6",
+   "tx_url": "https://etherscan.io/tx/0x0377279c8cc67acee7f13ed4a010531883384a591a29f2c2c6a306031decfaba",
+   "tier": "verified"
+  },
+  {
+   "id": "op_super_to_eth_5227_0xf27b0c59:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "34.011156",
+   "tx": "0xf27b0c59c2d9d5edc54972f6ec05139552a5cae5f9f8a07c3ea95d5eb8b59b1c",
+   "from_asset": "SUPER",
+   "kind": "exchange",
+   "block": 26302719,
+   "time_utc": "2026-10-30T02:56:11Z",
+   "operation_id": "op_super_to_eth_5227_0xf27b0c59",
+   "session": 67,
+   "seq": 1488,
+   "step": 937,
+   "source_position": "Transfer event #63",
+   "target_position": "internal call 6",
+   "tx_url": "https://etherscan.io/tx/0xf27b0c59c2d9d5edc54972f6ec05139552a5cae5f9f8a07c3ea95d5eb8b59b1c",
+   "tier": "verified"
+  },
+  {
+   "id": "op_super_to_eth_5227_0x370929fc:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "39.836002",
+   "tx": "0x370929fceacf653de9b680ff04649e96287f3da40c572ab3c7e00a20db498889",
+   "from_asset": "SUPER",
+   "kind": "exchange",
+   "block": 26302725,
+   "time_utc": "2026-10-30T02:57:23Z",
+   "operation_id": "op_super_to_eth_5227_0x370929fc",
+   "session": 67,
+   "seq": 1489,
+   "step": 937,
+   "source_position": "Transfer event #9",
+   "target_position": "internal call 6",
+   "tx_url": "https://etherscan.io/tx/0x370929fceacf653de9b680ff04649e96287f3da40c572ab3c7e00a20db498889",
+   "tier": "verified"
+  },
+  {
+   "id": "op_super_to_eth_5227_0x17690544:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "2.785218",
+   "tx": "0x176905446185e22c310f5b6d8be9d0594b3cf721633fec088622d5f72e388763",
+   "from_asset": "SUPER",
+   "kind": "exchange",
+   "block": 26302728,
+   "time_utc": "2026-10-30T02:57:59Z",
+   "operation_id": "op_super_to_eth_5227_0x17690544",
+   "session": 67,
+   "seq": 1490,
+   "step": 937,
+   "source_position": "Transfer event #592",
+   "target_position": "internal call 6",
+   "tx_url": "https://etherscan.io/tx/0x176905446185e22c310f5b6d8be9d0594b3cf721633fec088622d5f72e388763",
+   "tier": "verified"
+  },
+  {
+   "id": "op_super_to_eth_5227_0x179f5754:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "17.306569",
+   "tx": "0x179f57544bcb4a6b8350ea74bc44ddb67db32a672f4298f2acb5c0922ca45fe4",
+   "from_asset": "SUPER",
+   "kind": "exchange",
+   "block": 26302732,
+   "time_utc": "2026-10-30T02:58:47Z",
+   "operation_id": "op_super_to_eth_5227_0x179f5754",
+   "session": 67,
+   "seq": 1491,
+   "step": 937,
+   "source_position": "Transfer event #18",
+   "target_position": "internal call 6",
+   "tx_url": "https://etherscan.io/tx/0x179f57544bcb4a6b8350ea74bc44ddb67db32a672f4298f2acb5c0922ca45fe4",
+   "tier": "verified"
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xf4be14fc:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "1.001272",
+   "tx": "0xf4be14fcd3fd4bc7fabe41266dd94c97e986468c0854c4a2244999288bdb5352",
+   "from_asset": "IMX",
+   "kind": "exchange",
+   "block": 26302647,
+   "time_utc": "2026-10-30T02:41:47Z",
+   "operation_id": "op_imx_to_eth_5227_0xf4be14fc",
+   "session": 67,
+   "seq": 1492,
+   "step": 937,
+   "source_position": "Transfer event #82",
+   "target_position": "internal call 6",
+   "tx_url": "https://etherscan.io/tx/0xf4be14fcd3fd4bc7fabe41266dd94c97e986468c0854c4a2244999288bdb5352",
+   "tier": "verified"
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xcd48143a:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "0.793645",
+   "tx": "0xcd48143a7e15520884d9b9816d69fb1048a6d6be6ee2ed72780876412293280e",
+   "from_asset": "IMX",
+   "kind": "exchange",
+   "block": 26302656,
+   "time_utc": "2026-10-30T02:43:35Z",
+   "operation_id": "op_imx_to_eth_5227_0xcd48143a",
+   "session": 67,
+   "seq": 1493,
+   "step": 937,
+   "source_position": "Transfer event #69",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xcd48143a7e15520884d9b9816d69fb1048a6d6be6ee2ed72780876412293280e",
+   "tier": "verified"
+  },
+  {
+   "id": "op_imx_to_eth_5227_0x9a3e6834:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "0.634658",
+   "tx": "0x9a3e6834137b90bf86f07cbb77283be558f25c8f502e79029cd1e94778b4023d",
+   "from_asset": "IMX",
+   "kind": "exchange",
+   "block": 26302659,
+   "time_utc": "2026-10-30T02:44:11Z",
+   "operation_id": "op_imx_to_eth_5227_0x9a3e6834",
+   "session": 67,
+   "seq": 1494,
+   "step": 937,
+   "source_position": "Transfer event #58",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0x9a3e6834137b90bf86f07cbb77283be558f25c8f502e79029cd1e94778b4023d",
+   "tier": "verified"
+  },
+  {
+   "id": "op_imx_to_eth_5227_0x01cfb511:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "1.188748",
+   "tx": "0x01cfb5111d670e70f2c843674d458044217068fd28fb73c39fda1ffbdd111efa",
+   "from_asset": "IMX",
+   "kind": "exchange",
+   "block": 26302663,
+   "time_utc": "2026-10-30T02:44:59Z",
+   "operation_id": "op_imx_to_eth_5227_0x01cfb511",
+   "session": 67,
+   "seq": 1495,
+   "step": 937,
+   "source_position": "Transfer event #102",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0x01cfb5111d670e70f2c843674d458044217068fd28fb73c39fda1ffbdd111efa",
+   "tier": "verified"
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xeef4fe03:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "1.234221",
+   "tx": "0xeef4fe039f5583b885e6b21febaf2f696b3bba6ab5fa62b04e1642370c0621b2",
+   "from_asset": "IMX",
+   "kind": "exchange",
+   "block": 26302666,
+   "time_utc": "2026-10-30T02:45:35Z",
+   "operation_id": "op_imx_to_eth_5227_0xeef4fe03",
+   "session": 67,
+   "seq": 1496,
+   "step": 937,
+   "source_position": "Transfer event #74",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xeef4fe039f5583b885e6b21febaf2f696b3bba6ab5fa62b04e1642370c0621b2",
+   "tier": "verified"
+  },
+  {
+   "id": "op_imx_to_eth_5227_0x023d98d8:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "1.445922",
+   "tx": "0x023d98d8d738df06b9a0c5ffc09d8cd3882348013078ecf944e455dd39daedb2",
+   "from_asset": "IMX",
+   "kind": "exchange",
+   "block": 26302669,
+   "time_utc": "2026-10-30T02:46:11Z",
+   "operation_id": "op_imx_to_eth_5227_0x023d98d8",
+   "session": 67,
+   "seq": 1497,
+   "step": 937,
+   "source_position": "Transfer event #87",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0x023d98d8d738df06b9a0c5ffc09d8cd3882348013078ecf944e455dd39daedb2",
+   "tier": "verified"
+  },
+  {
+   "id": "op_imx_to_eth_5227_0x40996e5c:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "1.923045",
+   "tx": "0x40996e5c0023d0641dad736dac07818dd7fed86387e5d028000d046e1cf660a8",
+   "from_asset": "IMX",
+   "kind": "exchange",
+   "block": 26302672,
+   "time_utc": "2026-10-30T02:46:47Z",
+   "operation_id": "op_imx_to_eth_5227_0x40996e5c",
+   "session": 67,
+   "seq": 1498,
+   "step": 937,
+   "source_position": "Transfer event #5",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0x40996e5c0023d0641dad736dac07818dd7fed86387e5d028000d046e1cf660a8",
+   "tier": "verified"
+  },
+  {
+   "id": "op_imx_to_eth_5227_0x9d1ede9c:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "8.290947",
+   "tx": "0x9d1ede9c6de5a0881ef8dc94a94c89f52e1313e084e48fe89d8160cd045c54d9",
+   "from_asset": "IMX",
+   "kind": "exchange",
+   "block": 26302675,
+   "time_utc": "2026-10-30T02:47:23Z",
+   "operation_id": "op_imx_to_eth_5227_0x9d1ede9c",
+   "session": 67,
+   "seq": 1499,
+   "step": 937,
+   "source_position": "Transfer event #71",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0x9d1ede9c6de5a0881ef8dc94a94c89f52e1313e084e48fe89d8160cd045c54d9",
+   "tier": "verified"
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xeab5778e:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "12.043622",
+   "tx": "0xeab5778e83e5df47c8abacd97f6764ea8eee65f40ddd06c90b0c54e993521b25",
+   "from_asset": "IMX",
+   "kind": "exchange",
+   "block": 26302682,
+   "time_utc": "2026-10-30T02:48:47Z",
+   "operation_id": "op_imx_to_eth_5227_0xeab5778e",
+   "session": 67,
+   "seq": 1500,
+   "step": 937,
+   "source_position": "Transfer event #41",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xeab5778e83e5df47c8abacd97f6764ea8eee65f40ddd06c90b0c54e993521b25",
+   "tier": "verified"
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xad08b0b3:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "23.813169",
+   "tx": "0xad08b0b3d91f6a57e917ad07ed39ea0167d943f4ebfac728785f728fc4aee30c",
+   "from_asset": "IMX",
+   "kind": "exchange",
+   "block": 26302690,
+   "time_utc": "2026-10-30T02:50:23Z",
+   "operation_id": "op_imx_to_eth_5227_0xad08b0b3",
+   "session": 67,
+   "seq": 1501,
+   "step": 937,
+   "source_position": "Transfer event #59",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xad08b0b3d91f6a57e917ad07ed39ea0167d943f4ebfac728785f728fc4aee30c",
+   "tier": "verified"
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xdd139529:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "74.196713",
+   "tx": "0xdd13952969eaf154fa2eb73948b845006c3d70d42489ef6efb5175523fb4a7f4",
+   "from_asset": "IMX",
+   "kind": "exchange",
+   "block": 26302693,
+   "time_utc": "2026-10-30T02:50:59Z",
+   "operation_id": "op_imx_to_eth_5227_0xdd139529",
+   "session": 67,
+   "seq": 1502,
+   "step": 937,
+   "source_position": "Transfer event #25",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xdd13952969eaf154fa2eb73948b845006c3d70d42489ef6efb5175523fb4a7f4",
+   "tier": "verified"
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xf169df48:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "0.898817",
+   "tx": "0xf169df48c5a403a44be818c8eedff62866ad1837196e6683b9bd6e70c247c2b8",
+   "from_asset": "IMX",
+   "kind": "exchange",
+   "block": 26302697,
+   "time_utc": "2026-10-30T02:51:47Z",
+   "operation_id": "op_imx_to_eth_5227_0xf169df48",
+   "session": 67,
+   "seq": 1503,
+   "step": 937,
+   "source_position": "Transfer event #572",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xf169df48c5a403a44be818c8eedff62866ad1837196e6683b9bd6e70c247c2b8",
+   "tier": "verified"
+  },
+  {
+   "id": "op_imx_to_eth_5227_0x9808c44a:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "68.377714",
+   "tx": "0x9808c44a3c1d7116b609019db2e16a5c1febd60e6e1877a36459ee3468f32177",
+   "from_asset": "IMX",
+   "kind": "exchange",
+   "block": 26302699,
+   "time_utc": "2026-10-30T02:52:11Z",
+   "operation_id": "op_imx_to_eth_5227_0x9808c44a",
+   "session": 67,
+   "seq": 1504,
+   "step": 937,
+   "source_position": "Transfer event #1235",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0x9808c44a3c1d7116b609019db2e16a5c1febd60e6e1877a36459ee3468f32177",
+   "tier": "verified"
+  },
+  {
+   "id": "op_imx_to_eth_5227_0x7751d08b:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "4.385985",
+   "tx": "0x7751d08bf4f462f38db324f8c304b620780df611f2a0ac8632c47eef3dfe426b",
+   "from_asset": "IMX",
+   "kind": "exchange",
+   "block": 26302705,
+   "time_utc": "2026-10-30T02:53:23Z",
+   "operation_id": "op_imx_to_eth_5227_0x7751d08b",
+   "session": 67,
+   "seq": 1505,
+   "step": 937,
+   "source_position": "Transfer event #8",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0x7751d08bf4f462f38db324f8c304b620780df611f2a0ac8632c47eef3dfe426b",
+   "tier": "verified"
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xf29cfd52:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "27.748739",
+   "tx": "0xf29cfd52c3f9e354e8804d8d953545bf2e479f33d43c4065feddd2a51323b18f",
+   "from_asset": "IMX",
+   "kind": "exchange",
+   "block": 26302710,
+   "time_utc": "2026-10-30T02:54:23Z",
+   "operation_id": "op_imx_to_eth_5227_0xf29cfd52",
+   "session": 67,
+   "seq": 1506,
+   "step": 937,
+   "source_position": "Transfer event #25",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xf29cfd52c3f9e354e8804d8d953545bf2e479f33d43c4065feddd2a51323b18f",
+   "tier": "verified"
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xa9fc2fab:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "6.515475",
+   "tx": "0xa9fc2fab320594544379575a1807473b6b05ab080c6dcda3ef9d1e483551c3af",
+   "from_asset": "IMX",
+   "kind": "exchange",
+   "block": 26302718,
+   "time_utc": "2026-10-30T02:55:59Z",
+   "operation_id": "op_imx_to_eth_5227_0xa9fc2fab",
+   "session": 67,
+   "seq": 1507,
+   "step": 937,
+   "source_position": "Transfer event #586",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xa9fc2fab320594544379575a1807473b6b05ab080c6dcda3ef9d1e483551c3af",
+   "tier": "verified"
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xd5d70781:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "6.520511",
+   "tx": "0xd5d70781c74cee5c7b0c1579c9e813a03b88fdbbd71ef391a8b4f456401402f1",
+   "from_asset": "IMX",
+   "kind": "exchange",
+   "block": 26302726,
+   "time_utc": "2026-10-30T02:57:35Z",
+   "operation_id": "op_imx_to_eth_5227_0xd5d70781",
+   "session": 67,
+   "seq": 1508,
+   "step": 937,
+   "source_position": "Transfer event #37",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xd5d70781c74cee5c7b0c1579c9e813a03b88fdbbd71ef391a8b4f456401402f1",
+   "tier": "verified"
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xf3bd6bad:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "7.758307",
+   "tx": "0xf3bd6bad903443cf684b1cc1a727d38e9e79cbaec6327891cd9cd75b9a8a0be9",
+   "from_asset": "IMX",
+   "kind": "exchange",
+   "block": 26302731,
+   "time_utc": "2026-10-30T02:58:35Z",
+   "operation_id": "op_imx_to_eth_5227_0xf3bd6bad",
+   "session": 67,
+   "seq": 1509,
+   "step": 937,
+   "source_position": "Transfer event #180",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xf3bd6bad903443cf684b1cc1a727d38e9e79cbaec6327891cd9cd75b9a8a0be9",
+   "tier": "verified"
+  },
+  {
+   "id": "op_imx_to_eth_5227_0x6d18b13c:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "36.460339",
+   "tx": "0x6d18b13cd5aefab59ac321ce66214ca9585c35e486ae9dcf18777715c5d650cf",
+   "from_asset": "IMX",
+   "kind": "exchange",
+   "block": 26302746,
+   "time_utc": "2026-10-30T03:01:35Z",
+   "operation_id": "op_imx_to_eth_5227_0x6d18b13c",
+   "session": 67,
+   "seq": 1510,
+   "step": 937,
+   "source_position": "Transfer event #18",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0x6d18b13cd5aefab59ac321ce66214ca9585c35e486ae9dcf18777715c5d650cf",
+   "tier": "verified"
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xa5f3a4cc:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "54.86663",
+   "tx": "0xa5f3a4cc18dd85d57b82c878e93899b92b16a958003b2369d3a86a086a6d1693",
+   "from_asset": "IMX",
+   "kind": "exchange",
+   "block": 26302751,
+   "time_utc": "2026-10-30T03:02:35Z",
+   "operation_id": "op_imx_to_eth_5227_0xa5f3a4cc",
+   "session": 67,
+   "seq": 1511,
+   "step": 937,
+   "source_position": "Transfer event #35",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xa5f3a4cc18dd85d57b82c878e93899b92b16a958003b2369d3a86a086a6d1693",
+   "tier": "verified"
+  },
+  {
+   "id": "op_imx_to_eth_5227_0x99e97b22:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "33.902359",
+   "tx": "0x99e97b22917eb5b6b65c0eff413b6e5aeed4b0e036fe841622cc290a89e42c83",
+   "from_asset": "IMX",
+   "kind": "exchange",
+   "block": 26302760,
+   "time_utc": "2026-10-30T03:04:23Z",
+   "operation_id": "op_imx_to_eth_5227_0x99e97b22",
+   "session": 67,
+   "seq": 1512,
+   "step": 937,
+   "source_position": "Transfer event #12",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0x99e97b22917eb5b6b65c0eff413b6e5aeed4b0e036fe841622cc290a89e42c83",
+   "tier": "verified"
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xfd0e9f66:0",
+   "from": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "to": "0x5227f603c1ee34ce3c06efe6477003bdfccb2f8c",
+   "asset": "ETH",
+   "token": "ETH",
+   "amount": "13.878274",
+   "tx": "0xfd0e9f66d1ab488cf736576c1944d2d59b7cbd3d861e757b026b0eea1dfa3b57",
+   "from_asset": "IMX",
+   "kind": "exchange",
+   "block": 26302764,
+   "time_utc": "2026-10-30T03:05:11Z",
+   "operation_id": "op_imx_to_eth_5227_0xfd0e9f66",
+   "session": 67,
+   "seq": 1513,
+   "step": 937,
+   "source_position": "Transfer event #111",
+   "target_position": "internal call 1.2",
+   "tx_url": "https://etherscan.io/tx/0xfd0e9f66d1ab488cf736576c1944d2d59b7cbd3d861e757b026b0eea1dfa3b57",
    "tier": "verified"
   },
   {
@@ -78786,6 +79592,1184 @@
    ]
   },
   {
+   "id": "op_super_to_eth_5227_0x5f389f65",
+   "type": "exchange",
+   "claim": "exchange: 58.360653 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+    "name": "UniswapV2Router02",
+    "function": "swapExactTokensForETHSupportingFeeOnTransferTokens",
+    "explorer": "https://etherscan.io/address/0x7a250d5630b4cf539739df2c5dacb4c659f2488d"
+   },
+   "session": 67,
+   "seq": 1476,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_super_to_eth_5227_0x5f389f65:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x5f389f65a46a425b776272a55e3c8199a4debcaea18a5a9286047ecdb8437fe5",
+     "url": "https://etherscan.io/tx/0x5f389f65a46a425b776272a55e3c8199a4debcaea18a5a9286047ecdb8437fe5#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x5f389f65a46a425b776272a55e3c8199a4debcaea18a5a9286047ecdb8437fe5",
+     "url": "https://etherscan.io/tx/0x5f389f65a46a425b776272a55e3c8199a4debcaea18a5a9286047ecdb8437fe5#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_super_to_eth_5227_0x1b83b8ab",
+   "type": "exchange",
+   "claim": "exchange: 16.591331 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+    "name": "UniswapV2Router02",
+    "function": "swapExactTokensForETHSupportingFeeOnTransferTokens",
+    "explorer": "https://etherscan.io/address/0x7a250d5630b4cf539739df2c5dacb4c659f2488d"
+   },
+   "session": 67,
+   "seq": 1477,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_super_to_eth_5227_0x1b83b8ab:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x1b83b8ab78eb32f8f954f633564fc799683b21c568369e475df80f4a39d26807",
+     "url": "https://etherscan.io/tx/0x1b83b8ab78eb32f8f954f633564fc799683b21c568369e475df80f4a39d26807#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x1b83b8ab78eb32f8f954f633564fc799683b21c568369e475df80f4a39d26807",
+     "url": "https://etherscan.io/tx/0x1b83b8ab78eb32f8f954f633564fc799683b21c568369e475df80f4a39d26807#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_super_to_eth_5227_0xc694b5be",
+   "type": "exchange",
+   "claim": "exchange: 35.006192 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+    "name": "UniswapV2Router02",
+    "function": "swapExactTokensForETHSupportingFeeOnTransferTokens",
+    "explorer": "https://etherscan.io/address/0x7a250d5630b4cf539739df2c5dacb4c659f2488d"
+   },
+   "session": 67,
+   "seq": 1478,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_super_to_eth_5227_0xc694b5be:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xc694b5beb3bf1c98ae1f8e04e141e291cb298f9c6a5d0c5afab2c7eda540a8aa",
+     "url": "https://etherscan.io/tx/0xc694b5beb3bf1c98ae1f8e04e141e291cb298f9c6a5d0c5afab2c7eda540a8aa#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xc694b5beb3bf1c98ae1f8e04e141e291cb298f9c6a5d0c5afab2c7eda540a8aa",
+     "url": "https://etherscan.io/tx/0xc694b5beb3bf1c98ae1f8e04e141e291cb298f9c6a5d0c5afab2c7eda540a8aa#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_super_to_eth_5227_0x57845928",
+   "type": "exchange",
+   "claim": "exchange: 78.76448 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 67,
+   "seq": 1479,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_super_to_eth_5227_0x57845928:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x57845928e45fa942b15d7a85eca090fd6a1f5733baa5da0876d2a420ec5043b4",
+     "url": "https://etherscan.io/tx/0x57845928e45fa942b15d7a85eca090fd6a1f5733baa5da0876d2a420ec5043b4#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x57845928e45fa942b15d7a85eca090fd6a1f5733baa5da0876d2a420ec5043b4",
+     "url": "https://etherscan.io/tx/0x57845928e45fa942b15d7a85eca090fd6a1f5733baa5da0876d2a420ec5043b4#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_super_to_eth_5227_0xa0844205",
+   "type": "exchange",
+   "claim": "exchange: 11.884481 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+    "name": "UniswapV2Router02",
+    "function": "swapExactTokensForETHSupportingFeeOnTransferTokens",
+    "explorer": "https://etherscan.io/address/0x7a250d5630b4cf539739df2c5dacb4c659f2488d"
+   },
+   "session": 67,
+   "seq": 1480,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_super_to_eth_5227_0xa0844205:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xa08442057e5ce3a1b5fba1a3dc250ca92307e0b9226aae0cea148d3a9243904e",
+     "url": "https://etherscan.io/tx/0xa08442057e5ce3a1b5fba1a3dc250ca92307e0b9226aae0cea148d3a9243904e#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xa08442057e5ce3a1b5fba1a3dc250ca92307e0b9226aae0cea148d3a9243904e",
+     "url": "https://etherscan.io/tx/0xa08442057e5ce3a1b5fba1a3dc250ca92307e0b9226aae0cea148d3a9243904e#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_super_to_eth_5227_0x66d036d8",
+   "type": "exchange",
+   "claim": "exchange: 50.19849 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 67,
+   "seq": 1481,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_super_to_eth_5227_0x66d036d8:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x66d036d857e5c9e8c2d9b750a9768b93daff4fbc67514d5865ada03fb0a6373d",
+     "url": "https://etherscan.io/tx/0x66d036d857e5c9e8c2d9b750a9768b93daff4fbc67514d5865ada03fb0a6373d#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x66d036d857e5c9e8c2d9b750a9768b93daff4fbc67514d5865ada03fb0a6373d",
+     "url": "https://etherscan.io/tx/0x66d036d857e5c9e8c2d9b750a9768b93daff4fbc67514d5865ada03fb0a6373d#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_super_to_eth_5227_0x23a446a8",
+   "type": "exchange",
+   "claim": "exchange: 2.335611 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+    "name": "UniswapV2Router02",
+    "function": "swapExactTokensForETHSupportingFeeOnTransferTokens",
+    "explorer": "https://etherscan.io/address/0x7a250d5630b4cf539739df2c5dacb4c659f2488d"
+   },
+   "session": 67,
+   "seq": 1482,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_super_to_eth_5227_0x23a446a8:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x23a446a88b25e62284f18f835f5107a436b2f81efecd607aeff4e4a4d643ca31",
+     "url": "https://etherscan.io/tx/0x23a446a88b25e62284f18f835f5107a436b2f81efecd607aeff4e4a4d643ca31#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x23a446a88b25e62284f18f835f5107a436b2f81efecd607aeff4e4a4d643ca31",
+     "url": "https://etherscan.io/tx/0x23a446a88b25e62284f18f835f5107a436b2f81efecd607aeff4e4a4d643ca31#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_super_to_eth_5227_0x5a7f6376",
+   "type": "exchange",
+   "claim": "exchange: 3.254707 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+    "name": "UniswapV2Router02",
+    "function": "swapExactTokensForETHSupportingFeeOnTransferTokens",
+    "explorer": "https://etherscan.io/address/0x7a250d5630b4cf539739df2c5dacb4c659f2488d"
+   },
+   "session": 67,
+   "seq": 1483,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_super_to_eth_5227_0x5a7f6376:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x5a7f6376cb2c511d4c8da354745b04c651c5327fcb89ba566c28d0c85e36298c",
+     "url": "https://etherscan.io/tx/0x5a7f6376cb2c511d4c8da354745b04c651c5327fcb89ba566c28d0c85e36298c#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x5a7f6376cb2c511d4c8da354745b04c651c5327fcb89ba566c28d0c85e36298c",
+     "url": "https://etherscan.io/tx/0x5a7f6376cb2c511d4c8da354745b04c651c5327fcb89ba566c28d0c85e36298c#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_super_to_eth_5227_0xe96a2c5c",
+   "type": "exchange",
+   "claim": "exchange: 1.209697 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+    "name": "UniswapV2Router02",
+    "function": "swapExactTokensForETHSupportingFeeOnTransferTokens",
+    "explorer": "https://etherscan.io/address/0x7a250d5630b4cf539739df2c5dacb4c659f2488d"
+   },
+   "session": 67,
+   "seq": 1484,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_super_to_eth_5227_0xe96a2c5c:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xe96a2c5c34ed09ec24f084ff74814b0745a8bf8bbfd8bb4a6ef7f551e6b67b18",
+     "url": "https://etherscan.io/tx/0xe96a2c5c34ed09ec24f084ff74814b0745a8bf8bbfd8bb4a6ef7f551e6b67b18#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xe96a2c5c34ed09ec24f084ff74814b0745a8bf8bbfd8bb4a6ef7f551e6b67b18",
+     "url": "https://etherscan.io/tx/0xe96a2c5c34ed09ec24f084ff74814b0745a8bf8bbfd8bb4a6ef7f551e6b67b18#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_super_to_eth_5227_0x8dee789a",
+   "type": "exchange",
+   "claim": "exchange: 0.392444 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+    "name": "UniswapV2Router02",
+    "function": "swapExactTokensForETHSupportingFeeOnTransferTokens",
+    "explorer": "https://etherscan.io/address/0x7a250d5630b4cf539739df2c5dacb4c659f2488d"
+   },
+   "session": 67,
+   "seq": 1485,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_super_to_eth_5227_0x8dee789a:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x8dee789a47854fbf00458763ddeac0c9554b631850a6dff81cbb98502506ef3a",
+     "url": "https://etherscan.io/tx/0x8dee789a47854fbf00458763ddeac0c9554b631850a6dff81cbb98502506ef3a#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x8dee789a47854fbf00458763ddeac0c9554b631850a6dff81cbb98502506ef3a",
+     "url": "https://etherscan.io/tx/0x8dee789a47854fbf00458763ddeac0c9554b631850a6dff81cbb98502506ef3a#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_super_to_eth_5227_0x97ba5ffb",
+   "type": "exchange",
+   "claim": "exchange: 0.158955 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+    "name": "UniswapV2Router02",
+    "function": "swapExactTokensForETHSupportingFeeOnTransferTokens",
+    "explorer": "https://etherscan.io/address/0x7a250d5630b4cf539739df2c5dacb4c659f2488d"
+   },
+   "session": 67,
+   "seq": 1486,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_super_to_eth_5227_0x97ba5ffb:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x97ba5ffb49cc9290f171c7dd928bec9d49c7629697db10da5c7a93ee1fc933ff",
+     "url": "https://etherscan.io/tx/0x97ba5ffb49cc9290f171c7dd928bec9d49c7629697db10da5c7a93ee1fc933ff#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x97ba5ffb49cc9290f171c7dd928bec9d49c7629697db10da5c7a93ee1fc933ff",
+     "url": "https://etherscan.io/tx/0x97ba5ffb49cc9290f171c7dd928bec9d49c7629697db10da5c7a93ee1fc933ff#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_super_to_eth_5227_0x0377279c",
+   "type": "exchange",
+   "claim": "exchange: 49.852187 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+    "name": "UniswapV2Router02",
+    "function": "swapExactTokensForETHSupportingFeeOnTransferTokens",
+    "explorer": "https://etherscan.io/address/0x7a250d5630b4cf539739df2c5dacb4c659f2488d"
+   },
+   "session": 67,
+   "seq": 1487,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_super_to_eth_5227_0x0377279c:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x0377279c8cc67acee7f13ed4a010531883384a591a29f2c2c6a306031decfaba",
+     "url": "https://etherscan.io/tx/0x0377279c8cc67acee7f13ed4a010531883384a591a29f2c2c6a306031decfaba#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x0377279c8cc67acee7f13ed4a010531883384a591a29f2c2c6a306031decfaba",
+     "url": "https://etherscan.io/tx/0x0377279c8cc67acee7f13ed4a010531883384a591a29f2c2c6a306031decfaba#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_super_to_eth_5227_0xf27b0c59",
+   "type": "exchange",
+   "claim": "exchange: 34.011156 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+    "name": "UniswapV2Router02",
+    "function": "swapExactTokensForETHSupportingFeeOnTransferTokens",
+    "explorer": "https://etherscan.io/address/0x7a250d5630b4cf539739df2c5dacb4c659f2488d"
+   },
+   "session": 67,
+   "seq": 1488,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_super_to_eth_5227_0xf27b0c59:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xf27b0c59c2d9d5edc54972f6ec05139552a5cae5f9f8a07c3ea95d5eb8b59b1c",
+     "url": "https://etherscan.io/tx/0xf27b0c59c2d9d5edc54972f6ec05139552a5cae5f9f8a07c3ea95d5eb8b59b1c#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xf27b0c59c2d9d5edc54972f6ec05139552a5cae5f9f8a07c3ea95d5eb8b59b1c",
+     "url": "https://etherscan.io/tx/0xf27b0c59c2d9d5edc54972f6ec05139552a5cae5f9f8a07c3ea95d5eb8b59b1c#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_super_to_eth_5227_0x370929fc",
+   "type": "exchange",
+   "claim": "exchange: 39.836002 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+    "name": "UniswapV2Router02",
+    "function": "swapExactTokensForETHSupportingFeeOnTransferTokens",
+    "explorer": "https://etherscan.io/address/0x7a250d5630b4cf539739df2c5dacb4c659f2488d"
+   },
+   "session": 67,
+   "seq": 1489,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_super_to_eth_5227_0x370929fc:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x370929fceacf653de9b680ff04649e96287f3da40c572ab3c7e00a20db498889",
+     "url": "https://etherscan.io/tx/0x370929fceacf653de9b680ff04649e96287f3da40c572ab3c7e00a20db498889#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x370929fceacf653de9b680ff04649e96287f3da40c572ab3c7e00a20db498889",
+     "url": "https://etherscan.io/tx/0x370929fceacf653de9b680ff04649e96287f3da40c572ab3c7e00a20db498889#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_super_to_eth_5227_0x17690544",
+   "type": "exchange",
+   "claim": "exchange: 2.785218 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+    "name": "UniswapV2Router02",
+    "function": "swapExactTokensForETHSupportingFeeOnTransferTokens",
+    "explorer": "https://etherscan.io/address/0x7a250d5630b4cf539739df2c5dacb4c659f2488d"
+   },
+   "session": 67,
+   "seq": 1490,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_super_to_eth_5227_0x17690544:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x176905446185e22c310f5b6d8be9d0594b3cf721633fec088622d5f72e388763",
+     "url": "https://etherscan.io/tx/0x176905446185e22c310f5b6d8be9d0594b3cf721633fec088622d5f72e388763#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x176905446185e22c310f5b6d8be9d0594b3cf721633fec088622d5f72e388763",
+     "url": "https://etherscan.io/tx/0x176905446185e22c310f5b6d8be9d0594b3cf721633fec088622d5f72e388763#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_super_to_eth_5227_0x179f5754",
+   "type": "exchange",
+   "claim": "exchange: 17.306569 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x7a250d5630b4cf539739df2c5dacb4c659f2488d",
+    "name": "UniswapV2Router02",
+    "function": "swapExactTokensForETHSupportingFeeOnTransferTokens",
+    "explorer": "https://etherscan.io/address/0x7a250d5630b4cf539739df2c5dacb4c659f2488d"
+   },
+   "session": 67,
+   "seq": 1491,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_super_to_eth_5227_0x179f5754:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x179f57544bcb4a6b8350ea74bc44ddb67db32a672f4298f2acb5c0922ca45fe4",
+     "url": "https://etherscan.io/tx/0x179f57544bcb4a6b8350ea74bc44ddb67db32a672f4298f2acb5c0922ca45fe4#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x179f57544bcb4a6b8350ea74bc44ddb67db32a672f4298f2acb5c0922ca45fe4",
+     "url": "https://etherscan.io/tx/0x179f57544bcb4a6b8350ea74bc44ddb67db32a672f4298f2acb5c0922ca45fe4#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xf4be14fc",
+   "type": "exchange",
+   "claim": "exchange: 1.001272 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0xd9e1ce17f2641f24ae83637ab66a2cca9c378b9f",
+    "name": "UniswapV2Router02",
+    "function": "swapExactTokensForETHSupportingFeeOnTransferTokens",
+    "explorer": "https://etherscan.io/address/0xd9e1ce17f2641f24ae83637ab66a2cca9c378b9f"
+   },
+   "session": 67,
+   "seq": 1492,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_imx_to_eth_5227_0xf4be14fc:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xf4be14fcd3fd4bc7fabe41266dd94c97e986468c0854c4a2244999288bdb5352",
+     "url": "https://etherscan.io/tx/0xf4be14fcd3fd4bc7fabe41266dd94c97e986468c0854c4a2244999288bdb5352#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xf4be14fcd3fd4bc7fabe41266dd94c97e986468c0854c4a2244999288bdb5352",
+     "url": "https://etherscan.io/tx/0xf4be14fcd3fd4bc7fabe41266dd94c97e986468c0854c4a2244999288bdb5352#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xcd48143a",
+   "type": "exchange",
+   "claim": "exchange: 0.793645 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 67,
+   "seq": 1493,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_imx_to_eth_5227_0xcd48143a:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xcd48143a7e15520884d9b9816d69fb1048a6d6be6ee2ed72780876412293280e",
+     "url": "https://etherscan.io/tx/0xcd48143a7e15520884d9b9816d69fb1048a6d6be6ee2ed72780876412293280e#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xcd48143a7e15520884d9b9816d69fb1048a6d6be6ee2ed72780876412293280e",
+     "url": "https://etherscan.io/tx/0xcd48143a7e15520884d9b9816d69fb1048a6d6be6ee2ed72780876412293280e#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_imx_to_eth_5227_0x9a3e6834",
+   "type": "exchange",
+   "claim": "exchange: 0.634658 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 67,
+   "seq": 1494,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_imx_to_eth_5227_0x9a3e6834:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x9a3e6834137b90bf86f07cbb77283be558f25c8f502e79029cd1e94778b4023d",
+     "url": "https://etherscan.io/tx/0x9a3e6834137b90bf86f07cbb77283be558f25c8f502e79029cd1e94778b4023d#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x9a3e6834137b90bf86f07cbb77283be558f25c8f502e79029cd1e94778b4023d",
+     "url": "https://etherscan.io/tx/0x9a3e6834137b90bf86f07cbb77283be558f25c8f502e79029cd1e94778b4023d#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_imx_to_eth_5227_0x01cfb511",
+   "type": "exchange",
+   "claim": "exchange: 1.188748 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 67,
+   "seq": 1495,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_imx_to_eth_5227_0x01cfb511:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x01cfb5111d670e70f2c843674d458044217068fd28fb73c39fda1ffbdd111efa",
+     "url": "https://etherscan.io/tx/0x01cfb5111d670e70f2c843674d458044217068fd28fb73c39fda1ffbdd111efa#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x01cfb5111d670e70f2c843674d458044217068fd28fb73c39fda1ffbdd111efa",
+     "url": "https://etherscan.io/tx/0x01cfb5111d670e70f2c843674d458044217068fd28fb73c39fda1ffbdd111efa#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xeef4fe03",
+   "type": "exchange",
+   "claim": "exchange: 1.234221 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 67,
+   "seq": 1496,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_imx_to_eth_5227_0xeef4fe03:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xeef4fe039f5583b885e6b21febaf2f696b3bba6ab5fa62b04e1642370c0621b2",
+     "url": "https://etherscan.io/tx/0xeef4fe039f5583b885e6b21febaf2f696b3bba6ab5fa62b04e1642370c0621b2#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xeef4fe039f5583b885e6b21febaf2f696b3bba6ab5fa62b04e1642370c0621b2",
+     "url": "https://etherscan.io/tx/0xeef4fe039f5583b885e6b21febaf2f696b3bba6ab5fa62b04e1642370c0621b2#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_imx_to_eth_5227_0x023d98d8",
+   "type": "exchange",
+   "claim": "exchange: 1.445922 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 67,
+   "seq": 1497,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_imx_to_eth_5227_0x023d98d8:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x023d98d8d738df06b9a0c5ffc09d8cd3882348013078ecf944e455dd39daedb2",
+     "url": "https://etherscan.io/tx/0x023d98d8d738df06b9a0c5ffc09d8cd3882348013078ecf944e455dd39daedb2#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x023d98d8d738df06b9a0c5ffc09d8cd3882348013078ecf944e455dd39daedb2",
+     "url": "https://etherscan.io/tx/0x023d98d8d738df06b9a0c5ffc09d8cd3882348013078ecf944e455dd39daedb2#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_imx_to_eth_5227_0x40996e5c",
+   "type": "exchange",
+   "claim": "exchange: 1.923045 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 67,
+   "seq": 1498,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_imx_to_eth_5227_0x40996e5c:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x40996e5c0023d0641dad736dac07818dd7fed86387e5d028000d046e1cf660a8",
+     "url": "https://etherscan.io/tx/0x40996e5c0023d0641dad736dac07818dd7fed86387e5d028000d046e1cf660a8#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x40996e5c0023d0641dad736dac07818dd7fed86387e5d028000d046e1cf660a8",
+     "url": "https://etherscan.io/tx/0x40996e5c0023d0641dad736dac07818dd7fed86387e5d028000d046e1cf660a8#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_imx_to_eth_5227_0x9d1ede9c",
+   "type": "exchange",
+   "claim": "exchange: 8.290947 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 67,
+   "seq": 1499,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_imx_to_eth_5227_0x9d1ede9c:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x9d1ede9c6de5a0881ef8dc94a94c89f52e1313e084e48fe89d8160cd045c54d9",
+     "url": "https://etherscan.io/tx/0x9d1ede9c6de5a0881ef8dc94a94c89f52e1313e084e48fe89d8160cd045c54d9#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x9d1ede9c6de5a0881ef8dc94a94c89f52e1313e084e48fe89d8160cd045c54d9",
+     "url": "https://etherscan.io/tx/0x9d1ede9c6de5a0881ef8dc94a94c89f52e1313e084e48fe89d8160cd045c54d9#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xeab5778e",
+   "type": "exchange",
+   "claim": "exchange: 12.043622 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 67,
+   "seq": 1500,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_imx_to_eth_5227_0xeab5778e:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xeab5778e83e5df47c8abacd97f6764ea8eee65f40ddd06c90b0c54e993521b25",
+     "url": "https://etherscan.io/tx/0xeab5778e83e5df47c8abacd97f6764ea8eee65f40ddd06c90b0c54e993521b25#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xeab5778e83e5df47c8abacd97f6764ea8eee65f40ddd06c90b0c54e993521b25",
+     "url": "https://etherscan.io/tx/0xeab5778e83e5df47c8abacd97f6764ea8eee65f40ddd06c90b0c54e993521b25#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xad08b0b3",
+   "type": "exchange",
+   "claim": "exchange: 23.813169 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 67,
+   "seq": 1501,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_imx_to_eth_5227_0xad08b0b3:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xad08b0b3d91f6a57e917ad07ed39ea0167d943f4ebfac728785f728fc4aee30c",
+     "url": "https://etherscan.io/tx/0xad08b0b3d91f6a57e917ad07ed39ea0167d943f4ebfac728785f728fc4aee30c#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xad08b0b3d91f6a57e917ad07ed39ea0167d943f4ebfac728785f728fc4aee30c",
+     "url": "https://etherscan.io/tx/0xad08b0b3d91f6a57e917ad07ed39ea0167d943f4ebfac728785f728fc4aee30c#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xdd139529",
+   "type": "exchange",
+   "claim": "exchange: 74.196713 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 67,
+   "seq": 1502,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_imx_to_eth_5227_0xdd139529:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xdd13952969eaf154fa2eb73948b845006c3d70d42489ef6efb5175523fb4a7f4",
+     "url": "https://etherscan.io/tx/0xdd13952969eaf154fa2eb73948b845006c3d70d42489ef6efb5175523fb4a7f4#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xdd13952969eaf154fa2eb73948b845006c3d70d42489ef6efb5175523fb4a7f4",
+     "url": "https://etherscan.io/tx/0xdd13952969eaf154fa2eb73948b845006c3d70d42489ef6efb5175523fb4a7f4#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xf169df48",
+   "type": "exchange",
+   "claim": "exchange: 0.898817 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 67,
+   "seq": 1503,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_imx_to_eth_5227_0xf169df48:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xf169df48c5a403a44be818c8eedff62866ad1837196e6683b9bd6e70c247c2b8",
+     "url": "https://etherscan.io/tx/0xf169df48c5a403a44be818c8eedff62866ad1837196e6683b9bd6e70c247c2b8#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xf169df48c5a403a44be818c8eedff62866ad1837196e6683b9bd6e70c247c2b8",
+     "url": "https://etherscan.io/tx/0xf169df48c5a403a44be818c8eedff62866ad1837196e6683b9bd6e70c247c2b8#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_imx_to_eth_5227_0x9808c44a",
+   "type": "exchange",
+   "claim": "exchange: 68.377714 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 67,
+   "seq": 1504,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_imx_to_eth_5227_0x9808c44a:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x9808c44a3c1d7116b609019db2e16a5c1febd60e6e1877a36459ee3468f32177",
+     "url": "https://etherscan.io/tx/0x9808c44a3c1d7116b609019db2e16a5c1febd60e6e1877a36459ee3468f32177#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x9808c44a3c1d7116b609019db2e16a5c1febd60e6e1877a36459ee3468f32177",
+     "url": "https://etherscan.io/tx/0x9808c44a3c1d7116b609019db2e16a5c1febd60e6e1877a36459ee3468f32177#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_imx_to_eth_5227_0x7751d08b",
+   "type": "exchange",
+   "claim": "exchange: 4.385985 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 67,
+   "seq": 1505,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_imx_to_eth_5227_0x7751d08b:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x7751d08bf4f462f38db324f8c304b620780df611f2a0ac8632c47eef3dfe426b",
+     "url": "https://etherscan.io/tx/0x7751d08bf4f462f38db324f8c304b620780df611f2a0ac8632c47eef3dfe426b#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x7751d08bf4f462f38db324f8c304b620780df611f2a0ac8632c47eef3dfe426b",
+     "url": "https://etherscan.io/tx/0x7751d08bf4f462f38db324f8c304b620780df611f2a0ac8632c47eef3dfe426b#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xf29cfd52",
+   "type": "exchange",
+   "claim": "exchange: 27.748739 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 67,
+   "seq": 1506,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_imx_to_eth_5227_0xf29cfd52:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xf29cfd52c3f9e354e8804d8d953545bf2e479f33d43c4065feddd2a51323b18f",
+     "url": "https://etherscan.io/tx/0xf29cfd52c3f9e354e8804d8d953545bf2e479f33d43c4065feddd2a51323b18f#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xf29cfd52c3f9e354e8804d8d953545bf2e479f33d43c4065feddd2a51323b18f",
+     "url": "https://etherscan.io/tx/0xf29cfd52c3f9e354e8804d8d953545bf2e479f33d43c4065feddd2a51323b18f#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xa9fc2fab",
+   "type": "exchange",
+   "claim": "exchange: 6.515475 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 67,
+   "seq": 1507,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_imx_to_eth_5227_0xa9fc2fab:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xa9fc2fab320594544379575a1807473b6b05ab080c6dcda3ef9d1e483551c3af",
+     "url": "https://etherscan.io/tx/0xa9fc2fab320594544379575a1807473b6b05ab080c6dcda3ef9d1e483551c3af#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xa9fc2fab320594544379575a1807473b6b05ab080c6dcda3ef9d1e483551c3af",
+     "url": "https://etherscan.io/tx/0xa9fc2fab320594544379575a1807473b6b05ab080c6dcda3ef9d1e483551c3af#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xd5d70781",
+   "type": "exchange",
+   "claim": "exchange: 6.520511 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 67,
+   "seq": 1508,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_imx_to_eth_5227_0xd5d70781:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xd5d70781c74cee5c7b0c1579c9e813a03b88fdbbd71ef391a8b4f456401402f1",
+     "url": "https://etherscan.io/tx/0xd5d70781c74cee5c7b0c1579c9e813a03b88fdbbd71ef391a8b4f456401402f1#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xd5d70781c74cee5c7b0c1579c9e813a03b88fdbbd71ef391a8b4f456401402f1",
+     "url": "https://etherscan.io/tx/0xd5d70781c74cee5c7b0c1579c9e813a03b88fdbbd71ef391a8b4f456401402f1#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xf3bd6bad",
+   "type": "exchange",
+   "claim": "exchange: 7.758307 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 67,
+   "seq": 1509,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_imx_to_eth_5227_0xf3bd6bad:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xf3bd6bad903443cf684b1cc1a727d38e9e79cbaec6327891cd9cd75b9a8a0be9",
+     "url": "https://etherscan.io/tx/0xf3bd6bad903443cf684b1cc1a727d38e9e79cbaec6327891cd9cd75b9a8a0be9#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xf3bd6bad903443cf684b1cc1a727d38e9e79cbaec6327891cd9cd75b9a8a0be9",
+     "url": "https://etherscan.io/tx/0xf3bd6bad903443cf684b1cc1a727d38e9e79cbaec6327891cd9cd75b9a8a0be9#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_imx_to_eth_5227_0x6d18b13c",
+   "type": "exchange",
+   "claim": "exchange: 36.460339 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 67,
+   "seq": 1510,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_imx_to_eth_5227_0x6d18b13c:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x6d18b13cd5aefab59ac321ce66214ca9585c35e486ae9dcf18777715c5d650cf",
+     "url": "https://etherscan.io/tx/0x6d18b13cd5aefab59ac321ce66214ca9585c35e486ae9dcf18777715c5d650cf#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x6d18b13cd5aefab59ac321ce66214ca9585c35e486ae9dcf18777715c5d650cf",
+     "url": "https://etherscan.io/tx/0x6d18b13cd5aefab59ac321ce66214ca9585c35e486ae9dcf18777715c5d650cf#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xa5f3a4cc",
+   "type": "exchange",
+   "claim": "exchange: 54.86663 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 67,
+   "seq": 1511,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_imx_to_eth_5227_0xa5f3a4cc:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xa5f3a4cc18dd85d57b82c878e93899b92b16a958003b2369d3a86a086a6d1693",
+     "url": "https://etherscan.io/tx/0xa5f3a4cc18dd85d57b82c878e93899b92b16a958003b2369d3a86a086a6d1693#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xa5f3a4cc18dd85d57b82c878e93899b92b16a958003b2369d3a86a086a6d1693",
+     "url": "https://etherscan.io/tx/0xa5f3a4cc18dd85d57b82c878e93899b92b16a958003b2369d3a86a086a6d1693#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_imx_to_eth_5227_0x99e97b22",
+   "type": "exchange",
+   "claim": "exchange: 33.902359 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 67,
+   "seq": 1512,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_imx_to_eth_5227_0x99e97b22:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0x99e97b22917eb5b6b65c0eff413b6e5aeed4b0e036fe841622cc290a89e42c83",
+     "url": "https://etherscan.io/tx/0x99e97b22917eb5b6b65c0eff413b6e5aeed4b0e036fe841622cc290a89e42c83#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0x99e97b22917eb5b6b65c0eff413b6e5aeed4b0e036fe841622cc290a89e42c83",
+     "url": "https://etherscan.io/tx/0x99e97b22917eb5b6b65c0eff413b6e5aeed4b0e036fe841622cc290a89e42c83#internal"
+    }
+   ]
+  },
+  {
+   "id": "op_imx_to_eth_5227_0xfd0e9f66",
+   "type": "exchange",
+   "claim": "exchange: 13.878274 ETH 0x5227\u20262f8c to 0x5227\u20262f8c",
+   "via": {
+    "contract": "0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+    "name": "SwapRouter02",
+    "function": "multicall",
+    "explorer": "https://etherscan.io/address/0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+   },
+   "session": 67,
+   "seq": 1513,
+   "step": 937,
+   "verdict": "VALID",
+   "edge_ids": [
+    "op_imx_to_eth_5227_0xfd0e9f66:0"
+   ],
+   "checker": [],
+   "evidence": [
+    {
+     "kind": "transaction_receipt",
+     "tx": "0xfd0e9f66d1ab488cf736576c1944d2d59b7cbd3d861e757b026b0eea1dfa3b57",
+     "url": "https://etherscan.io/tx/0xfd0e9f66d1ab488cf736576c1944d2d59b7cbd3d861e757b026b0eea1dfa3b57#eventlog"
+    },
+    {
+     "kind": "transaction_trace",
+     "tx": "0xfd0e9f66d1ab488cf736576c1944d2d59b7cbd3d861e757b026b0eea1dfa3b57",
+     "url": "https://etherscan.io/tx/0xfd0e9f66d1ab488cf736576c1944d2d59b7cbd3d861e757b026b0eea1dfa3b57#internal"
+    }
+   ]
+  },
+  {
    "id": "op_eth_00fc_091d_0x6529",
    "type": "transfer",
    "claim": "transfer: 9.998 ETH 0x00fc\u2026223e to 0x091d\u202628ce",
@@ -83305,7 +85289,7 @@
  "coming_soon": [],
  "coverage": {
   "version": "coverage-v2",
-  "head_block": 26316980,
+  "head_block": 26317122,
   "incident_utc": "2026-10-29T20:05:00Z",
   "valued_at": "USD at prices at 2026-10-29T20:05:00Z, DefiLlama historical",
   "stolen_usd": 6415394289.12,
@@ -84928,7 +86912,8 @@
    "Recorded all 25 already-served ENS/PHA -> ETH exchanges for 0x5227 from /work/ens5227_ops.json and /work/pha5227_ops.json (served per note 218): 8 ENS swaps and 17 PHA swaps, all returning ETH to 0x5227. Remaining 0x5227 seed-token outflow gaps include G/YFI/SYRUP/SUPER/IMX/COTI/APE/CVX/PLUME/USDS/RAD.",
    "New session over ethereum blocks 26300770-26316980 and bitcoin 973732-974063. Continuing from authoritative STATE; latest notes say ENS/PHA findings recorded. I will use persisted served files and fetch fresh evidence as needed for remaining outflow-check gaps, prioritizing high-value gaps.",
    "Served full G and YFI outflow coverage for 0x5227 this session. events.search returned 18 positive G (0x9c7b...) outgoing Transfer logs and 11 positive YFI (0x0bc529...) outgoing Transfer logs from 0x5227; served receipts and account-filtered traces for all 29 txs. Each receipt status 1 shows token debit from 0x5227 and each trace shows one ETH payment back to 0x5227. Generated /work/g5227_ops.json and /work/yfi5227_ops.json ready to record.",
-   "Served full SYRUP/SUPER/IMX/COTI/APE outflow coverage for 0x5227 this session. events.search returned positive outgoing Transfer logs from 0x5227: SYRUP 7, SUPER 16, IMX 22, COTI 24, APE 12. Served receipts and account-filtered traces for all 81 txs; every receipt status 1 shows token debit from 0x5227 and every trace shows an ETH payment back to 0x5227. Generated /work/syrup5227_ops.json, /work/super5227_ops.json, /work/imx5227_ops.json, /work/coti5227_ops.json, /work/ape5227_ops.json ready to record."
+   "Served full SYRUP/SUPER/IMX/COTI/APE outflow coverage for 0x5227 this session. events.search returned positive outgoing Transfer logs from 0x5227: SYRUP 7, SUPER 16, IMX 22, COTI 24, APE 12. Served receipts and account-filtered traces for all 81 txs; every receipt status 1 shows token debit from 0x5227 and every trace shows an ETH payment back to 0x5227. Generated /work/syrup5227_ops.json, /work/super5227_ops.json, /work/imx5227_ops.json, /work/coti5227_ops.json, /work/ape5227_ops.json ready to record.",
+   "New session over ethereum blocks 26300770-26317122 and bitcoin 973732-974067. Continuing from authoritative STATE; latest note says full SYRUP/SUPER/IMX/COTI/APE coverage was served, and findings already include G/YFI/SYRUP/APE. I will inspect persisted work files and record remaining already-served 0x5227 SUPER/IMX/COTI operations if available, then continue tracing open outflow gaps."
   ],
   "total_steps": 937
  }
