@@ -1,9 +1,9 @@
 {
- "checked_utc": "2026-11-01T01:55Z",
+ "checked_utc": "2026-11-01T05:50Z",
  "note": "Hand-picked from verified flows and chain reads; not reviewed by a human expert.",
  "items": [
   {
-   "text": "Six wallets received 497,971 ETH through the traced flows and still hold it, nearly all the ETH on the Dormant card: 0x8532…43d4 197,460; 0xc887…286a 137,602; 0x897c…8df3 78,415; 0x79e7…544a 34,280; 0x5440…c942 32,954; 0x03b0…20ea 17,260. 0x8532 and 0x03b0 got theirs straight from the attacker's main wallet 0x5227…2f8c, the other four through other traced wallets. All six first appear between 29 Oct 20:38 and 30 Oct 05:14 UTC, and none had sent a transaction at block 26,316,697.",
+   "text": "Six wallets received 497,971 ETH through the traced flows and still hold it, nearly all the ETH on the Dormant card: 0x8532…43d4 197,460; 0xc887…286a 137,602; 0x897c…8df3 78,415; 0x79e7…544a 34,280; 0x5440…c942 32,954; 0x03b0…20ea 17,260. 0x8532 and 0x03b0 got theirs straight from the attacker's main wallet 0x5227…2f8c, the other four through other traced wallets. All six first appear between 29 Oct 20:38 and 30 Oct 05:14 UTC, and none had sent a transaction at block 26,317,925.",
    "note": "All six are on the FBI's 31 Oct list of TraderTraitor addresses, as its first six entries. The other reports give the attacker's ETH as a total only (Elliptic: 519,104 ETH; TRM: more than 420,000 ETH).",
    "evidence": [
     {
@@ -37,8 +37,8 @@
    ]
   },
   {
-   "text": "The attacker's wallets were still selling stolen tokens for ETH on 31 Oct: 168 swaps that day (FUN, ZAMA, LSK and others) brought 5,766 ETH, the latest at 20:01 UTC from 0x2274…64b0. The proceeds went on to 0x8d4b…9e19: 1,017.56 ETH from 0x2274 at 20:02 and 861.48 ETH from 0xc586…e935 at 21:01. 0x8d4b holds 9,788 ETH and had sent no transaction at block 26,316,735. Since the theft, 25 wallets have sold 51 tokens in 1,039 swaps for 257,843 ETH.",
-   "note": "Swaps counted from the verified flows on this page; the 20:02 transfer and the balance read on chain at block 26,316,735. 0x8d4b…9e19 is not on the FBI's 31 Oct list.",
+   "text": "The attacker's wallets were still selling stolen tokens for ETH on 31 Oct: 168 swaps that day (FUN, ZAMA, LSK and others) brought 5,766 ETH, the latest at 20:01 UTC from 0x2274…64b0. The proceeds went on to 0x8d4b…9e19: 1,017.56 ETH from 0x2274 at 20:02 and 861.48 ETH from 0xc586…e935 at 21:01. 0x8d4b holds 9,788 ETH and had sent no transaction at block 26,317,925. Since the theft, 25 wallets have sold 66 tokens in 1,278 swaps for 262,639 ETH.",
+   "note": "Swaps counted from the verified flows on this page; the 20:02 transfer and the balance read on chain at block 26,317,925. 0x8d4b…9e19 is not on the FBI's 31 Oct list.",
    "evidence": [
     {
      "label": "latest swap, 20:01 UTC",
@@ -71,7 +71,7 @@
    ]
   },
   {
-   "text": "The 18,270.2 BTC on the Dormant card sit in 19 wallets: 17 hold 1,000 BTC each, the other two 832.5 and 437.7. bc1q0mtc…2mnm, the address the theft paid, split it into them on 29 Oct in blocks 973,732 and 973,738 (20:20 and 20:48 UTC). None had moved at Bitcoin block 973,999.",
+   "text": "The 18,270.2 BTC on the Dormant card sit in 19 wallets: 17 hold 1,000 BTC each, the other two 832.5 and 437.7. bc1q0mtc…2mnm, the address the theft paid, split it into them on 29 Oct in blocks 973,732 and 973,738 (20:20 and 20:48 UTC). None had moved at Bitcoin block 974,086.",
    "note": "All 19 are on the FBI's 31 Oct list, which names no other Bitcoin address. CoinDesk reported the split on 30 Oct.",
    "evidence": [
     {
