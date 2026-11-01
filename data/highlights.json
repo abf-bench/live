@@ -33,12 +33,24 @@
    ]
   },
   {
-   "text": "The attacker's wallets were still selling stolen tokens for ETH on 31 Oct: 168 swaps that day (FUN, ZAMA, LSK and others) brought 5,766 ETH, the latest at 20:01 UTC from 0x2274…64b0. Since the theft, 25 wallets have sold 51 tokens in 1,039 swaps for 257,843 ETH.",
-   "note": "Counted from the verified swaps on this page, as of block 26,316,697.",
+   "text": "The attacker's wallets were still selling stolen tokens for ETH on 31 Oct: 168 swaps that day (FUN, ZAMA, LSK and others) brought 5,766 ETH, the latest at 20:01 UTC from 0x2274…64b0. The proceeds went on to 0x8d4b…9e19: 1,017.56 ETH from 0x2274 at 20:02 and 861.48 ETH from 0xc586…e935 at 21:01. 0x8d4b holds 9,788 ETH and had sent no transaction at block 26,316,735. Since the theft, 25 wallets have sold 51 tokens in 1,039 swaps for 257,843 ETH.",
+   "note": "Swaps counted from the verified flows on this page; the 20:02 transfer and the balance read on chain at block 26,316,735.",
    "evidence": [
     {
      "label": "latest swap, 20:01 UTC",
      "url": "https://etherscan.io/tx/0xffecae30d856b94f8bee89ab0a4144fcb7b0653aff3aba73257acaab6b11bc21"
+    },
+    {
+     "label": "1,017.56 ETH at 20:02",
+     "url": "https://etherscan.io/tx/0xf10ede10ba69105747b202fcad108f7f7af010d50802fb62d9db87246b8fa33d"
+    },
+    {
+     "label": "861.48 ETH at 21:01",
+     "url": "https://etherscan.io/tx/0x5d44d9aaccf07b80d6d3ecca1629132f183e8cdc08697f94ac4bdc9dbb515ea8"
+    },
+    {
+     "label": "0x8d4b…9e19",
+     "url": "https://etherscan.io/address/0x8d4b8ee62124b7ee140a51ddd07390a56f1c9e19"
     },
     {
      "label": "0x2274…64b0 (LSK)",
