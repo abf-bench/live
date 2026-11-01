@@ -4,7 +4,7 @@
  "items": [
   {
    "text": "Six wallets received 497,971 ETH through the traced flows and still hold it, nearly all the ETH on the Dormant card: 0x8532…43d4 197,460; 0xc887…286a 137,602; 0x897c…8df3 78,415; 0x79e7…544a 34,280; 0x5440…c942 32,954; 0x03b0…20ea 17,260. 0x8532 and 0x03b0 got theirs straight from the attacker's main wallet 0x5227…2f8c, the other four through other traced wallets. All six first appear between 29 Oct 20:38 and 30 Oct 05:14 UTC, and none had sent a transaction at block 26,316,697.",
-   "note": "The reports checked on 31 Oct give the attacker's ETH as a total only (Elliptic: 519,104 ETH; TRM: more than 420,000 ETH).",
+   "note": "All six are on the FBI's 31 Oct list of TraderTraitor addresses, as its first six entries. The other reports give the attacker's ETH as a total only (Elliptic: 519,104 ETH; TRM: more than 420,000 ETH).",
    "evidence": [
     {
      "label": "0x8532…43d4",
@@ -29,12 +29,16 @@
     {
      "label": "0x03b0…20ea",
      "url": "https://etherscan.io/address/0x03b0ee5d82990cff1bda48651ac3e436d1a020ea"
+    },
+    {
+     "label": "FBI list, 31 Oct",
+     "url": "https://www.fbi.gov/investigate/cyber/alerts/2026/north-korea-responsible-for-6-billion-binance-attack"
     }
    ]
   },
   {
    "text": "The attacker's wallets were still selling stolen tokens for ETH on 31 Oct: 168 swaps that day (FUN, ZAMA, LSK and others) brought 5,766 ETH, the latest at 20:01 UTC from 0x2274…64b0. The proceeds went on to 0x8d4b…9e19: 1,017.56 ETH from 0x2274 at 20:02 and 861.48 ETH from 0xc586…e935 at 21:01. 0x8d4b holds 9,788 ETH and had sent no transaction at block 26,316,735. Since the theft, 25 wallets have sold 51 tokens in 1,039 swaps for 257,843 ETH.",
-   "note": "Swaps counted from the verified flows on this page; the 20:02 transfer and the balance read on chain at block 26,316,735.",
+   "note": "Swaps counted from the verified flows on this page; the 20:02 transfer and the balance read on chain at block 26,316,735. 0x8d4b…9e19 is not on the FBI's 31 Oct list.",
    "evidence": [
     {
      "label": "latest swap, 20:01 UTC",
@@ -59,12 +63,16 @@
     {
      "label": "0xfb34…2095 (FUN)",
      "url": "https://etherscan.io/address/0xfb34f34a0a395afb3d5094816aa235483f0c2095"
+    },
+    {
+     "label": "FBI list, 31 Oct",
+     "url": "https://www.fbi.gov/investigate/cyber/alerts/2026/north-korea-responsible-for-6-billion-binance-attack"
     }
    ]
   },
   {
    "text": "The 18,270.2 BTC on the Dormant card sit in 19 wallets: 17 hold 1,000 BTC each, the other two 832.5 and 437.7. bc1q0mtc…2mnm, the address the theft paid, split it into them on 29 Oct in blocks 973,732 and 973,738 (20:20 and 20:48 UTC). None had moved at Bitcoin block 973,999.",
-   "note": "CoinDesk reported the split on 30 Oct.",
+   "note": "All 19 are on the FBI's 31 Oct list, which names no other Bitcoin address. CoinDesk reported the split on 30 Oct.",
    "evidence": [
     {
      "label": "theft",
@@ -77,6 +85,10 @@
     {
      "label": "CoinDesk, 30 Oct",
      "url": "https://www.coindesk.com/markets/2026/10/30/binance-hacker-splits-usd1-4-billion-of-bitcoin-into-19-wallets-that-no-one-can-freeze"
+    },
+    {
+     "label": "FBI list, 31 Oct",
+     "url": "https://www.fbi.gov/investigate/cyber/alerts/2026/north-korea-responsible-for-6-billion-binance-attack"
     }
    ]
   },
