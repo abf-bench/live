@@ -1472,3 +1472,8 @@ body.embed .news { display: none; }
 .zone-head { grid-template-columns: minmax(0, 1fr); row-gap: 16px; align-items: start; }
 .chain-overview { padding-left: 0; border-left: 0; }
 .co-chips { gap: 4px 16px; }
+
+/* an address a public list names (the FBI's 31 Oct list): a badge linking to it, and a legend swatch */
+.badge.listed { --c: var(--ink-2); text-decoration: none; }
+.badge.listed:hover { --c: var(--ink); }
+.node-swatch.listed { border-style: dotted; }

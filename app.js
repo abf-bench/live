@@ -88,7 +88,7 @@
     bsc:       { name: 'BscScan',            base: 'https://bscscan.com' },
     bitcoin:   { name: 'mempool.space',      base: 'https://mempool.space' }
   };
-  var EXPLORER_HOSTS = /(^|\.)(etherscan\.io|arbiscan\.io|snowtrace\.io|basescan\.org|bscscan\.com|mempool\.space)$/;
+  var EXPLORER_HOSTS = /(^|\.)(etherscan\.io|arbiscan\.io|snowtrace\.io|basescan\.org|bscscan\.com|mempool\.space|fbi\.gov)$/; // fbi.gov: public lists that name addresses
   var EVIDENCE_NAMES = { transaction: 'Transaction', transaction_receipt: 'Event logs', transaction_trace: 'Internal calls' };
 
   // ---------- state ----------
@@ -288,7 +288,10 @@
         return { asset: str(d && d.asset), amount: isFinite(x) ? x : 0 };
       }).filter(function (d) { return d.asset && d.amount > 0; });
       S.nodes.set(id, { id: id, chain: lc(n.chain) || defaultChain, label: str(n.label), role: ROLES[n.role] ? n.role : 'unknown', note: str(n.note),
-        frozen: issuerList(n.frozen), freezable: issuerList(n.freezable), dormant: dormant, stopClass: str(n.stop_class) });
+        frozen: issuerList(n.frozen), freezable: issuerList(n.freezable), dormant: dormant, stopClass: str(n.stop_class),
+        // public lists naming this address (e.g. the FBI's), each with its source link
+        listed: (Array.isArray(n.listed) ? n.listed : []).filter(function (l) { return l && safeUrl(l.url); })
+          .map(function (l) { return { by: str(l.by), date: str(l.date), url: safeUrl(l.url), title: str(l.title) }; }) });
     });
     S.coverage = data.coverage && typeof data.coverage === 'object' && Number(data.coverage.stolen_usd) > 0 ? data.coverage : null;
 
@@ -559,6 +562,7 @@
       if (sw.length > 1) lines.push('+' + plural(sw.length - 1, 'more swap'));
     }
     if (n.frozen && n.frozen.length) lines.push(n.frozen.map(function (f) { return f.asset + (f.takenBack ? ' taken back' : ' frozen'); }).join(', '));
+    if (n.listed && n.listed.length) lines.push('On ' + n.listed.map(function (l) { return l.by; }).join(', ') + ' list');
     if (n.freezable && n.freezable.length) lines.push(n.freezable.map(function (f) { return f.asset; }).join(', ') + ' still freezable');
     // Labelled or non-open nodes say how many open leads the agent still holds on them.
     if (leads && (role !== 'open' || n.label)) lines.push(plural(leads, 'open lead'));
@@ -1271,6 +1275,9 @@
     if (anyFrozen && !present.has('frozen')) box.appendChild(el('span', { class: 'item', 'data-pick': 'frozen' }, el('span', { class: 'node-swatch frozen', style: '--c:' + C.ink2 }), 'Double border: an asset here is frozen or taken back by its issuer'));
     var anyFreezable = false;
     viewAt(S.total).nodes.forEach(function (id) { var n = S.nodes.get(id); if (n.freezable && n.freezable.length) anyFreezable = true; });
+    var anyListed = false;
+    viewAt(S.total).nodes.forEach(function (id) { var n = S.nodes.get(id); if (n.listed && n.listed.length) anyListed = true; });
+    if (anyListed) box.appendChild(el('span', { class: 'item', 'data-pick': 'listed' }, el('span', { class: 'node-swatch listed', style: '--c:' + C.ink2 }), 'On the FBI\'s 31 Oct list'));
     if (anyFreezable) box.appendChild(el('span', { class: 'item', 'data-pick': 'freezable' }, el('span', { class: 'node-swatch', style: '--c:' + C.signal + ';border-color:' + C.signal }), 'Red border: stablecoins here its issuer could still freeze'));
     box.appendChild(el('span', { class: 'lines' },
       el('span', { class: 'item', 'data-pick': 'solid' }, el('span', { class: 'line-swatch' }), 'Checked by the verifier'),
@@ -1301,6 +1308,7 @@
     var info = function (n) { return S.nodes.get(n.id()) || {}; };
     return pick.indexOf('role:') === 0 ? cy.nodes('.r-' + pick.slice(5))
       : pick === 'frozen' ? cy.nodes().filter(function (n) { return (info(n).frozen || []).length > 0; })
+      : pick === 'listed' ? cy.nodes().filter(function (n) { return (info(n).listed || []).length > 0; })
       : pick === 'freezable' ? cy.nodes().filter(function (n) { return (info(n).freezable || []).length > 0; })
       : pick === 'solid' ? cy.edges().not('.dashed') : pick === 'cross' ? cy.edges('.cross') : cy.edges('.dashed');
   }
@@ -1543,7 +1551,10 @@
     var leads = view.N >= S.total ? (S.leadsByAddr.get(n.id) || []) : [];
 
     append(box, [
-      el('div', { class: 'd-head' }, roleBadge(n.role), frontier ? el('span', { class: 'badge plain' }, 'Open lead at step ' + view.N) : null),
+      el('div', { class: 'd-head' }, roleBadge(n.role), frontier ? el('span', { class: 'badge plain' }, 'Open lead at step ' + view.N) : null,
+        (n.listed || []).map(function (l) {
+          return el('a', { class: 'badge listed', href: l.url, target: '_blank', rel: 'noopener', title: l.by + ', ' + l.date + (l.title ? ': ' + l.title : '') }, 'On ' + l.by + ' list');
+        })),
       el('h3', { class: 'd-title' }, n.label || short(n.id)),
       el('div', { class: 'addr-row' }, el('span', { class: 'addr-full' }, n.id), copyButton(n.id)),
       el('div', { class: 'addr-tools' }, addrLink(n.id, n.chain), reportLink(function () { return addressTarget(n); })),
