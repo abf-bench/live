@@ -19,6 +19,14 @@
   var MAX_ISSUE_URL = 7000;
 
   var PARAMS = new URLSearchParams(window.location.search);
+
+  // Visit count: one image request per page load to hits.sh, no cookie; daily counts are at
+  // https://hits.sh/abf-bench.github.io/live/ . Only on the published site, and not for headless
+  // browsers (our own checks), crawlers or Do Not Track.
+  if (window.location.hostname === 'abf-bench.github.io' && navigator.doNotTrack !== '1' &&
+      !/HeadlessChrome|bot|crawl|spider|preview/i.test(navigator.userAgent)) {
+    new Image().src = 'https://hits.sh/abf-bench.github.io/live.svg';
+  }
   var EMBED = PARAMS.get('embed') === '1';
   var SPLIT_ASSETS = PARAMS.get('split') === 'asset';
   var DATA_URL = safeDataPath(PARAMS.get('data')) || 'data/graph.json';
