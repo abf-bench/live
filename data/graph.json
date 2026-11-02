@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum and Bitcoin: live trace",
   "incident_utc": "2026-10-29T20:05:00Z",
-  "updated_utc": "2026-11-02T15:40:20Z",
+  "updated_utc": "2026-11-02T15:40:54Z",
   "head_block": 26318054,
   "chain": "ethereum",
   "notes": [
@@ -2061,7 +2061,7 @@
     {
      "asset": "BTC",
      "token": "BTC",
-     "amount": "1000.000069"
+     "amount": "1000"
     }
    ],
    "listed": [
@@ -2163,7 +2163,7 @@
     {
      "asset": "BTC",
      "token": "BTC",
-     "amount": "832.499963"
+     "amount": "832.499901"
     }
    ],
    "listed": [
@@ -2243,7 +2243,7 @@
     {
      "asset": "BTC",
      "token": "BTC",
-     "amount": "1000.000049"
+     "amount": "1000"
     }
    ],
    "listed": [
@@ -10232,7 +10232,20 @@
    "source_position": "output 0",
    "target_position": "output 0",
    "tx_url": "https://mempool.space/tx/a9ed8a851a83912bd0ee16d66155f5225805f086e152da73204859f6ed4bc676",
-   "tier": "verified"
+   "tier": "verified",
+   "in_amount": "52.999951",
+   "joint": true,
+   "inputs": [
+    {
+     "address": "bc1q96qkjsye5qruf9yksqdqg09lzdmur7wau2ga6u",
+     "amount": "409.499995"
+    },
+    {
+     "address": "bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e",
+     "amount": "643.499963"
+    }
+   ],
+   "out_amount": "409.499995"
   },
   {
    "id": "op_btc_bc1q96q_a9ed_split:1",
@@ -10253,7 +10266,20 @@
    "source_position": "output 0",
    "target_position": "output 1",
    "tx_url": "https://mempool.space/tx/a9ed8a851a83912bd0ee16d66155f5225805f086e152da73204859f6ed4bc676",
-   "tier": "verified"
+   "tier": "verified",
+   "in_amount": "1000",
+   "joint": true,
+   "inputs": [
+    {
+     "address": "bc1q96qkjsye5qruf9yksqdqg09lzdmur7wau2ga6u",
+     "amount": "409.499995"
+    },
+    {
+     "address": "bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e",
+     "amount": "643.499963"
+    }
+   ],
+   "out_amount": "0"
   },
   {
    "id": "op_btc_bc1qt8m_8fc_split:0",
@@ -10400,7 +10426,20 @@
    "source_position": "transaction value",
    "target_position": "output 0",
    "tx_url": "https://mempool.space/tx/b167dcb05d54f545587d690bb8990e1ccef68910fb20fc7fdb2036eddaa38922",
-   "tier": "verified"
+   "tier": "verified",
+   "in_amount": "832.499901",
+   "joint": true,
+   "inputs": [
+    {
+     "address": "bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e",
+     "amount": "779.499958"
+    },
+    {
+     "address": "bc1qn43ejagzgxgle394ynmv5sv3f9ydc48qme7t02",
+     "amount": "52.999951"
+    }
+   ],
+   "out_amount": "779.499958"
   },
   {
    "id": "op_btc_bc1qsmv_97e_split:0",
@@ -10505,7 +10544,20 @@
    "source_position": "output 0",
    "target_position": "output 0",
    "tx_url": "https://mempool.space/tx/b27d181645ef592dbc145f63b62cdeab68afd8e725f539e43ad66a273d24dbdd",
-   "tier": "verified"
+   "tier": "verified",
+   "in_amount": "643.499963",
+   "joint": true,
+   "inputs": [
+    {
+     "address": "bc1q66l8z9htj4cd7pf8nnlc6mrxyssudm6hyg7a2a",
+     "amount": "696.59998"
+    },
+    {
+     "address": "bc1qk8kpt0suefus8zz3fp78w8993frc5x97w423wl",
+     "amount": "946.89999"
+    }
+   ],
+   "out_amount": "946.89999"
   },
   {
    "id": "op_btc_bc1qk8k_b27d_split:1",
@@ -10526,7 +10578,20 @@
    "source_position": "output 0",
    "target_position": "output 1",
    "tx_url": "https://mempool.space/tx/b27d181645ef592dbc145f63b62cdeab68afd8e725f539e43ad66a273d24dbdd",
-   "tier": "verified"
+   "tier": "verified",
+   "in_amount": "1000",
+   "joint": true,
+   "inputs": [
+    {
+     "address": "bc1q66l8z9htj4cd7pf8nnlc6mrxyssudm6hyg7a2a",
+     "amount": "696.59998"
+    },
+    {
+     "address": "bc1qk8kpt0suefus8zz3fp78w8993frc5x97w423wl",
+     "amount": "946.89999"
+    }
+   ],
+   "out_amount": "0"
   },
   {
    "id": "op_btc_bc1qvws_d5b_split:0",
@@ -11513,7 +11578,20 @@
    "source_position": "output 0",
    "target_position": "output 0",
    "tx_url": "https://mempool.space/tx/b27d181645ef592dbc145f63b62cdeab68afd8e725f539e43ad66a273d24dbdd",
-   "tier": "verified"
+   "tier": "verified",
+   "in_amount": "0",
+   "joint": true,
+   "inputs": [
+    {
+     "address": "bc1q66l8z9htj4cd7pf8nnlc6mrxyssudm6hyg7a2a",
+     "amount": "696.59998"
+    },
+    {
+     "address": "bc1qk8kpt0suefus8zz3fp78w8993frc5x97w423wl",
+     "amount": "946.89999"
+    }
+   ],
+   "out_amount": "696.59998"
   },
   {
    "id": "op_btc_bc1q66_b27d_split:1",
@@ -11534,7 +11612,20 @@
    "source_position": "output 0",
    "target_position": "output 1",
    "tx_url": "https://mempool.space/tx/b27d181645ef592dbc145f63b62cdeab68afd8e725f539e43ad66a273d24dbdd",
-   "tier": "verified"
+   "tier": "verified",
+   "in_amount": "0",
+   "joint": true,
+   "inputs": [
+    {
+     "address": "bc1q66l8z9htj4cd7pf8nnlc6mrxyssudm6hyg7a2a",
+     "amount": "696.59998"
+    },
+    {
+     "address": "bc1qk8kpt0suefus8zz3fp78w8993frc5x97w423wl",
+     "amount": "946.89999"
+    }
+   ],
+   "out_amount": "0"
   },
   {
    "id": "op_btc_bc1qrsr_a9ed_split:0",
@@ -11555,7 +11646,20 @@
    "source_position": "output 0",
    "target_position": "output 0",
    "tx_url": "https://mempool.space/tx/a9ed8a851a83912bd0ee16d66155f5225805f086e152da73204859f6ed4bc676",
-   "tier": "verified"
+   "tier": "verified",
+   "in_amount": "0",
+   "joint": true,
+   "inputs": [
+    {
+     "address": "bc1q96qkjsye5qruf9yksqdqg09lzdmur7wau2ga6u",
+     "amount": "409.499995"
+    },
+    {
+     "address": "bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e",
+     "amount": "643.499963"
+    }
+   ],
+   "out_amount": "643.499963"
   },
   {
    "id": "op_btc_bc1qrsr_a9ed_split:1",
@@ -11576,7 +11680,20 @@
    "source_position": "output 0",
    "target_position": "output 1",
    "tx_url": "https://mempool.space/tx/a9ed8a851a83912bd0ee16d66155f5225805f086e152da73204859f6ed4bc676",
-   "tier": "verified"
+   "tier": "verified",
+   "in_amount": "0",
+   "joint": true,
+   "inputs": [
+    {
+     "address": "bc1q96qkjsye5qruf9yksqdqg09lzdmur7wau2ga6u",
+     "amount": "409.499995"
+    },
+    {
+     "address": "bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e",
+     "amount": "643.499963"
+    }
+   ],
+   "out_amount": "0"
   },
   {
    "id": "op_btc_bc1qn43_b167_merge:0",
@@ -11597,7 +11714,20 @@
    "source_position": "output 0",
    "target_position": "output 0",
    "tx_url": "https://mempool.space/tx/b167dcb05d54f545587d690bb8990e1ccef68910fb20fc7fdb2036eddaa38922",
-   "tier": "verified"
+   "tier": "verified",
+   "in_amount": "0",
+   "joint": true,
+   "inputs": [
+    {
+     "address": "bc1qrsrh56k4rpal88w0xpjuul0m78ud62akcwue5e",
+     "amount": "779.499958"
+    },
+    {
+     "address": "bc1qn43ejagzgxgle394ynmv5sv3f9ydc48qme7t02",
+     "amount": "52.999951"
+    }
+   ],
+   "out_amount": "52.999951"
   },
   {
    "id": "op_allo_a97_burn_0xbec8:0",
@@ -94926,10 +95056,10 @@
   "valued_at": "USD at prices at 2026-10-29T20:05:00Z, DefiLlama historical",
   "stolen_usd": 6415394289.12,
   "frozen_usd": 2378474891.41,
-  "dormant_usd": 2710183191.19,
+  "dormant_usd": 2710183176.7,
   "stop_usd": 0.0,
   "bridged_usd": 0.0,
-  "unaccounted_usd": 174135890.21,
+  "unaccounted_usd": 174135904.7,
   "unpriced_assets": [
    "0x998ffe1e43facffb941dc337dd0468d52ba5b48a"
   ],

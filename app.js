@@ -345,6 +345,11 @@
         id: id, from: from, to: to,
         asset: (e.kind === 'exchange' && str(e.from_asset)) ? (str(e.asset) || '?') + ' from ' + str(e.from_asset) : (str(e.asset) || '?'),
         amountStr: amountStr, amount: amountStr === '' ? NaN : Number(amountStr),
+        // what the totals add: an output several addresses paid counts once in, and each payer counts what it
+        // spent (export_site.mark_shared_outputs); elsewhere both are the amount
+        inAmount: e.in_amount != null ? Number(e.in_amount) : (amountStr === '' ? NaN : Number(amountStr)),
+        outAmount: e.out_amount != null ? Number(e.out_amount) : (amountStr === '' ? NaN : Number(amountStr)),
+        joint: e.joint === true, inputs: Array.isArray(e.inputs) ? e.inputs : null,
         tx: str(e.tx), txUrl: safeUrl(e.tx_url), block: num(e.block), time: str(e.time_utc), op: op,
         step: step, seed: seed,
         srcPos: str(e.source_position), tgtPos: str(e.target_position),
@@ -481,8 +486,8 @@
       var vis = g.edges.filter(function (e) { return e.step <= N && !gone(e, N); });
       if (!vis.length) return;
       vis.forEach(function (e) { if (!e.seed) { flows++; if (e.step === N) flowsNow++; } });
-      var sum = vis.reduce(function (a, e) { return a + (Number.isFinite(e.amount) ? e.amount : 0); }, 0);
-      var gv = { group: g, edges: vis, sum: sum, count: vis.length };
+      function sumOf(k) { return vis.reduce(function (a, e) { return a + (Number.isFinite(e[k]) ? e[k] : 0); }, 0); }
+      var gv = { group: g, edges: vis, sum: sumOf('amount'), inSum: sumOf('inAmount'), outSum: sumOf('outAmount'), count: vis.length };
       groups.set(g.id, gv);
       var bv = bundles.get(g.bundle.id);
       if (!bv) { bv = { bundle: g.bundle, groups: [], count: 0 }; bundles.set(g.bundle.id, bv); }
@@ -496,8 +501,8 @@
     groups.forEach(function (gv) {
       nodes.add(gv.group.from); nodes.add(gv.group.to);
       if (gv.group.from === gv.group.to) return; // an exchange at one address moves nothing between addresses
-      add(outflow, gv.group.from, gv.group.asset, gv.sum);
-      add(inflow, gv.group.to, gv.group.asset, gv.sum);
+      add(outflow, gv.group.from, gv.group.asset, gv.outSum);
+      add(inflow, gv.group.to, gv.group.asset, gv.inSum);
     });
     // Victims always show. Nodes with no transfers at all show at the last step;
     // nodes reached only by rejected claims stay hidden.
@@ -611,7 +616,9 @@
 
   // ---------- edge labels ----------
 
-  function groupLine(gv) { return fmt(gv.sum) + ' ' + gv.group.asset + (gv.count > 1 ? ' ×' + gv.count : ''); }
+  // an output several addresses paid together: each payer's arrow shows the whole output, marked
+  function jointMark(gv) { return gv.edges.some(function (e) { return e.joint; }) ? ' (joint)' : ''; }
+  function groupLine(gv) { return fmt(gv.sum) + ' ' + gv.group.asset + (gv.count > 1 ? ' ×' + gv.count : '') + jointMark(gv); }
   function bundleData(bv) {
     var lines = bv.groups.map(groupLine);
     if (lines.length > MAX_LABEL_LINES) lines = lines.slice(0, MAX_LABEL_LINES - 1).concat('+' + (lines.length - MAX_LABEL_LINES + 1) + ' more assets');
@@ -1621,7 +1628,7 @@
           onclick: function () { select({ kind: 'bundle', id: gv.group.bundle.id }); }
         },
           el('span', { class: 'who' }, other.id === n.id ? el('span', { class: 'a' }, 'same address (exchange)') : (other.label ? [other.label + ' ', el('span', { class: 'a' }, short(other.id))] : el('span', { class: 'a' }, short(other.id)))),
-          el('span', { class: 'amt' }, fmt(gv.sum) + ' ' + gv.group.asset),
+          el('span', { class: 'amt' }, fmt(gv.sum) + ' ' + gv.group.asset + jointMark(gv)),
           el('span', { class: 'sub' }, [plural(gv.count, 'transfer'), (gv.edges[0].seed ? 'known at ' : 'found at ') + when.join(', '), gv.group.tier === 'verified' ? 'checked' : 'not yet checked'].join(' · ')))));
       });
       flows.appendChild(ul);
@@ -1638,7 +1645,7 @@
         el('div', { class: 'hop-who' },
           el('button', { type: 'button', class: 'hop-name', title: n.id, onclick: function () { select({ kind: 'node', id: n.id }); } }, n.label || short(n.id)),
           n.label ? el('span', { class: 'hop-addr' }, short(n.id)) : null),
-        el('div', { class: 'hop-tools' }, addrLink(n.id, n.chain, 'Etherscan'), copyButton(n.id)),
+        el('div', { class: 'hop-tools' }, addrLink(n.id, n.chain, explorerFor(n.chain).name), copyButton(n.id)),
         record ? el('div', { class: 'hop-record' }, el('span', null, 'Record'), record) : null));
   }
 
@@ -1659,6 +1666,9 @@
         e.op && e.op.via ? [el('dt', null, 'Via'), el('dd', { class: 'mono' }, viaLink(e.op.via, chain))] : null,
         el('dt', null, 'Recorded'), el('dd', null, e.seed ? 'Case start' : ['Step ' + e.step, e.op ? [' · ', el('button', { type: 'button', class: 'linkish', onclick: function () { showInTimeline(e.op.id, e.step); } }, 'Show in the agent timeline')] : null]),
         el('dt', null, 'Tx'), el('dd', { class: 'mono' }, txLink(e.tx, chain)),
+        e.inputs ? [el('dt', null, 'Inputs'), el('dd', { class: 'mono' }, e.inputs.map(function (x) {
+          return fmtExact(String(x.amount)) + ' ' + e.toAsset + ' from ' + short(String(x.address));
+        }).join(', '))] : null,
         e.block !== null ? [el('dt', null, 'Block'), el('dd', { class: 'mono' }, String(e.block))] : null,
         e.time ? [el('dt', null, 'Time'), el('dd', { class: 'mono' }, fmtTime(e.time, true))] : null),
       el('p', { class: 'verdict ' + (checked ? 'ok' : 'wait') }, checked ? 'Checked: the cited records show this transfer' : 'Not yet checked'),
