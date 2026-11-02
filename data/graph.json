@@ -2,7 +2,7 @@
  "case": {
   "title": "Binance hot-wallet hack, Ethereum and Bitcoin: live trace",
   "incident_utc": "2026-10-29T20:05:00Z",
-  "updated_utc": "2026-11-02T15:16:44Z",
+  "updated_utc": "2026-11-02T15:40:20Z",
   "head_block": 26318054,
   "chain": "ethereum",
   "notes": [
@@ -2404,8 +2404,8 @@
    "id": "0x84a917f50b16d1564d53ac85c63d7c48b645d87d",
    "chain": "ethereum",
    "label": null,
-   "role": "resting",
-   "note": "No outflow of the traced SAND since it arrived, as of block 26318054.",
+   "role": "pocket",
+   "note": null,
    "frozen": [
     {
      "asset": "SAND",
@@ -2413,7 +2413,7 @@
      "issuer": "SAND's admin",
      "held": "58397344.209174",
      "taken_back": true,
-     "note": "SAND's admin took these tokens back from the attacker's 0x5227 in tx 0x0a68d2f4\u2026: its Safe 0x6ec4090d (getAdmin() on the SAND contract) made itself a super-operator, moved 58,397,344 SAND to this address and revoked the power, in one transaction. balanceOf returns 66049870.299024 SAND, of which up to 58397344.209174 SAND arrived through traced flows, as of block 26318054."
+     "note": "SAND's admin took these tokens back from the attacker's 0x5227 in tx 0x0a68d2f4\u2026: its Safe 0x6ec4090d (getAdmin() on the SAND contract) made itself a super-operator, moved 58,397,344 SAND to this address and revoked the power, in one transaction. balanceOf returns 66049770.299024 SAND, of which up to 58397344.209174 SAND arrived through traced flows, as of block 26318054."
     }
    ]
   },
