@@ -961,7 +961,7 @@
     document.title = (/mock/i.test(title) ? 'MOCK DATA: ' : '') + 'ABF-Agent: tracing the Binance hack live';
     $('watermark').hidden = !/mock/i.test(title);
     $('chain-name').textContent = chainsText();
-    $('intro').textContent = 'I follow the stolen funds on ' + chainsText() + ' one transaction at a time. Keep an eye on this page; it updates on its own.';
+    renderIntro();
 
     var inc = $('incident');
     clear(inc);
@@ -3055,7 +3055,9 @@
   // The agent's state from the scheduler's status file; short is the end-of-timeline wording.
   function agentState() {
     var st = LIVE.status, hb = st && parseTime(st.heartbeat_utc);
-    var state = !st || !hb || Date.now() - hb.getTime() > STALE_MS ? 'stopped' : String(st.state || 'stopped');
+    // paused at the token cap stays true with the scheduler off (nothing runs until someone tops it up)
+    var state = st && st.state === 'paused_budget' ? 'paused_budget'
+      : !st || !hb || Date.now() - hb.getTime() > STALE_MS ? 'stopped' : String(st.state || 'stopped');
     // a round starts with the outflow check, a few minutes before the agent runs: past the announced time, it is tracing
     var next = state === 'waiting' ? parseTime(st.next_wave_utc) : null;
     if (next && next.getTime() <= Date.now()) state = 'tracing';
@@ -3068,8 +3070,16 @@
     return { state: 'stopped', text: 'Not running right now', short: 'Not running right now' };
   }
 
+  // "it updates on its own" only while the scheduler runs (waiting or tracing)
+  function renderIntro() {
+    var running = !!LIVE.status && ['waiting', 'tracing'].indexOf(agentState().state) !== -1;
+    $('intro').textContent = 'I follow the stolen funds on ' + chainsText() + ' one transaction at a time.' +
+      (running ? ' Keep an eye on this page; it updates on its own.' : '');
+  }
+
   function renderStatusBadge() {
     renderLiveTail();
+    if (S.caseInfo) renderIntro();
     var badge = $('agent-status'), dot = document.querySelector('.kicker .live-dot');
     var st = LIVE.status;
     renderBudget(st);
@@ -3079,7 +3089,7 @@
     badge.textContent = text;
     badge.className = 'agent-status st-' + state;
     badge.hidden = false;
-    $('rounds-note').hidden = false;
+    $('rounds-note').hidden = state !== 'waiting' && state !== 'tracing';
     if (dot) dot.className = 'live-dot st-' + state;
   }
 
